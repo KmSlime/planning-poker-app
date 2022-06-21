@@ -32,26 +32,9 @@ enum APIRouter: URLRequestConvertible {
     case login(email: String, password: String)
     case signUp(firstName: String, lastName: String, email: String, phone: String, password: String)
     case logOut
-    case submitKYC
-    case resubmitKYC
-    case submitKYCLV2
-
-    /// Gateway demo
-//    let baseURlString = "https://gateway-demo.kardsys.com"
-//    let privateKey = "65b7802d481394d4fb8abc474716efdc"
-
-    /// Gateway staging
-//    let baseURlString = "https://gateway.kardsys.com"
-//    let privateKey = "268f558f57a848f5b2a860b423c637dd"
 
     static var baseURL: String {
-//        return <#baseURL#>
         return "https://gateway.kardsys.com"
-    }
-
-    static var privateKey: String {
-//        return <#privateKey#>
-        return "268f558f57a848f5b2a860b423c637dd"
     }
 
     var path: String {
@@ -62,12 +45,6 @@ enum APIRouter: URLRequestConvertible {
             return "/external/api/account/v1/logout"
         case .signUp:
             return "/external/api/account/v1/register"
-        case .submitKYC:
-            return "/external/api/kyc/v1/submit"
-        case .resubmitKYC:
-            return "/external/api/kyc/v1/re-submit"
-        case .submitKYCLV2:
-            return "/external/api/kyc/v1/upgrade"
         }
     }
 
@@ -75,7 +52,7 @@ enum APIRouter: URLRequestConvertible {
 
     var method: HttpMethod {
         switch self {
-        case .login, .logOut, .signUp, .submitKYC, .resubmitKYC, .submitKYCLV2:
+        case .login, .logOut, .signUp:
             return .post
         default:
             return .get
@@ -108,8 +85,6 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .login, .signUp:
             return ContentType.applicationJson
-        case .submitKYC, .resubmitKYC, .submitKYCLV2:
-            return ContentType.multipartFormData
         default:
             return ContentType.urlFormEncoded
         }
@@ -129,8 +104,7 @@ enum APIRouter: URLRequestConvertible {
             HTTPHeaderFieldKey.appPlatform.rawValue: HTTPHeaderFieldValue.appPlatform.rawValue,
             HTTPHeaderFieldKey.appVersion.rawValue: HTTPHeaderFieldValue.appVersion,
             HTTPHeaderFieldKey.token.rawValue: HTTPHeaderFieldValue.token,
-            HTTPHeaderFieldKey.deviceId.rawValue: HTTPHeaderFieldValue.deviceId,
-            HTTPHeaderFieldKey.privateKey.rawValue: HTTPHeaderFieldValue.privateKey
+            HTTPHeaderFieldKey.deviceId.rawValue: HTTPHeaderFieldValue.deviceId
         ]
 
         let headerFieldsJson = [
@@ -138,14 +112,13 @@ enum APIRouter: URLRequestConvertible {
             HTTPHeaderFieldKey.xTenant.rawValue: HTTPHeaderFieldValue.xTenant.rawValue,
             HTTPHeaderFieldKey.appPlatform.rawValue: HTTPHeaderFieldValue.appPlatform.rawValue,
             HTTPHeaderFieldKey.appVersion.rawValue: HTTPHeaderFieldValue.appVersion,
-            HTTPHeaderFieldKey.deviceId.rawValue: HTTPHeaderFieldValue.deviceId,
-            HTTPHeaderFieldKey.privateKey.rawValue: HTTPHeaderFieldValue.privateKey
+            HTTPHeaderFieldKey.deviceId.rawValue: HTTPHeaderFieldValue.deviceId
         ]
 
         switch self {
         case .login, .signUp:
             return headerFieldsJson
-        case .logOut, .submitKYC, .resubmitKYC, .submitKYCLV2:
+        case .logOut:
             var headerWithToken = headerFieldsJson
             headerWithToken[HTTPHeaderFieldKey.token.rawValue] = HTTPHeaderFieldValue.token
             return headerWithToken
@@ -209,9 +182,5 @@ public enum HTTPHeaderFieldValue: String {
 
     static var token: String {
         return ""
-    }
-
-    static var privateKey: String {
-        return APIRouter.privateKey
     }
 }

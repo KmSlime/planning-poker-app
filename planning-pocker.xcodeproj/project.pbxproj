@@ -69,10 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				1905F98F28608C8800EEF365 /* planning-pocker */,
-				602CDBA3286166A100E2EA30 /* Frameworks */,
-				602CDBA12861668200E2EA30 /* planning-pocker-Test */,
-				602CDBA22861668900E2EA30 /* planning-pocker-UITest */,
-				602CDBA4286166A800E2EA30 /* Pods */,
 				1905F98E28608C8800EEF365 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,10 +86,10 @@
 			children = (
 				602CDBA02861666B00E2EA30 /* Applications */,
 				602CDBD42861752900E2EA30 /* Common */,
-				602CDB4A28615B6000E2EA30 /* Extentions */,
+				602CDB912861613500E2EA30 /* Scenes */,
 				602CDB8528615D6F00E2EA30 /* Managers */,
 				602CDB9F286165AB00E2EA30 /* Resources */,
-				602CDB912861613500E2EA30 /* Scenes */,
+				602CDB4A28615B6000E2EA30 /* Extentions */,
 			);
 			path = "planning-pocker";
 			sourceTree = "<group>";
@@ -180,34 +176,6 @@
 				1905F99B28608C8900EEF365 /* LaunchScreen.storyboard */,
 			);
 			path = Applications;
-			sourceTree = "<group>";
-		};
-		602CDBA12861668200E2EA30 /* planning-pocker-Test */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "planning-pocker-Test";
-			sourceTree = "<group>";
-		};
-		602CDBA22861668900E2EA30 /* planning-pocker-UITest */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "planning-pocker-UITest";
-			sourceTree = "<group>";
-		};
-		602CDBA3286166A100E2EA30 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		602CDBA4286166A800E2EA30 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		602CDBA528616ADB00E2EA30 /* Welcome */ = {
@@ -532,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K6NVR2826P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "planning-pocker/Info.plist";
+				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -562,7 +530,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K6NVR2826P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "planning-pocker/Info.plist";
+				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
