@@ -2,6 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
+	<key>Poppins-Bold.ttf</key>
+	<string>Poppins-Bold.ttf</string>
+	<key>Poppins-ExtraBold.ttf</key>
+	<string>Poppins-ExtraBold.ttf</string>
+	<key>Poppins-Italic.ttf</key>
+	<string>Poppins-Italic.ttf</string>
+	<key>Poppins-Medium.ttf</key>
+	<string>Poppins-Medium.ttf</string>
+	<key>Poppins-Regular.ttf</key>
+	<string>Poppins-Regular.ttf</string>
+	<key>Poppins-SemiBold.ttf</key>
+	<string>Poppins-SemiBold.ttf</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

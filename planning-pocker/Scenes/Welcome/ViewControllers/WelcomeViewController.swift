@@ -22,6 +22,8 @@ class WelcomeViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        let SignUp = SignUpViewController()
+        navigationController?.pushViewController(SignUp, animated: true)
     }
     
     

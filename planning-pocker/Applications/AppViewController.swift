@@ -22,4 +22,9 @@ extension AppViewController: Navigator {
         let vc = WelcomeViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func pushToSignInScreen() {
+        let SignInCV = WelcomeViewController()
+        navigationController?.pushViewController(SignInCV, animated: true)
+    }
 }
