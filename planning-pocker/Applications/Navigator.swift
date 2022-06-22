@@ -9,7 +9,7 @@ import UIKit
 
 protocol Navigator {
     func pushToWelcomeScreen()
-    //func pushToSignInScreen(navi: UINavigationController?)
+    func pushToSignInScreen(navi: UINavigationController?)
 }
 
 extension AppViewController: Navigator {
@@ -18,8 +18,8 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-//    func pushToSignInScreen(navi: UINavigationController?) {
-//        let vc = SignInViewController()
-//        navi?.pushViewController(vc, animated: true)
-//    }
+    func pushToSignInScreen(navi: UINavigationController?) {
+        let vc = SignInViewController()
+        navi?.pushViewController(vc, animated: true)
+    }
 }

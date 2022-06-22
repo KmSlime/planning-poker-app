@@ -24,10 +24,10 @@ class WelcomeViewController: UIViewController {
     
     
     // MARK: - Life cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SetUpUI()
-        
         
     }
     
@@ -61,7 +61,7 @@ class WelcomeViewController: UIViewController {
     @IBAction func goToTheLogin(_ sender: Any) {
         
         
-        //AppViewController.shared.pushToSignInScreen(navi: navigationController)
+        AppViewController.shared.pushToSignInScreen(navi: navigationController)
         
 
     }
