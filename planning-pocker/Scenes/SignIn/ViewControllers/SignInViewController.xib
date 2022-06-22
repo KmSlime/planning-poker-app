@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="emailTextField" destination="GTt-Qa-Obt" id="vds-Ei-ci3"/>
                 <outlet property="passwordTextField" destination="Khp-hN-yGW" id="wHx-MK-WSO"/>
-                <outlet property="signInButton" destination="2v0-pD-7qS" id="9Nh-NK-iOW"/>
+                <outlet property="signInButton" destination="2v0-pD-7qS" id="uHP-jh-uYZ"/>
                 <outlet property="signInLabel" destination="PDl-uM-6e7" id="O4e-04-PhI"/>
                 <outlet property="view" destination="eJM-nT-Wl5" id="5wc-oa-ZWo"/>
             </connections>
@@ -60,7 +60,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Login"/>
                             <connections>
-                                <action selector="SignIn:" destination="-1" eventType="touchUpInside" id="QFD-EY-Lfv"/>
+                                <action selector="onClickSignInButton:" destination="-1" eventType="touchUpInside" id="V1d-V7-6qK"/>
                             </connections>
                         </button>
                     </subviews>

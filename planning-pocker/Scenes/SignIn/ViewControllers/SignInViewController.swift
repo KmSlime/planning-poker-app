@@ -23,7 +23,7 @@ class SignInViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func SignIn(_ sender: Any) {
+    @IBAction func onClickSignInButton(_ sender: Any) {
         checkFields()
         
         

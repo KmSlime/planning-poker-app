@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="onClickLoginButton" destination="B5K-dV-U5l" id="ess-c5-ryK"/>
+                <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="hrf-eq-TNw"/>
                 <outlet property="startPokerPlainningGameButton" destination="S0l-PD-W3d" id="vKs-Gs-ERU"/>
                 <outlet property="startRetrospectiveButton" destination="bZw-wT-Bly" id="Nq5-Do-YFQ"/>
                 <outlet property="view" destination="NbS-us-c2b" id="YUH-Ig-lGb"/>
@@ -41,7 +41,7 @@
                         </attributedString>
                     </state>
                     <connections>
-                        <action selector="goToTheLogin:" destination="-1" eventType="touchUpInside" id="GEf-jt-EEH"/>
+                        <action selector="onClickLoginButton:" destination="-1" eventType="touchUpInside" id="9dY-pL-b1Y"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-ZM-5He">
@@ -74,7 +74,7 @@
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Start Poker Plainning Game"/>
                             <connections>
-                                <action selector="startGame:" destination="-1" eventType="touchUpInside" id="1pU-MV-4N7"/>
+                                <action selector="onClickStartGameButton:" destination="-1" eventType="touchUpInside" id="mfv-SR-JEi"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-wT-Bly">
