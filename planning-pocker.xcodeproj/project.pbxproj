@@ -28,6 +28,7 @@
 		602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBD52861759700E2EA30 /* WelcomeViewController.swift */; };
 		602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602CDBD62861759700E2EA30 /* WelcomeViewController.xib */; };
 		602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBDA2861762300E2EA30 /* StringExtension.swift */; };
+		60465B732862B2100082956B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60465B722862B2100082956B /* User.swift */; };
 		60B6C9E92861B38E00DC3270 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B6C9E72861B38E00DC3270 /* SignUpViewController.swift */; };
 		60B6C9EA2861B38E00DC3270 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B6C9E82861B38E00DC3270 /* SignUpViewController.xib */; };
 		60B6C9F42861B8BC00DC3270 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B6C9EE2861B8BB00DC3270 /* Poppins-SemiBold.ttf */; };
@@ -36,6 +37,8 @@
 		60B6C9F72861B8BC00DC3270 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B6C9F12861B8BC00DC3270 /* Poppins-Medium.ttf */; };
 		60B6C9F82861B8BC00DC3270 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B6C9F22861B8BC00DC3270 /* Poppins-Regular.ttf */; };
 		60B6C9F92861B8BC00DC3270 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B6C9F32861B8BC00DC3270 /* Poppins-Italic.ttf */; };
+		60C82C3728633A82002E2DC2 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C3528633A82002E2DC2 /* CreateNewGameViewController.swift */; };
+		60C82C3828633A82002E2DC2 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C82C3628633A82002E2DC2 /* CreateNewGameViewController.xib */; };
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,7 @@
 		602CDBD52861759700E2EA30 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		602CDBD62861759700E2EA30 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		602CDBDA2861762300E2EA30 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		60465B722862B2100082956B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		60B6C9E72861B38E00DC3270 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		60B6C9E82861B38E00DC3270 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		60B6C9EE2861B8BB00DC3270 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 		60B6C9F12861B8BC00DC3270 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		60B6C9F22861B8BC00DC3270 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		60B6C9F32861B8BC00DC3270 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		60C82C3528633A82002E2DC2 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
+		60C82C3628633A82002E2DC2 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		F8CEA5DC02FE6DE4EE6A19B1 /* Pods-planning-pocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planning-pocker.debug.xcconfig"; path = "Target Support Files/Pods-planning-pocker/Pods-planning-pocker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +137,7 @@
 		602CDB4A28615B6000E2EA30 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				60465B74286305880082956B /* UITextField */,
 				602CDB6C28615C1500E2EA30 /* Foundation */,
 				602CDB6A28615C1500E2EA30 /* UIColor */,
 				602CDB6D28615C1500E2EA30 /* UIView */,
@@ -165,6 +172,7 @@
 		602CDB8528615D6F00E2EA30 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				60465B6C2862ACD50082956B /* Firebase */,
 				602CDB952861633C00E2EA30 /* Networking */,
 				602CDBAD28616B5400E2EA30 /* SocketIO */,
 			);
@@ -174,6 +182,7 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				60C82C31286339FA002E2DC2 /* CreateNewGame */,
 				60B6C9E52861B36700DC3270 /* SignUp */,
 				602CDBA528616ADB00E2EA30 /* Welcome */,
 			);
@@ -266,6 +275,60 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		60465B6C2862ACD50082956B /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				60465B712862AD1B0082956B /* Analysis */,
+				60465B702862AD0F0082956B /* CloudMessaging */,
+				60465B6F2862AD090082956B /* Storage */,
+				60465B6E2862AD010082956B /* Firestore */,
+				60465B6D2862ACED0082956B /* OAuth */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		60465B6D2862ACED0082956B /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		60465B6E2862AD010082956B /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		60465B6F2862AD090082956B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		60465B702862AD0F0082956B /* CloudMessaging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CloudMessaging;
+			sourceTree = "<group>";
+		};
+		60465B712862AD1B0082956B /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		60465B74286305880082956B /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
 		60B6C9E52861B36700DC3270 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +358,7 @@
 		60B6C9EC2861B49000DC3270 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				60465B722862B2100082956B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,6 +374,39 @@
 				60B6C9EE2861B8BB00DC3270 /* Poppins-SemiBold.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		60C82C31286339FA002E2DC2 /* CreateNewGame */ = {
+			isa = PBXGroup;
+			children = (
+				60C82C3428633A37002E2DC2 /* Views */,
+				60C82C3328633A2D002E2DC2 /* Models */,
+				60C82C3228633A24002E2DC2 /* ViewControllers */,
+			);
+			path = CreateNewGame;
+			sourceTree = "<group>";
+		};
+		60C82C3228633A24002E2DC2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				60C82C3528633A82002E2DC2 /* CreateNewGameViewController.swift */,
+				60C82C3628633A82002E2DC2 /* CreateNewGameViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		60C82C3328633A2D002E2DC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60C82C3428633A37002E2DC2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BD497E40229F63C77765F996 /* Frameworks */ = {
@@ -385,6 +482,7 @@
 				60B6C9F62861B8BC00DC3270 /* Poppins-Bold.ttf in Resources */,
 				60B6C9F42861B8BC00DC3270 /* Poppins-SemiBold.ttf in Resources */,
 				1905F99D28608C8900EEF365 /* LaunchScreen.storyboard in Resources */,
+				60C82C3828633A82002E2DC2 /* CreateNewGameViewController.xib in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				60B6C9F52861B8BC00DC3270 /* Poppins-ExtraBold.ttf in Resources */,
 				60B6C9F92861B8BC00DC3270 /* Poppins-Italic.ttf in Resources */,
@@ -467,6 +565,7 @@
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
+				60C82C3728633A82002E2DC2 /* CreateNewGameViewController.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
 				60B6C9E92861B38E00DC3270 /* SignUpViewController.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
@@ -480,6 +579,7 @@
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
+				60465B732862B2100082956B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
