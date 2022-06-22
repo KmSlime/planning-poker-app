@@ -34,6 +34,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        self.openSocket()
+    }
+
+    private func openSocket() {
+        // login todo
+//        if AuthenticationService.shared.authenticated && AppDelegate.shared.isInternetAvailable {
+//            connectSocket()
+//        }
+    }
+
+    private func connectSocket() {
+        SocketIOManager.sharedInstance.connectSocket { status in
+            print("Socket status: \(status)")
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
