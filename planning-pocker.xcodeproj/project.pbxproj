@@ -479,11 +479,8 @@
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
-<<<<<<< HEAD
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
-=======
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
->>>>>>> sprint1
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
