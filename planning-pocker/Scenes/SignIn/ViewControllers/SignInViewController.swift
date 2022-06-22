@@ -64,8 +64,7 @@ class SignInViewController: UIViewController {
         } else if emailTextField.text != "" && passwordTextField.text == "" {
             showAlert(title: "Notify", message: "Please enter valid password")
             return false
-        }
-        else {
+        } else {
             showAlert(title: "Notify", message: "Please enter email and password")
             return false
         }

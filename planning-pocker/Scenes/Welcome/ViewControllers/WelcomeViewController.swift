@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var goToTheLoginButton: UIButton!
+    @IBOutlet weak var onClickLoginButton: UIButton!
     @IBOutlet weak var startPokerPlainningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     
@@ -39,9 +39,9 @@ class WelcomeViewController: UIViewController {
     
     private func SetUpUI(){
         // set properties for Login Button
-        goToTheLoginButton.layer.borderWidth = 1
-        goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
-        goToTheLoginButton.layer.cornerRadius = 5
+        onClickLoginButton.layer.borderWidth = 1
+        onClickLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
+        onClickLoginButton.layer.cornerRadius = 5
         
         // set properties for Start Retrospective Button
         startRetrospectiveButton.layer.borderWidth = 1

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="X27-DI-EGL"/>
+                <outlet property="onClickLoginButton" destination="B5K-dV-U5l" id="ess-c5-ryK"/>
                 <outlet property="startPokerPlainningGameButton" destination="S0l-PD-W3d" id="vKs-Gs-ERU"/>
                 <outlet property="startRetrospectiveButton" destination="bZw-wT-Bly" id="Nq5-Do-YFQ"/>
                 <outlet property="view" destination="NbS-us-c2b" id="YUH-Ig-lGb"/>
