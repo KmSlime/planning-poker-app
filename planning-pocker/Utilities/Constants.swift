@@ -1,11 +1,10 @@
 //
-//  Constrant.swift
+//  Constants.swift
 //  planning-pocker
 //
 //  Created by Hung Nguyen on 22/06/2022.
 //
 
-import Foundation
-struct Constrants {
+struct Constants {
     static let kGetHistoryList_RESTFUL = "kGetHistoryList_RESTFUL"
 }

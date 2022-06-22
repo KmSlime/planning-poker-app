@@ -36,16 +36,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         self.openSocket()
     }
-    
+
     private func openSocket() {
-        //login todo
+        // login todo
 //        if AuthenticationService.shared.authenticated && AppDelegate.shared.isInternetAvailable {
 //            connectSocket()
 //        }
     }
-    
+
     private func connectSocket() {
-        SocketIOManager.sharedInstance.connectSocket { (status) in
+        SocketIOManager.sharedInstance.connectSocket { status in
             print("Socket status: \(status)")
         }
     }

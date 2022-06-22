@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FB2862E8E4002290E6 /* UserStore.swift */; };
-		0E17A3FE2862E980002290E6 /* Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FD2862E980002290E6 /* Constrants.swift */; };
+		0E17A3FE2862E980002290E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FD2862E980002290E6 /* Constants.swift */; };
 		0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7D1382862CA7900E8F787 /* AppUrls.swift */; };
 		1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902CF3E2861ABE700E27B00 /* AppViewController.swift */; };
 		1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99028608C8800EEF365 /* AppDelegate.swift */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		05FFDA9C20FAB14AAEB84E97 /* Pods-planning-pocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planning-pocker.release.xcconfig"; path = "Target Support Files/Pods-planning-pocker/Pods-planning-pocker.release.xcconfig"; sourceTree = "<group>"; };
 		0E17A3FB2862E8E4002290E6 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
-		0E17A3FD2862E980002290E6 /* Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrants.swift; sourceTree = "<group>"; };
+		0E17A3FD2862E980002290E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0EF7D1382862CA7900E8F787 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
 		1902CF3E2861ABE700E27B00 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		1905F98D28608C8800EEF365 /* planning-pocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "planning-pocker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				0EF7D1382862CA7900E8F787 /* AppUrls.swift */,
-				0E17A3FD2862E980002290E6 /* Constrants.swift */,
+				0E17A3FD2862E980002290E6 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -108,12 +108,12 @@
 		1905F98F28608C8800EEF365 /* planning-pocker */ = {
 			isa = PBXGroup;
 			children = (
-				0EF7D1372862CA4400E8F787 /* Utilities */,
 				602CDBA02861666B00E2EA30 /* Applications */,
 				602CDBD42861752900E2EA30 /* Common */,
 				602CDB912861613500E2EA30 /* Scenes */,
 				602CDB8528615D6F00E2EA30 /* Managers */,
 				602CDB9F286165AB00E2EA30 /* Resources */,
+				0EF7D1372862CA4400E8F787 /* Utilities */,
 				602CDB4A28615B6000E2EA30 /* Extentions */,
 			);
 			path = "planning-pocker";
@@ -459,7 +459,7 @@
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
-				0E17A3FE2862E980002290E6 /* Constrants.swift in Sources */,
+				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,

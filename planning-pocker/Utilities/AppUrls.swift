@@ -5,7 +5,7 @@
 //  Created by Hung Nguyen on 22/06/2022.
 //
 
-import Foundation
+
 struct AppUrls {
     static let socketURL = ""
 }
