@@ -16,10 +16,3 @@ class AppViewController: UIViewController {
         pushToWelcomeScreen()
     }
 }
-
-extension AppViewController: Navigator {
-    func pushToWelcomeScreen() {
-        let vc = WelcomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
