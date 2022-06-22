@@ -12,6 +12,10 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var goToTheLoginButton: UIButton!
+    @IBOutlet weak var startPokerPlainningGameButton: UIButton!
+    @IBOutlet weak var startRetrospectiveButton: UIButton!
+    
     
     // MARK: - Properties
     
@@ -22,6 +26,9 @@ class WelcomeViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        SetUpUI()
+        
+        
     }
     
     
@@ -30,11 +37,36 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Private
     
+    private func SetUpUI(){
+        // set properties for Login Button
+        goToTheLoginButton.layer.borderWidth = 1
+        goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
+        goToTheLoginButton.layer.cornerRadius = 5
+        
+        // set properties for Start Retrospective Button
+        startRetrospectiveButton.layer.borderWidth = 1
+        startRetrospectiveButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
+        startRetrospectiveButton.layer.cornerRadius = 5
+        
+        // set properties for Start Poker Plainning Game Button
+        startPokerPlainningGameButton.layer.cornerRadius = 5
+    }
     
     // MARK: - Actions
+    
+    
+    @IBAction func startGame(_ sender: Any) {
+        
+    }
+    @IBAction func goToTheLogin(_ sender: Any) {
+        
+        
+        //AppViewController.shared.pushToSignInScreen(navi: navigationController)
+        
+
+    }
 
 
 }
 
-//extension WelcomeViewController: UITableViewDataSource {
-//}
+
