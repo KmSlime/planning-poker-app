@@ -16,16 +16,3 @@ class AppViewController: UIViewController {
         pushToWelcomeScreen()
     }
 }
-
-extension AppViewController: Navigator {
-    func pushToWelcomeScreen() {
-        let vc = WelcomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func pushToSignInScreen() {
-        let SignInCV = WelcomeViewController()
-        navigationController?.pushViewController(SignInCV, animated: true)
-        //            navigationController?.pushViewController(SignInCV, animated: true)
-    }
-}

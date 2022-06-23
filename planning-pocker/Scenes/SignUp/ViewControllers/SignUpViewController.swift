@@ -100,7 +100,7 @@ class SignUpViewController: UIViewController {
 //    }
     
     //MARK: - CheckFormatPassword
-    func isNotCorretFormatPassword() -> Bool {
+    func isNotCorrectFormatPassword() -> Bool {
         let formatPasswordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*[0-9])[a-zA-Z0-9\\d@$!%*?&]{8,}$"
         let formatPred = NSPredicate(format:"SELF MATCHES %@", formatPasswordRegEx)
         if formatPred.evaluate(with: passwordTextField.text!) {
@@ -130,7 +130,7 @@ class SignUpViewController: UIViewController {
 //
 //        } else
         //format Password
-        if isNotCorretFormatPassword() == true {
+        if isNotCorrectFormatPassword() == true {
             messages = "Password doesn’t follow format."
             status = true
 
