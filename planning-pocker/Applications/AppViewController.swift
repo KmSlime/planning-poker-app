@@ -14,12 +14,17 @@ class AppViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         pushToWelcomeScreen()
+        pushToChooseCardScreen()
     }
 }
 
 extension AppViewController: Navigator {
     func pushToWelcomeScreen() {
         let vc = WelcomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    func pushToChooseCardScreen() {
+        let vc = ChooseCardViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

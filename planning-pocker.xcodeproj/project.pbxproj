@@ -28,6 +28,21 @@
 		602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBD52861759700E2EA30 /* WelcomeViewController.swift */; };
 		602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602CDBD62861759700E2EA30 /* WelcomeViewController.xib */; };
 		602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBDA2861762300E2EA30 /* StringExtension.swift */; };
+		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
+		BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D6A2864085500A14A37 /* PlayerModel.swift */; };
+		BA084D6E2864169B00A14A37 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA084D6D2864169B00A14A37 /* View.xib */; };
+		BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D71286416F800A14A37 /* BoardInfoView.swift */; };
+		BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE10D2862BC9D00779BE3 /* UIColor.swift */; };
+		BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE1122862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift */; };
+		BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3FE1132862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib */; };
+		BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE1162862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift */; };
+		BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */; };
+		BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */; };
+		BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE11C2862F9AA00779BE3 /* GameModel.swift */; };
+		BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */; };
+		BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */; };
+		BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */; };
+		BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD51B2F2861C387002961A7 /* CardToSelectCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +69,21 @@
 		602CDBD52861759700E2EA30 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		602CDBD62861759700E2EA30 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		602CDBDA2861762300E2EA30 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		BA084D6A2864085500A14A37 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		BA084D6D2864169B00A14A37 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		BA084D71286416F800A14A37 /* BoardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfoView.swift; sourceTree = "<group>"; };
+		BA3FE10D2862BC9D00779BE3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = "planning-pocker/Scenes/ChooseCard/Views/UIColor.swift"; sourceTree = SOURCE_ROOT; };
+		BA3FE1122862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMainPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA3FE1132862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardMainPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
+		BA3FE1162862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOtherPlayersCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardOtherPlayersCollectionViewCell.xib; sourceTree = "<group>"; };
+		BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		BA3FE11C2862F9AA00779BE3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCardViewController.swift; sourceTree = "<group>"; };
+		BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCardViewController.xib; sourceTree = "<group>"; };
+		BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		BAD51B2F2861C387002961A7 /* CardToSelectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardToSelectCollectionViewCell.xib; sourceTree = "<group>"; };
+		F8CEA5DC02FE6DE4EE6A19B1 /* Pods-planning-pocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planning-pocker.debug.xcconfig"; path = "Target Support Files/Pods-planning-pocker/Pods-planning-pocker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +139,7 @@
 		602CDB6A28615C1500E2EA30 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
+				BA3FE10D2862BC9D00779BE3 /* UIColor.swift */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -126,6 +157,7 @@
 			children = (
 				602CDBB028616BB400E2EA30 /* UIViewExtension.swift */,
 				602CDBBA28616DB100E2EA30 /* UIColorExtension.swift */,
+				BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -142,6 +174,7 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BAD51B262861B50D002961A7 /* ChooseCard */,
 				602CDBBC2861714A00E2EA30 /* SignUp */,
 				602CDBA528616ADB00E2EA30 /* Welcome */,
 			);
@@ -267,6 +300,89 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		BA084D6C2864168A00A14A37 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				BA084D6D2864169B00A14A37 /* View.xib */,
+				BA084D71286416F800A14A37 /* BoardInfoView.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		BA3FE10F2862C37100779BE3 /* CardToSelect */ = {
+			isa = PBXGroup;
+			children = (
+				BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */,
+				BAD51B2F2861C387002961A7 /* CardToSelectCollectionViewCell.xib */,
+			);
+			path = CardToSelect;
+			sourceTree = "<group>";
+		};
+		BA3FE1102862C38400779BE3 /* CardMainPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE1122862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift */,
+				BA3FE1132862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib */,
+			);
+			path = CardMainPlayer;
+			sourceTree = "<group>";
+		};
+		BA3FE1112862C3A000779BE3 /* CardOtherPlayers */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE1162862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift */,
+				BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */,
+			);
+			path = CardOtherPlayers;
+			sourceTree = "<group>";
+		};
+		BAD51B262861B50D002961A7 /* ChooseCard */ = {
+			isa = PBXGroup;
+			children = (
+				BAD51B272861B50D002961A7 /* Models */,
+				BAD51B282861B50D002961A7 /* ViewControllers */,
+				BAD51B2B2861B50D002961A7 /* Views */,
+			);
+			path = ChooseCard;
+			sourceTree = "<group>";
+		};
+		BAD51B272861B50D002961A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE11C2862F9AA00779BE3 /* GameModel.swift */,
+				BA084D6A2864085500A14A37 /* PlayerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BAD51B282861B50D002961A7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */,
+				BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BAD51B2B2861B50D002961A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA084D6C2864168A00A14A37 /* New Group */,
+				BA3FE1112862C3A000779BE3 /* CardOtherPlayers */,
+				BA3FE1102862C38400779BE3 /* CardMainPlayer */,
+				BA3FE10F2862C37100779BE3 /* CardToSelect */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BD497E40229F63C77765F996 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,11 +441,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */,
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
 				1905F99D28608C8900EEF365 /* LaunchScreen.storyboard in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
+				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
+				BA084D6E2864169B00A14A37 /* View.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
+				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
+				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,15 +465,24 @@
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
+				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
+				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
+				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
+				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
+				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
 				1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */,
 				602CDBBB28616DB100E2EA30 /* UIColorExtension.swift in Sources */,
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
+				BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */,
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
+				BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */,
+				BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
+				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
