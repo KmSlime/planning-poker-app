@@ -50,11 +50,11 @@ class SignInViewController: UIViewController {
             
             if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isValidPassword != nil {
                 
-                showAlert(title: "Notify", message: "Login successfully")
+                showAlert(title: "Notify", message: "Invalid email or password")
                 return true
             }
             else{
-                showAlert(title: "Notify", message: "Invalid email or password")
+                showAlert(title: "Notify", message: "Login successfully")
                 return false
             }
         }
