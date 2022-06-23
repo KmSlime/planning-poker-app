@@ -8,16 +8,50 @@
 import Foundation
 
 class User{
-    var userId: Int?
-    var userEmail: String?
-    var userPassword: String?
-    var userFullName: String?
+    
+    private var userId: Int?
+    private var userEmail: String?
+    private var userPassword: String?
+    private var userFullName: String?
 //    var token: String? //cái này chưa rõ????
     
-    init(Id: Int, email:  String, password: String, fullName: String){
-        self.userId = Id
+    init(id: Int?, email:  String, password: String, fullName: String){
+        self.userId = id                                            
         self.userEmail = email
         self.userPassword = password
         self.userFullName = fullName
     }
+    
+    
+    public var id: Int {
+        get {
+            return self.userId!
+        }
+    }
+    public var email:  String {
+        get {
+            return self.userEmail!
+        }
+        set {
+            return self.userEmail = newValue
+        }
+    }
+    public var password: String {
+        get {
+            return self.userPassword!
+        }
+        set {
+            return self.userPassword = newValue
+        }
+    }
+    public var fullName: String {
+        get {
+            return self.userFullName!
+        }
+        set {
+            return self.userFullName = newValue
+        }
+    }
+
+    
 }
