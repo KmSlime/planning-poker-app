@@ -15,6 +15,12 @@
 		1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99228608C8800EEF365 /* SceneDelegate.swift */; };
 		1905F99828608C8800EEF365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1905F99628608C8800EEF365 /* Main.storyboard */; };
 		1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1905F99928608C8900EEF365 /* Assets.xcassets */; };
+		192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192B1CED28645890004D9C26 /* GoogleService-Info.plist */; };
+		192B1CF128645A68004D9C26 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 192B1CF028645A68004D9C26 /* FirebaseAnalytics */; };
+		192B1CF328645A68004D9C26 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 192B1CF228645A68004D9C26 /* FirebaseAppDistribution-Beta */; };
+		192B1CF528645A68004D9C26 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 192B1CF428645A68004D9C26 /* FirebaseCrashlytics */; };
+		192B1CF728645A68004D9C26 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 192B1CF628645A68004D9C26 /* FirebaseDynamicLinks */; };
+		192B1CF928645A68004D9C26 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 192B1CF828645A68004D9C26 /* FirebaseMessaging */; };
 		19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B7C38F2861AE3E0047A618 /* Navigator.swift */; };
 		602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBB028616BB400E2EA30 /* UIViewExtension.swift */; };
 		602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602CDBB228616CBA00E2EA30 /* Icon.xcassets */; };
@@ -29,6 +35,24 @@
 		602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBD52861759700E2EA30 /* WelcomeViewController.swift */; };
 		602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602CDBD62861759700E2EA30 /* WelcomeViewController.xib */; };
 		602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBDA2861762300E2EA30 /* StringExtension.swift */; };
+		60465B732862B2100082956B /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6051A86228644B38008A6715 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85928644B38008A6715 /* Poppins-Light.ttf */; };
+		6051A86328644B38008A6715 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85A28644B38008A6715 /* Poppins-Medium.ttf */; };
+		6051A86428644B38008A6715 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85B28644B38008A6715 /* Poppins-ExtraBold.ttf */; };
+		6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85C28644B38008A6715 /* Poppins-Regular.ttf */; };
+		6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85D28644B38008A6715 /* Poppins-LightItalic.ttf */; };
+		6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85E28644B38008A6715 /* Poppins-Bold.ttf */; };
+		6051A86828644B38008A6715 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85F28644B38008A6715 /* Poppins-SemiBold.ttf */; };
+		6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86028644B38008A6715 /* Poppins-Italic.ttf */; };
+		6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86128644B38008A6715 /* Poppins-MediumItalic.ttf */; };
+		6051A87228644E3F008A6715 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */; };
+		6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */; };
+		60B6C9F52861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60B6C9F72861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60B6C9F92861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60C82C4928644771002E2DC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4428644771002E2DC2 /* User.swift */; };
+		60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4628644771002E2DC2 /* SignUpViewController.swift */; };
+		60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C82C4728644771002E2DC2 /* SignUpViewController.xib */; };
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
 		9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */; };
@@ -65,6 +89,7 @@
 		1905F99728608C8800EEF365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1905F99928608C8900EEF365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1905F99E28608C8900EEF365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192B1CED28645890004D9C26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19B7C38F2861AE3E0047A618 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_planning_pocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602CDBB028616BB400E2EA30 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -80,6 +105,20 @@
 		602CDBD52861759700E2EA30 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		602CDBD62861759700E2EA30 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		602CDBDA2861762300E2EA30 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6051A85928644B38008A6715 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		6051A85A28644B38008A6715 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		6051A85B28644B38008A6715 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		6051A85C28644B38008A6715 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		6051A85D28644B38008A6715 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		6051A85E28644B38008A6715 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		6051A85F28644B38008A6715 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		6051A86028644B38008A6715 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		6051A86128644B38008A6715 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
+		6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
+		60C82C4428644771002E2DC2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		60C82C4628644771002E2DC2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		60C82C4728644771002E2DC2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
 		9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +148,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B1CF928645A68004D9C26 /* FirebaseMessaging in Frameworks */,
+				192B1CF128645A68004D9C26 /* FirebaseAnalytics in Frameworks */,
+				192B1CF528645A68004D9C26 /* FirebaseCrashlytics in Frameworks */,
 				73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */,
+				192B1CF328645A68004D9C26 /* FirebaseAppDistribution-Beta in Frameworks */,
+				192B1CF728645A68004D9C26 /* FirebaseDynamicLinks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +261,10 @@
 			children = (
 				BAD51B262861B50D002961A7 /* ChooseCard */,
 				9146BC93286306AB001D4B7B /* SignIn */,
+				6051A86C28644E3E008A6715 /* CreateNewGame */,
 				9146BC90286304B0001D4B7B /* Launch */,
+				9146BC93286306AB001D4B7B /* SignIn */,
+				60C82C4228644771002E2DC2 /* SignUp */,
 				602CDBA528616ADB00E2EA30 /* Welcome */,
 			);
 			path = Scenes;
@@ -236,6 +283,8 @@
 		602CDB9F286165AB00E2EA30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				192B1CED28645890004D9C26 /* GoogleService-Info.plist */,
+				6051A85828644B38008A6715 /* fonts */,
 				1905F99928608C8900EEF365 /* Assets.xcassets */,
 				602CDBB228616CBA00E2EA30 /* Icon.xcassets */,
 				1905F99E28608C8900EEF365 /* Info.plist */,
@@ -306,6 +355,89 @@
 				602CDBCA2861741700E2EA30 /* SwiftiJSON.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		6051A85828644B38008A6715 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6051A85928644B38008A6715 /* Poppins-Light.ttf */,
+				6051A85A28644B38008A6715 /* Poppins-Medium.ttf */,
+				6051A85B28644B38008A6715 /* Poppins-ExtraBold.ttf */,
+				6051A85C28644B38008A6715 /* Poppins-Regular.ttf */,
+				6051A85D28644B38008A6715 /* Poppins-LightItalic.ttf */,
+				6051A85E28644B38008A6715 /* Poppins-Bold.ttf */,
+				6051A85F28644B38008A6715 /* Poppins-SemiBold.ttf */,
+				6051A86028644B38008A6715 /* Poppins-Italic.ttf */,
+				6051A86128644B38008A6715 /* Poppins-MediumItalic.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		6051A86C28644E3E008A6715 /* CreateNewGame */ = {
+			isa = PBXGroup;
+			children = (
+				6051A86D28644E3E008A6715 /* Models */,
+				6051A86E28644E3E008A6715 /* ViewControllers */,
+				6051A87128644E3E008A6715 /* Views */,
+			);
+			path = CreateNewGame;
+			sourceTree = "<group>";
+		};
+		6051A86D28644E3E008A6715 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6051A86E28644E3E008A6715 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */,
+				6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6051A87128644E3E008A6715 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		60C82C4228644771002E2DC2 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				60C82C4328644771002E2DC2 /* Models */,
+				60C82C4528644771002E2DC2 /* ViewControllers */,
+				60C82C4828644771002E2DC2 /* Views */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		60C82C4328644771002E2DC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60C82C4428644771002E2DC2 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60C82C4528644771002E2DC2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				60C82C4628644771002E2DC2 /* SignUpViewController.swift */,
+				60C82C4728644771002E2DC2 /* SignUpViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		60C82C4828644771002E2DC2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
@@ -477,6 +609,13 @@
 			dependencies = (
 			);
 			name = "planning-pocker";
+			packageProductDependencies = (
+				192B1CF028645A68004D9C26 /* FirebaseAnalytics */,
+				192B1CF228645A68004D9C26 /* FirebaseAppDistribution-Beta */,
+				192B1CF428645A68004D9C26 /* FirebaseCrashlytics */,
+				192B1CF628645A68004D9C26 /* FirebaseDynamicLinks */,
+				192B1CF828645A68004D9C26 /* FirebaseMessaging */,
+			);
 			productName = "planning-pocker";
 			productReference = 1905F98D28608C8800EEF365 /* planning-pocker.app */;
 			productType = "com.apple.product-type.application";
@@ -505,6 +644,9 @@
 				Base,
 			);
 			mainGroup = 1905F98428608C8800EEF365;
+			packageReferences = (
+				192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1905F98E28608C8800EEF365 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -520,7 +662,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */,
+				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
+				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
+				6051A87228644E3F008A6715 /* CreateNewGameViewController.xib in Resources */,
+				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
+				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
 				BAA10BDC2865BA98003F4BDC /* InviteModal.xib in Resources */,
@@ -531,6 +678,14 @@
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
+				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
+				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
+				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
+				6051A86328644B38008A6715 /* Poppins-Medium.ttf in Resources */,
+				6051A86228644B38008A6715 /* Poppins-Light.ttf in Resources */,
+				60B6C9F72861B8BC00DC3270 /* (null) in Resources */,
+				6051A86428644B38008A6715 /* Poppins-ExtraBold.ttf in Resources */,
+				6051A86828644B38008A6715 /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,11 +761,13 @@
 				0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */,
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
+				60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */,
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
 				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
 				0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */,
+				6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
@@ -630,8 +787,10 @@
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
+				60C82C4928644771002E2DC2 /* User.swift in Sources */,
 				9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
+				60465B732862B2100082956B /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +1006,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		192B1CF028645A68004D9C26 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		192B1CF228645A68004D9C26 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		192B1CF428645A68004D9C26 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		192B1CF628645A68004D9C26 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		192B1CF828645A68004D9C26 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 192B1CEF28645A68004D9C26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1905F98528608C8800EEF365 /* Project object */;
 }

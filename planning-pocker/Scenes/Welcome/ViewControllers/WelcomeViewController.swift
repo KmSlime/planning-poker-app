@@ -8,20 +8,15 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    
-    
     // MARK: - IBOutlets
     
     @IBOutlet weak var goToTheLoginButton: UIButton!
     @IBOutlet weak var startPokerPlainningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     
-    
     // MARK: - Properties
     
-    
     // MARK: - Overrides
-    
     
     // MARK: - Life cycles
     
@@ -29,15 +24,17 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         SetUpUI()
         
+        //mượn tạm Hiệp cái flow này 
+//        AppViewController.shared.pushToCreateNewGameScreen()
+        AppViewController.shared.pushToSignUpScreen()
+        
     }
-    
     
     // MARK: - Publics
     
-    
     // MARK: - Private
     
-    private func SetUpUI(){
+    private func SetUpUI() {
         // set properties for Login Button
         goToTheLoginButton.layer.borderWidth = 1
         goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
@@ -57,18 +54,13 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func onClickStartGameButton(_ sender: Any) {
         
-        AppViewController.shared.pushToChooseCard(navi: navigationController)
+        AppViewController.shared.pushToChooseCard()
         
     }
     @IBAction func onClickLoginButton(_ sender: Any) {
         
         
-        AppViewController.shared.pushToSignInScreen(navi: navigationController)
-        
-
-    }
-
-
+        AppViewController.shared.pushToSignInScreen()
+    
 }
-
-
+}

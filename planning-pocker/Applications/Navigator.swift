@@ -9,25 +9,39 @@ import UIKit
 
 protocol Navigator {
     func pushToWelcomeScreen()
-    func pushToSignInScreen(navi: UINavigationController?)
-    func pushToChooseCard(navi: UINavigationController?)
+    func pushToChooseCard()
     
+    func pushToSignInScreen()
+    func pushToSignUpScreen()
+    func pushToCreateNewGameScreen()
 }
 
 extension AppViewController: Navigator {
-    func pushToWelcomeScreen() {
+    
+        func pushToWelcomeScreen() {
         let vc = WelcomeViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushToSignInScreen(navi: UINavigationController?) {
+    func pushToSignInScreen() {
         let vc = SignInViewController()
-        navi?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushToChooseCard(navi: UINavigationController?) {
+    func pushToSignUpScreen() {
+        let signUpVC = SignUpViewController()
+        navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
+    func pushToChooseCard() {
         let vc = ChooseCardViewController()
-        navi?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
+    func pushToCreateNewGameScreen() {
+        let createNewGameVC = CreateNewGameViewController()
+        navigationController?.pushViewController(createNewGameVC, animated: true)
+    }
+    
+    
 }
