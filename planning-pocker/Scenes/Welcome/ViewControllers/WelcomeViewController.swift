@@ -25,7 +25,8 @@ class WelcomeViewController: UIViewController {
         SetUpUI()
         
         //mượn tạm Hiệp cái flow này 
-        AppViewController.shared.pushToCreateNewGameScreen()
+//        AppViewController.shared.pushToCreateNewGameScreen()
+        AppViewController.shared.pushToSignUpScreen()
         
     }
     

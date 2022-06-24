@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,7 +16,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewGameViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
+                <outlet property="createGameButton" destination="Vdg-Ef-OoN" id="sme-sX-JRz"/>
+                <outlet property="dropdownButton" destination="CL4-HM-t9o" id="JBi-ba-ZKb"/>
+                <outlet property="gameNameTextField" destination="rqp-Bw-Qhp" id="z6Z-8n-YVH"/>
+                <outlet property="joinGameButton" destination="abl-w2-kiq" id="CEu-ln-RIG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="votingSystemTextField" destination="Tus-qg-zAc" id="tBE-1Z-fQa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -84,13 +88,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-HM-t9o">
                                     <rect key="frame" x="291" y="12" width="24" height="24"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <menu key="menu" title="Sub Menu" id="n7n-3U-Frq">
-                                        <children>
-                                            <command title="Item 1" id="WgW-dc-mys"/>
-                                            <command title="Item 2" id="2Ys-2B-1Fy"/>
-                                        </children>
-                                    </menu>
-                                    <state key="normal" image="DropDown"/>
+                                    <state key="normal" image="icon_dropdown"/>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -140,15 +138,18 @@
                             <integer key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="createNewGame:" destination="-1" eventType="touchUpInside" id="CG2-bU-tZJ"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abl-w2-kiq">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abl-w2-kiq">
                     <rect key="frame" x="24" y="579" width="328" height="48"/>
                     <color key="backgroundColor" systemColor="systemGray3Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="F6Y-ec-8LE"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Create game">
+                    <buttonConfiguration key="configuration" style="plain" title="Join Game">
                         <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
                         <color key="baseForegroundColor" systemColor="tintColor"/>
                     </buttonConfiguration>
@@ -183,7 +184,7 @@
         </view>
     </objects>
     <resources>
-        <image name="DropDown" width="24" height="24"/>
+        <image name="icon_dropdown" width="24" height="24"/>
         <image name="tpssoft-logo-full-color" width="158" height="39"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

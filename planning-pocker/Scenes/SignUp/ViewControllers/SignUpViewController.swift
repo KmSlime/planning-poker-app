@@ -15,14 +15,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var rePasswordTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var SignInLabel: UILabel!
+    @IBOutlet weak var signInLabel: UILabel!
     
     // MARK: - Properties
-    var countClickSignUpTime: Int?
     var messages: String?
     var status: Bool?
     var textFieldName: String?
-    let arrayEmailValid: [String] = ["lala@gmail.com","lele@exit.com"]
+    let arrayEmailValid: [String] = ["lala@gmail.com","lele@exit.com"] //TEST, sau thay dòng này bằng array API
     
     // MARK: - Overrides
     
@@ -32,62 +31,50 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.becomeFirstResponder()
-        countClickSignUpTime = 0
+        
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        OnClickSignInButton()
+        onClickSignInButton()
     }
     
     
     // MARK: - Publics
-    func OnClickSignInButton(){
-        let SignInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
-        SignInLabel.isUserInteractionEnabled = true
-        SignInLabel.addGestureRecognizer(SignInLabelOnClick)
+    func onClickSignInButton(){
+        let signInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
+        signInLabel.isUserInteractionEnabled = true
+        signInLabel.addGestureRecognizer(signInLabelOnClick)
     }
     
     @objc func backToSignIn(recognizer:UIGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Log Login: Click back to Sign In")
             AppViewController.shared.pushToSignInScreen()
         }
     }
-   
-    
-    //MARK: - AlertAction
-    func alertShowIfError(message: String?){
-            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil) //this is handle event when click, ex: confirm or cancel
-            alertController.addAction(action)
-            present(alertController, animated: true, completion: nil) //show
-
-    }
 
     //MARK: - SENDING DATA TO BE - HAVEN'T DONE YET
-    func Register(){
+    func register(){
 //        let user = User(id: nil, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
         
-        //api sending data to BE
+        //MARK: - api sending data to BE
         
     }
     
     // MARK: - Private
+    private func setupUI(){
+    
+    }
 
-    
-    
    
     // MARK: - Actions
     @IBAction func signUp(_ sender: UIButton) {
-        countClickSignUpTime! += 1
-        print("\n\nLog Login: \(countClickSignUpTime!) times - HasError: \(hasErrorStatus().status!)")
         if hasErrorStatus().status == true {
+            let title = "Error"
             let message = hasErrorStatus().messages
-            alertShowIfError(message: message!)
+            showAlert(title: title, message: message)
         } else {
-            print("Log Login: Pass Validate!")
-            Register()
+            register()
             AppViewController.shared.pushToCreateNewGameScreen()
         }
     }
@@ -98,102 +85,74 @@ class SignUpViewController: UIViewController {
 
 // MARK: - extensions
 extension SignUpViewController {
-
-    //MARK: - CheckEmpty
-    func isEmptyField() -> (textFieldName: String?, status: Bool) {
-        if emailTextField.text!.isEmpty {
+    
+    
+    //MARK: - Check field empty
+    func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
+        if emailTextField.text?.isEmpty == true {
             textFieldName = "Email"
             return (textFieldName, true)
-            
-        } else if passwordTextField.text!.isEmpty {
+
+        } else if passwordTextField.text?.isEmpty == true {
             textFieldName = "Password"
             return (textFieldName, true)
-            
-        } else if rePasswordTextField.text!.isEmpty {
+
+        } else if rePasswordTextField.text?.isEmpty == true {
             textFieldName = "Repeat Password"
             return (textFieldName, true)
-            
-        } else if fullNameTextField.text!.isEmpty {
+
+        } else if fullNameTextField.text?.isEmpty == true {
             textFieldName = "Fullname"
             return (textFieldName, true)
-            
         }
         return (nil, false)
     }
-    
-    //MARK: - CheckMatch
-    func isPasswordMatch() -> Bool {
-        let pass = passwordTextField.text
-        let rePass = rePasswordTextField.text
-        if pass == rePass {
-            print("Log Login: Password and repeat password is matching!")
-            return true
-        }
-        print("Log Login: Password and repeat password is not match!")
-        return false
-    }
-    
-    //MARK: - CheckFormatEmail
-    func isCorrectFormatEmail() -> Bool {
-        let email = emailTextField.text
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        print("Log Login: Email Format - \(emailPred.evaluate(with: email))")
-        return emailPred.evaluate(with: email)
-    }
-    
-    //MARK: - CheckExistEmail
+
+   
+    //MARK: - Check exist email
     func isExistEmail() -> Bool {
         for email in arrayEmailValid {
             if emailTextField.text == email {
-                print("Log Login: The create email is valid!")
                 return true
             }
         }
         return false
     }
     
-    //MARK: - CheckFormatPassword
-    func isCorrectFormatPassword() -> Bool {
-        let formatPasswordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*[0-9])[a-zA-Z0-9\\d@$!%*?&]{8,}$"
-        let formatPred = NSPredicate(format:"SELF MATCHES %@", formatPasswordRegEx)
-        print("Log Login: Format password \((formatPred.evaluate(with: passwordTextField.text!)) ? "correct!" : "incorrect!")")
-        return formatPred.evaluate(with: passwordTextField.text!)
-    }
     
-    //MARK: - Set Error and Message
+    //MARK: - Set status and message
     func hasErrorStatus() -> (messages: String?, status: Bool?) {
-        //emptyField
-        if isEmptyField().status  == true{
-            messages = "\(isEmptyField().textFieldName!) is required."
+        // EmptyField
+        if fieldIsEmpty().status  == true {
+            messages = "\(fieldIsEmpty().textFieldName!) is required."
             status = true
             
         } else
-        //format Email
-        if isCorrectFormatEmail() == false {
+        // Format Email
+        if emailTextField.text?.isValidEmail == false {
             messages = "Please enter valid email."
             status = true
 
         } else
-        //existance Email
+        // Existence Email
         if isExistEmail() == true {
             messages = "Email already exists."
             status = true
 
         } else
-        //format Password
-        if isCorrectFormatPassword() == false {
+        // Format Password
+        if passwordTextField.text?.isCorrectFormatPassword == false {
             messages = "Password doesn’t follow format."
             status = true
 
         } else
-        //not Match Password
-        if isPasswordMatch() == false {
+        // Not Match Password
+        if rePasswordTextField.text?.isFieldMatch(with: passwordTextField.text!) == false {
             messages = "Password and Re-enter password don't match."
             status = true
 
         } else
-        //Field Range
+        // Field Range
         if emailTextField.text!.count > 50 {
             textFieldName = "Email"
             messages = "\(textFieldName!) can't be longer than 50 character."
@@ -221,8 +180,6 @@ extension SignUpViewController {
     }
     
 }
-
-
 
 // MARK: - protocols
 

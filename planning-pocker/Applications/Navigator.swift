@@ -12,7 +12,6 @@ protocol Navigator {
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
-    func tranferData(data: Any)
 }
 
 extension AppViewController: Navigator {

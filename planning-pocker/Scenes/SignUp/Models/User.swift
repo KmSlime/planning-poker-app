@@ -9,13 +9,13 @@ import Foundation
 
 class User{
     
-    private var userId: Int?
+    private var userId: Int
     private var userEmail: String?
     private var userPassword: String?
     private var userFullName: String?
 //    var token: String? //cái này chưa rõ????
     
-    init(id: Int?, email:  String, password: String, fullName: String){
+    init(id: Int, email:  String, password: String, fullName: String){
         self.userId = id                                            
         self.userEmail = email
         self.userPassword = password
@@ -25,9 +25,10 @@ class User{
     
     public var id: Int {
         get {
-            return self.userId!
+            return self.userId
         }
     }
+    
     public var email:  String {
         get {
             return self.userEmail!
@@ -36,6 +37,7 @@ class User{
             return self.userEmail = newValue
         }
     }
+    
     public var password: String {
         get {
             return self.userPassword!
@@ -44,6 +46,7 @@ class User{
             return self.userPassword = newValue
         }
     }
+
     public var fullName: String {
         get {
             return self.userFullName!

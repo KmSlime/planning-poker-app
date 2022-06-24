@@ -28,15 +28,19 @@ class AppViewController: UIViewController {
    
 
     // MARK: - Publics
-    func tranferData(data: Any){
-        
-        
+    func showAlert(tittle: String, message: String) {
+        let alertController = UIAlertController(title: tittle, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
     }
+
 
     // MARK: - Private
 
 
     // MARK: - Actions
+    
 
    
 }
