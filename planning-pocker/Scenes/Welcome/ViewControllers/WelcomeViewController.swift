@@ -23,6 +23,11 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SetUpUI()
+        
+        //mượn tạm Hiệp cái flow này 
+//        AppViewController.shared.pushToCreateNewGameScreen()
+        AppViewController.shared.pushToSignUpScreen()
+        
     }
     
     // MARK: - Publics
