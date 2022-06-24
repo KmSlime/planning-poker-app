@@ -6,42 +6,48 @@
 //
 
 import UIKit
+import SocketIO
 
 
 
 class ChooseCardViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBAction func listIssueButton(_ sender: UIButton) {
-    }
-    @IBAction func leftMenuButton(_ sender: UIButton) {
-    }
+    @IBOutlet weak var groupOtherPlayers: UIView!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var issueNameLabel: UILabel!
-    @IBOutlet weak var tableInfo: UIView!
-    @IBOutlet weak var ListCardToSelect: UICollectionView!{
+    @IBOutlet weak var boardInfo: BoardInfoView!{
+        didSet {
+            guard let boardInfoView = Bundle.main.loadNibNamed("BoardInfoView", owner: boardInfo, options: nil)?.first as? BoardInfoView else { return }
+            boardInfo?.addSubview(boardInfoView)
+            boardInfoView.frame = boardInfoView.superview!.bounds;
+            boardInfoView.layer.cornerRadius = 8
+            changeBoardInfo()
+        }
+    }
+    @IBOutlet weak var listCardToSelect: UICollectionView!{
         didSet{
-            ListCardToSelect.register(UINib(nibName: cardToSelectCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardToSelectCollectionViewIdentifier)
+            listCardToSelect.register(UINib(nibName: cardToSelectCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardToSelectCollectionViewIdentifier)
         }
     }
-    @IBOutlet weak var ListCardOtherPlayers: UICollectionView!{
+    @IBOutlet weak var listCardOtherPlayers: UICollectionView!{
         didSet {
-            ListCardOtherPlayers.register(UINib(nibName: cardOtherPlayersCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardOtherPlayersCollectionViewIdentifier)
-            ListCardOtherPlayers.backgroundColor = UIColor.clear
+            listCardOtherPlayers.register(UINib(nibName: cardOtherPlayersCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardOtherPlayersCollectionViewIdentifier)
+            listCardOtherPlayers.backgroundColor = UIColor.clear
         }
     }
-    @IBOutlet weak var CardMainPlayer: UICollectionView!{
+    @IBOutlet weak var cardMainPlayer: UICollectionView!{
         didSet {
-            CardMainPlayer.register(UINib(nibName: cardMainPlayerCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardMainPlayerCollectionViewIdentifier)
-            CardMainPlayer.backgroundColor = UIColor.clear
+            cardMainPlayer.register(UINib(nibName: cardMainPlayerCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardMainPlayerCollectionViewIdentifier)
+            cardMainPlayer.backgroundColor = UIColor.clear
         }
     }
     
     // MARK: - Properties
-    let dataCard = ["0","1","2", "2","3","5","8","13","21","34","55","89","?"]
-    let dataOtherPlayers = ["Player A", "PLayer B", "PLayer C", "PLayer C", "PLayer C", "PLayer C", "PLayer C"]
-    let dataMainPlayer = "Nghia"
-    var selectedIndex : IndexPath?
+    var selectedIndex : String?
     var isHostExist: Bool?
+    var game : GameModel!
+    
+    // identify for collection view cell
     let cardToSelectCollectionViewIdentifier = "CardToSelectCollectionViewCell"
     let cardMainPlayerCollectionViewIdentifier = "CardMainPlayerCollectionViewCell"
     let cardOtherPlayersCollectionViewIdentifier = "CardOtherPlayersCollectionViewCell"
@@ -53,12 +59,28 @@ class ChooseCardViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        ListCardToSelect.dataSource = self
-        ListCardToSelect.delegate = self
-        ListCardOtherPlayers.dataSource = self
-        CardMainPlayer.dataSource = self
+        listCardToSelect.dataSource = self
+        listCardToSelect.delegate = self
+        listCardOtherPlayers.dataSource = self
+        cardMainPlayer.dataSource = self
+        
+        
+        let dataCard = ["0","1","2", "2","3","5","8","13","21","2","34","55","89","?"]
+        let mainPlayer : PlayerModel = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
+        let otherPlayers : [PlayerModel] =
+        [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 3, name: "Player C", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 4, name: "Player D", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 5, name: "Player E", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
+        ]
+//        let otherPlayers : [PlayerModel] =  []
+        self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
+        
         setUpView()
-        // Do any additional setup after loading the view.
     }
 
 
@@ -67,48 +89,59 @@ class ChooseCardViewController: UIViewController {
 
     // MARK: - Private
     func setUpView() {
-        tableInfo?.layer.backgroundColor = UIColor.primaryLightColor().cgColor
-        tableInfo?.layer.cornerRadius = 10.0
-        if selectedIndex != nil {
-            if isHostExist == true {
-                
-                
-            }
-        }
+        gameNameLabel.text = game.roomName
         
+        // check other players in room, else show Invite player
+        guard let foundEmptyList = groupOtherPlayers.viewWithTag(101),
+              let foundList = groupOtherPlayers.viewWithTag(102)
+        else {return}
+        foundEmptyList.isHidden = (game.isEmptyOtherPlayers() == true ? false : true)
+        foundList.isHidden =  (game.isEmptyOtherPlayers() == true ? true : false)
+        
+    }
+    
+    func changeBoardInfo() {
+        boardInfo.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
     }
 
 
     // MARK: - Actions
+    @IBAction func listIssueButton(_ sender: UIButton) {
+    }
+    @IBAction func leftMenuButton(_ sender: UIButton) {
+
+        
+        cardMainPlayer.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+    }
 }
 
-// MARK: - extensions
+// MARK: - Extensions
 extension ChooseCardViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.ListCardToSelect {
-            return dataCard.count
-        } else if collectionView == self.CardMainPlayer {
+        if collectionView == self.listCardToSelect {
+            return game.cards.count
+        } else if collectionView == self.cardMainPlayer {
             return 1
-        } else if collectionView == self.ListCardOtherPlayers {
-            return dataOtherPlayers.count
+        } else if collectionView == self.listCardOtherPlayers {
+            return game.otherPlayers.count
         }
        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.ListCardToSelect {
+        if collectionView == self.listCardToSelect {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardToSelectCollectionViewIdentifier, for: indexPath) as? CardToSelectCollectionViewCell
-            cell?.config(name: dataCard[indexPath.row])
-            cell?.configSelect(isSelected: (selectedIndex == indexPath) ?  true : false)
+            cell?.config(name: game.cards[indexPath.row])
+            cell?.configSelect(isSelected: (selectedIndex == game.cards[indexPath.row]) ?  true : false)
             return cell!
-        } else if collectionView == self.CardMainPlayer {
+        } else if collectionView == self.cardMainPlayer {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardMainPlayerCollectionViewIdentifier, for: indexPath) as? CardMainPlayerCollectionViewCell
-            cell?.config(name: dataMainPlayer)
+            cell?.config(name: game.mainPlayer.name)
             cell?.configSelect(isSelected: (selectedIndex != nil) ?  true : false)
             return cell!
-        } else if collectionView == self.ListCardOtherPlayers {
+        } else if collectionView == self.listCardOtherPlayers {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardOtherPlayersCollectionViewIdentifier, for: indexPath) as? CardOtherPlayersCollectionViewCell
-            cell?.config(name: dataOtherPlayers[indexPath.row])
+            cell?.config(name: game.otherPlayers[indexPath.row].name)
             cell?.configSelect(isSelected: true)
             return cell!
         }
@@ -121,12 +154,14 @@ extension ChooseCardViewController : UICollectionViewDataSource {
 
 extension ChooseCardViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.ListCardToSelect {
-            selectedIndex = selectedIndex == nil ? indexPath : nil
-            collectionView.reloadData()
-            self.CardMainPlayer.reloadData()
+        if collectionView == self.listCardToSelect {
+            selectedIndex = (game.cards[indexPath.row] == selectedIndex ? nil : game.cards[indexPath.row])
+            listCardToSelect.reloadData()
+            cardMainPlayer.reloadData()
+            changeBoardInfo()
         }
     }
+    
 }
 
 extension ChooseCardViewController : UICollectionViewDelegateFlowLayout {

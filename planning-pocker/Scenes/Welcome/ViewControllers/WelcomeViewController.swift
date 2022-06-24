@@ -57,6 +57,8 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func onClickStartGameButton(_ sender: Any) {
         
+        AppViewController.shared.pushToChooseCard(navi: navigationController)
+        
     }
     @IBAction func onClickLoginButton(_ sender: Any) {
         

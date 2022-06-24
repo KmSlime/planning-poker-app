@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="272"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Den-Ct-qce">
+                    <rect key="frame" x="20" y="84" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-bW-gUW">
+                    <rect key="frame" x="20" y="215" width="374" height="37"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                        <backgroundConfiguration key="background">
+                            <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        </backgroundConfiguration>
+                        <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </buttonConfiguration>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-hK-i6e">
+                    <rect key="frame" x="344" y="135" width="50" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPH-lv-fdC">
+                            <rect key="frame" x="7" y="8" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <backgroundConfiguration key="background" image="Copy Icon"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92845708130000004" green="0.92845720050000002" blue="0.92845720050000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8gf-XN-vPK"/>
+                        <constraint firstAttribute="width" constant="50" id="cKZ-iZ-kt4"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="planningpokeronline.com/" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38F-TJ-blX">
+                    <rect key="frame" x="20" y="143" width="324" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Den-Ct-qce" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="6UN-6c-LvW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pBI-bW-gUW" secondAttribute="trailing" constant="20" id="7JK-JC-WcQ"/>
+                <constraint firstItem="pBI-bW-gUW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="CLl-57-Lr2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xMd-hK-i6e" secondAttribute="trailing" constant="20" id="Cfz-zX-hBf"/>
+                <constraint firstItem="pBI-bW-gUW" firstAttribute="top" secondItem="xMd-hK-i6e" secondAttribute="bottom" constant="30" id="KD8-06-yPY"/>
+                <constraint firstItem="Den-Ct-qce" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="Sog-yG-671"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pBI-bW-gUW" secondAttribute="bottom" constant="20" id="TvH-ts-bSU"/>
+                <constraint firstItem="xMd-hK-i6e" firstAttribute="top" secondItem="Den-Ct-qce" secondAttribute="bottom" constant="30" id="UxQ-66-bUL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Den-Ct-qce" secondAttribute="trailing" constant="20" id="oFa-s5-iRB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-126.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Copy Icon" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

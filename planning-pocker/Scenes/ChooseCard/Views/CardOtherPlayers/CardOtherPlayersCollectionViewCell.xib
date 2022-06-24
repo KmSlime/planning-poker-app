@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zm3-mi-bPw">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zm3-mi-bPw">
                         <rect key="frame" x="0.0" y="56" width="50" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -27,10 +26,9 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W6E-gv-Vw3">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gP3-N5-uDy">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-FI-OmZ" userLabel="Back Image">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -38,27 +36,22 @@
                 <constraint firstAttribute="trailing" secondItem="zm3-mi-bPw" secondAttribute="trailing" id="3GB-pZ-y9V"/>
                 <constraint firstItem="zm3-mi-bPw" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.2" id="5p2-ft-aek"/>
                 <constraint firstAttribute="bottom" secondItem="zm3-mi-bPw" secondAttribute="bottom" id="6hf-1F-b6a"/>
-                <constraint firstAttribute="trailing" secondItem="gP3-N5-uDy" secondAttribute="trailing" id="Am4-l5-whh"/>
-                <constraint firstItem="gP3-N5-uDy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KIW-LO-aLf"/>
+                <constraint firstItem="0fm-FI-OmZ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="BRT-RK-ZJc"/>
+                <constraint firstItem="0fm-FI-OmZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BWL-fK-lZG"/>
+                <constraint firstItem="0fm-FI-OmZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BWy-k0-QmJ"/>
                 <constraint firstAttribute="trailing" secondItem="W6E-gv-Vw3" secondAttribute="trailing" id="TTO-Kz-Ju3"/>
                 <constraint firstItem="W6E-gv-Vw3" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="V5P-xr-KKE"/>
+                <constraint firstAttribute="trailing" secondItem="0fm-FI-OmZ" secondAttribute="trailing" id="YWU-7H-j05"/>
                 <constraint firstItem="zm3-mi-bPw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jcE-f4-kwp"/>
                 <constraint firstItem="W6E-gv-Vw3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mDj-FM-reB"/>
-                <constraint firstItem="gP3-N5-uDy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nAD-7a-eM8"/>
                 <constraint firstItem="W6E-gv-Vw3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wrS-op-033"/>
-                <constraint firstItem="gP3-N5-uDy" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="za1-qQ-8XJ"/>
             </constraints>
             <connections>
-                <outlet property="backCard" destination="gP3-N5-uDy" id="7nJ-cc-Ujn"/>
+                <outlet property="backCard" destination="0fm-FI-OmZ" id="5M9-MW-FhA"/>
                 <outlet property="cardImage" destination="W6E-gv-Vw3" id="dS1-Cb-jgy"/>
                 <outlet property="numberLabel" destination="zm3-mi-bPw" id="Siq-Vu-tSv"/>
             </connections>
             <point key="canvasLocation" x="132" y="112"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

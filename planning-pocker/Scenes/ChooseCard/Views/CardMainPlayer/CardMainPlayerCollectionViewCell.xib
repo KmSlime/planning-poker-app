@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,38 +26,32 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iAa-bb-EmX">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnS-hO-jQP">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-sQ-Mpw" userLabel="Back Image">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="55f-eq-XRW" secondAttribute="bottom" id="2aW-3i-I2a"/>
                 <constraint firstAttribute="trailing" secondItem="iAa-bb-EmX" secondAttribute="trailing" id="2fr-cF-aPp"/>
-                <constraint firstItem="hnS-hO-jQP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6sz-TN-1cv"/>
                 <constraint firstItem="55f-eq-XRW" firstAttribute="top" secondItem="iAa-bb-EmX" secondAttribute="bottom" id="DBa-39-G0H"/>
                 <constraint firstAttribute="trailing" secondItem="55f-eq-XRW" secondAttribute="trailing" id="EsB-ij-tWJ"/>
+                <constraint firstItem="aXJ-sQ-Mpw" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="GaT-bc-0lt"/>
                 <constraint firstItem="iAa-bb-EmX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HW3-qA-Frq"/>
                 <constraint firstItem="iAa-bb-EmX" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="IJF-8u-KIG"/>
-                <constraint firstAttribute="trailing" secondItem="hnS-hO-jQP" secondAttribute="trailing" id="JzL-Ui-DzQ"/>
                 <constraint firstItem="55f-eq-XRW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LUN-qO-p1t"/>
-                <constraint firstItem="hnS-hO-jQP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PZ5-FL-Zzf"/>
                 <constraint firstItem="iAa-bb-EmX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SYz-bj-hfd"/>
-                <constraint firstItem="hnS-hO-jQP" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="XQk-O4-cvE"/>
+                <constraint firstItem="aXJ-sQ-Mpw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="b07-ET-9r5"/>
+                <constraint firstItem="aXJ-sQ-Mpw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="iK1-HN-TvG"/>
+                <constraint firstAttribute="trailing" secondItem="aXJ-sQ-Mpw" secondAttribute="trailing" id="lFs-H2-VL6"/>
             </constraints>
             <connections>
-                <outlet property="backCard" destination="hnS-hO-jQP" id="SfT-0B-SYo"/>
+                <outlet property="backCard" destination="aXJ-sQ-Mpw" id="7Go-fi-ovM"/>
                 <outlet property="cardImage" destination="iAa-bb-EmX" id="0QN-ME-KII"/>
                 <outlet property="numberLabel" destination="55f-eq-XRW" id="NMW-1W-thW"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="111.83035714285714"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

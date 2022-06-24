@@ -11,44 +11,46 @@ class GameModel {
     var cards : [String]
     var otherPlayers : [PlayerModel]!
     var mainPlayer: PlayerModel!
-    let gameName: String
-    let gameId: Int
+    let roomName: String
+    let roomId: Int
     let isHost: Bool
     var indexSelectedCard: Int?
     var isModeVoteIssue: Bool?
+    var listIssues : [String] = []
+    var currentIssue : String!
     
-    init(gameName : String, gameId: Int, cards: [String], mainPlayer: PlayerModel, otherPlayers: [PlayerModel]) {
+    init(roomName : String, roomId: Int, cards: [String], mainPlayer: PlayerModel, otherPlayers: [PlayerModel]) {
         self.mainPlayer = mainPlayer
         self.otherPlayers = otherPlayers
-        self.gameId = gameId
-        self.gameName = gameName
+        self.roomId = roomId
+        self.roomName = roomName
         self.cards = cards
         self.isHost = mainPlayer.role == PlayerRole.host ? true : false
         self.indexSelectedCard = nil
         self.isModeVoteIssue = false
     }
     
-    func addPlayer(_ player: PlayerModel){
-        self.otherPlayers.append(player)
+    func addPlayer(player: PlayerModel){
+        otherPlayers.append(player)
     }
     
-    func removePlayer(_ player: PlayerModel){
+    func removePlayer(player: PlayerModel){
         guard let index = otherPlayers.firstIndex(where: {$0 === player}) else {
             return
         }
-        self.otherPlayers.remove(at: index)
+        otherPlayers.remove(at: index)
     }
     func updateAllMember(_ otherPlayers : [PlayerModel]){
         self.otherPlayers.removeAll()
         self.otherPlayers = otherPlayers
     }
     
-    func updateCard(_ index: Int){
-        self.indexSelectedCard = index
+    func updateCard(index: Int){
+        indexSelectedCard = index
     }
     
-    func updateModeVote(_ status: Bool){
-        self.isModeVoteIssue = status
+    func updateModeVote(status: Bool){
+        isModeVoteIssue = status
     }
     
     func isHostExisted() -> Bool {
@@ -66,6 +68,31 @@ class GameModel {
             }
         }
         return true
+    }
+    // handle other players
+    func isEmptyOtherPlayers() -> Bool {
+        return otherPlayers.isEmpty == true ? true : false
+    }
+    
+    
+    // handle issues
+    func isEmptyIssue() -> Bool {
+        return listIssues.isEmpty == true ? true : false
+    }
+    
+    func updateCurrentIssue(index: Int) {
+        currentIssue = listIssues[index]
+    }
+    
+    func getCurrentIssue(index: Int) -> String? {
+        guard listIssues[index] != nil else {
+            return ""
+        }
+        return listIssues[index]
+    }
+    func getDuplicateCard() -> [String]{
+        let duplicate = Array(Set(cards.filter({ (i: String) in cards.filter({ $0 == i }).count > 1})))
+        return duplicate
     }
     
     func revealCard() {

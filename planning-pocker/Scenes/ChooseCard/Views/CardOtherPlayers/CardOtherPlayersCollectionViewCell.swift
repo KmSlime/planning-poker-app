@@ -9,9 +9,9 @@ import UIKit
 
 class CardOtherPlayersCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var backCard: UIImageView!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
-    @IBOutlet weak var backCard: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,10 +20,9 @@ class CardOtherPlayersCollectionViewCell: UICollectionViewCell {
         numberLabel.text = name
     }
     func configSelect(isSelected: Bool){
-        backCard.layer.cornerRadius = 10.0
         numberLabel.textColor = UIColor.black
         cardImage.image = UIImage(named: "Card Icon.png")
-        backCard.backgroundColor = UIColor.grayColor()
+        backCard.image = UIImage(named: "backCard.png")
         if isSelected {
             backCard.isHidden = true
             cardImage.isHidden = false

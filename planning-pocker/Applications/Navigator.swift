@@ -10,6 +10,8 @@ import UIKit
 protocol Navigator {
     func pushToWelcomeScreen()
     func pushToSignInScreen(navi: UINavigationController?)
+    func pushToChooseCard(navi: UINavigationController?)
+    
 }
 
 extension AppViewController: Navigator {
@@ -22,4 +24,10 @@ extension AppViewController: Navigator {
         let vc = SignInViewController()
         navi?.pushViewController(vc, animated: true)
     }
+    
+    func pushToChooseCard(navi: UINavigationController?) {
+        let vc = ChooseCardViewController()
+        navi?.pushViewController(vc, animated: true)
+    }
+
 }

@@ -1,13 +1,13 @@
 //
-//  BoardInfoView.swift
+//  InviteModal.swift
 //  planning-pocker
 //
-//  Created by TPS on 06/23/22.
+//  Created by TPS on 06/24/22.
 //
 
 import UIKit
 
-class BoardInfoView: UIView {
+class InviteModal: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
