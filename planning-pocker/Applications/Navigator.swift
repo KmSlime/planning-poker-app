@@ -9,9 +9,12 @@ import UIKit
 
 protocol Navigator {
     func pushToWelcomeScreen()
+    func pushToChooseCard()
+    
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
+    func pushToInvitePlayer()
 }
 
 extension AppViewController: Navigator {
@@ -31,9 +34,19 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
+    func pushToChooseCard() {
+        let vc = ChooseCardViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     func pushToCreateNewGameScreen() {
         let createNewGameVC = CreateNewGameViewController()
         navigationController?.pushViewController(createNewGameVC, animated: true)
+    }
+    
+    func pushToInvitePlayer() {
+        let vc = InvitePlayerViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

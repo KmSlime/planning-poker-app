@@ -26,7 +26,7 @@ class WelcomeViewController: UIViewController {
         
         //mượn tạm Hiệp cái flow này 
 //        AppViewController.shared.pushToCreateNewGameScreen()
-        AppViewController.shared.pushToSignUpScreen()
+//        AppViewController.shared.pushToSignUpScreen()
         
     }
     
@@ -51,9 +51,16 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func onClickStartGameButton(_ sender: Any) {}
-
-    @IBAction func onClickLoginButton(_ sender: Any) {
-        AppViewController.shared.pushToSignInScreen()
+    
+    @IBAction func onClickStartGameButton(_ sender: Any) {
+        
+        AppViewController.shared.pushToChooseCard()
+        
     }
+    @IBAction func onClickLoginButton(_ sender: Any) {
+        
+        
+        AppViewController.shared.pushToSignInScreen()
+    
+}
 }
