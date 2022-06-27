@@ -48,7 +48,7 @@ class SignInViewController: UIViewController {
         
         if emailTextField.text != "" && passwordTextField.text != "" {
             
-            if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isValidPassword != nil {
+            if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isCorrectFormatPassword != nil {
                 
                 showAlert(title: "Notify", message: "Invalid email or password")
                 return true

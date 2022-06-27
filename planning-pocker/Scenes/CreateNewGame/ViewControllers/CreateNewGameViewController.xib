@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewGameViewController" customModule="planning_pocker" customModuleProvider="target">
+            <connections>
+                <outlet property="createGameButton" destination="Vdg-Ef-OoN" id="sme-sX-JRz"/>
+                <outlet property="dropdownButton" destination="CL4-HM-t9o" id="JBi-ba-ZKb"/>
+                <outlet property="gameNameTextField" destination="rqp-Bw-Qhp" id="z6Z-8n-YVH"/>
+                <outlet property="joinGameButton" destination="abl-w2-kiq" id="CEu-ln-RIG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="votingSystemTextField" destination="Tus-qg-zAc" id="tBE-1Z-fQa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tpssoft-logo-full-color" translatesAutoresizingMaskIntoConstraints="NO" id="O8Q-NU-9n0">
+                    <rect key="frame" x="109" y="142" width="159" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="158" id="RGA-6S-XfQ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a name and a voting system for your game" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-cQ-D79">
+                    <rect key="frame" x="46" y="227" width="284" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="0rk-MI-AzG"/>
+                        <constraint firstAttribute="width" constant="284" id="sd1-KF-ktw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
+                    <color key="textColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="ZQb-DC-s1p">
+                    <rect key="frame" x="24" y="289" width="328" height="130"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game's Name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rqp-Bw-Qhp">
+                            <rect key="frame" x="0.0" y="0.0" width="328" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="3Ym-bI-E2a"/>
+                                <constraint firstAttribute="width" constant="328" id="Q4L-yM-WSY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-mg-E4P">
+                            <rect key="frame" x="0.0" y="82" width="328" height="48"/>
+                            <subviews>
+                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display System voting" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Tus-qg-zAc">
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="48"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voting System" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-IZ-aph">
+                                    <rect key="frame" x="18" y="-10" width="102" height="20"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
+                                    <color key="textColor" systemColor="linkColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-HM-t9o">
+                                    <rect key="frame" x="291" y="12" width="24" height="24"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="icon_dropdown"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Su8-IZ-aph" secondAttribute="trailing" constant="208" id="6iy-G4-xWw"/>
+                                <constraint firstItem="CL4-HM-t9o" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="12" id="FGX-ZT-Jqv"/>
+                                <constraint firstItem="Su8-IZ-aph" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="-10" id="Mqb-sm-cIi"/>
+                                <constraint firstItem="Tus-qg-zAc" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" id="Nfi-Y2-hWd"/>
+                                <constraint firstAttribute="trailing" secondItem="CL4-HM-t9o" secondAttribute="trailing" constant="13" id="VE9-kY-7Pr"/>
+                                <constraint firstAttribute="bottom" secondItem="Su8-IZ-aph" secondAttribute="bottom" constant="38" id="aDv-xf-rSf"/>
+                                <constraint firstAttribute="bottom" secondItem="Tus-qg-zAc" secondAttribute="bottom" id="cq3-QZ-AXg"/>
+                                <constraint firstAttribute="height" constant="48" id="eDT-Sh-c5J"/>
+                                <constraint firstItem="Tus-qg-zAc" firstAttribute="leading" secondItem="4AY-mg-E4P" secondAttribute="leading" id="fmy-0n-9Tc"/>
+                                <constraint firstAttribute="width" constant="328" id="h8l-vj-SXn"/>
+                                <constraint firstAttribute="trailing" secondItem="Tus-qg-zAc" secondAttribute="trailing" id="lRf-1P-eV1"/>
+                                <constraint firstItem="Su8-IZ-aph" firstAttribute="leading" secondItem="4AY-mg-E4P" secondAttribute="leading" constant="18" id="sRz-dN-b13"/>
+                                <constraint firstAttribute="bottom" secondItem="CL4-HM-t9o" secondAttribute="bottom" constant="12" id="wkM-n8-5yC"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="rqp-Bw-Qhp" firstAttribute="top" secondItem="ZQb-DC-s1p" secondAttribute="top" id="QJE-UF-tQ9"/>
+                        <constraint firstAttribute="trailing" secondItem="rqp-Bw-Qhp" secondAttribute="trailing" id="YhS-5A-bTt"/>
+                        <constraint firstItem="rqp-Bw-Qhp" firstAttribute="leading" secondItem="ZQb-DC-s1p" secondAttribute="leading" id="hbL-kg-9oX"/>
+                        <constraint firstItem="4AY-mg-E4P" firstAttribute="top" secondItem="rqp-Bw-Qhp" secondAttribute="bottom" id="mBA-KF-9nk"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mBA-KF-9nk"/>
+                        </mask>
+                    </variation>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-Ef-OoN">
+                    <rect key="frame" x="24" y="515" width="328" height="48"/>
+                    <color key="backgroundColor" systemColor="linkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="iam-z4-1sk"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Create game">
+                        <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="createNewGame:" destination="-1" eventType="touchUpInside" id="CG2-bU-tZJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abl-w2-kiq">
+                    <rect key="frame" x="24" y="579" width="328" height="48"/>
+                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="F6Y-ec-8LE"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Join Game">
+                        <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
+                        <color key="baseForegroundColor" systemColor="tintColor"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O8Q-NU-9n0" secondAttribute="trailing" constant="108" id="65S-3w-alx"/>
+                <constraint firstItem="Vdg-Ef-OoN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="6vf-Kn-IpM"/>
+                <constraint firstItem="Vdg-Ef-OoN" firstAttribute="top" secondItem="ZQb-DC-s1p" secondAttribute="bottom" constant="96" id="BNo-hi-fMN"/>
+                <constraint firstItem="abl-w2-kiq" firstAttribute="top" secondItem="Vdg-Ef-OoN" secondAttribute="bottom" constant="16" id="F2k-UK-qEp"/>
+                <constraint firstItem="abl-w2-kiq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="FEn-j8-6sb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vdg-Ef-OoN" secondAttribute="trailing" constant="24" id="IGA-yj-IOo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="abl-w2-kiq" secondAttribute="trailing" constant="24" id="JQV-xa-Hai"/>
+                <constraint firstAttribute="trailing" secondItem="Uaj-cQ-D79" secondAttribute="trailing" constant="46" id="PIa-QU-O5s"/>
+                <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="ZGB-FP-yXn"/>
+                <constraint firstItem="ZQb-DC-s1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="aec-C7-DB2"/>
+                <constraint firstItem="ZQb-DC-s1p" firstAttribute="top" secondItem="Uaj-cQ-D79" secondAttribute="bottom" constant="18" id="cF2-L2-C4f"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQb-DC-s1p" secondAttribute="trailing" constant="24" id="d2I-kY-z5b"/>
+                <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="ihn-nD-v6o"/>
+                <constraint firstItem="O8Q-NU-9n0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="98" id="olD-6c-jI6"/>
+                <constraint firstItem="O8Q-NU-9n0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="109" id="pzG-8R-eIV"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_dropdown" width="24" height="24"/>
+        <image name="tpssoft-logo-full-color" width="158" height="39"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

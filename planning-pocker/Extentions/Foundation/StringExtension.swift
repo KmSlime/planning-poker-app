@@ -24,13 +24,6 @@ extension String {
             options: [],
             range: NSRange(location: 0, length: utf16.count)) != nil
     }
-    
-    var isValidEmail: Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,50}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPredicate.evaluate(with: self)
-    }
-    
     var isValidPhoneNumber: Bool {
         let types: NSTextCheckingResult.CheckingType = [.phoneNumber]
         guard let detector = try? NSDataDetector(types: types.rawValue) else { return false }
@@ -40,10 +33,28 @@ extension String {
             return false
         }
     }
-    
-    var isValidPassword: Bool {
-        let passRegEx = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,50}$"
-        let passPred = NSPredicate(format:"SELF MATCHES %@", passRegEx)
-        return passPred.evaluate(with: self)
+
+    //MARK: - CheckFormatEmail
+    var isValidEmail: Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPredicate.evaluate(with: self)
     }
+
+    //MARK: - CheckFormatPassword
+    var isCorrectFormatPassword: Bool {
+        let formatPasswordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*[0-9])[a-zA-Z0-9\\d@$!%*?&]{8,}$"
+        let formatPred = NSPredicate(format:"SELF MATCHES %@", formatPasswordRegEx)
+        return formatPred.evaluate(with: self)
+    }
+    
+    //MARK: - CheckMatch
+    func isFieldMatch(with compareValue: String) -> Bool {
+        let standValue = self
+        if standValue == compareValue {
+            return true
+        }
+        return false
+    }
+    
 }
