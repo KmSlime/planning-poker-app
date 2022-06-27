@@ -21,7 +21,7 @@ class ChooseCardViewController: UIViewController {
             boardInfo?.addSubview(boardInfoView)
             boardInfoView.frame = boardInfoView.superview!.bounds;
             boardInfoView.layer.cornerRadius = 8
-            changeBoardInfo()
+            setUpBoardInfo()
         }
     }
     @IBOutlet weak var listCardToSelect: UICollectionView!{
@@ -67,17 +67,17 @@ class ChooseCardViewController: UIViewController {
         
         let dataCard = ["0","1","2", "2","3","5","8","13","21","2","34","55","89","?"]
         let mainPlayer : PlayerModel = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
-        let otherPlayers : [PlayerModel] =
-        [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 3, name: "Player C", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 4, name: "Player D", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 5, name: "Player E", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
-        ]
-//        let otherPlayers : [PlayerModel] =  []
+//        let otherPlayers : [PlayerModel] =
+//        [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 3, name: "Player C", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 4, name: "Player D", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 5, name: "Player E", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
+//           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
+//        ]
+        let otherPlayers : [PlayerModel] =  []
         self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
         
         setUpView()
@@ -88,31 +88,53 @@ class ChooseCardViewController: UIViewController {
 
 
     // MARK: - Private
-    func setUpView() {
-        gameNameLabel.text = game.roomName
+    func setUpView() { // load view everytime data changed
+        setUpTitleRoom()
+        setUpTitleIssue(isShow: false)
+        setUpOtherPlayer()
         
-        // check other players in room, else show Invite player
+        
+    }
+    
+    func setUpTitleRoom() { // set room name
+        gameNameLabel.text = game.roomName
+    }
+    
+    func setUpTitleIssue(isShow : Bool) { // check game has issue or not, if not hidden issue name
+        if isShow {
+            issueNameLabel.isHidden = false
+            issueNameLabel.text = game.currentIssue
+        } else {
+            issueNameLabel.isHidden = true
+        }
+    }
+    
+    func setUpOtherPlayer() { // check other players in room, else show Invite player
         guard let foundEmptyList = groupOtherPlayers.viewWithTag(101),
               let foundList = groupOtherPlayers.viewWithTag(102)
         else {return}
         foundEmptyList.isHidden = (game.isEmptyOtherPlayers() == true ? false : true)
         foundList.isHidden =  (game.isEmptyOtherPlayers() == true ? true : false)
-        
     }
     
-    func changeBoardInfo() {
+    func setUpBoardInfo() {
         boardInfo.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
     }
 
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
+        
     }
+    
     @IBAction func leftMenuButton(_ sender: UIButton) {
 
-        
-        cardMainPlayer.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
     }
+    
+    @IBAction func invitePlayerButton(_ sender: UIButton) {
+        AppViewController.shared.pushToInvitePlayer()
+    }
+    
 }
 
 // MARK: - Extensions
@@ -158,7 +180,7 @@ extension ChooseCardViewController : UICollectionViewDelegate {
             selectedIndex = (game.cards[indexPath.row] == selectedIndex ? nil : game.cards[indexPath.row])
             listCardToSelect.reloadData()
             cardMainPlayer.reloadData()
-            changeBoardInfo()
+            setUpBoardInfo()
         }
     }
     

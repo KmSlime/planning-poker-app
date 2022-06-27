@@ -14,6 +14,7 @@ protocol Navigator {
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
+    func pushToInvitePlayer()
 }
 
 extension AppViewController: Navigator {
@@ -41,6 +42,11 @@ extension AppViewController: Navigator {
     func pushToCreateNewGameScreen() {
         let createNewGameVC = CreateNewGameViewController()
         navigationController?.pushViewController(createNewGameVC, animated: true)
+    }
+    
+    func pushToInvitePlayer() {
+        let vc = InvitePlayerViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

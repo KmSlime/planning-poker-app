@@ -23,8 +23,8 @@ class CardMainPlayerCollectionViewCell: UICollectionViewCell {
         numberLabel.text = name
     }
     func configSelect(isSelected: Bool){
-        cardImage.image = UIImage(named: "Card Icon.png")
-        backCard.image = UIImage(named: "backCard.png")
+        cardImage.image = UIImage(named: "icon_card.png")
+        backCard.image = UIImage(named: "icon_back_card.png")
         numberLabel.textColor = UIColor.black
         if isSelected {
             backCard.isHidden = true

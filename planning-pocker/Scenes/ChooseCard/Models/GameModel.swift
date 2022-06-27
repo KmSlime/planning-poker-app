@@ -30,26 +30,27 @@ class GameModel {
         self.isModeVoteIssue = false
     }
     
-    func addPlayer(player: PlayerModel){
+    func addPlayer(player: PlayerModel) {
         otherPlayers.append(player)
     }
     
-    func removePlayer(player: PlayerModel){
+    func removePlayer(player: PlayerModel) {
         guard let index = otherPlayers.firstIndex(where: {$0 === player}) else {
             return
         }
         otherPlayers.remove(at: index)
     }
-    func updateAllMember(_ otherPlayers : [PlayerModel]){
+    
+    func updateAllMember(_ otherPlayers : [PlayerModel]) {
         self.otherPlayers.removeAll()
         self.otherPlayers = otherPlayers
     }
     
-    func updateCard(index: Int){
+    func updateCard(index: Int) {
         indexSelectedCard = index
     }
     
-    func updateModeVote(status: Bool){
+    func updateModeVote(status: Bool) {
         isModeVoteIssue = status
     }
     
@@ -61,7 +62,8 @@ class GameModel {
         }
         return true
     }
-    func checkAllMemberVote() -> Bool{
+    
+    func checkAllMemberVote() -> Bool {
         for member in otherPlayers {
             if member.vote == nil {
                 return false
@@ -69,11 +71,11 @@ class GameModel {
         }
         return true
     }
+    
     // handle other players
     func isEmptyOtherPlayers() -> Bool {
         return otherPlayers.isEmpty == true ? true : false
     }
-    
     
     // handle issues
     func isEmptyIssue() -> Bool {
@@ -84,13 +86,7 @@ class GameModel {
         currentIssue = listIssues[index]
     }
     
-    func getCurrentIssue(index: Int) -> String? {
-        guard listIssues[index] != nil else {
-            return ""
-        }
-        return listIssues[index]
-    }
-    func getDuplicateCard() -> [String]{
+    func getDuplicateCard() -> [String] {
         let duplicate = Array(Set(cards.filter({ (i: String) in cards.filter({ $0 == i }).count > 1})))
         return duplicate
     }
@@ -101,7 +97,6 @@ class GameModel {
         } else {
             resetAllCard()
         }
-        
     }
     
     func resetAllCard() {
@@ -110,8 +105,4 @@ class GameModel {
             member.vote = nil
         }
     }
-    
-    
-    
-    
 }

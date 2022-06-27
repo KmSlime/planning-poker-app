@@ -47,9 +47,7 @@
 		6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86128644B38008A6715 /* Poppins-MediumItalic.ttf */; };
 		6051A87228644E3F008A6715 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */; };
 		6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */; };
-		60B6C9F52861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		60B6C9F72861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		60B6C9F92861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		60C82C4928644771002E2DC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4428644771002E2DC2 /* User.swift */; };
 		60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4628644771002E2DC2 /* SignUpViewController.swift */; };
 		60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C82C4728644771002E2DC2 /* SignUpViewController.xib */; };
@@ -59,6 +57,8 @@
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
+		94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC624E28695AC20029674B /* InvitePlayerViewController.swift */; };
+		94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC624F28695AC20029674B /* InvitePlayerViewController.xib */; };
 		BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D6A2864085500A14A37 /* PlayerModel.swift */; };
 		BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA084D6D2864169B00A14A37 /* BoardInfoView.xib */; };
 		BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D71286416F800A14A37 /* BoardInfoView.swift */; };
@@ -69,8 +69,6 @@
 		BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */; };
 		BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */; };
 		BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE11C2862F9AA00779BE3 /* GameModel.swift */; };
-		BAA10BDC2865BA98003F4BDC /* InviteModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA10BDB2865BA98003F4BDC /* InviteModal.xib */; };
-		BAA10BDE2865BAB0003F4BDC /* InviteModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA10BDD2865BAB0003F4BDC /* InviteModal.swift */; };
 		BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */; };
 		BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */; };
 		BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */; };
@@ -124,6 +122,8 @@
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		94CC624E28695AC20029674B /* InvitePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayerViewController.swift; sourceTree = "<group>"; };
+		94CC624F28695AC20029674B /* InvitePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayerViewController.xib; sourceTree = "<group>"; };
 		BA084D6A2864085500A14A37 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		BA084D6D2864169B00A14A37 /* BoardInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardInfoView.xib; sourceTree = "<group>"; };
 		BA084D71286416F800A14A37 /* BoardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfoView.swift; sourceTree = "<group>"; };
@@ -134,8 +134,6 @@
 		BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardOtherPlayersCollectionViewCell.xib; sourceTree = "<group>"; };
 		BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BA3FE11C2862F9AA00779BE3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
-		BAA10BDB2865BA98003F4BDC /* InviteModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteModal.xib; sourceTree = "<group>"; };
-		BAA10BDD2865BAB0003F4BDC /* InviteModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteModal.swift; sourceTree = "<group>"; };
 		BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCardViewController.swift; sourceTree = "<group>"; };
 		BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCardViewController.xib; sourceTree = "<group>"; };
 		BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -259,8 +257,8 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				94CC624A28695A7A0029674B /* Invite Player */,
 				BAD51B262861B50D002961A7 /* ChooseCard */,
-				9146BC93286306AB001D4B7B /* SignIn */,
 				6051A86C28644E3E008A6715 /* CreateNewGame */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				9146BC93286306AB001D4B7B /* SignIn */,
@@ -489,6 +487,39 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		94CC624A28695A7A0029674B /* Invite Player */ = {
+			isa = PBXGroup;
+			children = (
+				94CC624D28695A9D0029674B /* Views */,
+				94CC624C28695A8F0029674B /* ViewControllers */,
+				94CC624B28695A840029674B /* Models */,
+			);
+			path = "Invite Player";
+			sourceTree = "<group>";
+		};
+		94CC624B28695A840029674B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		94CC624C28695A8F0029674B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				94CC624E28695AC20029674B /* InvitePlayerViewController.swift */,
+				94CC624F28695AC20029674B /* InvitePlayerViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94CC624D28695A9D0029674B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BA084D6C2864168A00A14A37 /* Board Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,15 +554,6 @@
 				BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */,
 			);
 			path = CardOtherPlayers;
-			sourceTree = "<group>";
-		};
-		BAA10BDA2865BA74003F4BDC /* InviteModal */ = {
-			isa = PBXGroup;
-			children = (
-				BAA10BDB2865BA98003F4BDC /* InviteModal.xib */,
-				BAA10BDD2865BAB0003F4BDC /* InviteModal.swift */,
-			);
-			path = InviteModal;
 			sourceTree = "<group>";
 		};
 		BAD0E0C62864412800D2C920 /* Recovered References */ = {
@@ -573,7 +595,6 @@
 		BAD51B2B2861B50D002961A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BAA10BDA2865BA74003F4BDC /* InviteModal */,
 				BA084D6C2864168A00A14A37 /* Board Info */,
 				BA3FE1112862C3A000779BE3 /* CardOtherPlayers */,
 				BA3FE1102862C38400779BE3 /* CardMainPlayer */,
@@ -670,7 +691,6 @@
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
-				BAA10BDC2865BA98003F4BDC /* InviteModal.xib in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
 				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
 				9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */,
@@ -681,6 +701,7 @@
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
+				94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */,
 				6051A86328644B38008A6715 /* Poppins-Medium.ttf in Resources */,
 				6051A86228644B38008A6715 /* Poppins-Light.ttf in Resources */,
 				60B6C9F72861B8BC00DC3270 /* (null) in Resources */,
@@ -757,7 +778,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */,
-				BAA10BDE2865BAB0003F4BDC /* InviteModal.swift in Sources */,
 				0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */,
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
@@ -772,6 +792,7 @@
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
+				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
 				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
 				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,

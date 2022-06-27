@@ -44,7 +44,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5R-J6-S9X">
                             <rect key="frame" x="259" y="25" width="41" height="39"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="List Issue Button"/>
+                            <state key="normal" image="icon_list_issue"/>
                             <connections>
                                 <action selector="listIssueButton:" destination="-1" eventType="touchUpInside" id="MGM-Zx-Yho"/>
                             </connections>
@@ -68,6 +68,9 @@
                                                     <rect key="frame" x="0.0" y="46" width="280" height="46.5"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Invite players"/>
+                                                    <connections>
+                                                        <action selector="invitePlayerButton:" destination="-1" eventType="touchUpInside" id="Ju2-Vl-hbJ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -109,7 +112,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0h-Hd-2Co">
                             <rect key="frame" x="20" y="25" width="32" height="32"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="Left Menu Icon"/>
+                            <state key="normal" image=" icon_left_menu"/>
                             <connections>
                                 <action selector="leftMenuButton:" destination="-1" eventType="touchUpInside" id="Z6o-fM-lrq"/>
                             </connections>
@@ -169,8 +172,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Left Menu Icon" width="32" height="32"/>
-        <image name="List Issue Button" width="41" height="39"/>
+        <image name=" icon_left_menu" width="32" height="32"/>
+        <image name="icon_list_issue" width="41" height="39"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

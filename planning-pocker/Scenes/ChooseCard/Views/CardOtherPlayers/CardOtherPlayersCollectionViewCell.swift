@@ -21,8 +21,8 @@ class CardOtherPlayersCollectionViewCell: UICollectionViewCell {
     }
     func configSelect(isSelected: Bool){
         numberLabel.textColor = UIColor.black
-        cardImage.image = UIImage(named: "Card Icon.png")
-        backCard.image = UIImage(named: "backCard.png")
+        cardImage.image = UIImage(named: "icon_card.png")
+        backCard.image = UIImage(named: "icon_back_card.png")
         if isSelected {
             backCard.isHidden = true
             cardImage.isHidden = false

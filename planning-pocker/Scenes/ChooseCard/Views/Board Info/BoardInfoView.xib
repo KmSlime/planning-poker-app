@@ -17,7 +17,7 @@
                 <stackView opaque="NO" tag="101" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Z8-EC-2ar">
                     <rect key="frame" x="10" y="54" width="660" height="334"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pocker Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qul-d3-Oe3">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pocker" translatesAutoresizingMaskIntoConstraints="NO" id="Qul-d3-Oe3">
                             <rect key="frame" x="0.0" y="0.0" width="660" height="200.5"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your cards!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGP-Vy-rUs">
@@ -71,6 +71,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Pocker Icon" width="54" height="55"/>
+        <image name="icon_pocker" width="54" height="55"/>
     </resources>
 </document>
