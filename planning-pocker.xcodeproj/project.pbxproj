@@ -14,6 +14,7 @@
 		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
 		155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */; };
 		155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */; };
+		15BB2952286B18C10062A8E9 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB2951286B18C10062A8E9 /* Issue.swift */; };
 		15C35FA3286AB693001085AB /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */; };
 		15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */; };
 		15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */; };
@@ -91,6 +92,7 @@
 		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
 		155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
 		155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
+		15BB2951286B18C10062A8E9 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		155264E5286B154F0038ABDF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				15BB2951286B18C10062A8E9 /* Issue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
 				94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */,
+				15BB2952286B18C10062A8E9 /* Issue.swift in Sources */,
 				15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
 				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
