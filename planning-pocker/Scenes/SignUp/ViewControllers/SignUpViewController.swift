@@ -34,7 +34,6 @@ class SignUpViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.becomeFirstResponader()
         setupUI()
 
     }

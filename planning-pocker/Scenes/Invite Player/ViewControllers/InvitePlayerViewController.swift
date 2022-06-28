@@ -28,8 +28,8 @@ class InvitePlayerViewController: UIViewController {
             return
         }
         let snackBarMsg = MDCSnackbarMessage()
-        snackBarMsg.text = "Copied sucessful"
-        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#4BB543")
+        snackBarMsg.text = "Copy to clipboard sucessfully"
+        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#155724")
         MDCSnackbarManager.default.show(snackBarMsg)
     }
     override func viewDidLoad() {
