@@ -132,7 +132,7 @@ class ChooseCardViewController: UIViewController {
     }
     
     @IBAction func invitePlayerButton(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayer()
+        AppViewController.shared.pushToInvitePlayerScreen()
     }
     
 }

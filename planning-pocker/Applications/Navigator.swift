@@ -14,9 +14,12 @@ protocol Navigator {
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
-    func pushToChooseCard()
-    func pushToInvitePlayer()
+    func pushToChooseCardScreen()
+    func pushToInvitePlayerScreen()
     func pushToCreateIssue()
+    func pushToShowIssueListScreen()
+    func pushToEditIssueScreen()
+    func pushToLeftMenu()
 
 
     //MARK: - POP
@@ -44,7 +47,7 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
-    func pushToChooseCard() {
+    func pushToChooseCardScreen() {
         let vc = ChooseCardViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -54,7 +57,7 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
     
-    func pushToInvitePlayer() {
+    func pushToInvitePlayerScreen() {
         let vc = InvitePlayerViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -62,6 +65,18 @@ extension AppViewController: Navigator {
     func pushToCreateIssue() {
         let vc = CreateIssueViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushToShowIssueListScreen() {
+        
+    }
+    
+    func pushToEditIssueScreen() {
+        
+    }
+    
+    func pushToLeftMenu() {
+        
     }
 
     
