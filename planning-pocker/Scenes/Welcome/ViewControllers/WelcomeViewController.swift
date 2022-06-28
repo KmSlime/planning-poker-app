@@ -32,7 +32,6 @@ class WelcomeViewController: UIViewController {
             //Hiệp sài cái này để lấy thông tin user
             print(user.id)
         } else { print("nil cmnr") }
-
     }
     
     // MARK: - Publics

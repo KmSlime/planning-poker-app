@@ -24,9 +24,7 @@ class User{
     
     
     public var id: Int {
-        get {
-            return self.userId
-        }
+        self.userId
     }
     
     public var email:  String {
