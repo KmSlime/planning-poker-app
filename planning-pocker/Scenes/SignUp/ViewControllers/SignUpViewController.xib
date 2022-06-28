@@ -25,11 +25,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="SignInLabel" destination="EkZ-Ci-dic" id="gHC-Hw-3gX"/>
                 <outlet property="emailTextField" destination="K6b-qb-Y8e" id="ptn-7Q-Oqu"/>
                 <outlet property="fullNameTextField" destination="xhA-cD-2Ku" id="Vzs-Td-bcv"/>
                 <outlet property="passwordTextField" destination="TCm-Jd-KMV" id="LJp-E3-oTr"/>
                 <outlet property="rePasswordTextField" destination="rKC-Lx-bEn" id="eaX-OO-ICY"/>
+                <outlet property="signInLabel" destination="EkZ-Ci-dic" id="UF4-Wa-mZW"/>
+                <outlet property="signUpButton" destination="0U8-2X-A5s" id="cKi-3r-TVH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

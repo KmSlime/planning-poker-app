@@ -8,33 +8,22 @@
 import UIKit
 
 protocol Navigator {
-<<<<<<< HEAD
-        
-        //MARK: - PUSH
-=======
     
     //MARK: - PUSH
->>>>>>> sprint1
     func pushToWelcomeScreen(user: User?)
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
-    func pushToIssueListScreen()
-<<<<<<< HEAD
-    func pushToInvitePlayer()
-    func pushToChooseCard()
-
-        //MARK: - POP
-        func popToPreviousScreen()
-=======
-    func pushToChooseCard()
-    func pushToInvitePlayer()
-
+    func pushToChooseCardScreen()
+    func pushToInvitePlayerScreen()
+    func pushToCreateIssue()
+    func pushToShowIssueListScreen()
+    func pushToEditIssueScreen()
+    func pushToLeftMenu()
 
     //MARK: - POP
     //    func pushToChooseCardScreen()
     func popToPreviousScreen()
->>>>>>> sprint1
 }
 
  
@@ -57,7 +46,7 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
-    func pushToChooseCard() {
+    func pushToChooseCardScreen() {
         let vc = ChooseCardViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -67,37 +56,28 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
     
-    func pushToInvitePlayer() {
+    func pushToInvitePlayerScreen() {
         let vc = InvitePlayerViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    func pushToIssueListScreen() {
+    func pushToCreateIssue() {
+        let vc = CreateIssueViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushToShowIssueListScreen() {
         let issueListVC = IssuesListViewController()
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     
-<<<<<<< HEAD
-    func pushToIssueListScreen() {
-        let issueListVC = IssuesListViewController()
-        navigationController?.pushViewController(issueListVC, animated: true)
+    func pushToEditIssueScreen() {
+        
     }
     
-    //    func pushToChooseCardScreen() {
-    //        let chooseCardVC = ChooseCardViewController()
-    //        navigationController?.pushViewController(chooseCardVC, animated: true)
-    //    }
-    
-    //MARK: - POP ACTION
-    func popToPreviousScreen() {
-        navigationController?.popViewController(animated: true)
+    func pushToLeftMenu() {
+        
     }
-=======
-//    func pushToChooseCardScreen() {
-//        let chooseCardVC = ChooseCardViewController()
-//        navigationController?.pushViewController(chooseCardVC, animated: true)
-//    }
->>>>>>> sprint1
     
     //MARK: - POP ACTION
     func popToPreviousScreen() {

@@ -67,17 +67,17 @@ class ChooseCardViewController: UIViewController {
         
         let dataCard = ["0","1","2", "2","3","5","8","13","21","2","34","55","89","?"]
         let mainPlayer : PlayerModel = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
-//        let otherPlayers : [PlayerModel] =
-//        [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 3, name: "Player C", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 4, name: "Player D", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 5, name: "Player E", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
-//           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
-//        ]
-        let otherPlayers : [PlayerModel] =  []
+        let otherPlayers : [PlayerModel] =
+        [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 3, name: "Player C", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 4, name: "Player D", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 5, name: "Player E", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
+           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
+        ]
+//        let otherPlayers : [PlayerModel] =  []
         self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
         
         setUpView()
@@ -124,7 +124,7 @@ class ChooseCardViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
-        
+        AppViewController.shared.pushToCreateIssue()
     }
     
     @IBAction func leftMenuButton(_ sender: UIButton) {
@@ -132,7 +132,7 @@ class ChooseCardViewController: UIViewController {
     }
     
     @IBAction func invitePlayerButton(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayer()
+        AppViewController.shared.pushToInvitePlayerScreen()
     }
     
 }

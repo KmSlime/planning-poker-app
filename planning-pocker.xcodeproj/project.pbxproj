@@ -10,12 +10,12 @@
 		0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FB2862E8E4002290E6 /* UserStore.swift */; };
 		0E17A3FE2862E980002290E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FD2862E980002290E6 /* Constants.swift */; };
 		0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7D1382862CA7900E8F787 /* AppUrls.swift */; };
+		155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264E7286B154F0038ABDF /* IssuesListViewController.swift */; };
+		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
+		155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */; };
+		155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */; };
 		15C35FA3286AB693001085AB /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */; };
 		15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */; };
-		15C35FAD286AB726001085AB /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FA8286AB726001085AB /* IssuesListViewController.swift */; };
-		15C35FAE286AB726001085AB /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C35FA9286AB726001085AB /* IssuesListViewController.xib */; };
-		15C35FAF286AB726001085AB /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FAB286AB726001085AB /* IssueItemTableViewCell.swift */; };
-		15C35FB0286AB726001085AB /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C35FAC286AB726001085AB /* IssueItemTableViewCell.xib */; };
 		15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */; };
 		1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902CF3E2861ABE700E27B00 /* AppViewController.swift */; };
 		1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99028608C8800EEF365 /* AppDelegate.swift */; };
@@ -64,6 +64,8 @@
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
 		94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC624E28695AC20029674B /* InvitePlayerViewController.swift */; };
 		94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC624F28695AC20029674B /* InvitePlayerViewController.xib */; };
+		94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */; };
+		94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */; };
 		BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D6A2864085500A14A37 /* PlayerModel.swift */; };
 		BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA084D6D2864169B00A14A37 /* BoardInfoView.xib */; };
 		BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D71286416F800A14A37 /* BoardInfoView.swift */; };
@@ -85,13 +87,14 @@
 		0E17A3FB2862E8E4002290E6 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		0E17A3FD2862E980002290E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0EF7D1382862CA7900E8F787 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
+		155264E7286B154F0038ABDF /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
+		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
+		155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
+		155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
 		15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
-		15C35FA8286AB726001085AB /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
-		15C35FA9286AB726001085AB /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
-		15C35FAB286AB726001085AB /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
-		15C35FAC286AB726001085AB /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
 		15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		15C35FB4286AD8B8001085AB /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		1902CF3E2861ABE700E27B00 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		1905F98D28608C8800EEF365 /* planning-pocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "planning-pocker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1905F99028608C8800EEF365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		94CC624E28695AC20029674B /* InvitePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayerViewController.swift; sourceTree = "<group>"; };
 		94CC624F28695AC20029674B /* InvitePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayerViewController.xib; sourceTree = "<group>"; };
+		94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIssueViewController.swift; sourceTree = "<group>"; };
+		94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateIssueViewController.xib; sourceTree = "<group>"; };
 		BA084D6A2864085500A14A37 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		BA084D6D2864169B00A14A37 /* BoardInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardInfoView.xib; sourceTree = "<group>"; };
 		BA084D71286416F800A14A37 /* BoardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfoView.swift; sourceTree = "<group>"; };
@@ -177,6 +182,41 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		155264E4286B154F0038ABDF /* IssuesList */ = {
+			isa = PBXGroup;
+			children = (
+				155264E5286B154F0038ABDF /* Models */,
+				155264E6286B154F0038ABDF /* ViewControllers */,
+				155264E9286B154F0038ABDF /* Views */,
+			);
+			path = IssuesList;
+			sourceTree = "<group>";
+		};
+		155264E5286B154F0038ABDF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		155264E6286B154F0038ABDF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				155264E7286B154F0038ABDF /* IssuesListViewController.swift */,
+				155264E8286B154F0038ABDF /* IssuesListViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		155264E9286B154F0038ABDF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */,
+				155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		15C35F9D286AB693001085AB /* CreateNewGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,42 +246,6 @@
 		15C35FA2286AB693001085AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		15C35FA5286AB726001085AB /* IssuesList */ = {
-			isa = PBXGroup;
-			children = (
-				15C35FA6286AB726001085AB /* Models */,
-				15C35FA7286AB726001085AB /* ViewControllers */,
-				15C35FAA286AB726001085AB /* Views */,
-			);
-			name = IssuesList;
-			path = "../../../../planning-pocker sprint sai/ios-planning-poker/planning-pocker/Scenes/IssuesList";
-			sourceTree = "<group>";
-		};
-		15C35FA6286AB726001085AB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		15C35FA7286AB726001085AB /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				15C35FA8286AB726001085AB /* IssuesListViewController.swift */,
-				15C35FA9286AB726001085AB /* IssuesListViewController.xib */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		15C35FAA286AB726001085AB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				15C35FAB286AB726001085AB /* IssueItemTableViewCell.swift */,
-				15C35FAC286AB726001085AB /* IssueItemTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,7 +349,8 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				15C35FA5286AB726001085AB /* IssuesList */,
+				155264E4286B154F0038ABDF /* IssuesList */,
+				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
 				94CC624A28695A7A0029674B /* Invite Player */,
 				BAD51B262861B50D002961A7 /* ChooseCard */,
@@ -576,6 +581,39 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		94CC625F286A9BE70029674B /* CreateIssue */ = {
+			isa = PBXGroup;
+			children = (
+				94CC6262286A9C440029674B /* Models */,
+				94CC6261286A9C3F0029674B /* Views */,
+				94CC6260286A9C350029674B /* ViewControllers */,
+			);
+			path = CreateIssue;
+			sourceTree = "<group>";
+		};
+		94CC6260286A9C350029674B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */,
+				94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94CC6261286A9C3F0029674B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94CC6262286A9C440029674B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BA084D6C2864168A00A14A37 /* Board Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				BA3FE10D2862BC9D00779BE3 /* UIColor.swift */,
+				15C35FB4286AD8B8001085AB /* Issue.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -746,16 +785,17 @@
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
-				15C35FAE286AB726001085AB /* IssuesListViewController.xib in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
-				15C35FB0286AB726001085AB /* IssueItemTableViewCell.xib in Resources */,
 				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
 				9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */,
+				94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */,
 				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
+				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
+				155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */,
@@ -843,12 +883,13 @@
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
 				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
+				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
 				0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
-				15C35FAF286AB726001085AB /* IssueItemTableViewCell.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
+				94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */,
 				15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
 				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
@@ -860,8 +901,8 @@
 				BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */,
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
 				BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */,
-				15C35FAD286AB726001085AB /* IssuesListViewController.swift in Sources */,
 				BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */,
+				155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
@@ -1012,7 +1053,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6NVR2826P;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1043,7 +1084,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6NVR2826P;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
