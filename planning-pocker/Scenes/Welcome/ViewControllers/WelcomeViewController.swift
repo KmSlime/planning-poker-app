@@ -38,6 +38,10 @@ class WelcomeViewController: UIViewController {
 //        AppViewController.shared.pushToIssueListScreen()
 
         
+        //mượn tạm Hiệp cái flow này
+        AppViewController.shared.pushToCreateNewGameScreen()
+        //        AppViewController.shared.pushToSignUpScreen()
+//                AppViewController.shared.pushToIssueListScreen()
     }
     
     // MARK: - Publics
@@ -46,6 +50,7 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Private
 
+    
     
     private func SetUpUI() {
         // set properties for Login Button
@@ -74,6 +79,6 @@ class WelcomeViewController: UIViewController {
         
         
         AppViewController.shared.pushToSignInScreen()
-    
-}
+        
+    }
 }

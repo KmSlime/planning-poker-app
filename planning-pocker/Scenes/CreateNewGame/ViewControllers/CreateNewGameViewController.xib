@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tpssoft-logo-full-color" translatesAutoresizingMaskIntoConstraints="NO" id="O8Q-NU-9n0">
-                    <rect key="frame" x="109" y="142" width="159" height="39"/>
+                    <rect key="frame" x="109" y="142" width="197" height="39"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="158" id="RGA-6S-XfQ"/>
                     </constraints>
@@ -46,10 +46,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="ZQb-DC-s1p">
-                    <rect key="frame" x="24" y="289" width="328" height="130"/>
+                    <rect key="frame" x="24" y="289" width="366" height="130"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game's Name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rqp-Bw-Qhp">
-                            <rect key="frame" x="0.0" y="0.0" width="328" height="48"/>
+                            <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="3Ym-bI-E2a"/>
                                 <constraint firstAttribute="width" constant="328" id="Q4L-yM-WSY"/>
@@ -64,10 +64,10 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-mg-E4P">
-                            <rect key="frame" x="0.0" y="82" width="328" height="48"/>
+                            <rect key="frame" x="0.0" y="82" width="366" height="48"/>
                             <subviews>
                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display System voting" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Tus-qg-zAc">
-                                    <rect key="frame" x="0.0" y="0.0" width="328" height="48"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
@@ -78,7 +78,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voting System" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-IZ-aph">
-                                    <rect key="frame" x="18" y="-10" width="102" height="20"/>
+                                    <rect key="frame" x="18" y="-10" width="140" height="20"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                                     <color key="textColor" systemColor="linkColor"/>
@@ -86,9 +86,12 @@
                                     <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-HM-t9o">
-                                    <rect key="frame" x="291" y="12" width="24" height="24"/>
+                                    <rect key="frame" x="329" y="12" width="24" height="24"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="icon_dropdown"/>
+                                    <connections>
+                                        <action selector="showDropdownList:" destination="-1" eventType="touchUpInside" id="g5e-VU-KcD"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -122,7 +125,7 @@
                     </variation>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-Ef-OoN">
-                    <rect key="frame" x="24" y="515" width="328" height="48"/>
+                    <rect key="frame" x="24" y="515" width="366" height="48"/>
                     <color key="backgroundColor" systemColor="linkColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="iam-z4-1sk"/>
@@ -143,8 +146,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abl-w2-kiq">
-                    <rect key="frame" x="24" y="579" width="328" height="48"/>
-                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                    <rect key="frame" x="24" y="579" width="366" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="F6Y-ec-8LE"/>
                     </constraints>
@@ -157,6 +159,12 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" systemColor="linkColor"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
@@ -191,9 +199,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
