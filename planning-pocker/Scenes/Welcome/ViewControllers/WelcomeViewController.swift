@@ -14,6 +14,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var startPokerPlainningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     
+    
+    
     // MARK: - Properties
     var user: User!
     
@@ -57,11 +59,43 @@ class WelcomeViewController: UIViewController {
     }
     
     // MARK: - Actions
+    // For DELETE
+    @IBAction func createNewGame(_ sender: UIButton) {
+        AppViewController.shared.pushToCreateNewGameScreen()
+    }
+    
+    @IBAction func chooseCard(_ sender: UIButton) {
+        AppViewController.shared.pushToChooseCardScreen()
+    }
+    
+    @IBAction func signUp(_ sender: UIButton) {
+        AppViewController.shared.pushToSignUpScreen()
+    }
+    @IBAction func signIn(_ sender: UIButton) {
+        AppViewController.shared.pushToSignInScreen()
+    }
+    @IBAction func showIssueList(_ sender: UIButton) {
+        AppViewController.shared.pushToShowIssueListScreen()
+    }
+    @IBAction func createIssue(_ sender: UIButton) {
+        AppViewController.shared.pushToCreateIssue()
+    }
+    @IBAction func invitePlayer(_ sender: UIButton) {
+        AppViewController.shared.pushToInvitePlayerScreen()
+    }
+    @IBAction func editIssue(_ sender: UIButton) {
+        AppViewController.shared.pushToEditIssueScreen()
+    }
+    @IBAction func leftMenu(_ sender: UIButton) {
+        AppViewController.shared.pushToLeftMenu()
+    }
+    
+    
     
     
     @IBAction func onClickStartGameButton(_ sender: Any) {
         
-        AppViewController.shared.pushToChooseCard()
+        AppViewController.shared.pushToChooseCardScreen()
         
     }
     @IBAction func onClickLoginButton(_ sender: Any) {
