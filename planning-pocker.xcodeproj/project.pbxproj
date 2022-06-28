@@ -246,12 +246,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		15C35FB1286ABA12001085AB /* TextField */ = {
+		15C35FB1286ABA12001085AB /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
 				15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */,
 			);
-			path = TextField;
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		1905F98428608C8800EEF365 = {
@@ -299,9 +299,9 @@
 		602CDB4A28615B6000E2EA30 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				15C35FB1286ABA12001085AB /* TextField */,
 				602CDB6C28615C1500E2EA30 /* Foundation */,
 				602CDB6A28615C1500E2EA30 /* UIColor */,
+				15C35FB1286ABA12001085AB /* UITextField */,
 				602CDB6D28615C1500E2EA30 /* UIView */,
 				9146BC9B28631768001D4B7B /* UIViewController */,
 			);

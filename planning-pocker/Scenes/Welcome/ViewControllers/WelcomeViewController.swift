@@ -33,9 +33,9 @@ class WelcomeViewController: UIViewController {
         
         
         //mượn tạm Hiệp cái flow này
-        AppViewController.shared.pushToCreateNewGameScreen()
+//        AppViewController.shared.pushToCreateNewGameScreen()
         //        AppViewController.shared.pushToSignUpScreen()
-//                AppViewController.shared.pushToIssueListScreen()
+                AppViewController.shared.pushToIssueListScreen()
     }
     
     // MARK: - Publics
