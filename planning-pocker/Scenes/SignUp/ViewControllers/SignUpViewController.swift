@@ -16,13 +16,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var rePasswordTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var signInLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
     
     // MARK: - Properties
     var messages: String?
     var status: Bool?
     var textFieldName: String?
     let arrayEmailValid: [String] = ["lala@gmail.com","lele@exit.com"] //TEST, sau thay dòng này bằng array API
-    
+
+    var newUser: User!
+    var testSentData: String = "lalala gui sang welcome"
+//
     // MARK: - Overrides
     
     
@@ -30,23 +34,17 @@ class SignUpViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.becomeFirstResponder()
-        
+        emailTextField.becomeFirstResponader()
+        setupUI()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        onClickSignInButton()
+        
     }
     
     
     // MARK: - Publics
-    func onClickSignInButton(){
-        let signInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
-        signInLabel.isUserInteractionEnabled = true
-        signInLabel.addGestureRecognizer(signInLabelOnClick)
-    }
-    
     @objc func backToSignIn(recognizer:UIGestureRecognizer) {
         if recognizer.state == .ended {
             AppViewController.shared.pushToSignInScreen()
@@ -54,18 +52,59 @@ class SignUpViewController: UIViewController {
     }
 
     //MARK: - SENDING DATA TO BE - HAVEN'T DONE YET
-    func register(){
-//        let user = User(id: nil, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
-        
-        //MARK: - api sending data to BE
-        
-    }
+//    func register() -> User {
+////        guard let emailTextField.text != nil && passwordTextField.text != nil && fullNameTextField.text != nil else { return nil }
+////
+//
+//
+//        //MARK: - api sending data to BE
+//    }
+//
     
     // MARK: - Private
+    
+    
+    
+    //MARK: - Setup UI
     private func setupUI(){
+        
+        //font
+        emailTextField.font = UIFont(name: "Poppins-Medium", size: 16.0)
+        passwordTextField.font = UIFont(name: "Poppins-Medium", size: 16.0)
+        rePasswordTextField.font = UIFont(name: "Poppins-Medium", size: 16.0)
+        fullNameTextField.font = UIFont(name: "Poppins-Medium", size: 16.0)
+        
+        //color
+        signInLabel.textColor = UIColor.blueTextColor
+        signUpButton.backgroundColor = UIColor.blueButtonColor
+        emailTextField.layer.borderColor = UIColor.textFieldBorderColor
+        passwordTextField.layer.borderColor = UIColor.textFieldBorderColor
+        rePasswordTextField.layer.borderColor = UIColor.textFieldBorderColor
+        fullNameTextField.layer.borderColor = UIColor.textFieldBorderColor
+        
+        //style
+        passwordTextField.layer.borderWidth = 1
+        emailTextField.layer.borderWidth = 1
+        rePasswordTextField.layer.borderWidth = 1
+        fullNameTextField.layer.borderWidth = 1
+        
+        //attribute
+        passwordTextField.layer.cornerRadius = 4
+        emailTextField.layer.cornerRadius = 4
+        rePasswordTextField.layer.cornerRadius = 4
+        fullNameTextField.layer.cornerRadius = 4
+        
+        //other
+        navigationItem.hidesBackButton = true
     
     }
-
+    
+    private func onClickSignInButton() {
+        let signInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
+        signInLabel.isUserInteractionEnabled = true
+        signInLabel.addGestureRecognizer(signInLabelOnClick)
+    }
+    
    
     // MARK: - Actions
     @IBAction func signUp(_ sender: UIButton) {
@@ -74,8 +113,8 @@ class SignUpViewController: UIViewController {
             let message = hasErrorStatus().messages
             showAlert(title: title, message: message)
         } else {
-            register()
-            AppViewController.shared.pushToCreateNewGameScreen()
+            newUser = User(id: arrayEmailValid.count + 1, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
+            AppViewController.shared.pushToWelcomeScreen(user: newUser)
         }
     }
     
@@ -85,7 +124,6 @@ class SignUpViewController: UIViewController {
 
 // MARK: - extensions
 extension SignUpViewController {
-    
     
     //MARK: - Check field empty
     func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
@@ -110,7 +148,7 @@ extension SignUpViewController {
 
    
     //MARK: - Check exist email
-    func isExistEmail() -> Bool {
+    private func isExistEmail() -> Bool {
         for email in arrayEmailValid {
             if emailTextField.text == email {
                 return true
