@@ -26,11 +26,17 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SetUpUI()
-        if user != nil {
+        if user != nil {a
             //Hiệp sài cái này để lấy thông tin user
             print(user.id)
         } else { print("nil cmnr") }
+
         
+        //mượn tạm Hiệp cái flow này
+        AppViewController.shared.pushToCreateNewGameScreen()
+//        AppViewController.shared.pushToSignUpScreen()
+//        AppViewController.shared.pushToIssueListScreen()
+
         
         //mượn tạm Hiệp cái flow này
         AppViewController.shared.pushToCreateNewGameScreen()
@@ -43,6 +49,7 @@ class WelcomeViewController: UIViewController {
     
     
     // MARK: - Private
+
     
     
     private func SetUpUI() {
