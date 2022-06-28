@@ -26,4 +26,12 @@ extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
+    
+    static let textFieldBorderColor = UIColor(hexString: "#707070").cgColor
+    static let textFieldHintColor = UIColor(hexString: "#0000008F")
+    static let blueButtonColor = UIColor(hexString: "#00AAE7")
+    static let blueTextColor = UIColor(hexString: "#00AAE7")
+    static let votingSystemTextColor = UIColor(hexString: "#00000052")
+    static let itemIssueCellBackground = UIColor(hexString: "#F8F8F8")
+
 }

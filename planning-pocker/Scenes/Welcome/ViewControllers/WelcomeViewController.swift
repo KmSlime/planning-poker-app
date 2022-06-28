@@ -15,24 +15,31 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     
     // MARK: - Properties
+    var user: User!
     
     // MARK: - Overrides
+    
+    
     
     // MARK: - Life cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SetUpUI()
-        
-        //mượn tạm Hiệp cái flow này 
-//        AppViewController.shared.pushToCreateNewGameScreen()
-//        AppViewController.shared.pushToSignUpScreen()
-        
+        if user != nil {
+            //Hiệp sài cái này để lấy thông tin user
+            print(user.id)
+        } else { print("nil cmnr") }
+
     }
     
     // MARK: - Publics
     
+    
+    
     // MARK: - Private
+
+    
     
     private func SetUpUI() {
         // set properties for Login Button
@@ -61,6 +68,6 @@ class WelcomeViewController: UIViewController {
         
         
         AppViewController.shared.pushToSignInScreen()
-    
-}
+        
+    }
 }

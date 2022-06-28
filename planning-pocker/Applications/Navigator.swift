@@ -8,22 +8,30 @@
 import UIKit
 
 protocol Navigator {
-    func pushToWelcomeScreen()
-    func pushToChooseCard()
     
+    //MARK: - PUSH
+    func pushToWelcomeScreen(user: User?)
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
+    func pushToChooseCard()
     func pushToInvitePlayer()
-//    func pushToListIssues()
     func pushToCreateIssue()
+
+
+    //MARK: - POP
+    //    func pushToChooseCardScreen()
+    func popToPreviousScreen()
 }
 
+ 
 extension AppViewController: Navigator {
-    
-        func pushToWelcomeScreen() {
-        let vc = WelcomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
+
+    //MARK: - PUSH ACTION
+    func pushToWelcomeScreen(user: User? = nil) {
+        let welcomeScreenVC = WelcomeViewController()
+        welcomeScreenVC.user = user
+        navigationController?.pushViewController(welcomeScreenVC, animated: true)
     }
     
     func pushToSignInScreen() {
@@ -50,16 +58,17 @@ extension AppViewController: Navigator {
         let vc = InvitePlayerViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-//    func pushToListIssues() {
-//        let vc = IssuesListViewController()
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-    
+
     func pushToCreateIssue() {
         let vc = CreateIssueViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+
     
-    
+    //MARK: - POP ACTION
+    func popToPreviousScreen() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
+
