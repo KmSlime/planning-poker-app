@@ -10,6 +10,14 @@
 		0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FB2862E8E4002290E6 /* UserStore.swift */; };
 		0E17A3FE2862E980002290E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FD2862E980002290E6 /* Constants.swift */; };
 		0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7D1382862CA7900E8F787 /* AppUrls.swift */; };
+		155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264E7286B154F0038ABDF /* IssuesListViewController.swift */; };
+		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
+		155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */; };
+		155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */; };
+		15BB2952286B18C10062A8E9 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB2951286B18C10062A8E9 /* Issue.swift */; };
+		15C35FA3286AB693001085AB /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */; };
+		15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */; };
+		15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */; };
 		1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902CF3E2861ABE700E27B00 /* AppViewController.swift */; };
 		1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99028608C8800EEF365 /* AppDelegate.swift */; };
 		1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99228608C8800EEF365 /* SceneDelegate.swift */; };
@@ -25,7 +33,6 @@
 		602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBB028616BB400E2EA30 /* UIViewExtension.swift */; };
 		602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602CDBB228616CBA00E2EA30 /* Icon.xcassets */; };
 		602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBB828616D6D00E2EA30 /* SocketManager.swift */; };
-		602CDBBB28616DB100E2EA30 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBBA28616DB100E2EA30 /* UIColorExtension.swift */; };
 		602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBC62861741600E2EA30 /* APIRouter.swift */; };
 		602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBC72861741700E2EA30 /* Configuration.swift */; };
 		602CDBCF2861741800E2EA30 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CDBC82861741700E2EA30 /* APIError.swift */; };
@@ -55,11 +62,33 @@
 		60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4628644771002E2DC2 /* SignUpViewController.swift */; };
 		60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C82C4728644771002E2DC2 /* SignUpViewController.xib */; };
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
+		910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */; };
+		910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */; };
+		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
+		910317B5286C00C200BAE25C /* MultilineTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextFields.swift */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
 		9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */; };
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
+		94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC624E28695AC20029674B /* InvitePlayerViewController.swift */; };
+		94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC624F28695AC20029674B /* InvitePlayerViewController.xib */; };
+		94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */; };
+		94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */; };
+		BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D6A2864085500A14A37 /* PlayerModel.swift */; };
+		BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA084D6D2864169B00A14A37 /* BoardInfoView.xib */; };
+		BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA084D71286416F800A14A37 /* BoardInfoView.swift */; };
+		BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE10D2862BC9D00779BE3 /* UIColor.swift */; };
+		BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE1122862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift */; };
+		BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3FE1132862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib */; };
+		BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE1162862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift */; };
+		BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */; };
+		BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */; };
+		BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FE11C2862F9AA00779BE3 /* GameModel.swift */; };
+		BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */; };
+		BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */; };
+		BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */; };
+		BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD51B2F2861C387002961A7 /* CardToSelectCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +96,15 @@
 		0E17A3FB2862E8E4002290E6 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		0E17A3FD2862E980002290E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0EF7D1382862CA7900E8F787 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
+		155264E7286B154F0038ABDF /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
+		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
+		155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
+		155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
+		15BB2951286B18C10062A8E9 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
+		15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
+		15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		15C35FB4286AD8B8001085AB /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		1902CF3E2861ABE700E27B00 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		1905F98D28608C8800EEF365 /* planning-pocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "planning-pocker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1905F99028608C8800EEF365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +118,6 @@
 		602CDBB028616BB400E2EA30 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		602CDBB228616CBA00E2EA30 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		602CDBB828616D6D00E2EA30 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
-		602CDBBA28616DB100E2EA30 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		602CDBC62861741600E2EA30 /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		602CDBC72861741700E2EA30 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		602CDBC82861741700E2EA30 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -105,11 +142,33 @@
 		60C82C4428644771002E2DC2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		60C82C4628644771002E2DC2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		60C82C4728644771002E2DC2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Show-EditIssueDetailViewController.swift"; sourceTree = "<group>"; };
+		910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Show-EditIssueDetailViewController.xib"; sourceTree = "<group>"; };
+		910317B2286BF76400BAE25C /* PaddingLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabels.swift; sourceTree = "<group>"; };
+		910317B4286C00C200BAE25C /* MultilineTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextFields.swift; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
 		9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		94CC624E28695AC20029674B /* InvitePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayerViewController.swift; sourceTree = "<group>"; };
+		94CC624F28695AC20029674B /* InvitePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayerViewController.xib; sourceTree = "<group>"; };
+		94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIssueViewController.swift; sourceTree = "<group>"; };
+		94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateIssueViewController.xib; sourceTree = "<group>"; };
+		BA084D6A2864085500A14A37 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		BA084D6D2864169B00A14A37 /* BoardInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardInfoView.xib; sourceTree = "<group>"; };
+		BA084D71286416F800A14A37 /* BoardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfoView.swift; sourceTree = "<group>"; };
+		BA3FE10D2862BC9D00779BE3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = "planning-pocker/Scenes/ChooseCard/Views/UIColor.swift"; sourceTree = SOURCE_ROOT; };
+		BA3FE1122862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMainPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA3FE1132862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardMainPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
+		BA3FE1162862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOtherPlayersCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardOtherPlayersCollectionViewCell.xib; sourceTree = "<group>"; };
+		BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		BA3FE11C2862F9AA00779BE3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCardViewController.swift; sourceTree = "<group>"; };
+		BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCardViewController.xib; sourceTree = "<group>"; };
+		BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		BAD51B2F2861C387002961A7 /* CardToSelectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardToSelectCollectionViewCell.xib; sourceTree = "<group>"; };
 		F8CEA5DC02FE6DE4EE6A19B1 /* Pods-planning-pocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planning-pocker.debug.xcconfig"; path = "Target Support Files/Pods-planning-pocker/Pods-planning-pocker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,8 +194,87 @@
 			children = (
 				0EF7D1382862CA7900E8F787 /* AppUrls.swift */,
 				0E17A3FD2862E980002290E6 /* Constants.swift */,
+				910317B2286BF76400BAE25C /* PaddingLabels.swift */,
+				910317B4286C00C200BAE25C /* MultilineTextFields.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		155264E4286B154F0038ABDF /* IssuesList */ = {
+			isa = PBXGroup;
+			children = (
+				155264E5286B154F0038ABDF /* Models */,
+				155264E6286B154F0038ABDF /* ViewControllers */,
+				155264E9286B154F0038ABDF /* Views */,
+			);
+			path = IssuesList;
+			sourceTree = "<group>";
+		};
+		155264E5286B154F0038ABDF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15BB2951286B18C10062A8E9 /* Issue.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		155264E6286B154F0038ABDF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				155264E7286B154F0038ABDF /* IssuesListViewController.swift */,
+				155264E8286B154F0038ABDF /* IssuesListViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		155264E9286B154F0038ABDF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */,
+				155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		15C35F9D286AB693001085AB /* CreateNewGame */ = {
+			isa = PBXGroup;
+			children = (
+				15C35F9E286AB693001085AB /* Models */,
+				15C35F9F286AB693001085AB /* ViewControllers */,
+				15C35FA2286AB693001085AB /* Views */,
+			);
+			path = CreateNewGame;
+			sourceTree = "<group>";
+		};
+		15C35F9E286AB693001085AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		15C35F9F286AB693001085AB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15C35FA0286AB693001085AB /* CreateNewGameViewController.xib */,
+				15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		15C35FA2286AB693001085AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		15C35FB1286ABA12001085AB /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */,
+			);
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		1905F98428608C8800EEF365 = {
@@ -146,6 +284,7 @@
 				1905F98E28608C8800EEF365 /* Products */,
 				1DB4DC11EE4991B185A1656B /* Pods */,
 				BD497E40229F63C77765F996 /* Frameworks */,
+				BAD0E0C62864412800D2C920 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,10 +322,11 @@
 		602CDB4A28615B6000E2EA30 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				9146BC9B28631768001D4B7B /* UIViewController */,
 				602CDB6C28615C1500E2EA30 /* Foundation */,
 				602CDB6A28615C1500E2EA30 /* UIColor */,
+				15C35FB1286ABA12001085AB /* UITextField */,
 				602CDB6D28615C1500E2EA30 /* UIView */,
+				9146BC9B28631768001D4B7B /* UIViewController */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -211,7 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				602CDBB028616BB400E2EA30 /* UIViewExtension.swift */,
-				602CDBBA28616DB100E2EA30 /* UIColorExtension.swift */,
+				BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -228,7 +368,13 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				6051A86C28644E3E008A6715 /* CreateNewGame */,
+				155264E4286B154F0038ABDF /* IssuesList */,
+				94CC625F286A9BE70029674B /* CreateIssue */,
+				15C35F9D286AB693001085AB /* CreateNewGame */,
+				94CC624A28695A7A0029674B /* Invite Player */,
+				BAD51B262861B50D002961A7 /* ChooseCard */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				60C82C4228644771002E2DC2 /* SignUp */,
@@ -407,6 +553,39 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */ = {
+			isa = PBXGroup;
+			children = (
+				910317AD286BE80700BAE25C /* ViewControllers */,
+				910317AC286BE7F600BAE25C /* Views */,
+				910317AB286BE7EE00BAE25C /* Models */,
+			);
+			path = "Show-EditIssueDetail";
+			sourceTree = "<group>";
+		};
+		910317AB286BE7EE00BAE25C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		910317AC286BE7F600BAE25C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		910317AD286BE80700BAE25C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */,
+				910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +633,156 @@
 				9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		94CC624A28695A7A0029674B /* Invite Player */ = {
+			isa = PBXGroup;
+			children = (
+				94CC624D28695A9D0029674B /* Views */,
+				94CC624C28695A8F0029674B /* ViewControllers */,
+				94CC624B28695A840029674B /* Models */,
+			);
+			path = "Invite Player";
+			sourceTree = "<group>";
+		};
+		94CC624B28695A840029674B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		94CC624C28695A8F0029674B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				94CC624E28695AC20029674B /* InvitePlayerViewController.swift */,
+				94CC624F28695AC20029674B /* InvitePlayerViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94CC624D28695A9D0029674B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94CC625F286A9BE70029674B /* CreateIssue */ = {
+			isa = PBXGroup;
+			children = (
+				94CC6262286A9C440029674B /* Models */,
+				94CC6261286A9C3F0029674B /* Views */,
+				94CC6260286A9C350029674B /* ViewControllers */,
+			);
+			path = CreateIssue;
+			sourceTree = "<group>";
+		};
+		94CC6260286A9C350029674B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */,
+				94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94CC6261286A9C3F0029674B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94CC6262286A9C440029674B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BA084D6C2864168A00A14A37 /* Board Info */ = {
+			isa = PBXGroup;
+			children = (
+				BA084D6D2864169B00A14A37 /* BoardInfoView.xib */,
+				BA084D71286416F800A14A37 /* BoardInfoView.swift */,
+			);
+			path = "Board Info";
+			sourceTree = "<group>";
+		};
+		BA3FE10F2862C37100779BE3 /* CardToSelect */ = {
+			isa = PBXGroup;
+			children = (
+				BAD51B2E2861C387002961A7 /* CardToSelectCollectionViewCell.swift */,
+				BAD51B2F2861C387002961A7 /* CardToSelectCollectionViewCell.xib */,
+			);
+			path = CardToSelect;
+			sourceTree = "<group>";
+		};
+		BA3FE1102862C38400779BE3 /* CardMainPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE1122862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift */,
+				BA3FE1132862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib */,
+			);
+			path = CardMainPlayer;
+			sourceTree = "<group>";
+		};
+		BA3FE1112862C3A000779BE3 /* CardOtherPlayers */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE1162862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift */,
+				BA3FE1172862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib */,
+			);
+			path = CardOtherPlayers;
+			sourceTree = "<group>";
+		};
+		BAD0E0C62864412800D2C920 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE10D2862BC9D00779BE3 /* UIColor.swift */,
+				15C35FB4286AD8B8001085AB /* Issue.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		BAD51B262861B50D002961A7 /* ChooseCard */ = {
+			isa = PBXGroup;
+			children = (
+				BAD51B272861B50D002961A7 /* Models */,
+				BAD51B282861B50D002961A7 /* ViewControllers */,
+				BAD51B2B2861B50D002961A7 /* Views */,
+			);
+			path = ChooseCard;
+			sourceTree = "<group>";
+		};
+		BAD51B272861B50D002961A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FE11C2862F9AA00779BE3 /* GameModel.swift */,
+				BA084D6A2864085500A14A37 /* PlayerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BAD51B282861B50D002961A7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BAD51B2A2861B50D002961A7 /* ChooseCardViewController.xib */,
+				BAD51B292861B50D002961A7 /* ChooseCardViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BAD51B2B2861B50D002961A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA084D6C2864168A00A14A37 /* Board Info */,
+				BA3FE1112862C3A000779BE3 /* CardOtherPlayers */,
+				BA3FE1102862C38400779BE3 /* CardMainPlayer */,
+				BA3FE10F2862C37100779BE3 /* CardToSelect */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BD497E40229F63C77765F996 /* Frameworks */ = {
@@ -544,17 +873,37 @@
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				60B6C9F52861B8BC00DC3270 /* (null) in Resources */,
 				60B6C9F92861B8BC00DC3270 /* (null) in Resources */,
+				BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */,
+				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
+				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
+				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
+				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
+				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
+				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
+				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
+				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
 				9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */,
+				94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */,
 				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
+				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
+				910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
+				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
+				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
+				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
+				155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */,
+				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
+				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
+				94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */,
 				6051A86328644B38008A6715 /* Poppins-Medium.ttf in Resources */,
 				6051A86228644B38008A6715 /* Poppins-Light.ttf in Resources */,
 				60B6C9F72861B8BC00DC3270 /* (null) in Resources */,
 				6051A86428644B38008A6715 /* Poppins-ExtraBold.ttf in Resources */,
+				15C35FA3286AB693001085AB /* CreateNewGameViewController.xib in Resources */,
 				6051A86828644B38008A6715 /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,20 +981,38 @@
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
 				60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */,
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
-				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
+				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
+				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
+				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
 				0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */,
 				6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
+				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
+				94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */,
+				15BB2952286B18C10062A8E9 /* Issue.swift in Sources */,
+				15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */,
+				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
+				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
+				910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */,
+				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
+				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
 				1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */,
-				602CDBBB28616DB100E2EA30 /* UIColorExtension.swift in Sources */,
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
+				BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */,
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
+				BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */,
+				BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */,
+				155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
+				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
+				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
+				910317B5286C00C200BAE25C /* MultilineTextFields.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
+				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
 				60C82C4928644771002E2DC2 /* User.swift in Sources */,
@@ -791,7 +1158,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6NVR2826P;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -822,7 +1189,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6NVR2826P;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -908,5 +1275,4 @@
 /* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1905F98528608C8800EEF365 /* Project object */;
-
 }

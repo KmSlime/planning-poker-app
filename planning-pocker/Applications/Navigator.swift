@@ -8,17 +8,31 @@
 import UIKit
 
 protocol Navigator {
-    func pushToWelcomeScreen()
+    
+    //MARK: - PUSH
+    func pushToWelcomeScreen(user: User?)
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
+    func pushToChooseCardScreen()
+    func pushToInvitePlayerScreen()
+    func pushToCreateIssue()
+    func pushToShowIssueListScreen()
+    func pushToEditIssueScreen()
+    func pushToLeftMenu()
+    //MARK: - POP
+    //    func pushToChooseCardScreen()
+    func popToPreviousScreen()
 }
 
+ 
 extension AppViewController: Navigator {
-    
-        func pushToWelcomeScreen() {
-        let vc = WelcomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
+
+    //MARK: - PUSH ACTION
+    func pushToWelcomeScreen(user: User? = nil) {
+        let welcomeScreenVC = WelcomeViewController()
+        welcomeScreenVC.user = user
+        navigationController?.pushViewController(welcomeScreenVC, animated: true)
     }
     
     func pushToSignInScreen() {
@@ -31,10 +45,44 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
+    func pushToChooseCardScreen() {
+        let vc = ChooseCardViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     func pushToCreateNewGameScreen() {
         let createNewGameVC = CreateNewGameViewController()
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
     
+    func pushToInvitePlayerScreen() {
+        let vc = InvitePlayerViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func pushToCreateIssue() {
+        let vc = CreateIssueViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
+    func pushToShowIssueListScreen() {
+        let issueListVC = IssuesListViewController()
+        navigationController?.pushViewController(issueListVC, animated: true)
+    }
+    
+    func pushToEditIssueScreen() {
+        let vc = Show_EditIssueDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushToLeftMenu() {
+        
+    }
+    
+    //MARK: - POP ACTION
+    func popToPreviousScreen() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
+
