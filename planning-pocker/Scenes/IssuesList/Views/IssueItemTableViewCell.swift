@@ -41,12 +41,12 @@ class IssueItemTableViewCell: UITableViewCell {
     }
     
     // MARK: - Publics
-//    func setValueCell(issue: Issue) {
-//        self.issueNameLabel.text = issue.title
-//        self.issueDescriptionLabel.text = issue.description
-//        //thêm nữa thì Nghĩa tự thêm vào
-//        
-//    }
+    func setValueCell(issue: Issue) {
+        self.issueNameLabel.text = issue.title
+        self.issueDescriptionLabel.text = issue.description
+        //thêm nữa thì Nghĩa tự thêm vào
+        
+    }
 
     // MARK: - Private
     private func setupUI() {

@@ -14,7 +14,7 @@ class Issue {
     var titleIssue: String?
     var idGameOfIssue: String?
     var descriptionIssue: String?
-
+    
     init(idIssue: Int, linkIssue: String, titleIssue: String, idGameOfIssue: String, descriptionIssue: String) {
         self.idIssue = idIssue
         self.linkIssue = linkIssue
@@ -42,6 +42,7 @@ class Issue {
         }
         
     }
+    
     public var title: String {
         get {
             return self.titleIssue!
@@ -50,6 +51,7 @@ class Issue {
             return self.titleIssue = newValue
         }
     }
+    
     public var idGame: String {
         get {
             return self.idGameOfIssue!
@@ -58,6 +60,7 @@ class Issue {
             return self.idGameOfIssue = newValue
         }
     }
+    
     public var description: String {
         get {
             return self.descriptionIssue!
@@ -66,7 +69,4 @@ class Issue {
             return self.descriptionIssue = newValue
         }
     }
-    
-    
-
 }

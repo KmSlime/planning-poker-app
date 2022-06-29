@@ -22,14 +22,11 @@ class IssuesListViewController: UIViewController {
     }
     
     // MARK: - Properties
-//    var isssue: Issue!
-//    var arrayTest: [Issue] = []
-//
+    var isssue: Issue!
+    var arrayTest: [Issue] = []
     
     
     // MARK: - Overrides
-
-    
     
     
     // MARK: - Life cycles
@@ -40,9 +37,9 @@ class IssuesListViewController: UIViewController {
         issuesListTableView.dataSource = self
         
         
-//        for i in 0...10 {
-//            arrayTest.append(Issue(idIssue: i, linkIssue: "nil", titleIssue: "PP-\(i)", idGameOfIssue: "kakak", descriptionIssue: "test descript PP-\(i)"))
-//        }
+        for i in 0...10 {
+            arrayTest.append(Issue(idIssue: i, linkIssue: "nil", titleIssue: "PP-\(i)", idGameOfIssue: "kakak", descriptionIssue: "test descript PP-\(i)"))
+        }
 
         setupUI()
     
@@ -108,25 +105,22 @@ extension IssuesListViewController: UITableViewDataSource {
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return arrayTest.count + 1;
-        return 2
+        return arrayTest.count + 1;
+//        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if indexPath.row == arrayTest.count {
-//                //button
-//            print("button")
-//        } else {
+        if indexPath.row == arrayTest.count {
+                //button
+            print("button")
+        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
-//            cell.setValueCell(issue: arrayTest[indexPath.row])
+            cell.setValueCell(issue: arrayTest[indexPath.row])
             return cell
-//        }
-//        return UITableViewCell()
-
+        }
+        return UITableViewCell()
     }
-
-    
 }
     
     // MARK: - protocols
