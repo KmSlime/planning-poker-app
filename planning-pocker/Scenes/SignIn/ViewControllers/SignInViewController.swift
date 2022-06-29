@@ -15,6 +15,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var createAccountLabel: UILabel!
     
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -25,8 +26,6 @@ class SignInViewController: UIViewController {
     // MARK: - Actions
     @IBAction func onClickSignInButton(_ sender: Any) {
         checkFields()
-        
-        
     }
     
     
@@ -40,21 +39,29 @@ class SignInViewController: UIViewController {
     
     // MARK: - Publics
     
-    //    func checkLength() -> Bool{
-    //
-    //
-    //    }
-    func checkFields() -> Bool {
+    func onClickCreateAccountButton(){
+        let createAccountLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.goToSignUp(recognizer:)))
+        signInLabel.isUserInteractionEnabled = true
+        signInLabel.addGestureRecognizer(createAccountLabelOnClick)
+    }
+    
+    @objc func goToSignUp(recognizer:UIGestureRecognizer) {
+        if recognizer.state == .ended {
+            AppViewController.shared.pushToSignUpScreen()
+        }
+    }
+    
+        func checkFields() -> Bool {
         
         if emailTextField.text != "" && passwordTextField.text != "" {
             
             if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isCorrectFormatPassword != nil {
                 
-                showAlert(title: "Notify", message: "Login successfully")
+                showAlert(title: "Notify", message: "Invalid email or password")
                 return true
             }
             else{
-                showAlert(title: "Notify", message: "Invalid email or password")
+                showAlert(title: "Notify", message: "Login successfully")
                 return false
             }
         }

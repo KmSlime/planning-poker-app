@@ -39,11 +39,17 @@ class SignUpViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        onClickSignInButton()
     }
     
     
     // MARK: - Publics
+    func onClickSignInButton(){
+        let signInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
+        signInLabel.isUserInteractionEnabled = true
+        signInLabel.addGestureRecognizer(signInLabelOnClick)
+    }
+    
     @objc func backToSignIn(recognizer:UIGestureRecognizer) {
         if recognizer.state == .ended {
             AppViewController.shared.pushToSignInScreen()
@@ -98,11 +104,7 @@ class SignUpViewController: UIViewController {
     
     }
     
-    private func onClickSignInButton() {
-        let signInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
-        signInLabel.isUserInteractionEnabled = true
-        signInLabel.addGestureRecognizer(signInLabelOnClick)
-    }
+
     
    
     // MARK: - Actions

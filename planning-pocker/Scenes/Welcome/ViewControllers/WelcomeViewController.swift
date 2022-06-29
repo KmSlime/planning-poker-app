@@ -88,7 +88,9 @@ class WelcomeViewController: UIViewController {
     @IBAction func leftMenu(_ sender: UIButton) {
         AppViewController.shared.pushToLeftMenu()
     }
-    
+    @IBAction func show_editIssueDetail(_ sender: UIButton) {
+        AppViewController.shared.pushToEditIssueScreen()
+    }
     
     
     

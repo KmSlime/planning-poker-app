@@ -53,11 +53,19 @@
 		6051A86828644B38008A6715 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A85F28644B38008A6715 /* Poppins-SemiBold.ttf */; };
 		6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86028644B38008A6715 /* Poppins-Italic.ttf */; };
 		6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86128644B38008A6715 /* Poppins-MediumItalic.ttf */; };
+		6051A87228644E3F008A6715 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */; };
+		6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */; };
+		60B6C9F52861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		60B6C9F72861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60B6C9F92861B8BC00DC3270 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		60C82C4928644771002E2DC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4428644771002E2DC2 /* User.swift */; };
 		60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4628644771002E2DC2 /* SignUpViewController.swift */; };
 		60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C82C4728644771002E2DC2 /* SignUpViewController.xib */; };
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
+		910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */; };
+		910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */; };
+		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
+		910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextViews.swift */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
 		9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */; };
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
@@ -129,9 +137,15 @@
 		6051A85F28644B38008A6715 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		6051A86028644B38008A6715 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		6051A86128644B38008A6715 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
+		6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		60C82C4428644771002E2DC2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		60C82C4628644771002E2DC2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		60C82C4728644771002E2DC2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Show-EditIssueDetailViewController.swift"; sourceTree = "<group>"; };
+		910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Show-EditIssueDetailViewController.xib"; sourceTree = "<group>"; };
+		910317B2286BF76400BAE25C /* PaddingLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabels.swift; sourceTree = "<group>"; };
+		910317B4286C00C200BAE25C /* MultilineTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextViews.swift; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
 		9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -308,7 +322,9 @@
 			children = (
 				602CDB6C28615C1500E2EA30 /* Foundation */,
 				602CDB6A28615C1500E2EA30 /* UIColor */,
+				910317B6286C0EA200BAE25C /* UILabel */,
 				15C35FB1286ABA12001085AB /* UITextField */,
+				910317B7286C11A700BAE25C /* UITextView */,
 				602CDB6D28615C1500E2EA30 /* UIView */,
 				9146BC9B28631768001D4B7B /* UIViewController */,
 			);
@@ -352,6 +368,8 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
+				6051A86C28644E3E008A6715 /* CreateNewGame */,
 				155264E4286B154F0038ABDF /* IssuesList */,
 				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
@@ -468,6 +486,39 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		6051A86C28644E3E008A6715 /* CreateNewGame */ = {
+			isa = PBXGroup;
+			children = (
+				6051A86D28644E3E008A6715 /* Models */,
+				6051A86E28644E3E008A6715 /* ViewControllers */,
+				6051A87128644E3E008A6715 /* Views */,
+			);
+			path = CreateNewGame;
+			sourceTree = "<group>";
+		};
+		6051A86D28644E3E008A6715 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6051A86E28644E3E008A6715 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6051A86F28644E3E008A6715 /* CreateNewGameViewController.xib */,
+				6051A87028644E3E008A6715 /* CreateNewGameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6051A87128644E3E008A6715 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		60C82C4228644771002E2DC2 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +551,55 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */ = {
+			isa = PBXGroup;
+			children = (
+				910317AD286BE80700BAE25C /* ViewControllers */,
+				910317AC286BE7F600BAE25C /* Views */,
+				910317AB286BE7EE00BAE25C /* Models */,
+			);
+			path = "Show-EditIssueDetail";
+			sourceTree = "<group>";
+		};
+		910317AB286BE7EE00BAE25C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		910317AC286BE7F600BAE25C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		910317AD286BE80700BAE25C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */,
+				910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		910317B6286C0EA200BAE25C /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				910317B2286BF76400BAE25C /* PaddingLabels.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		910317B7286C11A700BAE25C /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				910317B4286C00C200BAE25C /* MultilineTextViews.swift */,
+			);
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
@@ -780,6 +880,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
+				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
+				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
+				6051A87228644E3F008A6715 /* CreateNewGameViewController.xib in Resources */,
+				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
+				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
+				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
+				60B6C9F52861B8BC00DC3270 /* (null) in Resources */,
+				60B6C9F92861B8BC00DC3270 /* (null) in Resources */,
 				BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */,
 				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
 				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
@@ -794,7 +903,11 @@
 				94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */,
 				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
 				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
+				910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
+				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
+				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
+				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
@@ -889,6 +1002,7 @@
 				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
 				0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */,
+				6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
@@ -897,6 +1011,7 @@
 				15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
 				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
+				910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */,
 				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
 				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
@@ -909,7 +1024,9 @@
 				155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
+				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
+				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,

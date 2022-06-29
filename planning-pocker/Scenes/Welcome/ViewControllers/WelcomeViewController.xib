@@ -95,10 +95,10 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Ymy-yx-MBw">
-                    <rect key="frame" x="54" y="78" width="141.5" height="366"/>
+                    <rect key="frame" x="54" y="78" width="141.5" height="364"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UQa-hz-WWv">
-                            <rect key="frame" x="0.0" y="0.0" width="141.5" height="22"/>
+                            <rect key="frame" x="0.0" y="0.0" width="141.5" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Create New Game"/>
@@ -107,7 +107,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="anb-kt-juZ">
-                            <rect key="frame" x="0.0" y="43" width="108" height="22"/>
+                            <rect key="frame" x="0.0" y="38.5" width="108" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Choose Card"/>
@@ -116,7 +116,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KMz-Eu-3Nl">
-                            <rect key="frame" x="0.0" y="86" width="73" height="22"/>
+                            <rect key="frame" x="0.0" y="77" width="73" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
@@ -125,7 +125,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zem-Bb-3BN">
-                            <rect key="frame" x="0.0" y="129" width="68" height="22"/>
+                            <rect key="frame" x="0.0" y="115.5" width="68" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
@@ -134,7 +134,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XGl-6t-N5H">
-                            <rect key="frame" x="0.0" y="172" width="124" height="22"/>
+                            <rect key="frame" x="0.0" y="154" width="124" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Show Issue List"/>
@@ -143,7 +143,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zKW-KG-7V0">
-                            <rect key="frame" x="0.0" y="215" width="104.5" height="22"/>
+                            <rect key="frame" x="0.0" y="192.5" width="104.5" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Create Issue"/>
@@ -152,7 +152,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iGB-4n-aYX">
-                            <rect key="frame" x="0.0" y="258" width="102.5" height="22"/>
+                            <rect key="frame" x="0.0" y="231" width="102.5" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Invite Player"/>
@@ -161,7 +161,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zVk-1R-N60">
-                            <rect key="frame" x="0.0" y="301" width="86.5" height="22"/>
+                            <rect key="frame" x="0.0" y="269.5" width="86.5" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Edit Issue"/>
@@ -170,12 +170,21 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9wH-Hu-MON">
-                            <rect key="frame" x="0.0" y="344" width="89" height="22"/>
+                            <rect key="frame" x="0.0" y="308" width="89" height="17.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Left Menu"/>
                             <connections>
                                 <action selector="leftMenu:" destination="-1" eventType="touchUpInside" id="Bto-Fo-tD0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="asP-nM-tR9">
+                            <rect key="frame" x="0.0" y="346.5" width="100" height="17.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Show / Edit Issue Detail"/>
+                            <connections>
+                                <action selector="show_editIssueDetail:" destination="-1" eventType="touchUpInside" id="8dI-h7-k5d"/>
                             </connections>
                         </button>
                     </subviews>

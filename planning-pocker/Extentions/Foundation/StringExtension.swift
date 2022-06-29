@@ -24,7 +24,6 @@ extension String {
             options: [],
             range: NSRange(location: 0, length: utf16.count)) != nil
     }
-
     var isValidPhoneNumber: Bool {
         let types: NSTextCheckingResult.CheckingType = [.phoneNumber]
         guard let detector = try? NSDataDetector(types: types.rawValue) else { return false }
