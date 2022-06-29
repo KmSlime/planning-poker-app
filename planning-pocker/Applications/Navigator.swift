@@ -71,7 +71,7 @@ extension AppViewController: Navigator {
     }
     
     func pushToEditIssueScreen() {
-        let editIssueVC = Show_EditIssueDetailViewController()
+        let editIssueVC = IssueDetailViewController()
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     

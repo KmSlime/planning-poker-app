@@ -71,7 +71,6 @@ class Show_EditIssueDetailViewController: UIViewController {
         // MARK: - Private
         
         private func setupUI(){
-            
             self.setupHideKeyboardOnTap()
             
             placeholderTitleContentLabel = UILabel()

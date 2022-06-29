@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FB2862E8E4002290E6 /* UserStore.swift */; };
 		0E17A3FE2862E980002290E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FD2862E980002290E6 /* Constants.swift */; };
+		0EB73AD3286C4E2D00B74B4C /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */; };
+		0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */; };
 		0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7D1382862CA7900E8F787 /* AppUrls.swift */; };
 		155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264E7286B154F0038ABDF /* IssuesListViewController.swift */; };
 		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
@@ -95,6 +97,8 @@
 		05FFDA9C20FAB14AAEB84E97 /* Pods-planning-pocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planning-pocker.release.xcconfig"; path = "Target Support Files/Pods-planning-pocker/Pods-planning-pocker.release.xcconfig"; sourceTree = "<group>"; };
 		0E17A3FB2862E8E4002290E6 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		0E17A3FD2862E980002290E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		0EF7D1382862CA7900E8F787 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
 		155264E7286B154F0038ABDF /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
 		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
@@ -582,6 +586,8 @@
 			children = (
 				910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */,
 				910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */,
+				0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */,
+				0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -907,6 +913,7 @@
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
+				0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
@@ -1011,6 +1018,7 @@
 				15C35FA4286AB693001085AB /* CreateNewGameViewController.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
 				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
+				0EB73AD3286C4E2D00B74B4C /* IssueDetailViewController.swift in Sources */,
 				910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */,
 				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
