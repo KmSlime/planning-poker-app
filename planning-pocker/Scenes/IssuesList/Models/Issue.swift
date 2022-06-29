@@ -7,66 +7,71 @@
 
 import UIKit
 
-class Issue {
+class Issue: NSObject, Codable {
     
-    var idIssue: Int?
-    var linkIssue: String?
-    var titleIssue: String?
-    var idGameOfIssue: String?
-    var descriptionIssue: String?
-
-    init(idIssue: Int, linkIssue: String, titleIssue: String, idGameOfIssue: String, descriptionIssue: String) {
-        self.idIssue = idIssue
-        self.linkIssue = linkIssue
-        self.titleIssue = titleIssue
-        self.idGameOfIssue = idGameOfIssue
-        self.descriptionIssue = descriptionIssue
+    var issueId: Int
+    var issueKey: String
+    var issueIdGame: String
+    
+    var issueTitle: String?
+    var issueLink: String?
+    var isVoted: Bool = false
+    
+    init(id: Int, key: String, idGame: String) {
+        self.issueId = id
+        self.issueKey = key
+        self.issueIdGame = idGame
     }
     
     public var id: Int {
         get {
-            return self.idIssue!
+            return self.issueId
         }
         set {
-            return self.idIssue = newValue
+            return self.issueId = newValue
         }
     }
     
     public var link: String {
         
         get {
-            return self.linkIssue!
+            return self.issueLink!
         }
         set {
-            return self.linkIssue = newValue
+            return self.issueLink = newValue
         }
         
     }
     public var title: String {
         get {
-            return self.titleIssue!
+            return self.issueTitle!
         }
         set {
-            return self.titleIssue = newValue
+            return self.issueTitle = newValue
         }
     }
     public var idGame: String {
         get {
-            return self.idGameOfIssue!
+            return self.issueIdGame
         }
         set {
-            return self.idGameOfIssue = newValue
+            return self.issueIdGame = newValue
         }
     }
-    public var description: String {
+    public var key: String {
         get {
-            return self.descriptionIssue!
+            return self.issueKey
         }
         set {
-            return self.descriptionIssue = newValue
+            return self.issueKey = newValue
         }
     }
-    
-    
-
+    public var voted: Bool {
+        get {
+            return self.isVoted
+        }
+        set {
+            return self.isVoted = newValue
+        }
+    }
 }
