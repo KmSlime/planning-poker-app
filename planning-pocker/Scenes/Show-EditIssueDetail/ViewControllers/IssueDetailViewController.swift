@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents.MaterialSnackbar
 class IssueDetailViewController: UIViewController {
 
-    @IBOutlet weak var issueNameLabel: UILabel!
+    @IBOutlet weak var issueKeyLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var linkLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -26,7 +26,6 @@ class IssueDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-
 
     // MARK: - Actions
 
@@ -68,13 +67,13 @@ class IssueDetailViewController: UIViewController {
 
     // MARK: - Private
     
-    private func setupUI(){
+    private func setupUI() {
         self.setupHideKeyboardOnTap()
         
         placeholderTitleContentLabel = UILabel()
         placeholderDescriptionContentLabel = UILabel()
 
-        issueNameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
+        issueKeyLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         linkLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         descriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
@@ -115,16 +114,16 @@ class IssueDetailViewController: UIViewController {
 }
 // MARK: - extensions
 
-extension Show_EditIssueDetailViewController: UITextViewDelegate{
+extension IssueDetailViewController: UITextViewDelegate{
 
 
 func textViewDidBeginEditing(_ textView: UITextView) {
-    if textView == titleContentTextView{
+    if textView == titleContentTextView {
         titleTextViewHeightConstraints.constant = 126
         titleContentTextView.backgroundColor = UIColor.white
         titleContentTextView.layer.borderWidth = 1.0
         titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
-    } else if textView == descriptionContentTextVIew{
+    } else if textView == descriptionContentTextVIew {
         descriptionTextViewHeightConstraints.constant = 126
         descriptionContentTextVIew.backgroundColor = UIColor.white
         descriptionContentTextVIew.layer.borderWidth = 1.0
@@ -135,11 +134,11 @@ func textViewDidBeginEditing(_ textView: UITextView) {
 
 func textViewDidEndEditing(_ textView: UITextView) {
 
-    if textView == titleContentTextView{
+    if textView == titleContentTextView {
         titleTextViewHeightConstraints.constant = 48
         titleContentTextView.layer.borderWidth = 0
         titleContentTextView.backgroundColor = UIColor(hexString: "#EDEDED")
-    } else if textView == descriptionContentTextVIew{
+    } else if textView == descriptionContentTextVIew {
         descriptionTextViewHeightConstraints.constant = 48
         descriptionContentTextVIew.layer.borderWidth = 0
         descriptionContentTextVIew.backgroundColor = UIColor(hexString: "#EDEDED")
@@ -147,7 +146,7 @@ func textViewDidEndEditing(_ textView: UITextView) {
 }
 
 func textViewDidChange(_ textView: UITextView) {
-    if !titleContentTextView.text.isEmpty{
+    if !titleContentTextView.text.isEmpty {
         placeholderTitleContentLabel.isHidden = !titleContentTextView.text.isEmpty
         titleContentTextView.textColor = UIColor.black
         
@@ -158,7 +157,7 @@ func textViewDidChange(_ textView: UITextView) {
         
     }
     
-    if !descriptionContentTextVIew.text.isEmpty{
+    if !descriptionContentTextVIew.text.isEmpty {
         placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
         descriptionContentTextVIew.textColor = UIColor.black
         

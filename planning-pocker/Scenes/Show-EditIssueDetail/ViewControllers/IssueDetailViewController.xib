@@ -11,6 +11,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssueDetailViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
+                <outlet property="copyButton" destination="Fho-Vz-Rzo" id="StK-lH-TWR"/>
+                <outlet property="descriptionContentTextVIew" destination="aAe-nP-fue" id="sfd-eB-Dh6"/>
+                <outlet property="descriptionLabel" destination="JVG-9f-Tfp" id="TKK-N7-ith"/>
+                <outlet property="descriptionTextViewHeightConstraints" destination="s8g-67-W1m" id="ZTW-N4-uru"/>
+                <outlet property="issueKeyLabel" destination="jIV-aI-uMw" id="7I5-Jp-7mG"/>
+                <outlet property="linkContentLabel" destination="pdd-so-ftY" id="Lon-Lf-AQE"/>
+                <outlet property="linkLabel" destination="grL-BR-6yu" id="jpR-Ex-Kyk"/>
+                <outlet property="saveButton" destination="B2w-1R-UCW" id="w0j-t7-3X3"/>
+                <outlet property="titleContentTextView" destination="I8u-wi-IHv" id="wvR-re-28s"/>
+                <outlet property="titleLabel" destination="F9j-Xf-1uL" id="kD4-4C-KGW"/>
+                <outlet property="titleTextViewHeightConstraints" destination="VLN-IR-Cyb" id="yiA-fW-Yzz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

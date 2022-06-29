@@ -64,8 +64,6 @@
 		60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C82C4628644771002E2DC2 /* SignUpViewController.swift */; };
 		60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C82C4728644771002E2DC2 /* SignUpViewController.xib */; };
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
-		910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */; };
-		910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */; };
 		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
 		910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextViews.swift */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
@@ -146,8 +144,6 @@
 		60C82C4428644771002E2DC2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		60C82C4628644771002E2DC2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		60C82C4728644771002E2DC2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
-		910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Show-EditIssueDetailViewController.swift"; sourceTree = "<group>"; };
-		910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Show-EditIssueDetailViewController.xib"; sourceTree = "<group>"; };
 		910317B2286BF76400BAE25C /* PaddingLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabels.swift; sourceTree = "<group>"; };
 		910317B4286C00C200BAE25C /* MultilineTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextViews.swift; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
@@ -584,8 +580,6 @@
 		910317AD286BE80700BAE25C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */,
-				910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */,
 				0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */,
 				0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */,
 			);
@@ -909,7 +903,6 @@
 				94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */,
 				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
 				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
-				910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
@@ -1019,7 +1012,6 @@
 				BA3FE11D2862F9AA00779BE3 /* GameModel.swift in Sources */,
 				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
 				0EB73AD3286C4E2D00B74B4C /* IssueDetailViewController.swift in Sources */,
-				910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */,
 				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
 				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
