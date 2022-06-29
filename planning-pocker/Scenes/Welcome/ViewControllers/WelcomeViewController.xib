@@ -175,7 +175,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Left Menu"/>
                             <connections>
-                                <action selector="leftMenu:" destination="-1" eventType="touchUpInside" id="Bto-Fo-tD0"/>
+                                <action selector="leftMenu:" destination="-1" eventType="touchUpInside" id="xYr-W1-ioU"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="asP-nM-tR9">
