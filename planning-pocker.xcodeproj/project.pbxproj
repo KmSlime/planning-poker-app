@@ -65,7 +65,7 @@
 		910317B0286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */; };
 		910317B1286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */; };
 		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
-		910317B5286C00C200BAE25C /* MultilineTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextFields.swift */; };
+		910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextViews.swift */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
 		9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */; };
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
@@ -145,7 +145,7 @@
 		910317AE286BE84C00BAE25C /* Show-EditIssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Show-EditIssueDetailViewController.swift"; sourceTree = "<group>"; };
 		910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Show-EditIssueDetailViewController.xib"; sourceTree = "<group>"; };
 		910317B2286BF76400BAE25C /* PaddingLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabels.swift; sourceTree = "<group>"; };
-		910317B4286C00C200BAE25C /* MultilineTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextFields.swift; sourceTree = "<group>"; };
+		910317B4286C00C200BAE25C /* MultilineTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextViews.swift; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
 		9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -194,8 +194,6 @@
 			children = (
 				0EF7D1382862CA7900E8F787 /* AppUrls.swift */,
 				0E17A3FD2862E980002290E6 /* Constants.swift */,
-				910317B2286BF76400BAE25C /* PaddingLabels.swift */,
-				910317B4286C00C200BAE25C /* MultilineTextFields.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -322,6 +320,7 @@
 		602CDB4A28615B6000E2EA30 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				910317B6286C0EA200BAE25C /* UILabel */,
 				602CDB6C28615C1500E2EA30 /* Foundation */,
 				602CDB6A28615C1500E2EA30 /* UIColor */,
 				15C35FB1286ABA12001085AB /* UITextField */,
@@ -351,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				602CDBB028616BB400E2EA30 /* UIViewExtension.swift */,
+				910317B4286C00C200BAE25C /* MultilineTextViews.swift */,
 				BA3FE11A2862D57A00779BE3 /* UIImageExtension.swift */,
 			);
 			path = UIView;
@@ -584,6 +584,14 @@
 				910317AF286BE84C00BAE25C /* Show-EditIssueDetailViewController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		910317B6286C0EA200BAE25C /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				910317B2286BF76400BAE25C /* PaddingLabels.swift */,
+			);
+			path = UILabel;
 			sourceTree = "<group>";
 		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
@@ -1010,7 +1018,7 @@
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
-				910317B5286C00C200BAE25C /* MultilineTextFields.swift in Sources */,
+				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,

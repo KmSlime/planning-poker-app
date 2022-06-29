@@ -1,5 +1,5 @@
 //
-//  MultilineTextFields.swift
+//  MultilineTextViews.swift
 //  planning-pocker
 //
 //  Created by Hiep on 29/06/2022.
@@ -19,7 +19,7 @@ import UIKit
 /// - TODO: The following features are still missing:
 /// + Add support for displaying a right view
 /// + Configure when left/right views will be shown using `UITextField.leftViewMode`
-public class MultilineTextField: UITextView {
+public class MultilineTextView: UITextView {
     private let placeholderView: UITextView
     
     public override var text: String! {
@@ -180,14 +180,14 @@ public class MultilineTextField: UITextView {
     }
     
     @objc private func textViewDidChange(notification: Notification) {
-        guard let textView = notification.object as? MultilineTextField else {
+        guard let textView = notification.object as? MultilineTextView else {
             return
         }
         
         textViewDidChange(textView)
     }
     
-    @objc private func textViewDidChange(_ textView: MultilineTextField) {
+    @objc private func textViewDidChange(_ textView: MultilineTextView) {
         placeholderView.isHidden = !textView.text.isEmpty
             || !textView.attributedText.string.isEmpty
         
