@@ -7,6 +7,12 @@
 
 import UIKit
 
+// MARK: - protocols
+protocol createIssueViewControllerDelegate : AnyObject {
+    func createIssueViewControllerDidCancel(_ controller: CreateIssueViewController)
+    func createIssueViewController(_ controller: CreateIssueViewController, didFinishAdding item: String)
+}
+
 class CreateIssueViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -56,12 +62,10 @@ class CreateIssueViewController: UIViewController {
     // MARK: - Actions
     @IBAction func cancel(_ sender: UIButton) {
         delegate?.createIssueViewControllerDidCancel(self)
-        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func save(_ sender: UIButton) {
-        delegate?.createIssueViewContrller(self, didFinishAdding: placeholder)
-        navigationController?.popViewController(animated: true)
+        delegate?.createIssueViewController(self, didFinishAdding: placeholder)
     }
 }
 
@@ -90,10 +94,6 @@ extension CreateIssueViewController : UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         warningLabel.isHidden = true
-        if text == "\n" {
-                textView.resignFirstResponder()
-                return false
-            }
         if textView.text.count > 300 && range.length == 0{
             warningLabel.isHidden = false
             return false
@@ -118,8 +118,4 @@ extension UIViewController {
     }
 }
 
-// MARK: - protocols
-protocol createIssueViewControllerDelegate : AnyObject {
-    func createIssueViewControllerDidCancel(_ controller: CreateIssueViewController)
-    func createIssueViewContrller(_ controller: CreateIssueViewController, didFinishAdding item: String)
-}
+
