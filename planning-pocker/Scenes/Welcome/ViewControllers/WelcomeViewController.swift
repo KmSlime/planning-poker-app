@@ -28,10 +28,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SetUpUI()
-        if user != nil {
-            //Hiệp sài cái này để lấy thông tin user
-            print(user.id)
-        } else { print("nil cmnr") }
+        
     }
     
     // MARK: - Publics
@@ -64,7 +61,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func chooseCard(_ sender: UIButton) {
-        AppViewController.shared.pushToChooseCardScreen()
+        AppViewController.shared.pushToChooseCardScreen(newGameModel: nil)
     }
     
     @IBAction func signUp(_ sender: UIButton) {
@@ -95,8 +92,11 @@ class WelcomeViewController: UIViewController {
     
     
     @IBAction func onClickStartGameButton(_ sender: Any) {
-        
-        AppViewController.shared.pushToChooseCardScreen()
+        if user != nil {
+            AppViewController.shared.pushToCreateNewGameScreen()
+        } else {
+            print("hiep tu set")
+        }
         
     }
     @IBAction func onClickLoginButton(_ sender: Any) {

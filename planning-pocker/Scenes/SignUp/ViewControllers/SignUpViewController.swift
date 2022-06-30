@@ -114,7 +114,12 @@ class SignUpViewController: UIViewController {
             let message = hasErrorStatus().messages
             showAlert(title: title, message: message)
         } else {
-            newUser = User(id: arrayEmailValid.count + 1, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
+            let id = arrayEmailValid.count + 1
+            newUser = User(id: id, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
+            userDefaults.set(id, forKey: "id")
+            userDefaults.set(emailTextField.text!, forKey: "email")
+            userDefaults.set(fullNameTextField.text! , forKey: "fullName")
+
             AppViewController.shared.pushToWelcomeScreen(user: newUser)
         }
     }

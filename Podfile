@@ -10,4 +10,5 @@ target 'planning-pocker' do
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   pod 'DropDown'
   pod 'MaterialComponents/Snackbar'
+  pod 'iOSDropDown'
 end

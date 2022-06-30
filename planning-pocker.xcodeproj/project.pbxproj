@@ -254,6 +254,7 @@
 		15C35F9E286AB693001085AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BA3FE11C2862F9AA00779BE3 /* GameModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -800,7 +801,6 @@
 		BAD51B272861B50D002961A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BA3FE11C2862F9AA00779BE3 /* GameModel.swift */,
 				BA084D6A2864085500A14A37 /* PlayerModel.swift */,
 			);
 			path = Models;
@@ -1202,7 +1202,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 685JD8K6XW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1233,7 +1233,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 685JD8K6XW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

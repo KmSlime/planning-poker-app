@@ -15,7 +15,7 @@ enum PlayerRole {
 class PlayerModel {
     let id: Int
     let name: String
-    let roomId : Int
+    let roomId : Int?
     let role: PlayerRole?
     var vote: String!
     init(id: Int, name: String, roomId: Int, role: PlayerRole ) {
