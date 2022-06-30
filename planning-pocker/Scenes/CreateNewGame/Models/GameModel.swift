@@ -8,6 +8,7 @@
 import Foundation
 
 class GameModel {
+    
     var cards : [String]
     var otherPlayers : [PlayerModel]!
     var mainPlayer: PlayerModel!

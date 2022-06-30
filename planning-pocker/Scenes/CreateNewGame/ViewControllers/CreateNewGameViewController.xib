@@ -77,14 +77,6 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voting System" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-IZ-aph">
-                                    <rect key="frame" x="18" y="-10" width="140" height="20"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
-                                    <color key="textColor" systemColor="linkColor"/>
-                                    <nil key="highlightedColor"/>
-                                    <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-HM-t9o">
                                     <rect key="frame" x="329" y="12" width="24" height="24"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -93,10 +85,25 @@
                                         <action selector="showDropdownList:" destination="-1" eventType="touchUpInside" id="g5e-VU-KcD"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voting System" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-IZ-aph">
+                                    <rect key="frame" x="18" y="-10" width="102" height="20"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="102" id="WQX-aX-djp"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
+                                    <color key="textColor" systemColor="linkColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="WQX-aX-djp"/>
+                                        </mask>
+                                    </variation>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Su8-IZ-aph" secondAttribute="trailing" constant="208" id="6iy-G4-xWw"/>
                                 <constraint firstItem="CL4-HM-t9o" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="12" id="FGX-ZT-Jqv"/>
                                 <constraint firstItem="Su8-IZ-aph" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="-10" id="Mqb-sm-cIi"/>
                                 <constraint firstItem="Tus-qg-zAc" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" id="Nfi-Y2-hWd"/>
@@ -167,6 +174,9 @@
                             <color key="value" systemColor="linkColor"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="joinGame:" destination="-1" eventType="touchUpInside" id="ZDB-kJ-ugq"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
