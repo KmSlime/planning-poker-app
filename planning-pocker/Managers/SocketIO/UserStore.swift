@@ -7,8 +7,6 @@
 
 import UIKit
 
-let userDefaults = UserDefaults.standard
-
 public class UserStore: NSObject {
     // message send Offline
     public class func setMessageOffline(dictionary: [String: Any]) {

@@ -8,6 +8,8 @@
 import UIKit
 import DropDown
 
+let userDefaults = UserDefaults.standard
+
 class CreateNewGameViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -25,7 +27,7 @@ class CreateNewGameViewController: UIViewController {
     let dropdownDeleteTableView = DropDown()
     var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"), (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."), (3, "T-Shirt (S, M, L, XL, XXL,...)"), (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
     var newGame: GameModel?
-    var user: User!
+    var testPlayer: PlayerModel!
     // MARK: - Overrides
 
 
@@ -37,6 +39,7 @@ class CreateNewGameViewController: UIViewController {
         dropdownDeleteTableView.anchorView = votingSystemTextField
         votingSystemTextField.placeholder = arrayTest[0].value
         setUpDropdown()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,18 +95,18 @@ class CreateNewGameViewController: UIViewController {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
             //create instance of newGameModel (later)
-          
+
             //{id current user, full name of user}, game {name; id}
-        
-            
-            AppViewController.shared.pushToChooseCardScreen()
+            testPlayer = PlayerModel(id: userDefaults.object(forKey: "id") as! Int, name: userDefaults.object(forKey: "fullName") as! String, roomId: 1, role: PlayerRole.host)
+            print(testPlayer as Any)
+                newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: testPlayer, otherPlayers: [])
+                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)           
         }
     }
     
-    
     @IBAction func joinGame(_ sender: Any) {
+        
     }
-    
     
     @IBAction func showDropdownList(_ sender: Any) {
         dropdownDeleteTableView.show()

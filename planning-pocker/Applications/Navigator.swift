@@ -13,8 +13,8 @@ protocol Navigator {
     func pushToWelcomeScreen(user: User?)
     func pushToSignInScreen()
     func pushToSignUpScreen()
-    func pushToCreateNewGameScreen(user: User?)
-    func pushToChooseCardScreen(user: User?)
+    func pushToCreateNewGameScreen()
+    func pushToChooseCardScreen(newGameModel: GameModel?)
     func pushToInvitePlayerScreen()
     func pushToCreateIssue()
     func pushToShowIssueListScreen()
@@ -45,15 +45,14 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
-    func pushToChooseCardScreen(user: User? = nil) {
+    func pushToChooseCardScreen(newGameModel: GameModel? = nil) {
         let chooseCardVC = ChooseCardViewController()
-        chooseCardVC.user = user
+        chooseCardVC.game = newGameModel
         navigationController?.pushViewController(chooseCardVC, animated: true)
     }
 
-    func pushToCreateNewGameScreen(user: User? = nil) {
+    func pushToCreateNewGameScreen() {
         let createNewGameVC = CreateNewGameViewController()
-        createNewGameVC.user = user
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
     

@@ -94,13 +94,8 @@
                         <constraint firstItem="S0l-PD-W3d" firstAttribute="height" secondItem="bZw-wT-Bly" secondAttribute="height" id="ffY-NP-Uci"/>
                     </constraints>
                 </stackView>
-<<<<<<< Updated upstream
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Ymy-yx-MBw">
-                    <rect key="frame" x="54" y="78" width="141.5" height="364"/>
-=======
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Ymy-yx-MBw">
                     <rect key="frame" x="100" y="135" width="214" height="366"/>
->>>>>>> Stashed changes
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UQa-hz-WWv">
                             <rect key="frame" x="0.0" y="0.0" width="141.5" height="17.5"/>

@@ -61,7 +61,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func chooseCard(_ sender: UIButton) {
-        AppViewController.shared.pushToChooseCardScreen()
+        AppViewController.shared.pushToChooseCardScreen(newGameModel: nil)
     }
     
     @IBAction func signUp(_ sender: UIButton) {
@@ -93,7 +93,7 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func onClickStartGameButton(_ sender: Any) {
         if user != nil {
-            AppViewController.shared.pushToCreateNewGameScreen(game: nil, user: user)
+            AppViewController.shared.pushToCreateNewGameScreen()
         } else {
             print("hiep tu set")
         }
