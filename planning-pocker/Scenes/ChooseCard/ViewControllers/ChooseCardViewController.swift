@@ -7,38 +7,41 @@
 
 import UIKit
 import SocketIO
+import SwiftUI
 
 
 
 class ChooseCardViewController: UIViewController {
+    
+    
     // MARK: - IBOutlets
     @IBOutlet weak var groupOtherPlayers: UIView!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var issueNameLabel: UILabel!
-    @IBOutlet weak var boardInfo: BoardInfoView!{
+    @IBOutlet weak var boardInfoView: BoardInfoView!{
         didSet {
-            guard let boardInfoView = Bundle.main.loadNibNamed("BoardInfoView", owner: boardInfo, options: nil)?.first as? BoardInfoView else { return }
-            boardInfo?.addSubview(boardInfoView)
-            boardInfoView.frame = boardInfoView.superview!.bounds;
-            boardInfoView.layer.cornerRadius = 8
+            guard let subView = Bundle.main.loadNibNamed("BoardInfoView", owner: boardInfoView, options: nil)?.first as? BoardInfoView else { return }
+            boardInfoView?.addSubview(subView)
+            subView.frame = subView.superview!.bounds;
+            subView.layer.cornerRadius = 8
             setUpBoardInfo()
         }
     }
-    @IBOutlet weak var listCardToSelect: UICollectionView!{
+    @IBOutlet weak var listCardToSelectCollectionView: UICollectionView!{
         didSet{
-            listCardToSelect.register(UINib(nibName: cardToSelectCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardToSelectCollectionViewIdentifier)
+            listCardToSelectCollectionView.register(UINib(nibName: cardToSelectCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardToSelectCollectionViewIdentifier)
         }
     }
-    @IBOutlet weak var listCardOtherPlayers: UICollectionView!{
+    @IBOutlet weak var listCardOtherPlayersCollectionView: UICollectionView!{
         didSet {
-            listCardOtherPlayers.register(UINib(nibName: cardOtherPlayersCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardOtherPlayersCollectionViewIdentifier)
-            listCardOtherPlayers.backgroundColor = UIColor.clear
+            listCardOtherPlayersCollectionView.register(UINib(nibName: cardOtherPlayersCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardOtherPlayersCollectionViewIdentifier)
+            listCardOtherPlayersCollectionView.backgroundColor = UIColor.clear
         }
     }
-    @IBOutlet weak var cardMainPlayer: UICollectionView!{
+    @IBOutlet weak var cardMainPlayerCollectionView: UICollectionView!{
         didSet {
-            cardMainPlayer.register(UINib(nibName: cardMainPlayerCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardMainPlayerCollectionViewIdentifier)
-            cardMainPlayer.backgroundColor = UIColor.clear
+            cardMainPlayerCollectionView.register(UINib(nibName: cardMainPlayerCollectionViewIdentifier, bundle: nil), forCellWithReuseIdentifier: cardMainPlayerCollectionViewIdentifier)
+            cardMainPlayerCollectionView.backgroundColor = UIColor.clear
         }
     }
     
@@ -46,6 +49,15 @@ class ChooseCardViewController: UIViewController {
     var selectedIndex : String?
     var isHostExist: Bool?
     var game : GameModel!
+    
+    private var leftMenuViewController: LeftMenuViewController!
+    private var leftMenuRevealWidth: CGFloat = 300
+    private var paddingForRotation: CGFloat = 150
+    private var isExpaned = false
+    
+    private var leftMenuTrailingContraint: NSLayoutConstraint!
+    private var revealLeftMenuOnTop = true
+    private var leftMenuShadowView: UIView!
     
     // identify for collection view cell
     let cardToSelectCollectionViewIdentifier = "CardToSelectCollectionViewCell"
@@ -59,11 +71,10 @@ class ChooseCardViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        listCardToSelect.dataSource = self
-        listCardToSelect.delegate = self
-        listCardOtherPlayers.dataSource = self
-        cardMainPlayer.dataSource = self
-        
+        listCardToSelectCollectionView.dataSource = self
+        listCardToSelectCollectionView.delegate = self
+        listCardOtherPlayersCollectionView.dataSource = self
+        cardMainPlayerCollectionView.dataSource = self
         
         let dataCard = ["0","1","2", "2","3","5","8","13","21","2","34","55","89","?"]
         let mainPlayer : PlayerModel = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
@@ -85,7 +96,7 @@ class ChooseCardViewController: UIViewController {
             print(game!)
         }
         
-        setUpView()
+        setupUI()
     }
 
 
@@ -93,19 +104,18 @@ class ChooseCardViewController: UIViewController {
 
 
     // MARK: - Private
-    func setUpView() { // load view everytime data changed
-        setUpTitleRoom()
-        setUpTitleIssue(isShow: false)
-        setUpOtherPlayer()
-        
-        
+    private func setupUI() { // load view everytime data changed
+        setupTitleRoom()
+        setupTitleIssue(isShow: false)
+        setupOtherPlayer()
+        setupLeftMenu()
     }
     
-    func setUpTitleRoom() { // set room name
+    private func setupTitleRoom() { // set room name
         gameNameLabel.text = game.roomName
     }
     
-    func setUpTitleIssue(isShow : Bool) { // check game has issue or not, if not hidden issue name
+    private func setupTitleIssue(isShow : Bool) { // check game has issue or not, if not hidden issue name
         if isShow {
             issueNameLabel.isHidden = false
             issueNameLabel.text = game.currentIssue
@@ -114,7 +124,7 @@ class ChooseCardViewController: UIViewController {
         }
     }
     
-    func setUpOtherPlayer() { // check other players in room, else show Invite player
+    private func setupOtherPlayer() { // check other players in room, else show Invite player
         guard let foundEmptyList = groupOtherPlayers.viewWithTag(101),
               let foundList = groupOtherPlayers.viewWithTag(102)
         else {return}
@@ -122,10 +132,73 @@ class ChooseCardViewController: UIViewController {
         foundList.isHidden =  (game.isEmptyOtherPlayers() == true ? true : false)
     }
     
-    func setUpBoardInfo() {
-        boardInfo.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
+    private func setUpBoardInfo() {
+        boardInfoView.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
     }
-
+    
+    private func setupLeftMenu() { // set up left menu
+        // Set up shadow
+        self.leftMenuShadowView = UIView(frame: self.view.bounds)
+        self.leftMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.leftMenuShadowView.backgroundColor = .black
+        self.leftMenuShadowView.alpha = 0
+        
+        // Tap Gestures
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TapGestureRecognizer))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.delegate = self
+        self.leftMenuShadowView.addGestureRecognizer(tapGestureRecognizer)
+        
+        if self.revealLeftMenuOnTop {
+            view.insertSubview(self.leftMenuShadowView, at: 15)
+        }
+        
+        // Insert LeftMenuViewController to ChooseCardViewController
+        self.leftMenuViewController = LeftMenuViewController()
+        self.leftMenuViewController.defaultHighLightedCell = 0
+        view.insertSubview(self.leftMenuViewController!.view, at: self.revealLeftMenuOnTop ? 20 : 0)
+        addChild(self.leftMenuViewController!)
+        self.leftMenuViewController!.didMove(toParent: self)
+        self.leftMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        if self.revealLeftMenuOnTop {
+            self.leftMenuTrailingContraint = self.leftMenuViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -self.leftMenuRevealWidth - self.paddingForRotation)
+            self.leftMenuTrailingContraint.isActive = true
+        }
+        NSLayoutConstraint.activate([
+            self.leftMenuViewController.view.widthAnchor.constraint(equalToConstant: self.leftMenuRevealWidth),
+            self.leftMenuViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.leftMenuViewController.view.topAnchor.constraint(equalTo: view.topAnchor)
+        ])
+    }
+    
+    private func leftMenuState(expanded: Bool) {
+        if expanded {
+            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? 0 : self.leftMenuRevealWidth) { _ in
+                self.isExpaned = true
+            }
+            UIView.animate(withDuration: 0.5) {
+                self.leftMenuShadowView.alpha = 0.6
+            }
+        } else {
+            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? (-self.leftMenuRevealWidth - self.paddingForRotation) : 0) { _ in
+                self.isExpaned = false
+            }
+            UIView.animate(withDuration: 0.5) {
+                self.leftMenuShadowView.alpha = 0
+            }
+        }
+    }
+    
+    private func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> ()) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .layoutSubviews, animations: {
+            if self.revealLeftMenuOnTop {
+                self.leftMenuTrailingContraint.constant = targetPosition
+                self.view.layoutIfNeeded()
+            } else {
+                self.view.subviews[1].frame.origin.x = targetPosition
+            }
+        }, completion: completion)
+    }
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
@@ -133,7 +206,7 @@ class ChooseCardViewController: UIViewController {
     }
     
     @IBAction func leftMenuButton(_ sender: UIButton) {
-
+        self.leftMenuState(expanded: self.isExpaned ? false : true)
     }
     
     @IBAction func invitePlayerButton(_ sender: UIButton) {
@@ -145,28 +218,28 @@ class ChooseCardViewController: UIViewController {
 // MARK: - Extensions
 extension ChooseCardViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.listCardToSelect {
+        if collectionView == self.listCardToSelectCollectionView {
             return game.cards.count
-        } else if collectionView == self.cardMainPlayer {
+        } else if collectionView == self.cardMainPlayerCollectionView {
             return 1
-        } else if collectionView == self.listCardOtherPlayers {
+        } else if collectionView == self.listCardOtherPlayersCollectionView {
             return game.otherPlayers.count
         }
        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.listCardToSelect {
+        if collectionView == self.listCardToSelectCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardToSelectCollectionViewIdentifier, for: indexPath) as? CardToSelectCollectionViewCell
             cell?.config(name: game.cards[indexPath.row])
             cell?.configSelect(isSelected: (selectedIndex == game.cards[indexPath.row]) ?  true : false)
             return cell!
-        } else if collectionView == self.cardMainPlayer {
+        } else if collectionView == self.cardMainPlayerCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardMainPlayerCollectionViewIdentifier, for: indexPath) as? CardMainPlayerCollectionViewCell
             cell?.config(name: game.mainPlayer.name)
             cell?.configSelect(isSelected: (selectedIndex != nil) ?  true : false)
             return cell!
-        } else if collectionView == self.listCardOtherPlayers {
+        } else if collectionView == self.listCardOtherPlayersCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cardOtherPlayersCollectionViewIdentifier, for: indexPath) as? CardOtherPlayersCollectionViewCell
             cell?.config(name: game.otherPlayers[indexPath.row].name)
             cell?.configSelect(isSelected: true)
@@ -174,17 +247,14 @@ extension ChooseCardViewController : UICollectionViewDataSource {
         }
         return UICollectionViewCell()
     }
-  
-
-    
 }
 
 extension ChooseCardViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.listCardToSelect {
+        if collectionView == self.listCardToSelectCollectionView {
             selectedIndex = (game.cards[indexPath.row] == selectedIndex ? nil : game.cards[indexPath.row])
-            listCardToSelect.reloadData()
-            cardMainPlayer.reloadData()
+            listCardToSelectCollectionView.reloadData()
+            cardMainPlayerCollectionView.reloadData()
             setUpBoardInfo()
         }
     }
@@ -192,6 +262,25 @@ extension ChooseCardViewController : UICollectionViewDelegate {
 }
 
 extension ChooseCardViewController : UICollectionViewDelegateFlowLayout {
+}
+
+extension ChooseCardViewController : UIGestureRecognizerDelegate {
+    @objc func TapGestureRecognizer(sender: UITapGestureRecognizer) {
+        print("TapGestureRecognizer")
+        if sender.state == .ended {
+            if self.isExpaned {
+                self.leftMenuState(expanded: false)
+            }
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        print("gestureRecognizer")
+        if(touch.view?.isDescendant(of: self.leftMenuViewController.view))! {
+            return false
+        }
+        return true
+    }
 }
 
 

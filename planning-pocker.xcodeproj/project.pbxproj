@@ -74,6 +74,13 @@
 		94344E1F286C04D100F40565 /* ListIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E1E286C04D100F40565 /* ListIssue.swift */; };
 		94344E24286C141800F40565 /* ButtonItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E22286C141800F40565 /* ButtonItemTableViewCell.swift */; };
 		94344E25286C141800F40565 /* ButtonItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E23286C141800F40565 /* ButtonItemTableViewCell.xib */; };
+		94344E2C286C6AE800F40565 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E2A286C6AE800F40565 /* LeftMenuViewController.swift */; };
+		94344E2D286C6AE800F40565 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E2B286C6AE800F40565 /* LeftMenuViewController.xib */; };
+		94344E2F286C6C8A00F40565 /* LeftMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E2E286C6C8A00F40565 /* LeftMenuModel.swift */; };
+		94344E32286C6D1000F40565 /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E30286C6D1000F40565 /* LeftMenuTableViewCell.swift */; };
+		94344E33286C6D1000F40565 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E31286C6D1000F40565 /* LeftMenuTableViewCell.xib */; };
+		94344E3A286D824600F40565 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E39286D824600F40565 /* EditProfileView.swift */; };
+		94344E3C286D825700F40565 /* EditProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E3B286D825700F40565 /* EditProfileView.xib */; };
 		94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC624E28695AC20029674B /* InvitePlayerViewController.swift */; };
 		94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC624F28695AC20029674B /* InvitePlayerViewController.xib */; };
 		94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */; };
@@ -157,6 +164,13 @@
 		94344E1E286C04D100F40565 /* ListIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIssue.swift; sourceTree = "<group>"; };
 		94344E22286C141800F40565 /* ButtonItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItemTableViewCell.swift; sourceTree = "<group>"; };
 		94344E23286C141800F40565 /* ButtonItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonItemTableViewCell.xib; sourceTree = "<group>"; };
+		94344E2A286C6AE800F40565 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		94344E2B286C6AE800F40565 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
+		94344E2E286C6C8A00F40565 /* LeftMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuModel.swift; sourceTree = "<group>"; };
+		94344E30286C6D1000F40565 /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
+		94344E31286C6D1000F40565 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
+		94344E39286D824600F40565 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		94344E3B286D825700F40565 /* EditProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileView.xib; sourceTree = "<group>"; };
 		94CC624E28695AC20029674B /* InvitePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayerViewController.swift; sourceTree = "<group>"; };
 		94CC624F28695AC20029674B /* InvitePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayerViewController.xib; sourceTree = "<group>"; };
 		94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIssueViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +390,7 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				94344E26286C66B000F40565 /* LeftMenu */,
 				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				6051A86C28644E3E008A6715 /* CreateNewGame */,
 				155264E4286B154F0038ABDF /* IssuesList */,
@@ -677,6 +692,60 @@
 			path = ButtonItemTableViewCell;
 			sourceTree = "<group>";
 		};
+		94344E26286C66B000F40565 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				94344E29286C66C800F40565 /* Models */,
+				94344E28286C66C000F40565 /* Views */,
+				94344E27286C66B700F40565 /* ViewControllers */,
+			);
+			path = LeftMenu;
+			sourceTree = "<group>";
+		};
+		94344E27286C66B700F40565 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				94344E2A286C6AE800F40565 /* LeftMenuViewController.swift */,
+				94344E2B286C6AE800F40565 /* LeftMenuViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94344E28286C66C000F40565 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94344E34286D808400F40565 /* EditProfileView */,
+				94344E3D286D94EA00F40565 /* LeftMenuTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94344E29286C66C800F40565 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94344E2E286C6C8A00F40565 /* LeftMenuModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		94344E34286D808400F40565 /* EditProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				94344E39286D824600F40565 /* EditProfileView.swift */,
+				94344E3B286D825700F40565 /* EditProfileView.xib */,
+			);
+			path = EditProfileView;
+			sourceTree = "<group>";
+		};
+		94344E3D286D94EA00F40565 /* LeftMenuTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				94344E30286C6D1000F40565 /* LeftMenuTableViewCell.swift */,
+				94344E31286C6D1000F40565 /* LeftMenuTableViewCell.xib */,
+			);
+			path = LeftMenuTableViewCell;
+			sourceTree = "<group>";
+		};
 		94CC624A28695A7A0029674B /* Invite Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +987,7 @@
 				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
 				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
+				94344E33286C6D1000F40565 /* LeftMenuTableViewCell.xib in Resources */,
 				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
@@ -932,6 +1002,7 @@
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
+				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
 				0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
@@ -944,6 +1015,7 @@
 				6051A86328644B38008A6715 /* Poppins-Medium.ttf in Resources */,
 				6051A86228644B38008A6715 /* Poppins-Light.ttf in Resources */,
 				60B6C9F72861B8BC00DC3270 /* (null) in Resources */,
+				94344E2D286C6AE800F40565 /* LeftMenuViewController.xib in Resources */,
 				6051A86428644B38008A6715 /* Poppins-ExtraBold.ttf in Resources */,
 				15C35FA3286AB693001085AB /* CreateNewGameViewController.xib in Resources */,
 				6051A86828644B38008A6715 /* Poppins-SemiBold.ttf in Resources */,
@@ -1025,6 +1097,7 @@
 				60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */,
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
 				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
+				94344E3A286D824600F40565 /* EditProfileView.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
 				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
@@ -1054,15 +1127,18 @@
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
+				94344E2C286C6AE800F40565 /* LeftMenuViewController.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
 				60C82C4928644771002E2DC2 /* User.swift in Sources */,
+				94344E32286C6D1000F40565 /* LeftMenuTableViewCell.swift in Sources */,
 				9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
 				60465B732862B2100082956B /* (null) in Sources */,
+				94344E2F286C6C8A00F40565 /* LeftMenuModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
