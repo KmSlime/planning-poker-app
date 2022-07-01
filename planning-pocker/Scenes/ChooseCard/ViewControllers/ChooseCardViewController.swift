@@ -76,7 +76,6 @@ class ChooseCardViewController: UIViewController {
         listCardOtherPlayersCollectionView.dataSource = self
         cardMainPlayerCollectionView.dataSource = self
         
-        
         let dataCard = ["0","1","2", "2","3","5","8","13","21","2","34","55","89","?"]
         let mainPlayer : PlayerModel = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
         let otherPlayers : [PlayerModel] =
@@ -91,7 +90,6 @@ class ChooseCardViewController: UIViewController {
         ]
 //        let otherPlayers : [PlayerModel] =  []
         self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
-
         setupUI()
     }
 
@@ -100,18 +98,18 @@ class ChooseCardViewController: UIViewController {
 
 
     // MARK: - Private
-    func setupUI() { // load view everytime data changed
+    private func setupUI() { // load view everytime data changed
         setupTitleRoom()
         setupTitleIssue(isShow: false)
         setupOtherPlayer()
         setupLeftMenu()
     }
     
-    func setupTitleRoom() { // set room name
+    private func setupTitleRoom() { // set room name
         gameNameLabel.text = game.roomName
     }
     
-    func setupTitleIssue(isShow : Bool) { // check game has issue or not, if not hidden issue name
+    private func setupTitleIssue(isShow : Bool) { // check game has issue or not, if not hidden issue name
         if isShow {
             issueNameLabel.isHidden = false
             issueNameLabel.text = game.currentIssue
@@ -120,7 +118,7 @@ class ChooseCardViewController: UIViewController {
         }
     }
     
-    func setupOtherPlayer() { // check other players in room, else show Invite player
+    private func setupOtherPlayer() { // check other players in room, else show Invite player
         guard let foundEmptyList = groupOtherPlayers.viewWithTag(101),
               let foundList = groupOtherPlayers.viewWithTag(102)
         else {return}
@@ -128,11 +126,11 @@ class ChooseCardViewController: UIViewController {
         foundList.isHidden =  (game.isEmptyOtherPlayers() == true ? true : false)
     }
     
-    func setUpBoardInfo() {
+    private func setUpBoardInfo() {
         boardInfoView.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
     }
     
-    func setupLeftMenu() { // set up left menu
+    private func setupLeftMenu() { // set up left menu
         // Set up shadow
         self.leftMenuShadowView = UIView(frame: self.view.bounds)
         self.leftMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -152,7 +150,6 @@ class ChooseCardViewController: UIViewController {
         // Insert LeftMenuViewController to ChooseCardViewController
         self.leftMenuViewController = LeftMenuViewController()
         self.leftMenuViewController.defaultHighLightedCell = 0
-        self.leftMenuViewController.delegate = self
         view.insertSubview(self.leftMenuViewController!.view, at: self.revealLeftMenuOnTop ? 20 : 0)
         addChild(self.leftMenuViewController!)
         self.leftMenuViewController!.didMove(toParent: self)
@@ -166,7 +163,35 @@ class ChooseCardViewController: UIViewController {
             self.leftMenuViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             self.leftMenuViewController.view.topAnchor.constraint(equalTo: view.topAnchor)
         ])
-        
+    }
+    
+    private func leftMenuState(expanded: Bool) {
+        if expanded {
+            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? 0 : self.leftMenuRevealWidth) { _ in
+                self.isExpaned = true
+            }
+            UIView.animate(withDuration: 0.5) {
+                self.leftMenuShadowView.alpha = 0.6
+            }
+        } else {
+            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? (-self.leftMenuRevealWidth - self.paddingForRotation) : 0) { _ in
+                self.isExpaned = false
+            }
+            UIView.animate(withDuration: 0.5) {
+                self.leftMenuShadowView.alpha = 0
+            }
+        }
+    }
+    
+    private func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> ()) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .layoutSubviews, animations: {
+            if self.revealLeftMenuOnTop {
+                self.leftMenuTrailingContraint.constant = targetPosition
+                self.view.layoutIfNeeded()
+            } else {
+                self.view.subviews[1].frame.origin.x = targetPosition
+            }
+        }, completion: completion)
     }
 
     // MARK: - Actions
@@ -216,9 +241,6 @@ extension ChooseCardViewController : UICollectionViewDataSource {
         }
         return UICollectionViewCell()
     }
-  
-
-    
 }
 
 extension ChooseCardViewController : UICollectionViewDelegate {
@@ -234,72 +256,6 @@ extension ChooseCardViewController : UICollectionViewDelegate {
 }
 
 extension ChooseCardViewController : UICollectionViewDelegateFlowLayout {
-}
-
-extension ChooseCardViewController : LeftMenuViewControllerDelegate {
-    func selectedCell(_ row: Int) {
-        switch row {
-        case 0:
-            AppViewController.shared.pushToInvitePlayerScreen()
-            return
-        case 1:
-            return
-        case 2:
-            return
-        case 3:
-            return
-        case 4:
-            return
-        default:
-            break
-        }
-    }
-    
-    func leftMenuState(expanded: Bool) {
-        if expanded {
-            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? 0 : self.leftMenuRevealWidth) { _ in
-                self.isExpaned = true
-            }
-            UIView.animate(withDuration: 0.5) {
-                self.leftMenuShadowView.alpha = 0.6
-            }
-        } else {
-            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? (-self.leftMenuRevealWidth - self.paddingForRotation) : 0) { _ in
-                self.isExpaned = false
-            }
-            UIView.animate(withDuration: 0.5) {
-                self.leftMenuShadowView.alpha = 0
-            }
-        }
-    }
-    
-    func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> ()) {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .layoutSubviews, animations: {
-            if self.revealLeftMenuOnTop {
-                self.leftMenuTrailingContraint.constant = targetPosition
-                self.view.layoutIfNeeded()
-            } else {
-                self.view.subviews[1].frame.origin.x = targetPosition
-            }
-        }, completion: completion)
-    }
-}
-
-extension UIViewController {
-    func revealViewController() -> ChooseCardViewController? {
-           var viewController: UIViewController? = self
-           
-           if viewController != nil && viewController is ChooseCardViewController {
-               return viewController! as? ChooseCardViewController
-           }
-           while (!(viewController is ChooseCardViewController) && viewController?.parent != nil) {
-               viewController = viewController?.parent
-           }
-           if viewController is ChooseCardViewController {
-               return viewController as? ChooseCardViewController
-           }
-           return nil
-       }
 }
 
 extension ChooseCardViewController : UIGestureRecognizerDelegate {

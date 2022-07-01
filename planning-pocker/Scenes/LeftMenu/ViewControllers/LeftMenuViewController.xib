@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
+                <outlet property="heightButtonConstraint" destination="3K8-7y-0xD" id="RDJ-hy-Qyg"/>
+                <outlet property="invitePlayerButton" destination="i4O-sz-68h" id="SkW-80-5Yd"/>
                 <outlet property="leftMenuTableView" destination="egv-KH-uRt" id="ihp-OE-rDP"/>
                 <outlet property="profileView" destination="6QD-9Y-LE3" id="jRP-5G-Klq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -46,9 +48,6 @@
                         </backgroundConfiguration>
                         <color key="baseForegroundColor" red="0.0" green="0.66666666666666663" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
-                    <connections>
-                        <action selector="invitePlayerButton:" destination="-1" eventType="touchUpInside" id="xcp-Gc-D6K"/>
-                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -8,7 +8,8 @@
 import UIKit
 
 class LeftMenuViewController: UIViewController {
-    
+    // MARK: - IBOutlet
+    @IBOutlet weak var heightButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftMenuTableView: UITableView! {
         didSet {
             leftMenuTableView.register(UINib(nibName: "LeftMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "LeftMenuTableViewCell")
@@ -24,8 +25,14 @@ class LeftMenuViewController: UIViewController {
         }
     }
     
-    var isLoggined = false
-    var delegate: LeftMenuViewControllerDelegate?
+    @IBOutlet weak var invitePlayerButton: UIButton! {
+        didSet {
+            invitePlayerButton.addTarget(self, action: #selector(invitePlayer), for: .touchUpInside)
+        }
+    }
+    
+    // MARK: - Properties
+    var isGameStarted = true
     var defaultHighLightedCell: Int = 0
     var menu: [LeftMenuModel] = [LeftMenuModel(icon: UIImage(named: "icon_eye.png")!, title: "Spectator Mode"),
                                  LeftMenuModel(icon: UIImage(named: "icon_setting.png")!, title: "My Account"),
@@ -33,6 +40,7 @@ class LeftMenuViewController: UIViewController {
                                  LeftMenuModel(icon: UIImage(named: "icon_support.png")!, title: "Support"),
                                  LeftMenuModel(icon: UIImage(named: "icon_signout.png")!, title: "Sign out"),]
     
+    // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
         leftMenuTableView.delegate = self
@@ -40,16 +48,41 @@ class LeftMenuViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Private
     private func setupUI() {
-       
+        self.invitePlayerButton.isHidden = isGameStarted ? false : true
+        self.heightButtonConstraint.constant = isGameStarted ? 50 : 0
     }
     
-    @IBAction func invitePlayerButton(_ sender: UIButton) {
+    private func selectedCell(_ row: Int) {
+        switch row {
+        case 0:
+            print("Spectator Mode")
+            return
+        case 1:
+            print("My Account")
+            return
+        case 2:
+            print("Contact us")
+            return
+        case 3:
+            print("Support")
+            return
+        case 4:
+            return
+        default:
+            break
+        }
+    }
+    
+    // MARK: - Function
+    @objc func invitePlayer() {
         AppViewController.shared.pushToInvitePlayerScreen()
     }
     
 }
 
+// MARK: - Extension
 extension LeftMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
@@ -74,13 +107,6 @@ extension LeftMenuViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.selectedCell(indexPath.row)
+       selectedCell(indexPath.row)
     }
-    
-    
 }
-
-protocol LeftMenuViewControllerDelegate {
-    func selectedCell(_ row: Int)
-}
-
