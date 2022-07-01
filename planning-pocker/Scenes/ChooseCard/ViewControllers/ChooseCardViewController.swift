@@ -89,7 +89,13 @@ class ChooseCardViewController: UIViewController {
            PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
         ]
 //        let otherPlayers : [PlayerModel] =  []
-        self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
+//        self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
+        
+        //test receive
+        if game != nil {
+            print(game!)
+        }
+        
         setupUI()
     }
 

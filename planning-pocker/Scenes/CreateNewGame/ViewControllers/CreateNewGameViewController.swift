@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import DropDown
+
+let userDefaults = UserDefaults.standard
 
 class CreateNewGameViewController: UIViewController {
 
@@ -15,57 +18,74 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var dropdownButton: UIButton!
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var joinGameButton: UIButton!
+//    @IBOutlet weak var dropdownView: UIView!
+
     
     // MARK: - Properties
     var messages: String?
     var status: Bool?
-    let dropdownDeleteTableView = UITableView()
-    let transparentView = UIView()
-    var selectedButton = UIButton()
-    var dataSource = [String]()
-
+    let dropdownDeleteTableView = DropDown()
+    var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"), (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."), (3, "T-Shirt (S, M, L, XL, XXL,...)"), (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
+    var newGame: GameModel?
+    var testPlayer: PlayerModel!
     // MARK: - Overrides
+
 
 
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        dropdownDeleteTableView.anchorView = votingSystemTextField
+        votingSystemTextField.placeholder = arrayTest[0].value
+        setUpDropdown()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dropdownDeleteTableView.reloadAllComponents()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y:(dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
+        dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width //get data from api
+        selectedDropdownItem()
+
+    }
+    
 
     // MARK: - Publics
-    func addTransparentView(frames: CGRect) {
-        let window = UIApplication.shared.keyWindow
-        transparentView.frame = window?.frame ?? self.view.frame
-        self.view.addSubview(transparentView)
-        dropdownDeleteTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        self.view.addSubview(dropdownDeleteTableView)
-        dropdownDeleteTableView.layer.cornerRadius = 5
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        dropdownDeleteTableView.reloadData()
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-        transparentView.addGestureRecognizer(tapgesture)
-        transparentView.alpha = 0
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.dropdownDeleteTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 50))
-             }, completion: nil)
+    func selectedDropdownItem() {
+        dropdownDeleteTableView.selectionAction = {
+            [unowned self] (index: Int, item: String) in
+            
+            dropdownDeleteTableView.backgroundColor =  UIColor.white
+
+            print(item)
+            print(index)
+            
+            votingSystemTextField.placeholder = item
+        }
     }
-    
-    @objc func removeTransparentView() {
-             let frames = selectedButton.frame
-             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-                 self.transparentView.alpha = 0
-                 self.dropdownDeleteTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-             }, completion: nil)
-         }
-    
 
 
     // MARK: - Private
-    private func setupUI(){
- 
+    private func setupUI() {
+
+    }
+    
+    private func setUpDropdown() {
+        //sau nay thay cai nay bang api
+        for item in arrayTest {
+            dropdownDeleteTableView.dataSource.append(item.value)
+            if item.id == arrayTest.count {
+                let customDeckItem: (id: Int, value: String) = (0, "Create custom desk..")
+                arrayTest.append(customDeckItem)
+                dropdownDeleteTableView.dataSource.append(customDeckItem.value)
+                break
+            }
+        }
     }
 
 
@@ -73,22 +93,23 @@ class CreateNewGameViewController: UIViewController {
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
+        } else {
+            //create instance of newGameModel (later)
+
+            //{id current user, full name of user}, game {name; id}
+            testPlayer = PlayerModel(id: userDefaults.object(forKey: "id") as! Int, name: userDefaults.object(forKey: "fullName") as! String, roomId: 1, role: PlayerRole.host)
+            print(testPlayer as Any)
+                newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: testPlayer, otherPlayers: [])
+                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)           
         }
     }
-
-//    @IBAction func onClickSelectGender(_ sender: Any) {
-//        dataSource = ["Male", "Female"]
-//        selectedButton = btnSelectGender
-//        addTransparentView(frames: btnSelectGender.frame)
-//    }
-//
+    
+    @IBAction func joinGame(_ sender: Any) {
+        
+    }
     
     @IBAction func showDropdownList(_ sender: Any) {
-                dataSource = ["Male", "Female"]
-
-        selectedButton = dropdownButton
-        addTransparentView(frames: dropdownButton.frame)
-        
+        dropdownDeleteTableView.show()
         
     }
     
@@ -112,22 +133,5 @@ extension CreateNewGameViewController {
     }
 
 }
-
-extension CreateNewGameViewController: UITableViewDelegate {
-
-}
-
-//extension CreateNewGameViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        let cell = tableView.dequeueReusableCell(withIdentifier: transparentView as , for:  indexPath)
-//    }
-//
-//
-//}
-
 
     // MARK: - protocols
