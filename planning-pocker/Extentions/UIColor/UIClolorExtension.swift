@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -27,7 +26,6 @@ extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
-    
     static let textFieldBorderColor = UIColor(hexString: "#707070").cgColor
     static let textFieldHintColor = UIColor(hexString: "#0000008F")
     static let blueButtonColor = UIColor(hexString: "#00AAE7")

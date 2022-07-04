@@ -8,21 +8,21 @@
 import UIKit
 
 class Issue: NSObject, Codable {
-    
+
     var issueId: Int
     var issueKey: String
     var issueIdGame: String
-    
+
     var issueTitle: String?
     var issueLink: String?
-    var isVoted: Bool = false
-    
+    var isVoted = false
+
     init(id: Int, key: String, idGame: String) {
         self.issueId = id
         self.issueKey = key
         self.issueIdGame = idGame
     }
-    
+
     public var id: Int {
         get {
             return self.issueId
@@ -31,16 +31,16 @@ class Issue: NSObject, Codable {
             return self.issueId = newValue
         }
     }
-    
+
     public var link: String {
-        
+
         get {
             return self.issueLink!
         }
         set {
             return self.issueLink = newValue
         }
-        
+
     }
     public var title: String {
         get {
