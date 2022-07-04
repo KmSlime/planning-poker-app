@@ -67,6 +67,15 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     func pushToLeftMenu() {
+        let leftMenuVC = LeftMenuViewController()
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        leftMenuVC.modalPresentationStyle = .overFullScreen
+        present(leftMenuVC, animated: true, completion: nil)
     }
 
     func pushToSignOut() {

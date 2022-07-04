@@ -199,8 +199,7 @@ extension SignInViewController {
     }
 }
 
-
-extension SignInViewController: UITextFieldDelegate{
+extension SignInViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }

@@ -85,64 +85,6 @@ class CreateNewGameViewController: UIViewController {
             }
         }
     }
-    private func setupLeftMenu() { // set up left menu
-        // Set up shadow
-        self.leftMenuShadowView = UIView(frame: self.view.bounds)
-        self.leftMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.leftMenuShadowView.backgroundColor = .black
-        self.leftMenuShadowView.alpha = 0
-        // Tap Gestures
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        tapGestureRecognizer.delegate = self
-        self.leftMenuShadowView.addGestureRecognizer(tapGestureRecognizer)
-        if self.revealLeftMenuOnTop {
-            view.insertSubview(self.leftMenuShadowView, at: 15)
-        }
-        // Insert LeftMenuViewController to ChooseCardViewController
-        self.leftMenuViewController = LeftMenuViewController()
-        self.leftMenuViewController.defaultHighLightedCell = 0
-        view.insertSubview(self.leftMenuViewController!.view, at: self.revealLeftMenuOnTop ? 20 : 0)
-        addChild(self.leftMenuViewController!)
-        self.leftMenuViewController!.didMove(toParent: self)
-        self.leftMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        if self.revealLeftMenuOnTop {
-            self.leftMenuTrailingConstraint = self.leftMenuViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -self.leftMenuRevealWidth - self.paddingForRotation)
-            self.leftMenuTrailingConstraint.isActive = true
-        }
-        NSLayoutConstraint.activate([
-            self.leftMenuViewController.view.widthAnchor.constraint(equalToConstant: self.leftMenuRevealWidth),
-            self.leftMenuViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.leftMenuViewController.view.topAnchor.constraint(equalTo: view.topAnchor)
-        ])
-    }
-    private func leftMenuState(expanded: Bool) {
-        if expanded {
-            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? 0 : self.leftMenuRevealWidth) { _ in
-                self.isExpanded = true
-            }
-            UIView.animate(withDuration: 0.5) {
-                self.leftMenuShadowView.alpha = 0.6
-            }
-        } else {
-            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? (-self.leftMenuRevealWidth - self.paddingForRotation) : 0) { _ in
-                self.isExpanded = false
-            }
-            UIView.animate(withDuration: 0.5) {
-                self.leftMenuShadowView.alpha = 0
-            }
-        }
-    }
-    private func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> ()) {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .layoutSubviews, animations: {
-            if self.revealLeftMenuOnTop {
-                self.leftMenuTrailingConstraint.constant = targetPosition
-                self.view.layoutIfNeeded()
-            } else {
-                self.view.subviews[1].frame.origin.x = targetPosition
-            }
-        }, completion: completion)
-    }
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
@@ -166,10 +108,9 @@ class CreateNewGameViewController: UIViewController {
         dropdownDeleteTableView.show()
 
     }
-    @IBAction func onClickLeftMenuButton(_ sender: UIButton) {
-        self.leftMenuState(expanded: self.isExpanded ? false : true)
+    @IBAction func leftMenuButton(_ sender: UIButton) {
+        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
     }
-
 }
     // MARK: - extensions
 extension CreateNewGameViewController {
@@ -189,22 +130,5 @@ extension CreateNewGameViewController {
         return (messages, status)
     }
 
-}
-extension CreateNewGameViewController : UIGestureRecognizerDelegate {
-    @objc func tapGestureRecognizer(sender: UITapGestureRecognizer) {
-        print("TapGestureRecognizer")
-        if sender.state == .ended {
-            if self.isExpanded {
-                self.leftMenuState(expanded: false)
-            }
-        }
-    }
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        print("gestureRecognizer")
-        if(touch.view?.isDescendant(of: self.leftMenuViewController.view))! {
-            return false
-        }
-        return true
-    }
 }
     // MARK: - protocols
