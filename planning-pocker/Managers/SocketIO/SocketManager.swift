@@ -88,7 +88,7 @@ class SocketIOManager: NSObject {
                 }
             }
             if UserStore.getShouldGetHistoryList() {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.kGetHistoryList_RESTFUL), object: nil, userInfo: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.kGetHistoryListRESTFUL), object: nil, userInfo: nil)
             }
             completionHandler(dataValue)
         }

@@ -9,11 +9,9 @@ import UIKit
 
 class ProgressView: NSObject {
     public static let shared = ProgressView()
-    
     private var indicator: UIActivityIndicatorView?
     private var containerView: UIView?
     private var isShowing = false
-    
     func show() {
         DispatchQueue.main.async {
             if let window = UIApplication.shared.keyWindow, !self.isShowing {
@@ -24,14 +22,12 @@ class ProgressView: NSObject {
                     self.containerView!.addSubview(self.indicator!)
                     self.indicator!.center = self.containerView!.center
                 }
-                
                 self.isShowing = true
                 window.addSubview(self.containerView!)
                 self.indicator?.startAnimating()
             }
         }
     }
-    
     func hide() {
         DispatchQueue.main.async {
             self.isShowing = false

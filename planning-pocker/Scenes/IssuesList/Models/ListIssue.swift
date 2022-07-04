@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListIssue:  NSObject, Codable {
+class ListIssue: NSObject, Codable {
     var items = [Issue]()
     var votingIssueIndex: Int {
         get {
@@ -17,11 +17,11 @@ class ListIssue:  NSObject, Codable {
             return self.votingIssueIndex = newValue
         }
     }
-    
+
     override init() {
         super.init()
     }
-    
+
     var isHost: Bool {
         get {
             return self.isHost
@@ -30,5 +30,5 @@ class ListIssue:  NSObject, Codable {
             return self.isHost = newValue
         }
     }
-    
+
 }

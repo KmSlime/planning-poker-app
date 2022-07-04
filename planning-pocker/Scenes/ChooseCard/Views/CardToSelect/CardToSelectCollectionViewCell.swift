@@ -10,7 +10,6 @@ import UIKit
 class CardToSelectCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var numberLabel: UILabel!
-    
     // MARK: - Properties
 
     // MARK: - Overrides
@@ -22,12 +21,11 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Life cycles
 
-
     // MARK: - Publics
-    func config(name: String){
+    func config(name: String) {
         numberLabel.text = name
     }
-    func configSelect(isSelected: Bool){
+    func configSelect(isSelected: Bool) {
         contentView.layer.cornerRadius = 4.0
         contentView.layer.borderWidth = 1.5
         if isSelected {
@@ -43,8 +41,6 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Private
 
-
     // MARK: - Actions
 
 }
-

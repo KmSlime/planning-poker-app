@@ -16,10 +16,10 @@ class CardOtherPlayersCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func config(name: String){
+    func config(name: String) {
         numberLabel.text = name
     }
-    func configSelect(isSelected: Bool){
+    func configSelect(isSelected: Bool) {
         numberLabel.textColor = UIColor.black
         cardImage.image = UIImage(named: "icon_card.png")
         backCard.image = UIImage(named: "icon_back_card.png")
