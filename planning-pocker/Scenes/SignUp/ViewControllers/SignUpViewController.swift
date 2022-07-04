@@ -61,15 +61,12 @@ class SignUpViewController: UIViewController {
 
     //MARK: - SENDING DATA TO BE - HAVEN'T DONE YET
     func register() {
-        APIRequest.shared.request(router: APIRouter.signUp(displayName: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
-
+        APIRequest.shared.request(router: APIRouter.signUp(email: emailTextField.text!, displayName: fullNameTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
+        
+            print(response)
             
             
         }
-       
-        
-        
-        
     }
 
     
@@ -123,12 +120,12 @@ class SignUpViewController: UIViewController {
             let message = hasErrorStatus().messages
             showAlert(title: title, message: message)
         } else {
+            register()
             let id = arrayEmailValid.count + 1
             newUser = User(id: id, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
             userDefaults.set(id, forKey: "id")
             userDefaults.set(emailTextField.text!, forKey: "email")
             userDefaults.set(fullNameTextField.text! , forKey: "fullName")
-            register()
             AppViewController.shared.pushToWelcomeScreen(user: newUser)
         }
     }

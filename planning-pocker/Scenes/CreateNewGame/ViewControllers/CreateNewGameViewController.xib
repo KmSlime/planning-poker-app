@@ -32,27 +32,22 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tpssoft-logo-full-color" translatesAutoresizingMaskIntoConstraints="NO" id="O8Q-NU-9n0">
                     <rect key="frame" x="109" y="142" width="197" height="39"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="158" id="RGA-6S-XfQ"/>
+                        <constraint firstAttribute="height" constant="39" id="gkd-BF-6To"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a name and a voting system for your game" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-cQ-D79">
-                    <rect key="frame" x="46" y="227" width="284" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="0rk-MI-AzG"/>
-                        <constraint firstAttribute="width" constant="284" id="sd1-KF-ktw"/>
-                    </constraints>
+                    <rect key="frame" x="46" y="227" width="323" height="39.5"/>
                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                     <color key="textColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="ZQb-DC-s1p">
-                    <rect key="frame" x="24" y="289" width="366" height="130"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZQb-DC-s1p">
+                    <rect key="frame" x="24" y="284.5" width="366" height="120"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game's Name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rqp-Bw-Qhp">
                             <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="48" id="3Ym-bI-E2a"/>
-                                <constraint firstAttribute="width" constant="328" id="Q4L-yM-WSY"/>
+                                <constraint firstAttribute="height" constant="48" id="XAR-BG-ND8"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -64,10 +59,13 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-mg-E4P">
-                            <rect key="frame" x="0.0" y="82" width="366" height="48"/>
+                            <rect key="frame" x="0.0" y="72" width="366" height="48"/>
                             <subviews>
                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display System voting" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Tus-qg-zAc">
                                     <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="x5O-2v-3D5"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
@@ -79,6 +77,10 @@
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-HM-t9o">
                                     <rect key="frame" x="329" y="12" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="Bhw-l9-OJu"/>
+                                        <constraint firstAttribute="width" constant="24" id="o9D-Me-L3e"/>
+                                    </constraints>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="icon_dropdown"/>
                                     <connections>
@@ -86,117 +88,114 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voting System" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-IZ-aph">
-                                    <rect key="frame" x="18" y="-10" width="102" height="20"/>
+                                    <rect key="frame" x="18" y="-10" width="104" height="20"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="102" id="WQX-aX-djp"/>
+                                        <constraint firstAttribute="width" constant="104" id="UXS-9w-eE1"/>
+                                        <constraint firstAttribute="height" constant="20" id="WCQ-Ra-5TS"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                                     <color key="textColor" systemColor="linkColor"/>
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="WQX-aX-djp"/>
-                                        </mask>
-                                    </variation>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="CL4-HM-t9o" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="12" id="FGX-ZT-Jqv"/>
-                                <constraint firstItem="Su8-IZ-aph" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="-10" id="Mqb-sm-cIi"/>
-                                <constraint firstItem="Tus-qg-zAc" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" id="Nfi-Y2-hWd"/>
-                                <constraint firstAttribute="trailing" secondItem="CL4-HM-t9o" secondAttribute="trailing" constant="13" id="VE9-kY-7Pr"/>
-                                <constraint firstAttribute="bottom" secondItem="Su8-IZ-aph" secondAttribute="bottom" constant="38" id="aDv-xf-rSf"/>
-                                <constraint firstAttribute="bottom" secondItem="Tus-qg-zAc" secondAttribute="bottom" id="cq3-QZ-AXg"/>
-                                <constraint firstAttribute="height" constant="48" id="eDT-Sh-c5J"/>
-                                <constraint firstItem="Tus-qg-zAc" firstAttribute="leading" secondItem="4AY-mg-E4P" secondAttribute="leading" id="fmy-0n-9Tc"/>
-                                <constraint firstAttribute="width" constant="328" id="h8l-vj-SXn"/>
-                                <constraint firstAttribute="trailing" secondItem="Tus-qg-zAc" secondAttribute="trailing" id="lRf-1P-eV1"/>
-                                <constraint firstItem="Su8-IZ-aph" firstAttribute="leading" secondItem="4AY-mg-E4P" secondAttribute="leading" constant="18" id="sRz-dN-b13"/>
-                                <constraint firstAttribute="bottom" secondItem="CL4-HM-t9o" secondAttribute="bottom" constant="12" id="wkM-n8-5yC"/>
+                                <constraint firstItem="Su8-IZ-aph" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="-10" id="37M-5I-7E5"/>
+                                <constraint firstItem="Su8-IZ-aph" firstAttribute="leading" secondItem="4AY-mg-E4P" secondAttribute="leading" constant="18" id="IyY-LH-SL2"/>
+                                <constraint firstAttribute="bottom" secondItem="Tus-qg-zAc" secondAttribute="bottom" id="N2b-b4-bBB"/>
+                                <constraint firstItem="CL4-HM-t9o" firstAttribute="top" secondItem="4AY-mg-E4P" secondAttribute="top" constant="12" id="SsI-YV-eqi"/>
+                                <constraint firstAttribute="bottom" secondItem="Su8-IZ-aph" secondAttribute="bottom" constant="38" id="ZHB-oL-Ovg"/>
+                                <constraint firstAttribute="trailing" secondItem="CL4-HM-t9o" secondAttribute="trailing" constant="13" id="a9j-ze-zdf"/>
+                                <constraint firstAttribute="bottom" secondItem="CL4-HM-t9o" secondAttribute="bottom" constant="12" id="jUt-12-h2N"/>
+                                <constraint firstItem="Tus-qg-zAc" firstAttribute="leading" secondItem="4AY-mg-E4P" secondAttribute="leading" id="qa7-Jv-wEb"/>
+                                <constraint firstAttribute="trailing" secondItem="Tus-qg-zAc" secondAttribute="trailing" id="rG6-c5-sXF"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="rqp-Bw-Qhp" firstAttribute="top" secondItem="ZQb-DC-s1p" secondAttribute="top" id="QJE-UF-tQ9"/>
-                        <constraint firstAttribute="trailing" secondItem="rqp-Bw-Qhp" secondAttribute="trailing" id="YhS-5A-bTt"/>
-                        <constraint firstItem="rqp-Bw-Qhp" firstAttribute="leading" secondItem="ZQb-DC-s1p" secondAttribute="leading" id="hbL-kg-9oX"/>
-                        <constraint firstItem="4AY-mg-E4P" firstAttribute="top" secondItem="rqp-Bw-Qhp" secondAttribute="bottom" id="mBA-KF-9nk"/>
+                        <constraint firstItem="rqp-Bw-Qhp" firstAttribute="top" secondItem="ZQb-DC-s1p" secondAttribute="top" id="Jr0-Yn-NMi"/>
+                        <constraint firstAttribute="trailing" secondItem="rqp-Bw-Qhp" secondAttribute="trailing" id="fFV-Uf-RL0"/>
+                        <constraint firstItem="rqp-Bw-Qhp" firstAttribute="leading" secondItem="ZQb-DC-s1p" secondAttribute="leading" id="tlF-2b-PgU"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="mBA-KF-9nk"/>
-                        </mask>
-                    </variation>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-Ef-OoN">
-                    <rect key="frame" x="24" y="515" width="366" height="48"/>
-                    <color key="backgroundColor" systemColor="linkColor"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-sP-Oc7">
+                    <rect key="frame" x="24" y="474.5" width="366" height="112"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-Ef-OoN">
+                            <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="N5s-7t-ORO"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Create game">
+                                <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="createNewGame:" destination="-1" eventType="touchUpInside" id="UnD-f6-S3o"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abl-w2-kiq">
+                            <rect key="frame" x="0.0" y="64" width="366" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Vln-bE-dRp"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Join Game">
+                                <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
+                                <color key="baseForegroundColor" systemColor="tintColor"/>
+                            </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" systemColor="linkColor"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="joinGame:" destination="-1" eventType="touchUpInside" id="ZDB-kJ-ugq"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="48" id="iam-z4-1sk"/>
+                        <constraint firstItem="Vdg-Ef-OoN" firstAttribute="top" secondItem="bcB-sP-Oc7" secondAttribute="top" id="VI1-NS-OZT"/>
+                        <constraint firstAttribute="trailing" secondItem="Vdg-Ef-OoN" secondAttribute="trailing" id="g4p-Rg-ar4"/>
+                        <constraint firstAttribute="bottom" secondItem="abl-w2-kiq" secondAttribute="bottom" id="hbF-3h-dtE"/>
+                        <constraint firstItem="abl-w2-kiq" firstAttribute="leading" secondItem="bcB-sP-Oc7" secondAttribute="leading" id="hn7-20-Lsa"/>
+                        <constraint firstItem="Vdg-Ef-OoN" firstAttribute="leading" secondItem="bcB-sP-Oc7" secondAttribute="leading" id="i27-dB-Of5"/>
+                        <constraint firstAttribute="trailing" secondItem="abl-w2-kiq" secondAttribute="trailing" id="xNe-iW-dew"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Create game">
-                        <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </buttonConfiguration>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="createNewGame:" destination="-1" eventType="touchUpInside" id="UnD-f6-S3o"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abl-w2-kiq">
-                    <rect key="frame" x="24" y="579" width="366" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="F6Y-ec-8LE"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Join Game">
-                        <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="16"/>
-                        <color key="baseForegroundColor" systemColor="tintColor"/>
-                    </buttonConfiguration>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" systemColor="linkColor"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="joinGame:" destination="-1" eventType="touchUpInside" id="ZDB-kJ-ugq"/>
-                    </connections>
-                </button>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O8Q-NU-9n0" secondAttribute="trailing" constant="108" id="65S-3w-alx"/>
-                <constraint firstItem="Vdg-Ef-OoN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="6vf-Kn-IpM"/>
-                <constraint firstItem="Vdg-Ef-OoN" firstAttribute="top" secondItem="ZQb-DC-s1p" secondAttribute="bottom" constant="96" id="BNo-hi-fMN"/>
-                <constraint firstItem="abl-w2-kiq" firstAttribute="top" secondItem="Vdg-Ef-OoN" secondAttribute="bottom" constant="16" id="F2k-UK-qEp"/>
-                <constraint firstItem="abl-w2-kiq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="FEn-j8-6sb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vdg-Ef-OoN" secondAttribute="trailing" constant="24" id="IGA-yj-IOo"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="abl-w2-kiq" secondAttribute="trailing" constant="24" id="JQV-xa-Hai"/>
-                <constraint firstAttribute="trailing" secondItem="Uaj-cQ-D79" secondAttribute="trailing" constant="46" id="PIa-QU-O5s"/>
-                <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="ZGB-FP-yXn"/>
-                <constraint firstItem="ZQb-DC-s1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="aec-C7-DB2"/>
-                <constraint firstItem="ZQb-DC-s1p" firstAttribute="top" secondItem="Uaj-cQ-D79" secondAttribute="bottom" constant="18" id="cF2-L2-C4f"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQb-DC-s1p" secondAttribute="trailing" constant="24" id="d2I-kY-z5b"/>
-                <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="ihn-nD-v6o"/>
-                <constraint firstItem="O8Q-NU-9n0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="98" id="olD-6c-jI6"/>
-                <constraint firstItem="O8Q-NU-9n0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="109" id="pzG-8R-eIV"/>
+                <constraint firstItem="O8Q-NU-9n0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="109" id="7fZ-O3-HRL"/>
+                <constraint firstItem="ZQb-DC-s1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="8QE-VF-gTs"/>
+                <constraint firstItem="ZQb-DC-s1p" firstAttribute="top" secondItem="Uaj-cQ-D79" secondAttribute="bottom" constant="18" id="GwT-Wj-FuA"/>
+                <constraint firstItem="O8Q-NU-9n0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="98" id="JL0-Ix-KJ9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bcB-sP-Oc7" secondAttribute="trailing" constant="24" id="Jbz-ow-edi"/>
+                <constraint firstItem="bcB-sP-Oc7" firstAttribute="top" secondItem="ZQb-DC-s1p" secondAttribute="bottom" constant="70" id="Qx3-hR-cRc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQb-DC-s1p" secondAttribute="trailing" constant="24" id="RRP-xH-6KL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O8Q-NU-9n0" secondAttribute="trailing" constant="108" id="Uj1-Az-C0J"/>
+                <constraint firstItem="bcB-sP-Oc7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="VbA-D7-4O4"/>
+                <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="isO-T3-l9A"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uaj-cQ-D79" secondAttribute="trailing" constant="45" id="ks8-VK-a4w"/>
+                <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="wGO-Q4-2i2"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
         </view>

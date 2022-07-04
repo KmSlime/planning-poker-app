@@ -30,12 +30,16 @@ protocol URLRequestConvertible {
 
 enum APIRouter: URLRequestConvertible {
     case login(email: String, password: String)
-    case signUp(displayName: String, email: String, password: String)
+    case signUp(email: String, displayName: String, password: String)
     case logOut
+    case createNewGame(userId: Int, gameName: String)
 
     static var baseURL: String {
         //return "https://gateway.kardsys.com"
-        return "localhost:8080"
+        return "http://127.0.0.1:8080"
+//        return "127.0.0.1:8080"
+//                return "http://localhost:8080"
+
     }
 
     var path: String {
@@ -46,6 +50,8 @@ enum APIRouter: URLRequestConvertible {
             return "/external/api/account/v1/logout"
         case .signUp:
             return "/api/auth/signup"
+        case .createNewGame:
+            return "/api/poker/createNamePoker"
         }
     }
 
@@ -65,14 +71,11 @@ enum APIRouter: URLRequestConvertible {
     var parameters: [String: Any] {
         switch self {
         case .login(email: let email, password: let password):
-            return ["emailAddress": email,
-                    "password": password]
-        case .signUp(displayName: let displayName,
-                     email: let email,
-                     password: let password):
-            return ["displayName": displayName,
-                    "emailAddress": email,
-                    "password": password]
+            return ["emailAddress": email, "password": password]
+        case .signUp(email: let email, displayName: let displayName, password: let password):
+            return ["email": email, "displayName": displayName, "password": password]
+        case .createNewGame(userId: let userId, gameName: let gameName):
+            return ["userId": userId, "gameName": gameName]
         default:
             return [:]
         }
