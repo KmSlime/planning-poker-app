@@ -9,9 +9,9 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var goToTheLoginButton: UIButton!
-    @IBOutlet weak var startPokerPlainningGameButton: UIButton!
+    @IBOutlet weak var startPokerPlanningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     @IBOutlet weak var leftMenuButton: UIButton!
     
@@ -22,49 +22,43 @@ class WelcomeViewController: UIViewController {
     private var leftMenuViewController: LeftMenuViewController!
     private var leftMenuRevealWidth: CGFloat = 300
     private var paddingForRotation: CGFloat = 150
-    private var isExpaned = false
+    private var isExpanded = false
     
-    private var leftMenuTrailingContraint: NSLayoutConstraint!
+    private var leftMenuTrailingConstraint: NSLayoutConstraint!
     private var revealLeftMenuOnTop = true
     private var leftMenuShadowView: UIView!
     
+
     // MARK: - Overrides
-    
-    
-    
+
     // MARK: - Life cycles
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        SetUpUI()
-        
-        //print(userDefaults.object(forKey: "email"))
-        
+        setUpUI()
     }
-    
+
     // MARK: - Publics
-    
-    
-    
+
     // MARK: - Private
 
-    
-    
-    private func SetUpUI() {
         
+
+    private func setUpUI() {
         setupLeftMenu()
+
         // set properties for Login Button
         goToTheLoginButton.layer.borderWidth = 1
         goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
         goToTheLoginButton.layer.cornerRadius = 5
-        
+
         // set properties for Start Retrospective Button
         startRetrospectiveButton.layer.borderWidth = 1
         startRetrospectiveButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
         startRetrospectiveButton.layer.cornerRadius = 5
-        
-        // set properties for Start Poker Plainning Game Button
-        startPokerPlainningGameButton.layer.cornerRadius = 5
+
+        // set properties for Start Poker Planning Game Button
+        startPokerPlanningGameButton.layer.cornerRadius = 5
         
         if userDefaults.object(forKey: "name") != nil {
             goToTheLoginButton.isHidden = true
@@ -101,8 +95,8 @@ class WelcomeViewController: UIViewController {
         self.leftMenuViewController!.didMove(toParent: self)
         self.leftMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false
         if self.revealLeftMenuOnTop {
-            self.leftMenuTrailingContraint = self.leftMenuViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -self.leftMenuRevealWidth - self.paddingForRotation)
-            self.leftMenuTrailingContraint.isActive = true
+            self.leftMenuTrailingConstraint = self.leftMenuViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -self.leftMenuRevealWidth - self.paddingForRotation)
+            self.leftMenuTrailingConstraint.isActive = true
         }
         NSLayoutConstraint.activate([
             self.leftMenuViewController.view.widthAnchor.constraint(equalToConstant: self.leftMenuRevealWidth),
@@ -110,18 +104,18 @@ class WelcomeViewController: UIViewController {
             self.leftMenuViewController.view.topAnchor.constraint(equalTo: view.topAnchor)
         ])
     }
-    
+
     private func leftMenuState(expanded: Bool) {
         if expanded {
             self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? 0 : self.leftMenuRevealWidth) { _ in
-                self.isExpaned = true
+                self.isExpanded = true
             }
             UIView.animate(withDuration: 0.5) {
                 self.leftMenuShadowView.alpha = 0.6
             }
         } else {
             self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? (-self.leftMenuRevealWidth - self.paddingForRotation) : 0) { _ in
-                self.isExpaned = false
+                self.isExpanded = false
             }
             UIView.animate(withDuration: 0.5) {
                 self.leftMenuShadowView.alpha = 0
@@ -132,23 +126,24 @@ class WelcomeViewController: UIViewController {
     private func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> ()) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .layoutSubviews, animations: {
             if self.revealLeftMenuOnTop {
-                self.leftMenuTrailingContraint.constant = targetPosition
+                self.leftMenuTrailingConstraint.constant = targetPosition
                 self.view.layoutIfNeeded()
             } else {
                 self.view.subviews[1].frame.origin.x = targetPosition
             }
         }, completion: completion)
     }
+
     // MARK: - Actions
     // For DELETE
     @IBAction func createNewGame(_ sender: UIButton) {
         AppViewController.shared.pushToCreateNewGameScreen()
     }
-    
+
     @IBAction func chooseCard(_ sender: UIButton) {
         AppViewController.shared.pushToChooseCardScreen(newGameModel: nil)
     }
-    
+
     @IBAction func signUp(_ sender: UIButton) {
         AppViewController.shared.pushToSignUpScreen()
     }
@@ -173,9 +168,7 @@ class WelcomeViewController: UIViewController {
     @IBAction func show_editIssueDetail(_ sender: UIButton) {
         AppViewController.shared.pushToEditIssueScreen()
     }
-    
-    
-    
+
     @IBAction func onClickStartGameButton(_ sender: Any) {
         if userDefaults.object(forKey: "name") != nil {
             userDefaults.set(userDefaults.object(forKey: "name"), forKey: "name")
@@ -183,23 +176,22 @@ class WelcomeViewController: UIViewController {
         } else {
             AppViewController.shared.pushToSignInScreen()
         }
-        
+
     }
     @IBAction func onClickLoginButton(_ sender: Any) {
-        
-        
+
         AppViewController.shared.pushToSignInScreen()
-        
+
     }
     @IBAction func onClickLeftMenuButton(_ sender: Any) {
-        self.leftMenuState(expanded: self.isExpaned ? false : true)
+        self.leftMenuState(expanded: self.isExpanded ? false : true)
     }
 }
 extension WelcomeViewController : UIGestureRecognizerDelegate {
     @objc func TapGestureRecognizer(sender: UITapGestureRecognizer) {
         print("TapGestureRecognizer")
         if sender.state == .ended {
-            if self.isExpaned {
+            if self.isExpanded {
                 self.leftMenuState(expanded: false)
             }
         }

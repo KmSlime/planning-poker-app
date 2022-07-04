@@ -41,34 +41,28 @@ class IssueDetailViewController: UIViewController {
             return
         }
         let snackBarMsg = MDCSnackbarMessage()
-        snackBarMsg.text = "Copied sucessful"
+        snackBarMsg.text = "Copied successful"
         MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#4BB543")
         MDCSnackbarManager.default.show(snackBarMsg)
-        
     }
     @IBAction func onClickBackToShowIssueList(_ sender: Any) {
         AppViewController.shared.popToPreviousScreen()
         }
     @IBAction func onClickSave(_ sender: Any) {
     }
-    
-    
     // MARK: - Properties
-    
-    var placeholderTitleContentLabel : UILabel!
+    var placeholderTitleContentLabel: UILabel!
 
-    var placeholderDescriptionContentLabel : UILabel!
-    
+    var placeholderDescriptionContentLabel: UILabel!
+
     // MARK: - Overrides
-
-    
 
     // MARK: - Publics
     
 //    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
 //        titleContentTextView.resignFirstResponder()
 //    }
-    @objc func keyboardApear(notification:NSNotification) {
+    @objc func keyboardAppear(notification:NSNotification) {
             guard let userInfo = notification.userInfo else { return }
                 var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
                 keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -77,16 +71,19 @@ class IssueDetailViewController: UIViewController {
                 contentInset.bottom = keyboardFrame.size.height + 50
                 issueDetailScrollView.contentInset = contentInset
         }
-        @objc func keyboardDisapear(notification:NSNotification) {
+        @objc func keyboardDisappear(notification:NSNotification) {
             let contentInset:UIEdgeInsets = UIEdgeInsets.zero
             issueDetailScrollView.contentInset = contentInset
         }
 
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        titleContentTextView.resignFirstResponder()
+    }
+
     // MARK: - Private
-    
     private func setupUI() {
         self.setupHideKeyboardOnTap()
-        
+
         placeholderTitleContentLabel = UILabel()
         placeholderDescriptionContentLabel = UILabel()
 
@@ -94,7 +91,7 @@ class IssueDetailViewController: UIViewController {
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         linkLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         descriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
-        
+
         titleContentTextView.delegate = self
         titleContentTextView.clipsToBounds = true
         titleContentTextView.layer.masksToBounds = true
@@ -109,7 +106,7 @@ class IssueDetailViewController: UIViewController {
         linkContentLabel.clipsToBounds = true
         linkContentLabel.layer.masksToBounds = true
         linkContentLabel.layer.cornerRadius = 5
-        
+
         descriptionContentTextVIew.delegate = self
         descriptionContentTextVIew.clipsToBounds = true
         descriptionContentTextVIew.layer.masksToBounds = true
@@ -122,20 +119,18 @@ class IssueDetailViewController: UIViewController {
         placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
 
         copyButton.layer.cornerRadius = 5
-        
+
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
-                
+
     }
 
 }
 // MARK: - extensions
 
-extension IssueDetailViewController: UITextViewDelegate{
-
-
+extension IssueDetailViewController: UITextViewDelegate {
 func textViewDidBeginEditing(_ textView: UITextView) {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardApear), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     if textView == titleContentTextView {
         titleTextViewHeightConstraints.constant = 126
         titleContentTextView.backgroundColor = UIColor.white
@@ -147,11 +142,10 @@ func textViewDidBeginEditing(_ textView: UITextView) {
         descriptionContentTextVIew.layer.borderWidth = 1.0
         descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
 }
 
 func textViewDidEndEditing(_ textView: UITextView) {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisapear), name: UIResponder.keyboardWillHideNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
     if textView == titleContentTextView {
         titleTextViewHeightConstraints.constant = 48
         titleContentTextView.layer.borderWidth = 0
@@ -167,22 +161,16 @@ func textViewDidChange(_ textView: UITextView) {
     if !titleContentTextView.text.isEmpty {
         placeholderTitleContentLabel.isHidden = !titleContentTextView.text.isEmpty
         titleContentTextView.textColor = UIColor.black
-        
-        
     } else {
         placeholderTitleContentLabel.isHidden = false
         titleContentTextView.textColor = UIColor.lightGray
-        
     }
-    
     if !descriptionContentTextVIew.text.isEmpty {
         placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
         descriptionContentTextVIew.textColor = UIColor.black
-        
     } else {
         placeholderDescriptionContentLabel.isHidden = false
         descriptionContentTextVIew.textColor = UIColor.lightGray
-        
     }
 }
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIView {
-    
     private func setupShadow() {
         self.layer.cornerRadius = 8
         self.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -18,5 +17,4 @@ extension UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
     }
-    
 }

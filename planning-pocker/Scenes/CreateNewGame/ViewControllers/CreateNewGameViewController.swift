@@ -20,7 +20,6 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var joinGameButton: UIButton!
 //    @IBOutlet weak var dropdownView: UIView!
 
-    
     // MARK: - Properties
     var messages: String?
     var status: Bool?
@@ -33,8 +32,6 @@ class CreateNewGameViewController: UIViewController {
     var testPlayer: PlayerModel!
     // MARK: - Overrides
 
-
-
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,42 +41,34 @@ class CreateNewGameViewController: UIViewController {
         setUpDropdown()
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         dropdownDeleteTableView.reloadAllComponents()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y:(dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
-        dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width //get data from api
+        dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y: (dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
+        dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width // get data from api
         selectedDropdownItem()
 
     }
-    
 
     // MARK: - Publics
     func selectedDropdownItem() {
-        dropdownDeleteTableView.selectionAction = {
-            [unowned self] (index: Int, item: String) in
-            
+        dropdownDeleteTableView.selectionAction = { [unowned self] (_: Int, item: String) in
             dropdownDeleteTableView.backgroundColor =  UIColor.white
-
-            print(item)
-            print(index)
-            
             votingSystemTextField.placeholder = item
         }
     }
-
 
     // MARK: - Private
     private func setupUI() {
 
     }
-    
+
     private func setUpDropdown() {
-        //sau nay thay cai nay bang api
+        // sau nay thay cai nay bang api
         for item in arrayTest {
             dropdownDeleteTableView.dataSource.append(item.value)
             if item.id == arrayTest.count {
@@ -91,36 +80,35 @@ class CreateNewGameViewController: UIViewController {
         }
     }
 
-
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
-            //create instance of newGameModel (later)
+            // create instance of newGameModel (later)
 
-            //{id current user, full name of user}, game {name; id}
-            testPlayer = PlayerModel(id: userDefaults.object(forKey: "id") as! Int, name: userDefaults.object(forKey: "fullName") as! String, roomId: 1, role: PlayerRole.host)
+            // {id current user, full name of user}, game {name; id}
+            testPlayer = PlayerModel(id: userDefaults.integer(forKey: "id"), name: userDefaults.string(forKey: "fullName")!, roomId: 1, role: PlayerRole.host)
             print(testPlayer as Any)
                 newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: testPlayer, otherPlayers: [])
-                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)           
+                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)
         }
     }
-    
+
     @IBAction func joinGame(_ sender: Any) {
-        
+
     }
-    
+
     @IBAction func showDropdownList(_ sender: Any) {
         dropdownDeleteTableView.show()
-        
+
     }
-    
+
 }
     // MARK: - extensions
 extension CreateNewGameViewController {
 
-    //MARK: - Check Validation of Game's Name
+    // MARK: - Check Validation of Game's Name
     private func hasErrorStatus() -> (messages: String?, status: Bool?) {
         if gameNameTextField.text?.isEmpty == true {
             messages = "Game’s name is required."

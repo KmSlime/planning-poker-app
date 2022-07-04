@@ -6,5 +6,5 @@
 //
 
 struct Constants {
-    static let kGetHistoryList_RESTFUL = "kGetHistoryList_RESTFUL"
+    static let kGetHistoryListRESTFUL = "kGetHistoryListRESTFUL"
 }

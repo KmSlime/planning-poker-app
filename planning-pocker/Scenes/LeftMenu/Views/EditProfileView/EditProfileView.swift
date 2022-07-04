@@ -18,11 +18,11 @@ class EditProfileView: UIView {
             avatarImageView.backgroundColor = UIColor(hexString: "#E8F2FF")
         }
     }
-    
+
     @IBAction func editButton(_ sender: UIButton) {
         print("Push to Edit Profile Screen")
     }
-    
+
     @IBOutlet weak var userNameLabel: UILabel! {
         didSet {
             userNameLabel.text = "Player 1"
