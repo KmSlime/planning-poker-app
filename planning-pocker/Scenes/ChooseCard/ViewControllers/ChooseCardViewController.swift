@@ -33,13 +33,6 @@ class ChooseCardViewController: UIViewController {
     var selectedIndex: String?
     var isHostExist: Bool?
     var game: GameModel!
-    private var leftMenuViewController: LeftMenuViewController!
-    private var leftMenuRevealWidth: CGFloat = 300
-    private var paddingForRotation: CGFloat = 150
-    private var isExpanded = false
-    private var leftMenuTrailingConstraint: NSLayoutConstraint!
-    private var revealLeftMenuOnTop = true
-    private var leftMenuShadowView: UIView!
     // identify for collection view cell
     struct TableView {
         struct CellIdentifiers {
@@ -95,7 +88,7 @@ class ChooseCardViewController: UIViewController {
                               mainPlayer: mainPlayer,
                               otherPlayers: otherPlayers)
     }
-    private func setupUI() { // load view everytime data changed
+    private func setupUI() { // load view every time data changed
         setupTitleRoom()
         setupTitleIssue(isShow: false)
         setupOtherPlayer()
@@ -122,84 +115,13 @@ class ChooseCardViewController: UIViewController {
     private func setupBoardInfo() {
         boardInfoView.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
     }
-    private func setupLeftMenu() { // set up left menu
-        // Set up shadow
-        self.leftMenuShadowView = UIView(frame: self.view.bounds)
-        self.leftMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.leftMenuShadowView.backgroundColor = .black
-        self.leftMenuShadowView.alpha = 0
-        // Tap Gestures
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        tapGestureRecognizer.delegate = self
-        self.leftMenuShadowView.addGestureRecognizer(tapGestureRecognizer)
-        if self.revealLeftMenuOnTop {
-            view.insertSubview(self.leftMenuShadowView, at: 1)
-        }
-        self.view.bringSubviewToFront(leftMenuShadowView)
-        // Insert LeftMenuViewController to ChooseCardViewController
-        self.leftMenuViewController = LeftMenuViewController()
-        self.leftMenuViewController.defaultHighLightedCell = 0
-        view.insertSubview(self.leftMenuViewController!.view, at: self.revealLeftMenuOnTop ? 1 : 0)
-        addChild(self.leftMenuViewController!)
-        self.view.bringSubviewToFront(leftMenuViewController.view)
-        self.leftMenuViewController!.didMove(toParent: self)
-        self.leftMenuViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        if self.revealLeftMenuOnTop {
-            self.leftMenuTrailingConstraint = self.leftMenuViewController.view.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor,
-                constant: -self.leftMenuRevealWidth - self.paddingForRotation)
-            self.leftMenuTrailingConstraint.isActive = true
-        }
-        NSLayoutConstraint.activate([
-            self.leftMenuViewController.view.widthAnchor.constraint(equalToConstant: self.leftMenuRevealWidth),
-            self.leftMenuViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.leftMenuViewController.view.topAnchor.constraint(equalTo: view.topAnchor)
-        ])
-    }
-    private func leftMenuState(expanded: Bool) {
-        if expanded {
-            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ? 0 : self.leftMenuRevealWidth) { _ in
-                self.isExpanded = true
-            }
-            UIView.animate(withDuration: 0.5) {
-                self.leftMenuShadowView.alpha = 0.6
-            }
-        } else {
-            self.animateLeftMenu(targetPosition: self.revealLeftMenuOnTop ?
-                                 (-self.leftMenuRevealWidth - self.paddingForRotation)
-                                 : 0) { _ in
-                self.isExpanded = false
-            }
-            UIView.animate(withDuration: 0.5) {
-                self.leftMenuShadowView.alpha = 0
-            }
-        }
-    }
-    private func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> Void) {
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 0,
-            options: .layoutSubviews,
-            animations: {
-                if self.revealLeftMenuOnTop {
-                    self.leftMenuTrailingConstraint.constant = targetPosition
-                    self.view.layoutIfNeeded()
-                } else {
-                    self.view.subviews[1].frame.origin.x = targetPosition
-                }
-            },
-            completion: completion)
-    }
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
         AppViewController.shared.pushToCreateIssue()
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
-        self.leftMenuState(expanded: self.isExpanded ? false : true)
+        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
     }
     @IBAction func invitePlayerButton(_ sender: UIButton) {
         AppViewController.shared.pushToInvitePlayerScreen()
@@ -256,22 +178,4 @@ extension ChooseCardViewController: UICollectionViewDelegate {
 }
 
 extension ChooseCardViewController: UICollectionViewDelegateFlowLayout {
-}
-
-extension ChooseCardViewController: UIGestureRecognizerDelegate {
-    @objc func tapGestureRecognizer(sender: UITapGestureRecognizer) {
-        print("TapGestureRecognizer")
-        if sender.state == .ended {
-            if self.isExpanded {
-                self.leftMenuState(expanded: false)
-            }
-        }
-    }
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        print("gestureRecognizer")
-        if(touch.view?.isDescendant(of: self.leftMenuViewController.view))! {
-            return false
-        }
-        return true
-    }
 }

@@ -61,7 +61,7 @@ class CreateNewGameViewController: UIViewController {
 
     // MARK: - Private
     private func setupUI() {
-
+        setupLeftMenu()
     }
 
     private func setUpDropdown() {
@@ -100,7 +100,9 @@ class CreateNewGameViewController: UIViewController {
         dropdownDeleteTableView.show()
 
     }
-
+    @IBAction func leftMenuButton(_ sender: UIButton) {
+        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
+    }
 }
     // MARK: - extensions
 extension CreateNewGameViewController {
