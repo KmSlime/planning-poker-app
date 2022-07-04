@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="hrf-eq-TNw"/>
                 <outlet property="leftMenuButton" destination="zar-F8-Eb5" id="xb6-zB-wO4"/>
-                <outlet property="startPokerPlainningGameButton" destination="S0l-PD-W3d" id="vKs-Gs-ERU"/>
+                <outlet property="startPokerPlanningGameButton" destination="S0l-PD-W3d" id="lks-Jn-hUS"/>
                 <outlet property="startRetrospectiveButton" destination="bZw-wT-Bly" id="Nq5-Do-YFQ"/>
                 <outlet property="view" destination="NbS-us-c2b" id="YUH-Ig-lGb"/>
             </connections>
@@ -65,10 +65,10 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="igc-yf-nLH">
-                    <rect key="frame" x="25" y="529" width="364" height="89"/>
+                    <rect key="frame" x="25" y="728" width="364" height="109"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0l-PD-W3d">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="32"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="42"/>
                             <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +79,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-wT-Bly">
-                            <rect key="frame" x="0.0" y="57" width="364" height="32"/>
+                            <rect key="frame" x="0.0" y="67" width="364" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="e0m-YE-NL9"/>
                             </constraints>
@@ -209,7 +209,6 @@
             <constraints>
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="2fK-NP-QHH"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="B5K-dV-U5l" secondAttribute="trailing" constant="16" id="3IS-xA-vv5"/>
-                <constraint firstItem="igc-yf-nLH" firstAttribute="top" secondItem="Ymy-yx-MBw" secondAttribute="bottom" constant="30" id="61B-5J-ciB"/>
                 <constraint firstItem="igc-yf-nLH" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="8JD-eD-Pat"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="9Ne-yd-LU5"/>
                 <constraint firstItem="B5K-dV-U5l" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="Hqx-bU-Njq"/>

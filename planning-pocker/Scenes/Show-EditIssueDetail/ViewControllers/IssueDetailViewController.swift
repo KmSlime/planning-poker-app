@@ -21,8 +21,7 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var backToShowIssueListButton: UIButton!
     @IBOutlet weak var titleTextViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextViewHeightConstraints: NSLayoutConstraint!
-    @IBOutlet weak var issueDetailScrollView : UIScrollView!
-    
+    @IBOutlet weak var issueDetailScrollView: UIScrollView!
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,27 +57,23 @@ class IssueDetailViewController: UIViewController {
     // MARK: - Overrides
 
     // MARK: - Publics
-    
-//    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-//        titleContentTextView.resignFirstResponder()
-//    }
-    @objc func keyboardAppear(notification:NSNotification) {
+        @objc func keyboardAppear(notification: NSNotification) {
             guard let userInfo = notification.userInfo else { return }
-                var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+            var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
                 keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
-                var contentInset:UIEdgeInsets = self.issueDetailScrollView.contentInset
-                contentInset.bottom = keyboardFrame.size.height + 50
-                issueDetailScrollView.contentInset = contentInset
+            var contentInset: UIEdgeInsets = self.issueDetailScrollView.contentInset
+            contentInset.bottom = keyboardFrame.size.height + 50
+            issueDetailScrollView.contentInset = contentInset
         }
-        @objc func keyboardDisappear(notification:NSNotification) {
-            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        @objc func keyboardDisappear(notification: NSNotification) {
+            let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             issueDetailScrollView.contentInset = contentInset
         }
 
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        titleContentTextView.resignFirstResponder()
-    }
+        @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+            titleContentTextView.resignFirstResponder()
+        }
 
     // MARK: - Private
     private func setupUI() {

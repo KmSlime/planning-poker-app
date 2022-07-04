@@ -178,6 +178,18 @@
                         <action selector="joinGame:" destination="-1" eventType="touchUpInside" id="ZDB-kJ-ugq"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lz2-5H-RDm">
+                    <rect key="frame" x="24" y="68" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="5Ab-10-Wxf"/>
+                        <constraint firstAttribute="height" constant="32" id="F3r-jf-u3d"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image=" icon_left_menu" title=" "/>
+                    <connections>
+                        <action selector="onClickLeftMenuButton:" destination="-1" eventType="touchUpInside" id="8jY-Oo-rCo"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -190,11 +202,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vdg-Ef-OoN" secondAttribute="trailing" constant="24" id="IGA-yj-IOo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="abl-w2-kiq" secondAttribute="trailing" constant="24" id="JQV-xa-Hai"/>
                 <constraint firstAttribute="trailing" secondItem="Uaj-cQ-D79" secondAttribute="trailing" constant="46" id="PIa-QU-O5s"/>
+                <constraint firstItem="Lz2-5H-RDm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="SVx-EA-FJj"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="ZGB-FP-yXn"/>
                 <constraint firstItem="ZQb-DC-s1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="aec-C7-DB2"/>
                 <constraint firstItem="ZQb-DC-s1p" firstAttribute="top" secondItem="Uaj-cQ-D79" secondAttribute="bottom" constant="18" id="cF2-L2-C4f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQb-DC-s1p" secondAttribute="trailing" constant="24" id="d2I-kY-z5b"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="ihn-nD-v6o"/>
+                <constraint firstItem="Lz2-5H-RDm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="nBq-WW-nka"/>
                 <constraint firstItem="O8Q-NU-9n0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="98" id="olD-6c-jI6"/>
                 <constraint firstItem="O8Q-NU-9n0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="109" id="pzG-8R-eIV"/>
             </constraints>
@@ -202,6 +216,7 @@
         </view>
     </objects>
     <resources>
+        <image name=" icon_left_menu" width="32" height="32"/>
         <image name="icon_dropdown" width="24" height="24"/>
         <image name="tpssoft-logo-full-color" width="158" height="39"/>
         <systemColor name="linkColor">

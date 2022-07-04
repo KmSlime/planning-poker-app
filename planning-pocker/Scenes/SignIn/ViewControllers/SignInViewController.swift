@@ -17,28 +17,18 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createAccountLabel: UILabel!
     @IBOutlet weak var signInScrollView: UIScrollView!
-    
     // MARK: - Properties
-    
     var messages: String?
     var status: Bool?
     var textFieldName: String?
-    var arrayEmailValid: [String] = ["kunhan1212@gmail.com","lele@exit.com"]
-    var arrayPasswordValid: [String] = ["Kunhan@1212"] // tuwj suwar
+    var arrayEmailValid: [String] = [ "kunhan1212@gmail.com", "lele@exit.com" ]
+    var arrayPasswordValid: [String] = ["Kunhan@1212"]
     var arrayName: [String] = ["Hiep", "lalala"]
     // MARK: - Overrides
-    
-    
-
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-    }
-
-    // MARK: - Actions
-    @IBAction func onClickSignInButton(_ sender: Any) {
-        checkFields()
     }
 
     // MARK: - Properties
@@ -60,19 +50,17 @@ class SignInViewController: UIViewController {
     }
     @objc func keyboardAppear(notification: NSNotification) {
             guard let userInfo = notification.userInfo else { return }
-                var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
                 keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
-                var contentInset:UIEdgeInsets = self.signInScrollView.contentInset
+                var contentInset: UIEdgeInsets = self.signInScrollView.contentInset
                 contentInset.bottom = keyboardFrame.size.height + 50
         signInScrollView.contentInset = contentInset
     }
     @objc func keyboardDisappear(notification: NSNotification) {
-            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             signInScrollView.contentInset = contentInset
     }
-      
-
 
         func checkFields() -> Bool {
 
@@ -101,9 +89,6 @@ class SignInViewController: UIViewController {
     // MARK: - Private
 
     private func setupUI() {
-        
-        
-        
         signInLabel.text = "Sign in"
         signInLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
 
@@ -120,9 +105,7 @@ class SignInViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
 
-    
-    //MARK: - Validation
-  
+    // MARK: - Validation
     // MARK: - Actions
     @IBAction func onClickSignInButton(_ sender: Any) {
         if hasErrorStatus().status == true {
@@ -140,15 +123,15 @@ class SignInViewController: UIViewController {
             }
         }
     }
-}
 
     // MARK: - Validation
+
 }
 
 // MARK: - extensions
 
-extension SignInViewController{
-    //MARK: - Check field empty
+extension SignInViewController {
+    // MARK: - Check field empty
     func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
         if emailTextField.text?.isEmpty == true {
             textFieldName = "Email"
@@ -162,8 +145,7 @@ extension SignInViewController{
         return (nil, false)
     }
 
-   
-    //MARK: - Check exist email
+// MARK: - Check exist email
     private func isExistEmail() -> Bool {
         for email in arrayEmailValid {
             if emailTextField.text == email {
@@ -180,14 +162,12 @@ extension SignInViewController{
         }
         return false
     }
-    
-    //MARK: - Set status and message
+    // MARK: - Set status and message
     func hasErrorStatus() -> (messages: String?, status: Bool?) {
         // EmptyField
         if fieldIsEmpty().status  == true {
             messages = "\(fieldIsEmpty().textFieldName!) is required."
             status = true
-            
         } else
         // Format Email
         if emailTextField.text?.isValidEmail == false {
@@ -220,8 +200,7 @@ extension SignInViewController{
 }
 
 
-extension SignInViewController : UITextFieldDelegate{
-    
+extension SignInViewController: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }

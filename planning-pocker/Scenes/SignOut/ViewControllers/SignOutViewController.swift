@@ -25,14 +25,8 @@ class SignOutViewController: UIViewController {
             confirmSignOutButton.layer.cornerRadius = 5
         }
     }
-    
     // MARK: - Properties
-    
-    
-    
     // MARK: - Overrides
-    
-    
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,21 +34,10 @@ class SignOutViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
     // MARK: - Publics
-    
-    
-    
     // MARK: - Private
-    
-    
-    
-    //MARK: - Setup UI
-    
-    
-    
+    // MARK: - Setup UI
     // MARK: - Actions
-    
     @IBAction func onClickCancelSignOutButton (_ sender: UIButton) {
         AppViewController.shared.popToPreviousScreen()
     }
@@ -68,4 +51,3 @@ class SignOutViewController: UIViewController {
 // MARK: - Extensions
 
 // MARK: - protocols
-

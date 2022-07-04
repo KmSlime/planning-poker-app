@@ -14,21 +14,15 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var startPokerPlanningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     @IBOutlet weak var leftMenuButton: UIButton!
-    
-    
     // MARK: - Properties
     var user: User!
-    
     private var leftMenuViewController: LeftMenuViewController!
     private var leftMenuRevealWidth: CGFloat = 300
     private var paddingForRotation: CGFloat = 150
     private var isExpanded = false
-    
     private var leftMenuTrailingConstraint: NSLayoutConstraint!
     private var revealLeftMenuOnTop = true
     private var leftMenuShadowView: UIView!
-    
-
     // MARK: - Overrides
 
     // MARK: - Life cycles
@@ -41,8 +35,6 @@ class WelcomeViewController: UIViewController {
     // MARK: - Publics
 
     // MARK: - Private
-
-        
 
     private func setUpUI() {
         setupLeftMenu()
@@ -59,7 +51,6 @@ class WelcomeViewController: UIViewController {
 
         // set properties for Start Poker Planning Game Button
         startPokerPlanningGameButton.layer.cornerRadius = 5
-        
         if userDefaults.object(forKey: "name") != nil {
             goToTheLoginButton.isHidden = true
             leftMenuButton.isHidden = false
@@ -67,26 +58,21 @@ class WelcomeViewController: UIViewController {
             goToTheLoginButton.isHidden = false
             leftMenuButton.isHidden = true
         }
-        
     }
-    
     private func setupLeftMenu() { // set up left menu
         // Set up shadow
         self.leftMenuShadowView = UIView(frame: self.view.bounds)
         self.leftMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.leftMenuShadowView.backgroundColor = .black
         self.leftMenuShadowView.alpha = 0
-        
         // Tap Gestures
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TapGestureRecognizer))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.delegate = self
         self.leftMenuShadowView.addGestureRecognizer(tapGestureRecognizer)
-        
         if self.revealLeftMenuOnTop {
             view.insertSubview(self.leftMenuShadowView, at: 15)
         }
-        
         // Insert LeftMenuViewController to ChooseCardViewController
         self.leftMenuViewController = LeftMenuViewController()
         self.leftMenuViewController.defaultHighLightedCell = 0
@@ -122,7 +108,6 @@ class WelcomeViewController: UIViewController {
             }
         }
     }
-    
     private func animateLeftMenu(targetPosition: CGFloat, completion: @escaping (Bool) -> ()) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .layoutSubviews, animations: {
             if self.revealLeftMenuOnTop {
@@ -187,8 +172,10 @@ class WelcomeViewController: UIViewController {
         self.leftMenuState(expanded: self.isExpanded ? false : true)
     }
 }
-extension WelcomeViewController : UIGestureRecognizerDelegate {
-    @objc func TapGestureRecognizer(sender: UITapGestureRecognizer) {
+// MARK: - extensions
+
+extension WelcomeViewController: UIGestureRecognizerDelegate {
+    @objc func tapGestureRecognizer(sender: UITapGestureRecognizer) {
         print("TapGestureRecognizer")
         if sender.state == .ended {
             if self.isExpanded {
@@ -196,7 +183,6 @@ extension WelcomeViewController : UIGestureRecognizerDelegate {
             }
         }
     }
-    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         print("gestureRecognizer")
         if(touch.view?.isDescendant(of: self.leftMenuViewController.view))! {
