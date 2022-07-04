@@ -178,6 +178,14 @@
                         <action selector="joinGame:" destination="-1" eventType="touchUpInside" id="ZDB-kJ-ugq"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjJ-WB-SK6" userLabel="Left Menu">
+                    <rect key="frame" x="25" y="69" width="32" height="32"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image=" icon_left_menu"/>
+                    <connections>
+                        <action selector="leftMenuButton:" destination="-1" eventType="touchUpInside" id="iGh-IW-gt6"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -193,15 +201,18 @@
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="ZGB-FP-yXn"/>
                 <constraint firstItem="ZQb-DC-s1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="aec-C7-DB2"/>
                 <constraint firstItem="ZQb-DC-s1p" firstAttribute="top" secondItem="Uaj-cQ-D79" secondAttribute="bottom" constant="18" id="cF2-L2-C4f"/>
+                <constraint firstItem="MjJ-WB-SK6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="cdA-4B-PS0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQb-DC-s1p" secondAttribute="trailing" constant="24" id="d2I-kY-z5b"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="ihn-nD-v6o"/>
                 <constraint firstItem="O8Q-NU-9n0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="98" id="olD-6c-jI6"/>
                 <constraint firstItem="O8Q-NU-9n0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="109" id="pzG-8R-eIV"/>
+                <constraint firstItem="MjJ-WB-SK6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="wdC-B1-73E"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
         </view>
     </objects>
     <resources>
+        <image name=" icon_left_menu" width="32" height="32"/>
         <image name="icon_dropdown" width="24" height="24"/>
         <image name="tpssoft-logo-full-color" width="158" height="39"/>
         <systemColor name="linkColor">
