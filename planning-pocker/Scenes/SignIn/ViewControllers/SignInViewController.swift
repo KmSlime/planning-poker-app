@@ -16,25 +16,26 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createAccountLabel: UILabel!
+    @IBOutlet weak var signInScrollView: UIScrollView!
+    
+    // MARK: - Properties
+    
+    var messages: String?
+    var status: Bool?
+    var textFieldName: String?
+    var arrayEmailValid: [String] = ["kunhan1212@gmail.com","lele@exit.com"]
+    var arrraypasswordValid: [String] = ["Kunhan@1212"] // tuwj suwar
+    var arrayName: [String] = ["Hiep", "lalala"]
+    // MARK: - Overrides
+    
+    
     
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
-    // MARK: - Actions
-    @IBAction func onClickSignInButton(_ sender: Any) {
-        checkFields()
-    }
-    
-    
-    // MARK: - Properties
-    
-    
-    // MARK: - Overrides
-    
-    
+
     
     
     // MARK: - Publics
@@ -50,37 +51,28 @@ class SignInViewController: UIViewController {
             AppViewController.shared.pushToSignUpScreen()
         }
     }
-    
-        func checkFields() -> Bool {
-        
-        if emailTextField.text != "" && passwordTextField.text != "" {
-            
-            if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isCorrectFormatPassword != nil {
-                
-                showAlert(title: "Notify", message: "Invalid email or password")
-                return true
-            }
-            else{
-                showAlert(title: "Notify", message: "Login successfully")
-                return false
-            }
-        }
-          else if emailTextField.text == "" && passwordTextField.text != ""{
-            showAlert(title: "Notify", message: "Please enter valid email ")
-            return false
-        } else if emailTextField.text != "" && passwordTextField.text == "" {
-            showAlert(title: "Notify", message: "Please enter valid password")
-            return false
-        } else {
-            showAlert(title: "Notify", message: "Please enter email and password")
-            return false
-        }
+    @objc func keyboardApear(notification: NSNotification) {
+            guard let userInfo = notification.userInfo else { return }
+                var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+                keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+                var contentInset:UIEdgeInsets = self.signInScrollView.contentInset
+                contentInset.bottom = keyboardFrame.size.height + 50
+        signInScrollView.contentInset = contentInset
     }
+    @objc func keyboardDisapear(notification: NSNotification) {
+            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            signInScrollView.contentInset = contentInset
+    }
+      
     
     
     // MARK: - Private
     
     private func setupUI() {
+        
+        
+        
         signInLabel.text = "Sign in"
         signInLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         
@@ -98,12 +90,110 @@ class SignInViewController: UIViewController {
     }
     
     //MARK: - Validation
+  
+    // MARK: - Actions
+    @IBAction func onClickSignInButton(_ sender: Any) {
+        if hasErrorStatus().status == true {
+            let title = "Error"
+            let message = hasErrorStatus().messages
+            showAlert(title: title, message: message)
+        } else {
+            if isExistEmail() == true && isExistPassword() == true {
+                userDefaults.set(1, forKey: "id")
+                userDefaults.set(arrayName[1], forKey: "name")
+                userDefaults.set(emailTextField.text!, forKey: "email")
+                AppViewController.shared.pushToWelcomeScreen()
+            } else {
+                showAlert(title: "Notification", message: "Invalid email or password")
+            }
+        }
+    }
 }
 
 
 // MARK: - extensions
 
+extension SignInViewController{
+    //MARK: - Check field empty
+    func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
+        if emailTextField.text?.isEmpty == true {
+            textFieldName = "Email"
+            return (textFieldName, true)
+
+        } else if passwordTextField.text?.isEmpty == true {
+            textFieldName = "Password"
+            return (textFieldName, true)
+
+        }
+        return (nil, false)
+    }
+
+   
+    //MARK: - Check exist email
+    private func isExistEmail() -> Bool {
+        for email in arrayEmailValid {
+            if emailTextField.text == email {
+                return true
+            }
+        }
+        return false
+    }
+    private func isExistPassword() -> Bool {
+        for password in arrraypasswordValid {
+            if passwordTextField.text == password {
+                return true
+            }
+        }
+        return false
+    }
+    
+    //MARK: - Set status and message
+    func hasErrorStatus() -> (messages: String?, status: Bool?) {
+        // EmptyField
+        if fieldIsEmpty().status  == true {
+            messages = "\(fieldIsEmpty().textFieldName!) is required."
+            status = true
+            
+        } else
+        // Format Email
+        if emailTextField.text?.isValidEmail == false {
+            messages = "Please enter valid email."
+            status = true
+
+        } else
+        // Format Password
+        if passwordTextField.text?.isCorrectFormatPassword == false {
+            messages = "Password doesn’t follow format."
+            status = true
+
+        } else
+        // Field Range
+        if emailTextField.text!.count > 50 {
+            textFieldName = "Email"
+            messages = "\(textFieldName!) can't be longer than 50 character."
+            status = true
+
+        } else if passwordTextField.text!.count > 50 || passwordTextField.text!.count < 8  {
+            textFieldName = "Password"
+            messages = "\(textFieldName!) can't be less than 8 characters and longer than 50 characters."
+            status = true
+
+        } else {
+            return (nil, false)
+        }
+        return (messages, status)
+    }
+}
 
 
+extension SignInViewController : UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardApear), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisapear), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+}
 // MARK: - protocols
 

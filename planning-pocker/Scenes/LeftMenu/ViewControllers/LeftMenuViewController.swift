@@ -32,7 +32,7 @@ class LeftMenuViewController: UIViewController {
     }
     
     // MARK: - Properties
-    var isGameStarted = true
+    var isGameStarted = false
     var defaultHighLightedCell: Int = 0
     var menu: [LeftMenuModel] = [LeftMenuModel(icon: UIImage(named: "icon_eye.png")!, title: "Spectator Mode"),
                                  LeftMenuModel(icon: UIImage(named: "icon_setting.png")!, title: "My Account"),
@@ -69,7 +69,7 @@ class LeftMenuViewController: UIViewController {
             print("Support")
             return
         case 4:
-            return
+            AppViewController.shared.pushToSignOut()
         default:
             break
         }
@@ -105,7 +105,6 @@ extension LeftMenuViewController : UITableViewDataSource {
         }
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        selectedCell(indexPath.row)
     }

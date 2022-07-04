@@ -71,6 +71,8 @@
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
+		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
+		91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E3334A286EF79D0011F199 /* SignOutViewController.xib */; };
 		94344E1F286C04D100F40565 /* ListIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E1E286C04D100F40565 /* ListIssue.swift */; };
 		94344E24286C141800F40565 /* ButtonItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E22286C141800F40565 /* ButtonItemTableViewCell.swift */; };
 		94344E25286C141800F40565 /* ButtonItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E23286C141800F40565 /* ButtonItemTableViewCell.xib */; };
@@ -161,6 +163,8 @@
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
+		91E3334A286EF79D0011F199 /* SignOutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignOutViewController.xib; sourceTree = "<group>"; };
 		94344E1E286C04D100F40565 /* ListIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIssue.swift; sourceTree = "<group>"; };
 		94344E22286C141800F40565 /* ButtonItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItemTableViewCell.swift; sourceTree = "<group>"; };
 		94344E23286C141800F40565 /* ButtonItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				91E33345286EF7220011F199 /* SignOut */,
 				94344E26286C66B000F40565 /* LeftMenu */,
 				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				6051A86C28644E3E008A6715 /* CreateNewGame */,
@@ -672,6 +677,39 @@
 				9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		91E33345286EF7220011F199 /* SignOut */ = {
+			isa = PBXGroup;
+			children = (
+				91E33348286EF7410011F199 /* Models */,
+				91E33347286EF7350011F199 /* ViewControllers */,
+				91E33346286EF7300011F199 /* Views */,
+			);
+			path = SignOut;
+			sourceTree = "<group>";
+		};
+		91E33346286EF7300011F199 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91E33347286EF7350011F199 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				91E33349286EF79D0011F199 /* SignOutViewController.swift */,
+				91E3334A286EF79D0011F199 /* SignOutViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91E33348286EF7410011F199 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		94344E20286C13D000F40565 /* IssueItemTableViewCell */ = {
@@ -998,6 +1036,7 @@
 				9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */,
 				94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */,
 				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
+				91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */,
 				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
@@ -1099,6 +1138,7 @@
 				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
 				94344E3A286D824600F40565 /* EditProfileView.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
+				91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */,
 				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
 				0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */,

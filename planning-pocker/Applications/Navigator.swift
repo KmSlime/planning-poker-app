@@ -20,6 +20,7 @@ protocol Navigator {
     func pushToShowIssueListScreen()
     func pushToEditIssueScreen()
     func pushToLeftMenu()
+    func pushToSignOut()
     //MARK: - POP
     //    func pushToChooseCardScreen()
     func popToPreviousScreen()
@@ -72,12 +73,16 @@ extension AppViewController: Navigator {
     }
     
     func pushToEditIssueScreen() {
-        let editIssueVC = IssueDetailViewController()
+        let editIssueVC = IssueDetailViewController() 
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     
     func pushToLeftMenu() {
         
+    }
+    func pushToSignOut() {
+        let signOutVC = SignOutViewController()
+        navigationController?.pushViewController(signOutVC, animated: true)
     }
     
     //MARK: - POP ACTION

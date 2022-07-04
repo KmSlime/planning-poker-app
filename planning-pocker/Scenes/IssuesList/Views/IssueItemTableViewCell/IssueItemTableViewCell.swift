@@ -17,7 +17,7 @@ class IssueItemTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     weak var delegate: IssueItemTableViewCellDelegate?
-    
+    var didDelete : ((UITableViewCell) -> Void)?
     // MARK: - Overrides
     override func awakeFromNib() {
     super.awakeFromNib()
@@ -53,6 +53,7 @@ class IssueItemTableViewCell: UITableViewCell {
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
         
+        didDelete?(self)
     }
 
 
@@ -60,6 +61,9 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBAction func voteIssue(_ sender: UIButton) {
         print("Print somthing when click button")
         delegate?.issueItemTableViewCellDidVote(self)
+    }
+    @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
+        
     }
 }
 // MARK: - protocols

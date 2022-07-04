@@ -25,7 +25,10 @@ class CreateNewGameViewController: UIViewController {
     var messages: String?
     var status: Bool?
     let dropdownDeleteTableView = DropDown()
-    var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"), (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."), (3, "T-Shirt (S, M, L, XL, XXL,...)"), (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
+    var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"),
+                                                 (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."),
+                                                 (3, "T-Shirt (S, M, L, XL, XXL,...)"),
+                                                 (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
     var newGame: GameModel?
     var testPlayer: PlayerModel!
     // MARK: - Overrides

@@ -18,8 +18,10 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var descriptionContentTextVIew: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var copyButton: UIButton!
+    @IBOutlet weak var backToShowIssueListButton: UIButton!
     @IBOutlet weak var titleTextViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextViewHeightConstraints: NSLayoutConstraint!
+    @IBOutlet weak var issueDetailScrollView : UIScrollView!
     
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -44,7 +46,9 @@ class IssueDetailViewController: UIViewController {
         MDCSnackbarManager.default.show(snackBarMsg)
         
     }
-    
+    @IBAction func onClickBackToShowIssueList(_ sender: Any) {
+        AppViewController.shared.popToPreviousScreen()
+        }
     @IBAction func onClickSave(_ sender: Any) {
     }
     
@@ -61,9 +65,22 @@ class IssueDetailViewController: UIViewController {
 
     // MARK: - Publics
     
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        titleContentTextView.resignFirstResponder()
-    }
+//    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+//        titleContentTextView.resignFirstResponder()
+//    }
+    @objc func keyboardApear(notification:NSNotification) {
+            guard let userInfo = notification.userInfo else { return }
+                var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+                keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+                var contentInset:UIEdgeInsets = self.issueDetailScrollView.contentInset
+                contentInset.bottom = keyboardFrame.size.height + 50
+                issueDetailScrollView.contentInset = contentInset
+        }
+        @objc func keyboardDisapear(notification:NSNotification) {
+            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            issueDetailScrollView.contentInset = contentInset
+        }
 
     // MARK: - Private
     
@@ -118,6 +135,7 @@ extension IssueDetailViewController: UITextViewDelegate{
 
 
 func textViewDidBeginEditing(_ textView: UITextView) {
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardApear), name: UIResponder.keyboardWillShowNotification, object: nil)
     if textView == titleContentTextView {
         titleTextViewHeightConstraints.constant = 126
         titleContentTextView.backgroundColor = UIColor.white
@@ -133,7 +151,7 @@ func textViewDidBeginEditing(_ textView: UITextView) {
 }
 
 func textViewDidEndEditing(_ textView: UITextView) {
-
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisapear), name: UIResponder.keyboardWillHideNotification, object: nil)
     if textView == titleContentTextView {
         titleTextViewHeightConstraints.constant = 48
         titleContentTextView.layer.borderWidth = 0
