@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
     var messages: String?
     var status: Bool?
     var textFieldName: String?
-    let arrayEmailValid: [String] = ["lala@gmail.com","lele@exit.com"] //TEST, sau thay dòng này bằng array API
+    let arrayEmailValid: [String] = ["lala@gmail.com","lele@exit.com"]
 
     var newUser: User!
     var testSentData: String = "lalala gui sang welcome"
@@ -35,6 +35,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.setupHideKeyboardOnTap()
+
+
 
     }
     
@@ -57,14 +60,18 @@ class SignUpViewController: UIViewController {
     }
 
     //MARK: - SENDING DATA TO BE - HAVEN'T DONE YET
-//    func register() -> User {
-////        guard let emailTextField.text != nil && passwordTextField.text != nil && fullNameTextField.text != nil else { return nil }
-////
-//
-//
-//        //MARK: - api sending data to BE
-//    }
-//
+    func register() {
+        APIRequest.shared.request(router: APIRouter.signUp(displayName: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
+
+            
+            
+        }
+       
+        
+        
+        
+    }
+
     
     // MARK: - Private
     
@@ -86,12 +93,14 @@ class SignUpViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor.textFieldBorderColor
         rePasswordTextField.layer.borderColor = UIColor.textFieldBorderColor
         fullNameTextField.layer.borderColor = UIColor.textFieldBorderColor
-        
+        UITextField.appearance().tintColor = .black
+
         //style
         passwordTextField.layer.borderWidth = 1
         emailTextField.layer.borderWidth = 1
         rePasswordTextField.layer.borderWidth = 1
         fullNameTextField.layer.borderWidth = 1
+
         
         //attribute
         passwordTextField.layer.cornerRadius = 4
@@ -119,7 +128,7 @@ class SignUpViewController: UIViewController {
             userDefaults.set(id, forKey: "id")
             userDefaults.set(emailTextField.text!, forKey: "email")
             userDefaults.set(fullNameTextField.text! , forKey: "fullName")
-
+            register()
             AppViewController.shared.pushToWelcomeScreen(user: newUser)
         }
     }

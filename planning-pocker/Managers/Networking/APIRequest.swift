@@ -18,6 +18,7 @@ final class APIRequest: NSObject {
         return queue
     }()
     
+    //MARK: - REQUEST METHOD
     func request(router: APIRouter,
                  _ completion: @escaping ResponseBlock)
     {
@@ -37,6 +38,7 @@ final class APIRequest: NSObject {
         }
     }
     
+    //MARK: - GET
     private func get(router: APIRouter,
                      _ completion: @escaping ResponseBlock)
     {
@@ -61,6 +63,7 @@ final class APIRequest: NSObject {
         }.resume()
     }
     
+    //MARK: - Delete
     private func delete(router: APIRouter,
                         _ completion: @escaping ResponseBlock)
     {
@@ -85,6 +88,7 @@ final class APIRequest: NSObject {
         }.resume()
     }
     
+    //MARK: - POST
     private func post(router: APIRouter,
                       _ completion: @escaping ResponseBlock)
     {
@@ -109,6 +113,7 @@ final class APIRequest: NSObject {
         }.resume()
     }
     
+    //MARK: - PUT
     private func put(router: APIRouter,
                      _ completion: @escaping ResponseBlock)
     {

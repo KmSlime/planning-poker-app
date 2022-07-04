@@ -30,11 +30,12 @@ protocol URLRequestConvertible {
 
 enum APIRouter: URLRequestConvertible {
     case login(email: String, password: String)
-    case signUp(firstName: String, lastName: String, email: String, phone: String, password: String)
+    case signUp(displayName: String, email: String, password: String)
     case logOut
 
     static var baseURL: String {
-        return "https://gateway.kardsys.com"
+        //return "https://gateway.kardsys.com"
+        return "localhost:8080"
     }
 
     var path: String {
@@ -44,7 +45,7 @@ enum APIRouter: URLRequestConvertible {
         case .logOut:
             return "/external/api/account/v1/logout"
         case .signUp:
-            return "/external/api/account/v1/register"
+            return "/api/auth/signup"
         }
     }
 
@@ -66,15 +67,11 @@ enum APIRouter: URLRequestConvertible {
         case .login(email: let email, password: let password):
             return ["emailAddress": email,
                     "password": password]
-        case .signUp(firstName: let firstName,
-                     lastName: let lastName,
+        case .signUp(displayName: let displayName,
                      email: let email,
-                     phone: let phone,
                      password: let password):
-            return ["firstName": firstName,
-                    "lastName": lastName,
+            return ["displayName": displayName,
                     "emailAddress": email,
-                    "phoneNumber": phone,
                     "password": password]
         default:
             return [:]

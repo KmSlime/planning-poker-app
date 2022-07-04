@@ -86,6 +86,26 @@ class CreateNewGameViewController: UIViewController {
                 break
             }
         }
+//
+//        dropdownDeleteTableView.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
+//
+        
+//        dropdownDeleteTableView.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
+//           guard let cell = cell as? MyCell else { return }
+        
+//        dropdownDeleteTableView.customCellConfiguration = { index, title, cell in
+//            guard let cell = cell as? VotingSystemCell else { return }
+//            cell.setVotingSystemLabel(systemName: "")
+//
+//
+//        }
+//
+//        dropdownDeleteTableView.cellConfiguration = { [unowned self] (index, item) in
+//          return "- \(item) (option \(index))"
+//        }
+//
+        
+        
     }
 
 

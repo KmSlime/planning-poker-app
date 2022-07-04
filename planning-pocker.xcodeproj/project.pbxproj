@@ -12,6 +12,10 @@
 		0EB73AD3286C4E2D00B74B4C /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */; };
 		0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */; };
 		0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7D1382862CA7900E8F787 /* AppUrls.swift */; };
+		15491B14286F0BF700B75188 /* VotingSystemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15491B12286F0BF700B75188 /* VotingSystemCell.swift */; };
+		15491B15286F0BF700B75188 /* VotingSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15491B13286F0BF700B75188 /* VotingSystemCell.xib */; };
+		15491B1C2870563000B75188 /* CustomDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15491B1A2870563000B75188 /* CustomDeskViewController.swift */; };
+		15491B1D2870563000B75188 /* CustomDeskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15491B1B2870563000B75188 /* CustomDeskViewController.xib */; };
 		155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264E7286B154F0038ABDF /* IssuesListViewController.swift */; };
 		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
 		155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */; };
@@ -108,6 +112,10 @@
 		0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		0EF7D1382862CA7900E8F787 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
+		15491B12286F0BF700B75188 /* VotingSystemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
+		15491B13286F0BF700B75188 /* VotingSystemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotingSystemCell.xib; sourceTree = "<group>"; };
+		15491B1A2870563000B75188 /* CustomDeskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDeskViewController.swift; sourceTree = "<group>"; };
+		15491B1B2870563000B75188 /* CustomDeskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDeskViewController.xib; sourceTree = "<group>"; };
 		155264E7286B154F0038ABDF /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
 		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
 		155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -538,6 +546,10 @@
 		6051A87128644E3E008A6715 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				15491B1A2870563000B75188 /* CustomDeskViewController.swift */,
+				15491B1B2870563000B75188 /* CustomDeskViewController.xib */,
+				15491B12286F0BF700B75188 /* VotingSystemCell.swift */,
+				15491B13286F0BF700B75188 /* VotingSystemCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -979,6 +991,7 @@
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
 				6051A87228644E3F008A6715 /* CreateNewGameViewController.xib in Resources */,
 				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
+				15491B1D2870563000B75188 /* CustomDeskViewController.xib in Resources */,
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				60B6C9F52861B8BC00DC3270 /* (null) in Resources */,
@@ -1005,6 +1018,7 @@
 				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
 				0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
+				15491B15286F0BF700B75188 /* VotingSystemCell.xib in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
@@ -1092,12 +1106,14 @@
 				94344E24286C141800F40565 /* ButtonItemTableViewCell.swift in Sources */,
 				602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */,
 				0EF7D1392862CA7900E8F787 /* AppUrls.swift in Sources */,
+				15491B14286F0BF700B75188 /* VotingSystemCell.swift in Sources */,
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
 				60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */,
 				602CDBDB2861762300E2EA30 /* StringExtension.swift in Sources */,
 				BAD51B2C2861B50D002961A7 /* ChooseCardViewController.swift in Sources */,
 				94344E3A286D824600F40565 /* EditProfileView.swift in Sources */,
+				15491B1C2870563000B75188 /* CustomDeskViewController.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
 				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,

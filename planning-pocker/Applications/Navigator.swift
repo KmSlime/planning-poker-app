@@ -20,6 +20,8 @@ protocol Navigator {
     func pushToShowIssueListScreen()
     func pushToEditIssueScreen()
     func pushToLeftMenu()
+    func pushToCreateCustomDesk()
+    
     //MARK: - POP
     //    func pushToChooseCardScreen()
     func popToPreviousScreen()
@@ -79,6 +81,12 @@ extension AppViewController: Navigator {
     func pushToLeftMenu() {
         
     }
+    
+    func pushToCreateCustomDesk() {
+        let customDeskVC = CustomDeskViewController()
+        navigationController?.pushViewController(customDeskVC, animated: true)
+    }
+
     
     //MARK: - POP ACTION
     func popToPreviousScreen() {

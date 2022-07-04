@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SetUpUI()
+        setUpUI()
         
     }
     
@@ -39,7 +39,7 @@ class WelcomeViewController: UIViewController {
 
     
     
-    private func SetUpUI() {
+    private func setUpUI() {
         // set properties for Login Button
         goToTheLoginButton.layer.borderWidth = 1
         goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
