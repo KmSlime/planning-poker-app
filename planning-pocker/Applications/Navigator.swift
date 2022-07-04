@@ -19,7 +19,9 @@ protocol Navigator {
     func pushToShowIssueListScreen()
     func pushToEditIssueScreen()
     func pushToLeftMenu()
-    // MARK: - POP
+    func pushToSignOut()
+    //MARK: - POP
+    //    func pushToChooseCardScreen()
     func popToPreviousScreen()
 }
 
@@ -61,7 +63,7 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     func pushToEditIssueScreen() {
-        let editIssueVC = IssueDetailViewController()
+        let editIssueVC = IssueDetailViewController() 
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     func pushToLeftMenu() {
@@ -74,6 +76,11 @@ extension AppViewController: Navigator {
         view.window!.layer.add(transition, forKey: kCATransition)
         leftMenuVC.modalPresentationStyle = .overFullScreen
         present(leftMenuVC, animated: true, completion: nil)
+    }
+
+    func pushToSignOut() {
+        let signOutVC = SignOutViewController()
+        navigationController?.pushViewController(signOutVC, animated: true)
     }
     // MARK: - POP ACTION
     func popToPreviousScreen() {

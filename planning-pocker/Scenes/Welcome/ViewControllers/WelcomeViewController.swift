@@ -11,12 +11,18 @@ class WelcomeViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet weak var goToTheLoginButton: UIButton!
-    @IBOutlet weak var startPokerPlainningGameButton: UIButton!
+    @IBOutlet weak var startPokerPlanningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
-
+    @IBOutlet weak var leftMenuButton: UIButton!
     // MARK: - Properties
     var user: User!
-
+    private var leftMenuViewController: LeftMenuViewController!
+    private var leftMenuRevealWidth: CGFloat = 300
+    private var paddingForRotation: CGFloat = 150
+    private var isExpanded = false
+    private var leftMenuTrailingConstraint: NSLayoutConstraint!
+    private var revealLeftMenuOnTop = true
+    private var leftMenuShadowView: UIView!
     // MARK: - Overrides
 
     // MARK: - Life cycles
@@ -24,7 +30,6 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-
     }
 
     // MARK: - Publics
@@ -32,6 +37,8 @@ class WelcomeViewController: UIViewController {
     // MARK: - Private
 
     private func setUpUI() {
+        setupLeftMenu()
+
         // set properties for Login Button
         goToTheLoginButton.layer.borderWidth = 1
         goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
@@ -42,8 +49,15 @@ class WelcomeViewController: UIViewController {
         startRetrospectiveButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
         startRetrospectiveButton.layer.cornerRadius = 5
 
-        // set properties for Start Poker Plainning Game Button
-        startPokerPlainningGameButton.layer.cornerRadius = 5
+        // set properties for Start Poker Planning Game Button
+        startPokerPlanningGameButton.layer.cornerRadius = 5
+        if userDefaults.object(forKey: "name") != nil {
+            goToTheLoginButton.isHidden = true
+            leftMenuButton.isHidden = false
+        } else {
+            goToTheLoginButton.isHidden = false
+            leftMenuButton.isHidden = true
+        }
     }
 
     // MARK: - Actions
@@ -82,10 +96,11 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction func onClickStartGameButton(_ sender: Any) {
-        if user != nil {
+        if userDefaults.object(forKey: "name") != nil {
+            userDefaults.set(userDefaults.object(forKey: "name"), forKey: "name")
             AppViewController.shared.pushToCreateNewGameScreen()
         } else {
-            print("hiep tu set")
+            AppViewController.shared.pushToSignInScreen()
         }
 
     }
@@ -94,4 +109,8 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToSignInScreen()
 
     }
+    @IBAction func onClickLeftMenuButton(_ sender: Any) {
+        self.leftMenuState(expanded: self.isExpanded ? false : true)
+    }
 }
+// MARK: - extensions

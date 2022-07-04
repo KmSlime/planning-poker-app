@@ -11,10 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssueDetailViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
+                <outlet property="backToShowIssueListButton" destination="71m-Ky-muv" id="b32-Fn-fFQ"/>
                 <outlet property="copyButton" destination="Fho-Vz-Rzo" id="StK-lH-TWR"/>
                 <outlet property="descriptionContentTextVIew" destination="aAe-nP-fue" id="sfd-eB-Dh6"/>
                 <outlet property="descriptionLabel" destination="JVG-9f-Tfp" id="TKK-N7-ith"/>
                 <outlet property="descriptionTextViewHeightConstraints" destination="s8g-67-W1m" id="ZTW-N4-uru"/>
+                <outlet property="issueDetailScrollView" destination="TaJ-rN-cv9" id="81i-2e-LaM"/>
                 <outlet property="issueKeyLabel" destination="jIV-aI-uMw" id="7I5-Jp-7mG"/>
                 <outlet property="linkContentLabel" destination="pdd-so-ftY" id="Lon-Lf-AQE"/>
                 <outlet property="linkLabel" destination="grL-BR-6yu" id="jpR-Ex-Kyk"/>
@@ -31,7 +33,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PP-1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIV-aI-uMw">
-                    <rect key="frame" x="20" y="59" width="374" height="23"/>
+                    <rect key="frame" x="94" y="59" width="226" height="23"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="23" id="eUw-5z-K89"/>
                     </constraints>
@@ -40,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaJ-rN-cv9">
-                    <rect key="frame" x="0.0" y="102" width="414" height="677"/>
+                    <rect key="frame" x="0.0" y="122" width="414" height="657"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="XfL-d0-UqY">
                             <rect key="frame" x="20" y="0.0" width="374" height="269"/>
@@ -88,6 +90,9 @@
                                             <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="icon-copy" title=" "/>
+                                            <connections>
+                                                <action selector="onClickCopy:" destination="-1" eventType="touchUpInside" id="04j-MD-oQ7"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -149,27 +154,42 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Save"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71m-Ky-muv">
+                    <rect key="frame" x="20" y="58" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="5eV-rS-HvP"/>
+                        <constraint firstAttribute="width" constant="24" id="G26-ns-KR8"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="icon_back" title=" "/>
+                    <connections>
+                        <action selector="onClickBackToShowIssueList:" destination="-1" eventType="touchUpInside" id="u7q-c0-jdS"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jIV-aI-uMw" secondAttribute="trailing" constant="94" id="1pC-zc-CGx"/>
+                <constraint firstItem="71m-Ky-muv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1va-np-Vwr"/>
                 <constraint firstAttribute="trailing" secondItem="B2w-1R-UCW" secondAttribute="trailing" constant="20" id="7sY-pE-ALQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="B2w-1R-UCW" secondAttribute="bottom" constant="15" id="Dry-jH-gHj"/>
-                <constraint firstItem="TaJ-rN-cv9" firstAttribute="top" secondItem="jIV-aI-uMw" secondAttribute="bottom" constant="20" id="HgP-J2-Uja"/>
+                <constraint firstItem="TaJ-rN-cv9" firstAttribute="top" secondItem="jIV-aI-uMw" secondAttribute="bottom" constant="40" id="HgP-J2-Uja"/>
                 <constraint firstItem="TaJ-rN-cv9" firstAttribute="centerX" secondItem="jIV-aI-uMw" secondAttribute="centerX" id="IwN-Fv-fM5"/>
                 <constraint firstItem="B2w-1R-UCW" firstAttribute="top" secondItem="TaJ-rN-cv9" secondAttribute="bottom" constant="20" id="TSe-sO-YnN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jIV-aI-uMw" secondAttribute="trailing" constant="20" id="WFu-Lv-pqx"/>
+                <constraint firstItem="jIV-aI-uMw" firstAttribute="leading" secondItem="71m-Ky-muv" secondAttribute="trailing" constant="50" id="TuI-br-nrZ"/>
                 <constraint firstItem="B2w-1R-UCW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fJA-pL-Lfu"/>
                 <constraint firstItem="TaJ-rN-cv9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oD8-Hd-UV3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TaJ-rN-cv9" secondAttribute="trailing" id="qrZ-fH-Ja8"/>
+                <constraint firstItem="TaJ-rN-cv9" firstAttribute="top" secondItem="71m-Ky-muv" secondAttribute="bottom" constant="40" id="sXZ-zz-XQm"/>
                 <constraint firstItem="jIV-aI-uMw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="v5f-l4-ZLN"/>
-                <constraint firstItem="jIV-aI-uMw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yUh-LG-P8v"/>
             </constraints>
             <point key="canvasLocation" x="139" y="64"/>
         </view>
     </objects>
     <resources>
         <image name="icon-copy" width="24" height="24"/>
+        <image name="icon_back" width="24" height="24"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
