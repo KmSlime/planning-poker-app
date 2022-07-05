@@ -11,12 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="createAccountLabel" destination="wfA-1y-OVc" id="Dob-AI-Scp"/>
+                <outlet property="createAccountLabel" destination="wfA-1y-OVc" id="34D-cI-v00"/>
                 <outlet property="emailTextField" destination="GTt-Qa-Obt" id="vds-Ei-ci3"/>
                 <outlet property="passwordTextField" destination="Khp-hN-yGW" id="wHx-MK-WSO"/>
                 <outlet property="signInButton" destination="2v0-pD-7qS" id="uHP-jh-uYZ"/>
                 <outlet property="signInLabel" destination="PDl-uM-6e7" id="O4e-04-PhI"/>
-                <outlet property="signInScrollView" destination="pvv-Ln-TYn" id="kGi-Oa-VH8"/>
+                <outlet property="signInScrollView" destination="pvv-Ln-TYn" id="Lc8-0j-OKL"/>
                 <outlet property="view" destination="eJM-nT-Wl5" id="5wc-oa-ZWo"/>
             </connections>
         </placeholder>
@@ -90,7 +90,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuY-hA-o5U">
-                            <rect key="frame" x="344.5" y="295" width="49.5" height="17"/>
+                            <rect key="frame" x="344.5" y="295" width="49.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.66666666669999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -103,10 +103,10 @@
                         <constraint firstItem="wfA-1y-OVc" firstAttribute="top" secondItem="unc-ZC-oTw" secondAttribute="bottom" constant="25" id="A8l-9J-STl"/>
                         <constraint firstItem="unc-ZC-oTw" firstAttribute="leading" secondItem="pvv-Ln-TYn" secondAttribute="leading" constant="20" id="Gnv-gY-uhq"/>
                         <constraint firstItem="unc-ZC-oTw" firstAttribute="top" secondItem="pvv-Ln-TYn" secondAttribute="top" id="Qrm-ob-sgm"/>
+                        <constraint firstItem="XuY-hA-o5U" firstAttribute="height" secondItem="wfA-1y-OVc" secondAttribute="height" id="geZ-BT-48W"/>
                         <constraint firstItem="wfA-1y-OVc" firstAttribute="leading" secondItem="pvv-Ln-TYn" secondAttribute="leading" constant="20" id="h5B-Ne-w7R"/>
                         <constraint firstItem="XuY-hA-o5U" firstAttribute="top" secondItem="unc-ZC-oTw" secondAttribute="bottom" constant="25" id="sGG-bM-zBL"/>
                         <constraint firstAttribute="bottom" secondItem="unc-ZC-oTw" secondAttribute="bottom" id="vXY-T9-val"/>
-                        <constraint firstAttribute="height" secondItem="unc-ZC-oTw" secondAttribute="height" multiplier="2.34074" id="vdd-vc-eCM"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -115,12 +115,13 @@
             <constraints>
                 <constraint firstItem="BVU-wQ-Bgi" firstAttribute="trailing" secondItem="pvv-Ln-TYn" secondAttribute="trailing" id="8Vt-YB-nOE"/>
                 <constraint firstItem="pvv-Ln-TYn" firstAttribute="leading" secondItem="BVU-wQ-Bgi" secondAttribute="leading" id="JB3-wY-bXY"/>
+                <constraint firstItem="pvv-Ln-TYn" firstAttribute="bottom" secondItem="BVU-wQ-Bgi" secondAttribute="bottom" id="ezj-GR-JRe"/>
                 <constraint firstItem="pvv-Ln-TYn" firstAttribute="top" secondItem="hWA-I3-AMa" secondAttribute="bottom" constant="16" id="g4G-xx-VFw"/>
                 <constraint firstItem="pvv-Ln-TYn" firstAttribute="centerX" secondItem="hWA-I3-AMa" secondAttribute="centerX" id="gBF-cf-7Xy"/>
                 <constraint firstItem="hWA-I3-AMa" firstAttribute="top" secondItem="BVU-wQ-Bgi" secondAttribute="top" constant="130" id="mK3-pB-9Ow"/>
                 <constraint firstItem="hWA-I3-AMa" firstAttribute="centerX" secondItem="BVU-wQ-Bgi" secondAttribute="centerX" id="x99-2u-Fv6"/>
             </constraints>
-            <point key="canvasLocation" x="-672" y="38"/>
+            <point key="canvasLocation" x="-672.46376811594212" y="37.5"/>
         </view>
     </objects>
     <resources>

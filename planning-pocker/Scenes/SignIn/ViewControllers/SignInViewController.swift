@@ -30,6 +30,9 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        onClickCreateAccountButton()
+    }
 
     // MARK: - Properties
 
@@ -39,8 +42,8 @@ class SignInViewController: UIViewController {
 
     func onClickCreateAccountButton() {
         let createAccountLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.goToSignUp(recognizer:)))
-        signInLabel.isUserInteractionEnabled = true
-        signInLabel.addGestureRecognizer(createAccountLabelOnClick)
+        createAccountLabel.isUserInteractionEnabled = true
+        createAccountLabel.addGestureRecognizer(createAccountLabelOnClick)
     }
 
     @objc func goToSignUp(recognizer: UIGestureRecognizer) {
@@ -61,28 +64,10 @@ class SignInViewController: UIViewController {
             let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             signInScrollView.contentInset = contentInset
     }
-
-        func checkFields() -> Bool {
-
-        if emailTextField.text != "" && passwordTextField.text != "" {
-
-            if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isCorrectFormatPassword != nil {
-
-                showAlert(title: "Notify", message: "Invalid email or password")
-                return true
-            } else {
-                showAlert(title: "Notify", message: "Login successfully")
-                return false
-            }
-        } else if emailTextField.text == "" && passwordTextField.text != ""{
-            showAlert(title: "Notify", message: "Please enter valid email ")
-            return false
-        } else if emailTextField.text != "" && passwordTextField.text == "" {
-            showAlert(title: "Notify", message: "Please enter valid password")
-            return false
-        } else {
-            showAlert(title: "Notify", message: "Please enter email and password")
-            return false
+    // MARK: - Call API
+    func login (user: User) {
+        APIRequest.shared.request(router: APIRouter.login(email: emailTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
+            
         }
     }
 
@@ -147,19 +132,15 @@ extension SignInViewController {
 
 // MARK: - Check exist email
     private func isExistEmail() -> Bool {
-        for email in arrayEmailValid {
-            if emailTextField.text == email {
+        for email in arrayEmailValid where emailTextField.text == email {
                 return true
             }
-        }
         return false
     }
     private func isExistPassword() -> Bool {
-        for password in arrayPasswordValid {
-            if passwordTextField.text == password {
+        for password in arrayPasswordValid where passwordTextField.text == password {
                 return true
             }
-        }
         return false
     }
     // MARK: - Set status and message
@@ -187,7 +168,7 @@ extension SignInViewController {
             messages = "\(textFieldName!) can't be longer than 50 character."
             status = true
 
-        } else if passwordTextField.text!.count > 50 || passwordTextField.text!.count < 8  {
+        } else if passwordTextField.text!.count > 50 || passwordTextField.text!.count < 8 {
             textFieldName = "Password"
             messages = "\(textFieldName!) can't be less than 8 characters and longer than 50 characters."
             status = true

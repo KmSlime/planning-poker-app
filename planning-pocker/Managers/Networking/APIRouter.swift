@@ -32,19 +32,22 @@ enum APIRouter: URLRequestConvertible {
     case login(email: String, password: String)
     case signUp(firstName: String, lastName: String, email: String, phone: String, password: String)
     case logOut
+    case issueDetail
 
     static var baseURL: String {
-        return "https://gateway.kardsys.com"
+        return "https://58be1a92-cca8-4d6f-9377-2ee2ebfc4972.mock.pstmn.io"
     }
 
     var path: String {
         switch self {
         case .login:
-            return "/external/api/account/v1/login"
+            return "/api/auth/signin"
         case .logOut:
             return "/external/api/account/v1/logout"
         case .signUp:
             return "/external/api/account/v1/register"
+        case .issueDetail:
+            return "/api/issue/showIssue"
         }
     }
 
@@ -52,9 +55,10 @@ enum APIRouter: URLRequestConvertible {
 
     var method: HttpMethod {
         switch self {
-        case .login, .logOut, .signUp:
+        case .login, .logOut, .signUp, .issueDetail:
             return .post
         default:
+            
             return .get
         }
     }

@@ -19,7 +19,7 @@ class LeftMenuViewController: UIViewController {
         didSet {
             guard let subView = Bundle.main.loadNibNamed("EditProfileView", owner: profileView, options: nil)?.first as? EditProfileView else { return }
             profileView?.addSubview(subView)
-            subView.frame = subView.superview!.bounds;
+            subView.frame = subView.superview!.bounds
             subView.layer.cornerRadius = 50
         }
     }
@@ -35,7 +35,7 @@ class LeftMenuViewController: UIViewController {
                                  LeftMenuModel(icon: UIImage(named: "icon_setting.png")!, title: "My Account"),
                                  LeftMenuModel(icon: UIImage(named: "icon_contact.png")!, title: "Contact us"),
                                  LeftMenuModel(icon: UIImage(named: "icon_support.png")!, title: "Support"),
-                                 LeftMenuModel(icon: UIImage(named: "icon_signout.png")!, title: "Sign out"),]
+                                 LeftMenuModel(icon: UIImage(named: "icon_signout.png")!, title: "Sign out")]
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
