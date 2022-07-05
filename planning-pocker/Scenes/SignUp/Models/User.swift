@@ -22,8 +22,7 @@ class User{
         self.userFullName = fullName
     }
     
-    
-    public var id: Int {
+    public var id: Int? {
         self.userId
     }
     

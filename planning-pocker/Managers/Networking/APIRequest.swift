@@ -138,6 +138,7 @@ final class APIRequest: NSObject {
         }.resume()
     }
     
+    // MARK: - HandleAPI
     internal func handleAPI(url: String,
                             data: Data?, response: URLResponse?, error: Error?,
                             _ completion: @escaping ResponseBlock)
