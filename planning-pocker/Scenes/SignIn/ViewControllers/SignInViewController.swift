@@ -49,15 +49,6 @@ class SignInViewController: UIViewController {
         if recognizer.state == .ended {
             AppViewController.shared.pushToSignUpScreen()
         }
-
-//        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
-//                               method: .post,
-//                               parameters: ["emailAddress": "email", "password": "password"],
-//                               contentType: .urlFormEncoded)
-//        
-//        APIRequest.shared.request(router: router) { error, response in
-//        
-//        }
     }
 
     @objc func keyboardAppear(notification: NSNotification) {
@@ -75,9 +66,15 @@ class SignInViewController: UIViewController {
         signInScrollView.contentInset = contentInset
     }
     // MARK: - API Called
-    func loginCallAPI (user: User) {
-        APIRequest.shared.request(router: APIRouter.login(email: emailTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
-            
+    func loginCallAPI (email: String, pass: String) {
+        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
+                               method: .post,
+                               parameters: ["emailAddress": "email", "password": "password"],
+                               contentType: .urlFormEncoded)
+        
+        APIRequest.shared.request(router: router) { error, response in
+            let message = response?.dictionary?["message"] ?? ""
+            print(message)
         }
     }
 
