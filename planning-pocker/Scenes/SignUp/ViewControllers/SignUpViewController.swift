@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class SignUpViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -23,23 +22,20 @@ class SignUpViewController: UIViewController {
     var status: Bool?
     var textFieldName: String?
     var newUser: User!
-
-    // MARK: - Overrides
-    
-    
+    var fullName: String?
+    var email: String?
+    var password: String?
     
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupHideKeyboardOnTap()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         onClickSignInButton()
     }
-    
     
     // MARK: - Publics
     func onClickSignInButton(){
@@ -56,26 +52,29 @@ class SignUpViewController: UIViewController {
     
     // MARK: - SENDING DATA TO BE - HAVEN'T DONE YET
     func register(user: User) {
-        APIRequest.shared.request(router: APIRouter.signUp(email: emailTextField.text!, displayName: fullNameTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
-            
-            var message = response?.dictionary?["message"]?.stringValue ?? "else case"
+        
+        let routerSignUp = APIRouter(path: APIPath.Auth.signUp.rawValue,
+                                     method: .post,
+                                     parameters: ["displayName": user.fullName,
+                                                  "email": user.email,
+                                                  "password": user.password],
+                                     contentType: .applicationJson)
+        
+        APIRequest.shared.request(router: routerSignUp) { [weak self] error, response in
+            var message = response?.dictionary?["message"]?.stringValue ?? "Log: Else Case!!"
             //kiiii@gmail.com
             print(message as Any)
-            
             //MARK: - Check exist email
-            if message as? String == "Error: Email is already in use!" {
+            if message == "Error: Email is already in use!" {
                 AppViewController.shared.showAlert(tittle: "Error", message: "Email already exists.")
                 return
             } else {
+                user.id = response?.dictionary?["id"]?.intValue ?? -1
+                userDefaults.set(user.id, forKey: "id")
                 AppViewController.shared.pushToWelcomeScreen(user: user)
             }
         }
     }
-    
-    
-    // MARK: - Private
-    
-    
     
     // MARK: - Setup UI
     private func setupUI(){
@@ -119,10 +118,11 @@ class SignUpViewController: UIViewController {
             let message = hasErrorStatus().messages
             showAlert(title: title, message: message)
         } else {
-            newUser = User(id: -1, email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
-            userDefaults.set(-1, forKey: "id")
-            userDefaults.set(emailTextField.text!, forKey: "email")
-            userDefaults.set(fullNameTextField.text! , forKey: "fullName")
+            email = emailTextField.text!
+            fullName = fullNameTextField.text!
+            newUser = User(id: -1, email: email!, password: passwordTextField.text!, fullName: fullName!)
+            userDefaults.set(email, forKey: "email")
+            userDefaults.set(fullName, forKey: "fullName")
             register(user: newUser)
         }
     }
@@ -166,12 +166,6 @@ extension SignUpViewController {
         if emailTextField.text?.isValidEmail == false {
             messages = "Please enter valid email."
             status = true
-            
-            //        } else
-            // Existence Email
-            //        if isExistEmail() == true {
-            //            messages = "Email already exists."
-            //            status = true
             
         } else
         // Format Password

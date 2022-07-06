@@ -10,11 +10,13 @@ import SocketIO
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
     public private(set) var socket: SocketIOClient?
-    private var manager: SocketManager?
-    var isShowAlert: Bool = false
-    private var isReconnecting: Bool = false
     
+    private var manager: SocketManager?
+    private var isShowAlert: Bool = false
+    private var isReconnecting: Bool = false
+    static let socketURL = "http://localhost:3000"
     private let socketIsNilMessage: String = "Socket is nil"
+    
     override init() {
         super.init()
         self.initSocket()
@@ -27,7 +29,7 @@ class SocketIOManager: NSObject {
     
     func initSocket(isRequestConnect: Bool = false) {
         self.closeConnection()
-        manager = SocketManager(socketURL: URL(string: AppUrls.socketURL)!, config: [.forceNew(true), .reconnects(true), .log(true), .forcePolling(true), .compress, .connectParams(["token": ""]), .path("/socket.io-client")])
+        manager = SocketManager(socketURL: URL(string: SocketIOManager.socketURL)!, config: [.forceNew(true), .reconnects(true), .log(true), .forcePolling(true), .compress, .connectParams(["token": ""]), .path("/socket.io-client")])
         socket = manager?.defaultSocket
         if isRequestConnect {
             self.connectSocket { status in

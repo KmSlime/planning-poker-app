@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import SocketIO
 
 let userDefaults = UserDefaults.standard
 
@@ -18,16 +19,17 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var dropdownButton: UIButton!
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var joinGameButton: UIButton!
-//    @IBOutlet weak var dropdownView: UIView!
+
 
     
     // MARK: - Properties
     var messages: String?
     var status: Bool?
-    let dropdownDeleteTableView = DropDown()
     var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"), (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."), (3, "T-Shirt (S, M, L, XL, XXL,...)"), (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
+    var gameName: String?
+    let dropdownDeleteTableView = DropDown()
     var newGame: GameModel?
-    var testPlayer: PlayerModel!
+    var mainPlayer: PlayerModel!
     // MARK: - Overrides
 
 
@@ -59,12 +61,7 @@ class CreateNewGameViewController: UIViewController {
     func selectedDropdownItem() {
         dropdownDeleteTableView.selectionAction = {
             [unowned self] (index: Int, item: String) in
-            
             dropdownDeleteTableView.backgroundColor =  UIColor.white
-
-            print(item)
-            print(index)
-            
             votingSystemTextField.placeholder = item
         }
     }
@@ -86,25 +83,6 @@ class CreateNewGameViewController: UIViewController {
                 break
             }
         }
-//
-//        dropdownDeleteTableView.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
-//
-        
-//        dropdownDeleteTableView.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
-//           guard let cell = cell as? MyCell else { return }
-        
-//        dropdownDeleteTableView.customCellConfiguration = { index, title, cell in
-//            guard let cell = cell as? VotingSystemCell else { return }
-//            cell.setVotingSystemLabel(systemName: "")
-//
-//
-//        }
-//
-//        dropdownDeleteTableView.cellConfiguration = { [unowned self] (index, item) in
-//          return "- \(item) (option \(index))"
-//        }
-//
-        
         
     }
 
@@ -114,13 +92,23 @@ class CreateNewGameViewController: UIViewController {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
-            //create instance of newGameModel (later)
-
-            //{id current user, full name of user}, game {name; id}
-            testPlayer = PlayerModel(id: userDefaults.object(forKey: "id") as! Int, name: userDefaults.object(forKey: "fullName") as! String, roomId: 1, role: PlayerRole.host)
-            print(testPlayer as Any)
-                newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: testPlayer, otherPlayers: [])
-                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)           
+            let idMainPlayer = userDefaults.value(forKey: "id") as! Int
+            let nameMainPlayer = userDefaults.value(forKey: "fullName") as! String
+            mainPlayer = PlayerModel(id: idMainPlayer, name: nameMainPlayer, roomId: 1, role: PlayerRole.host)
+            print(mainPlayer as Any)
+            newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: mainPlayer, otherPlayers: [])
+            
+            let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
+                                                method: .post,
+                                                parameters: ["name": newGame?.roomName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
+                                                contentType: .applicationJson)
+            
+            APIRequest.shared.request(router: routerCreateNewGame) {
+                [weak self] error, response in
+                var message = response?.dictionary?["message"]?.stringValue ?? "else case"
+                print(message as Any)
+                AppViewController.shared.pushToChooseCardScreen(newGameModel: self!.newGame, urlPath: message)
+            }
         }
     }
     
@@ -137,6 +125,7 @@ class CreateNewGameViewController: UIViewController {
     // MARK: - extensions
 extension CreateNewGameViewController {
 
+    
     //MARK: - Check Validation of Game's Name
     private func hasErrorStatus() -> (messages: String?, status: Bool?) {
         if gameNameTextField.text?.isEmpty == true {

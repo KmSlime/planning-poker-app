@@ -92,12 +92,7 @@ class WelcomeViewController: UIViewController {
     
     
     @IBAction func onClickStartGameButton(_ sender: Any) {
-        if user != nil {
             AppViewController.shared.pushToCreateNewGameScreen()
-        } else {
-            print("hiep tu set")
-        }
-        
     }
     @IBAction func onClickLoginButton(_ sender: Any) {
         

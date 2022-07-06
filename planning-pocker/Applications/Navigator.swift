@@ -14,7 +14,7 @@ protocol Navigator {
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
-    func pushToChooseCardScreen(newGameModel: GameModel?)
+    func pushToChooseCardScreen(newGameModel: GameModel?, urlPath: String?)
     func pushToInvitePlayerScreen()
     func pushToCreateIssue()
     func pushToShowIssueListScreen()
@@ -23,7 +23,6 @@ protocol Navigator {
     func pushToCreateCustomDesk()
     
     //MARK: - POP
-    //    func pushToChooseCardScreen()
     func popToPreviousScreen()
 }
 
@@ -47,8 +46,9 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
-    func pushToChooseCardScreen(newGameModel: GameModel? = nil) {
+    func pushToChooseCardScreen(newGameModel: GameModel? = nil, urlPath: String? = nil) {
         let chooseCardVC = ChooseCardViewController()
+        chooseCardVC.catURL = urlPath
         chooseCardVC.game = newGameModel
         navigationController?.pushViewController(chooseCardVC, animated: true)
     }

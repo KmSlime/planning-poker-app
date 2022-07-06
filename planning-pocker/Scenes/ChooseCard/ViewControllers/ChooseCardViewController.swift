@@ -49,6 +49,7 @@ class ChooseCardViewController: UIViewController {
     var selectedIndex : String?
     var isHostExist: Bool?
     var game : GameModel!
+    var catURL: String?
     
     private var leftMenuViewController: LeftMenuViewController!
     private var leftMenuRevealWidth: CGFloat = 300
@@ -92,10 +93,8 @@ class ChooseCardViewController: UIViewController {
 //        self.game = GameModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
         
         //test receive
-        if game != nil {
-            print(game!)
-        }
-        
+        print("Log ChooseCard: \(catURL ?? "fail! Don't have URL")")
+    
         setupUI()
     }
 

@@ -7,15 +7,15 @@
 
 import Foundation
 
-class User{
+class User {
     
-    private var userId: Int
+    private var userId: Int?
     private var userEmail: String?
     private var userPassword: String?
     private var userFullName: String?
 //    var token: String? //cái này chưa rõ????
     
-    init(id: Int, email:  String, password: String, fullName: String){
+    init(id: Int, email:  String, password: String, fullName: String) {
         self.userId = id                                            
         self.userEmail = email
         self.userPassword = password
@@ -23,7 +23,13 @@ class User{
     }
     
     public var id: Int? {
-        self.userId
+        get {
+            return self.userId!
+
+        }
+        set {
+            return self.userId = newValue
+        }
     }
     
     public var email:  String {
