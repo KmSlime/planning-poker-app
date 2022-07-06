@@ -52,7 +52,6 @@ class IssueItemTableViewCell: UITableViewCell {
         backView.layer.shadowOpacity = 0.1
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
-        
     }
 
     // MARK: - Actions

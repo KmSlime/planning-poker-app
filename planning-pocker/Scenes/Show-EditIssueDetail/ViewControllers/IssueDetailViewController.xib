@@ -153,6 +153,9 @@
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                    <connections>
+                        <action selector="onClickSave:" destination="-1" eventType="touchUpInside" id="44C-Tc-Dj0"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71m-Ky-muv">
                     <rect key="frame" x="20" y="58" width="24" height="24"/>

@@ -64,8 +64,8 @@ class SignInViewController: UIViewController {
             let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             signInScrollView.contentInset = contentInset
     }
-    // MARK: - Call API
-    func login (user: User) {
+    // MARK: - API Called
+    func loginCallAPI (user: User) {
         APIRequest.shared.request(router: APIRouter.login(email: emailTextField.text!, password: passwordTextField.text!)) { [weak self] error, response in
             
         }
