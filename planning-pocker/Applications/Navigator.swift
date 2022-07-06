@@ -8,8 +8,7 @@
 import UIKit
 
 protocol Navigator {
-    
-    //MARK: - PUSH
+    // MARK: - PUSH
     func pushToWelcomeScreen(user: User?)
     func pushToSignInScreen()
     func pushToSignUpScreen()
@@ -21,26 +20,26 @@ protocol Navigator {
     func pushToEditIssueScreen()
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
+    func pushToSignOut()
     
     //MARK: - POP
     func popToPreviousScreen()
 }
 
- 
 extension AppViewController: Navigator {
 
-    //MARK: - PUSH ACTION
+    // MARK: - PUSH ACTION
     func pushToWelcomeScreen(user: User? = nil) {
         let welcomeScreenVC = WelcomeViewController()
         welcomeScreenVC.user = user
         navigationController?.pushViewController(welcomeScreenVC, animated: true)
     }
-    
+
     func pushToSignInScreen() {
         let signInVC = SignInViewController()
         navigationController?.pushViewController(signInVC, animated: true)
     }
-    
+
     func pushToSignUpScreen() {
         let signUpVC = SignUpViewController()
         navigationController?.pushViewController(signUpVC, animated: true)
@@ -52,20 +51,20 @@ extension AppViewController: Navigator {
         chooseCardVC.game = newGameModel
         navigationController?.pushViewController(chooseCardVC, animated: true)
     }
-
+    
     func pushToCreateNewGameScreen() {
         let createNewGameVC = CreateNewGameViewController()
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
     
     func pushToInvitePlayerScreen() {
-        let vc = InvitePlayerViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let invitePlayerVC = InvitePlayerViewController()
+        navigationController?.pushViewController(invitePlayerVC, animated: true)
     }
-
+    
     func pushToCreateIssue() {
-        let vc = CreateIssueViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let createIssueVC = CreateIssueViewController()
+        navigationController?.pushViewController(createIssueVC, animated: true)
     }
     
     func pushToShowIssueListScreen() {
@@ -74,12 +73,25 @@ extension AppViewController: Navigator {
     }
     
     func pushToEditIssueScreen() {
-        let editIssueVC = IssueDetailViewController()
+        let editIssueVC = IssueDetailViewController() 
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     
     func pushToLeftMenu() {
-        
+        let leftMenuVC = LeftMenuViewController()
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        leftMenuVC.modalPresentationStyle = .overFullScreen
+        present(leftMenuVC, animated: true, completion: nil)
+    }
+
+    func pushToSignOut() {
+        let signOutVC = SignOutViewController()
+        navigationController?.pushViewController(signOutVC, animated: true)
     }
     
     func pushToCreateCustomDesk() {
@@ -94,5 +106,3 @@ extension AppViewController: Navigator {
     }
 
 }
-
-

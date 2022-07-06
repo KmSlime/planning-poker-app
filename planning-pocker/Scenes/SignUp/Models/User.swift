@@ -25,14 +25,13 @@ class User {
     public var id: Int? {
         get {
             return self.userId!
-
         }
         set {
             return self.userId = newValue
         }
     }
-    
-    public var email:  String {
+
+    public var email: String {
         get {
             return self.userEmail!
         }
@@ -40,7 +39,7 @@ class User {
             return self.userEmail = newValue
         }
     }
-    
+
     public var password: String {
         get {
             return self.userPassword!
@@ -59,5 +58,4 @@ class User {
         }
     }
 
-    
 }

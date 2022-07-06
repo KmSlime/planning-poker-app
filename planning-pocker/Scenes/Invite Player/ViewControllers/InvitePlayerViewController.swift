@@ -15,9 +15,9 @@ class InvitePlayerViewController: UIViewController {
             contentView.layer.cornerRadius = 8.0
         }
     }
-    
+
     @IBOutlet weak var linkLabel: UILabel!
-    
+
     @IBAction func copyButton(_ sender: UIButton) {
         guard let text = linkLabel.text else {
             return
@@ -28,7 +28,7 @@ class InvitePlayerViewController: UIViewController {
             return
         }
         let snackBarMsg = MDCSnackbarMessage()
-        snackBarMsg.text = "Copy to clipboard sucessfully"
+        snackBarMsg.text = "Copy to clipboard sucesfully"
         MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#155724")
         MDCSnackbarManager.default.show(snackBarMsg)
     }

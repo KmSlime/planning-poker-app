@@ -8,13 +8,13 @@
 import UIKit
 
 // MARK: - protocols
-protocol createIssueViewControllerDelegate : AnyObject {
+protocol createIssueViewControllerDelegate: AnyObject {
     func createIssueViewControllerDidCancel(_ controller: CreateIssueViewController)
     func createIssueViewController(_ controller: CreateIssueViewController, didFinishAdding item: String)
 }
 
 class CreateIssueViewController: UIViewController {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var contentView: UIView! {
         didSet {
@@ -28,19 +28,16 @@ class CreateIssueViewController: UIViewController {
             warningLabel.text = "Text should contain maximum 300 characters"
         }
     }
-    
+
     @IBOutlet weak var textField: UITextView! {
         didSet {
             textField.layer.cornerRadius = 4
             textField.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         }
     }
-    
     // MARK: - Properties
     var placeholder = "Enter a tittle for the issue"
     weak var delegate: createIssueViewControllerDelegate?
-
-
     // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +60,13 @@ class CreateIssueViewController: UIViewController {
     @IBAction func cancel(_ sender: UIButton) {
         delegate?.createIssueViewControllerDidCancel(self)
     }
-    
     @IBAction func save(_ sender: UIButton) {
         delegate?.createIssueViewController(self, didFinishAdding: placeholder)
     }
 }
 
 // MARK: - extensions
-extension CreateIssueViewController : UITextViewDelegate {
+extension CreateIssueViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
             textView.text = ""
@@ -80,7 +76,6 @@ extension CreateIssueViewController : UITextViewDelegate {
             textView.layer.borderColor = UIColor(hexString: "#EEEEEE").cgColor
         }
     }
-    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Enter a tittle for the issue"
@@ -91,16 +86,15 @@ extension CreateIssueViewController : UITextViewDelegate {
             placeholder = textView.text
         }
     }
-    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         warningLabel.isHidden = true
-        if textView.text.count > 300 && range.length == 0{
+        if textView.text.count > 300 && range.length == 0 {
             warningLabel.isHidden = false
             return false
         }
             return true
         }
-    
+
     func textViewDidChange(_ textView: UITextView) {
         placeholder = textView.text
     }
@@ -117,5 +111,3 @@ extension UIViewController {
             return tap
     }
 }
-
-

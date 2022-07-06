@@ -14,37 +14,37 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var trashcanButton: UIButton!
     @IBOutlet weak var pointDropdownButton: UIButton!
     @IBOutlet weak var backView: UIView!
-    
+
     // MARK: - Properties
     weak var delegate: IssueItemTableViewCellDelegate?
-    
+    var didDelete : ((UITableViewCell) -> Void)?
+
     // MARK: - Overrides
     override func awakeFromNib() {
     super.awakeFromNib()
         setupUI()
     }
-     
+
     // MARK: - Overrides
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: true)
     }
-    
+
     // MARK: - Publics
     func setValueCell(issue: Issue) {
         issueTitleLabel.text = issue.title
         issueKeyLabel.text = issue.key
     }
-    
 
     // MARK: - Private
     private func setupUI() {
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         self.selectedBackgroundView = bgColorView
-        
+
         issueKeyLabel.font =  UIFont(name: "Poppins-Medium", size: 16.0)
         issueTitleLabel.font = UIFont(name: "Poppins-Medium", size: 16.0)
-        
+
         backView.backgroundColor = UIColor.itemIssueCellBackground
         backView.layer.cornerRadius = 8
         backView.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -52,18 +52,19 @@ class IssueItemTableViewCell: UITableViewCell {
         backView.layer.shadowOpacity = 0.1
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
-        
+        didDelete?(self)
     }
-
 
     // MARK: - Actions
     @IBAction func voteIssue(_ sender: UIButton) {
         print("Print somthing when click button")
         delegate?.issueItemTableViewCellDidVote(self)
     }
+    @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
+        
+    }
 }
 // MARK: - protocols
-protocol IssueItemTableViewCellDelegate : AnyObject {
+protocol IssueItemTableViewCellDelegate: AnyObject {
     func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell)
 }
-

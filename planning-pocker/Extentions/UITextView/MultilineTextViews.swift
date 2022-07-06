@@ -21,7 +21,6 @@ import UIKit
 /// + Configure when left/right views will be shown using `UITextField.leftViewMode`
 public class MultilineTextView: UITextView {
     private let placeholderView: UITextView
-    
     public override var text: String! {
         didSet {
             self.textViewDidChange(self)
@@ -33,7 +32,6 @@ public class MultilineTextView: UITextView {
             self.textViewDidChange(self)
         }
     }
-    
     /// The string that is displayed when there is no other text in the text field.
     /// This value is nil by default. The placeholder string is drawn using the color
     /// stored in `self.placeholderColor`.
@@ -43,32 +41,26 @@ public class MultilineTextView: UITextView {
             placeholderView.text = placeholder
         }
     }
-    
     /// Color to use to draw the placeholder string.
     public var placeholderColor: UIColor = .black {
         didSet {
             placeholderView.textColor = placeholderColor
         }
     }
-    
     /// A Boolean value that determines whether scrolling is enabled
     /// for the placeholder content.
-    public var isPlaceholderScrollEnabled: Bool = true {
+    public var isPlaceholderScrollEnabled = true {
         didSet {
             placeholderView.isScrollEnabled = isPlaceholderScrollEnabled
         }
     }
-    
     /// Point used as the origin for displaying the left view.
-    public var leftViewOrigin: CGPoint = CGPoint(x: 0, y: 6) {
+    public var leftViewOrigin = CGPoint(x: 0, y: 6) {
         didSet {
             invalidateLeftView()
         }
     }
-    
     private var leftExclusionPath: UIBezierPath?
-    
-    
     /// Convenience property to set an image directly instead of a left view
     @IBInspectable
     public var leftImage: UIImage? {
@@ -78,13 +70,11 @@ public class MultilineTextView: UITextView {
         set {
             if let image = newValue {
                 self.leftView = UIImageView(image: image)
-            }
-            else {
+            } else {
                 self.leftView = nil
             }
         }
     }
-    
     /// The overlay view displayed in the left side of the text field.
     public var leftView: UIView? {
         willSet {
@@ -96,124 +86,96 @@ public class MultilineTextView: UITextView {
             if let view = self.leftView {
                 self.addSubview(view)
             }
-            
             invalidateLeftView()
         }
     }
-    
     private var fieldObservations: [NSKeyValueObservation] = []
-    
     public override init(frame: CGRect, textContainer: NSTextContainer? = nil) {
         placeholderView = UITextView(frame: frame, textContainer: textContainer)
         super.init(frame: frame, textContainer: textContainer)
         initializeUI()
     }
-    
     public required init?(coder aDecoder: NSCoder) {
         placeholderView = UITextView()
         super.init(coder: aDecoder)
         initializeUI()
     }
-    
     deinit {
         removeObservers()
     }
-    
     public override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         if newSuperview == nil {
             removeObservers()
         }
     }
-    
     func initializeUI() {
         self.textContainer.lineFragmentPadding = 0
         self.textContainerInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-        
         self.insertSubview(placeholderView, at: 0)
-        
         placeholderView.frame = self.bounds
         placeholderView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         placeholderView.text = ""
         placeholderView.isEditable = false
         placeholderView.textColor = UIColor(white: 0.7, alpha: 1)
         placeholderView.backgroundColor = .clear
-        
-        
         // observe `UITextView` property changes to react accordinly
-        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(textViewDidChange(notification:)),
             name: UITextView.textDidChangeNotification,
             object: self
         )
-        
         fieldObservations.append(
-            self.observe(\.font, options: [.initial, .new]) { [weak self] (textField, change) in
+            self.observe(\.font, options: [.initial, .new]) { [weak self] (textField, _) in
                 self?.placeholderView.font = textField.font
             }
         )
-        
         fieldObservations.append(
-            self.observe(\.textContainerInset, options: [.initial, .new]) { [weak self] (textField, change) in
-                
+            self.observe(\.textContainerInset, options: [.initial, .new]) { [weak self] (textField, _) in
                 guard let strongSelf = self else { return }
-                
                 strongSelf.placeholderView.textContainerInset = textField.textContainerInset
                 strongSelf.invalidateLeftView()
             }
         )
-        
         fieldObservations.append(
-            self.textContainer.observe(\.lineFragmentPadding, options: [.initial, .new]) { [weak self] (textContainer, changes) in
+            self.textContainer.observe(\.lineFragmentPadding, options: [.initial, .new]) { [weak self] (textContainer, _) in
                 self?.placeholderView.textContainer.lineFragmentPadding = textContainer.lineFragmentPadding
             }
         )
     }
-    
     private func removeObservers() {
         fieldObservations.forEach { $0.invalidate() }
         fieldObservations.removeAll()
         NotificationCenter.default.removeObserver(self)
     }
-    
     @objc private func textViewDidChange(notification: Notification) {
         guard let textView = notification.object as? MultilineTextView else {
             return
         }
-        
         textViewDidChange(textView)
     }
-    
     @objc private func textViewDidChange(_ textView: MultilineTextView) {
         placeholderView.isHidden = !textView.text.isEmpty
             || !textView.attributedText.string.isEmpty
-        
         // handling scrolling of placeholder view
         placeholderView.setContentOffset(.zero, animated: false)
-        
         if let left = leftView {
             if placeholderView.isHidden {
                 self.addSubview(left)
-            }
-            else {
+            } else {
                 placeholderView.addSubview(left)
             }
         }
     }
-    
     private func invalidateLeftView() {
         if let path = self.leftExclusionPath {
-            remove(exlusionPath: path)
+            remove(exclusionPath: path)
         }
-        
         if let view = self.leftView {
             let size = view.bounds.size
             let frame = CGRect(origin: leftViewOrigin, size: size)
             view.frame = frame
-            
             let exclusionRect = CGRect(
                 origin: CGPoint(
                     x: leftViewOrigin.x - textContainerInset.left,
@@ -221,36 +183,29 @@ public class MultilineTextView: UITextView {
                 ),
                 size: size
             )
-            
             let exclusionPath = UIBezierPath(rect: exclusionRect)
             add(exclusionPath: exclusionPath)
-            
             self.leftExclusionPath = exclusionPath
         }
     }
-    
-    func alginLeft(){
+    func alginLeft() {
         placeholderView.textAlignment = .left
     }
-    
-    func alginCenter(){
+    func alginCenter() {
         placeholderView.textAlignment = .center
     }
-    
-    func alginRight(){
+    func alginRight() {
         placeholderView.textAlignment = .right
     }
     private func add(exclusionPath: UIBezierPath) {
         self.textContainer.exclusionPaths.append(exclusionPath)
         placeholderView.textContainer.exclusionPaths.append(exclusionPath)
     }
-    
-    private func remove(exlusionPath: UIBezierPath) {
-        if let index = self.textContainer.exclusionPaths.index(of: exlusionPath) {
+    private func remove(exclusionPath: UIBezierPath) {
+        if let index = self.textContainer.exclusionPaths.firstIndex(of: exclusionPath) {
             self.textContainer.exclusionPaths.remove(at: index)
         }
-        
-        if let index = placeholderView.textContainer.exclusionPaths.index(of: exlusionPath) {
+        if let index = placeholderView.textContainer.exclusionPaths.firstIndex(of: exclusionPath) {
             placeholderView.textContainer.exclusionPaths.remove(at: index)
         }
     }

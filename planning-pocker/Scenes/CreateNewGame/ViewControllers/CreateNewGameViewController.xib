@@ -180,6 +180,18 @@
                         <constraint firstAttribute="trailing" secondItem="abl-w2-kiq" secondAttribute="trailing" id="xNe-iW-dew"/>
                     </constraints>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rD9-Hq-lvG">
+                    <rect key="frame" x="24" y="24" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="fqj-Mh-fs6"/>
+                        <constraint firstAttribute="height" constant="32" id="zTp-is-fyE"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image=" icon_left_menu"/>
+                    <connections>
+                        <action selector="leftMenuButton:" destination="-1" eventType="touchUpInside" id="igW-rN-EYK"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -195,12 +207,15 @@
                 <constraint firstItem="bcB-sP-Oc7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="VbA-D7-4O4"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="isO-T3-l9A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uaj-cQ-D79" secondAttribute="trailing" constant="45" id="ks8-VK-a4w"/>
+                <constraint firstItem="rD9-Hq-lvG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="mG8-Nu-86Y"/>
+                <constraint firstItem="rD9-Hq-lvG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="pgw-HI-MgS"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="wGO-Q4-2i2"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
         </view>
     </objects>
     <resources>
+        <image name=" icon_left_menu" width="32" height="32"/>
         <image name="icon_dropdown" width="24" height="24"/>
         <image name="tpssoft-logo-full-color" width="158" height="39"/>
         <systemColor name="linkColor">

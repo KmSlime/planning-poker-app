@@ -10,7 +10,6 @@ enum APIPath {
         case signIn = "/api/account/v1/login"
         case signOut = "/api/account/v1/logout"
         case signUp = "/api/auth/signup"
-        case createNewGame = "/api/poker/createNamePoker"
-        
+        case createNewGame = "/api/poker/create-name-poker"
     }
 }

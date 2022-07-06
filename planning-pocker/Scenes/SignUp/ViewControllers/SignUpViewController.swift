@@ -8,7 +8,7 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,7 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
-    
+
     // MARK: - Properties
     var messages: String?
     var status: Bool?
@@ -32,19 +32,19 @@ class SignUpViewController: UIViewController {
         setupUI()
         setupHideKeyboardOnTap()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         onClickSignInButton()
     }
     
     // MARK: - Publics
-    func onClickSignInButton(){
+    func onClickSignInButton() {
         let signInLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.backToSignIn(recognizer:)))
         signInLabel.isUserInteractionEnabled = true
         signInLabel.addGestureRecognizer(signInLabelOnClick)
     }
-    
-    @objc func backToSignIn(recognizer:UIGestureRecognizer) {
+
+    @objc func backToSignIn(recognizer: UIGestureRecognizer) {
         if recognizer.state == .ended {
             AppViewController.shared.pushToSignInScreen()
         }
@@ -61,6 +61,7 @@ class SignUpViewController: UIViewController {
                                      contentType: .applicationJson)
         
         APIRequest.shared.request(router: routerSignUp) { [weak self] error, response in
+            
             var message = response?.dictionary?["message"]?.stringValue ?? "Log: Else Case!!"
             //kiiii@gmail.com
             print(message as Any)
@@ -99,8 +100,7 @@ class SignUpViewController: UIViewController {
         emailTextField.layer.borderWidth = 1
         rePasswordTextField.layer.borderWidth = 1
         fullNameTextField.layer.borderWidth = 1
-        
-        
+          
         // attribute
         passwordTextField.layer.cornerRadius = 4
         emailTextField.layer.cornerRadius = 4
@@ -128,12 +128,10 @@ class SignUpViewController: UIViewController {
     }
 }
 
-
-
 // MARK: - extensions
 extension SignUpViewController {
-    
-    //MARK: - Check field empty
+
+    // MARK: - Check field empty
     func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
         if emailTextField.text?.isEmpty == true {
             textFieldName = "Email"
@@ -160,7 +158,7 @@ extension SignUpViewController {
         if fieldIsEmpty().status  == true {
             messages = "\(fieldIsEmpty().textFieldName!) is required."
             status = true
-            
+
         } else
         // Format Email
         if emailTextField.text?.isValidEmail == false {
@@ -206,8 +204,7 @@ extension SignUpViewController {
         }
         return (messages, status)
     }
-    
+
 }
 
 // MARK: - protocols
-

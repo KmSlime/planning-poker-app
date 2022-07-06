@@ -21,7 +21,6 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var joinGameButton: UIButton!
 
 
-    
     // MARK: - Properties
     var messages: String?
     var status: Bool?
@@ -32,8 +31,6 @@ class CreateNewGameViewController: UIViewController {
     var mainPlayer: PlayerModel!
     // MARK: - Overrides
 
-
-
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,19 +40,18 @@ class CreateNewGameViewController: UIViewController {
         setUpDropdown()
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         dropdownDeleteTableView.reloadAllComponents()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y:(dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
-        dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width //get data from api
+        dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y: (dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
+        dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width // get data from api
         selectedDropdownItem()
 
     }
-    
 
     // MARK: - Publics
     func selectedDropdownItem() {
@@ -66,14 +62,12 @@ class CreateNewGameViewController: UIViewController {
         }
     }
 
-
     // MARK: - Private
     private func setupUI() {
-
+        setupLeftMenu()
     }
-    
     private func setUpDropdown() {
-        //sau nay thay cai nay bang api
+        // sau nay thay cai nay bang api
         for item in arrayTest {
             dropdownDeleteTableView.dataSource.append(item.value)
             if item.id == arrayTest.count {
@@ -83,26 +77,22 @@ class CreateNewGameViewController: UIViewController {
                 break
             }
         }
-        
     }
-
-
+    
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
-            let idMainPlayer = userDefaults.value(forKey: "id") as! Int
-            let nameMainPlayer = userDefaults.value(forKey: "fullName") as! String
-            mainPlayer = PlayerModel(id: idMainPlayer, name: nameMainPlayer, roomId: 1, role: PlayerRole.host)
+            let idMainPlayer = userDefaults.value(forKey: "id") as? Int
+            let nameMainPlayer = userDefaults.value(forKey: "fullName") as? String
+            mainPlayer = PlayerModel(id: idMainPlayer!, name: nameMainPlayer!, roomId: 1, role: PlayerRole.host)
             print(mainPlayer as Any)
             newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: mainPlayer, otherPlayers: [])
-            
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,
                                                 parameters: ["name": newGame?.roomName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
                                                 contentType: .applicationJson)
-            
             APIRequest.shared.request(router: routerCreateNewGame) {
                 [weak self] error, response in
                 var message = response?.dictionary?["message"]?.stringValue ?? "else case"
@@ -111,22 +101,23 @@ class CreateNewGameViewController: UIViewController {
             }
         }
     }
-    
+
     @IBAction func joinGame(_ sender: Any) {
-        
+
     }
-    
+
     @IBAction func showDropdownList(_ sender: Any) {
         dropdownDeleteTableView.show()
-        
+
     }
-    
+    @IBAction func leftMenuButton(_ sender: UIButton) {
+        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
+    }
 }
     // MARK: - extensions
 extension CreateNewGameViewController {
 
-    
-    //MARK: - Check Validation of Game's Name
+    // MARK: - Check Validation of Game's Name
     private func hasErrorStatus() -> (messages: String?, status: Bool?) {
         if gameNameTextField.text?.isEmpty == true {
             messages = "Game’s name is required."
@@ -142,5 +133,4 @@ extension CreateNewGameViewController {
     }
 
 }
-
     // MARK: - protocols
