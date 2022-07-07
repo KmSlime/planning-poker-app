@@ -12,7 +12,6 @@ class Issue: NSObject, Codable {
     var issueId: Int
     var issueKey: String
     var issueIdGame: String
-
     var issueTitle: String?
     var issueLink: String?
     var isVoted = false

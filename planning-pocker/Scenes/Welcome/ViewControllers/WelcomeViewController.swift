@@ -68,7 +68,7 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction func chooseCard(_ sender: UIButton) {
-        AppViewController.shared.pushToChooseCardScreen(newGameModel: nil)
+        AppViewController.shared.pushToChooseCardScreen()
     }
 
     @IBAction func signUp(_ sender: UIButton) {

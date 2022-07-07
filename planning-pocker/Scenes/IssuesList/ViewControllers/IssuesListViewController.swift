@@ -21,13 +21,13 @@ class IssuesListViewController: UIViewController {
             issuesListTableView.register(UINib(nibName: "ButtonItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ButtonItemTableViewCell")
         }
     }
-
+  
     // MARK: - Properties
     var dataModel = ListIssue()
     var currentSelectedIndex: IndexPath?
-
-    // MARK: - Overrides
-
+    var player: PlayerModel?
+    var gameUrl: String?
+    
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,22 @@ class IssuesListViewController: UIViewController {
         issuesListTableView.dataSource = self
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getDataIssueList()
+        issuesListTableView.reloadData()
+        
+    }
 
     // MARK: - Publics
 
+    
+
     // MARK: - Private
     private func setupUI() {
+        if player?.role == PlayerRole.member {
+            tripleMenuButton.isHidden = true
+        }
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         countIssueLabel.text = String(dataModel.items.count) + " issues"
 
@@ -47,6 +58,16 @@ class IssuesListViewController: UIViewController {
         countAveragePointLabel.text = String(dataModel.items.count) + " points" // change this for point
 
         navigationItem.hidesBackButton = true
+    }
+    
+    private func getDataIssueList() {
+        gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
+        let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
+        let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
+        APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
+
+            
+        }
     }
 
     // MARK: - Actions

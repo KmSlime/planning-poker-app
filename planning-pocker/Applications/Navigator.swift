@@ -13,10 +13,10 @@ protocol Navigator {
     func pushToSignInScreen()
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
-    func pushToChooseCardScreen(newGameModel: GameModel?, urlPath: String?)
+    func pushToChooseCardScreen(newRoomModel: RoomModel?, gameInfo: GameModel?)
     func pushToInvitePlayerScreen()
     func pushToCreateIssue()
-    func pushToShowIssueListScreen()
+    func pushToShowIssueListScreen(url: String?)
     func pushToEditIssueScreen()
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
@@ -27,28 +27,28 @@ protocol Navigator {
 }
 
 extension AppViewController: Navigator {
-
+    
     // MARK: - PUSH ACTION
     func pushToWelcomeScreen(user: User? = nil) {
         let welcomeScreenVC = WelcomeViewController()
         welcomeScreenVC.user = user
         navigationController?.pushViewController(welcomeScreenVC, animated: true)
     }
-
+    
     func pushToSignInScreen() {
         let signInVC = SignInViewController()
         navigationController?.pushViewController(signInVC, animated: true)
     }
-
+    
     func pushToSignUpScreen() {
         let signUpVC = SignUpViewController()
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
-    func pushToChooseCardScreen(newGameModel: GameModel? = nil, urlPath: String? = nil) {
+    func pushToChooseCardScreen(newRoomModel: RoomModel? = nil, gameInfo: GameModel? = nil) {
         let chooseCardVC = ChooseCardViewController()
-        chooseCardVC.catURL = urlPath
-        chooseCardVC.game = newGameModel
+        chooseCardVC.gameInfo = gameInfo
+        chooseCardVC.room = newRoomModel
         navigationController?.pushViewController(chooseCardVC, animated: true)
     }
     
@@ -67,13 +67,14 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(createIssueVC, animated: true)
     }
     
-    func pushToShowIssueListScreen() {
+    func pushToShowIssueListScreen(url: String? = nil) {
         let issueListVC = IssuesListViewController()
+        issueListVC.gameUrl = url
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     
     func pushToEditIssueScreen() {
-        let editIssueVC = IssueDetailViewController() 
+        let editIssueVC = IssueDetailViewController()
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     
@@ -88,7 +89,7 @@ extension AppViewController: Navigator {
         leftMenuVC.modalPresentationStyle = .overFullScreen
         present(leftMenuVC, animated: true, completion: nil)
     }
-
+    
     func pushToSignOut() {
         let signOutVC = SignOutViewController()
         navigationController?.pushViewController(signOutVC, animated: true)
@@ -98,11 +99,11 @@ extension AppViewController: Navigator {
         let customDeskVC = CustomDeskViewController()
         navigationController?.pushViewController(customDeskVC, animated: true)
     }
-
+    
     
     //MARK: - POP ACTION
     func popToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }
-
+    
 }
