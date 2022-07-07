@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="EditProfileView" id="iN0-l3-epB" customClass="EditProfileView" customModule="planning_pocker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="293"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wOu-O4-ruR">
+                    <rect key="frame" x="26" y="136.5" width="64" height="64"/>
+                    <color key="backgroundColor" red="0.90980392156862744" green="0.94901960784313721" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="BRk-eA-ZVJ"/>
+                        <constraint firstAttribute="width" constant="64" id="wuB-gk-hbm"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2N-TT-WCw">
+                    <rect key="frame" x="105" y="158" width="58.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbT-ZF-al8" userLabel="Edit Button">
+                    <rect key="frame" x="171.5" y="156.5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="QrT-wL-XgI"/>
+                        <constraint firstAttribute="width" constant="24" id="Y1y-8H-Kgp"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="icon_edit" title=" "/>
+                    <connections>
+                        <action selector="editButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="nw9-QJ-RlL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="T2N-TT-WCw" firstAttribute="leading" secondItem="wOu-O4-ruR" secondAttribute="trailing" constant="15" id="C2C-8r-agq"/>
+                <constraint firstItem="GbT-ZF-al8" firstAttribute="leading" secondItem="T2N-TT-WCw" secondAttribute="trailing" constant="8" id="HG2-ex-Wdh"/>
+                <constraint firstItem="wOu-O4-ruR" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="b7s-71-thy"/>
+                <constraint firstItem="GbT-ZF-al8" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="jmu-tz-rlA"/>
+                <constraint firstItem="T2N-TT-WCw" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="rM5-7Z-58d"/>
+                <constraint firstItem="wOu-O4-ruR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="26" id="y5a-XA-6uZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatarImageView" destination="wOu-O4-ruR" id="Bce-uG-B9t"/>
+                <outlet property="userNameLabel" destination="T2N-TT-WCw" id="iIK-V5-H6P"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="297.65625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_edit" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

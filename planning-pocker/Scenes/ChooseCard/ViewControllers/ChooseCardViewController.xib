@@ -11,13 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseCardViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="boardInfo" destination="UiQ-2c-Fuh" id="Kug-kK-Q5Z"/>
-                <outlet property="cardMainPlayer" destination="gWY-S9-zCf" id="YOJ-O5-bt3"/>
+                <outlet property="boardInfoView" destination="UiQ-2c-Fuh" id="St5-on-Xrb"/>
+                <outlet property="cardMainPlayerCollectionView" destination="gWY-S9-zCf" id="apH-K8-nMC"/>
                 <outlet property="gameNameLabel" destination="gKu-3j-fr2" id="Nkg-Es-ICr"/>
                 <outlet property="groupOtherPlayers" destination="MjW-h6-wxy" id="L4r-Uy-YFF"/>
                 <outlet property="issueNameLabel" destination="f8q-xp-QOA" id="31s-KT-ZX4"/>
-                <outlet property="listCardOtherPlayers" destination="SP4-SI-laQ" id="1FI-MV-NDh"/>
-                <outlet property="listCardToSelect" destination="j1U-JS-tAl" id="RZG-Th-Kgf"/>
+                <outlet property="listCardOtherPlayersCollectionView" destination="SP4-SI-laQ" id="7eL-Y0-DLG"/>
+                <outlet property="listCardToSelectCollectionView" destination="j1U-JS-tAl" id="tzg-qj-vGl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -76,6 +76,7 @@
                                         </stackView>
                                         <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-SI-laQ">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="92.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="30" minimumInteritemSpacing="10" id="16K-zv-iMc">
                                                 <size key="itemSize" width="60" height="80"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -100,6 +101,7 @@
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gWY-S9-zCf">
                                     <rect key="frame" x="0.0" y="225" width="280" height="93"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="30" minimumInteritemSpacing="10" id="yMg-XD-7b7">
                                         <size key="itemSize" width="60" height="80"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -144,7 +146,7 @@
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="j1U-JS-tAl">
                     <rect key="frame" x="10" y="484" width="300" height="74"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LAt-g3-60s">
                         <size key="itemSize" width="60" height="70"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>

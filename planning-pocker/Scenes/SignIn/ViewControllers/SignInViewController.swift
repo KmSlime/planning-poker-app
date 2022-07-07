@@ -8,60 +8,83 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-    
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var createAccountLabel: UILabel!
+    @IBOutlet weak var signInScrollView: UIScrollView!
+    // MARK: - Properties
+    var messages: String?
+    var status: Bool?
+    var textFieldName: String?
+    var arrayEmailValid: [String] = ["kunhan1212@gmail.com", "lele@exit.com"]
+    var arrayPasswordValid: [String] = ["Kunhan@1212"]
+    var arrayName: [String] = ["Hiep", "lalala"]
+    // MARK: - Overrides
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
-    // MARK: - Actions
-    @IBAction func onClickSignInButton(_ sender: Any) {
-        checkFields()
-        
-        
-    }
-    
-    
+
     // MARK: - Properties
-    
-    
+
     // MARK: - Overrides
-    
-    
-    
-    
+
     // MARK: - Publics
-    
-    //    func checkLength() -> Bool{
-    //
-    //
-    //    }
+
+    func onClickCreateAccountButton() {
+        let createAccountLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.goToSignUp(recognizer:)))
+        signInLabel.isUserInteractionEnabled = true
+        signInLabel.addGestureRecognizer(createAccountLabelOnClick)
+    }
+
+    @objc func goToSignUp(recognizer: UIGestureRecognizer) {
+        if recognizer.state == .ended {
+            AppViewController.shared.pushToSignUpScreen()
+        }
+
+//        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
+//                               method: .post,
+//                               parameters: ["emailAddress": "email", "password": "password"],
+//                               contentType: .urlFormEncoded)
+//        
+//        APIRequest.shared.request(router: router) { error, response in
+//        
+//        }
+    }
+
+    @objc func keyboardAppear(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset: UIEdgeInsets = self.signInScrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 50
+        signInScrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardDisappear(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        signInScrollView.contentInset = contentInset
+    }
+
     func checkFields() -> Bool {
-        
-        if emailTextField.text != "" && passwordTextField.text != "" {
-            
-            if emailTextField.text?.isValidEmail != nil && passwordTextField.text?.isCorrectFormatPassword != nil {
-                
-                showAlert(title: "Notify", message: "Login successfully")
-                return true
-            }
-            else{
+        if emailTextField.text != "", passwordTextField.text != "" {
+            if emailTextField.text?.isValidEmail != nil, passwordTextField.text?.isCorrectFormatPassword != nil {
                 showAlert(title: "Notify", message: "Invalid email or password")
+                return true
+            } else {
+                showAlert(title: "Notify", message: "Login successfully")
                 return false
             }
-        }
-          else if emailTextField.text == "" && passwordTextField.text != ""{
+        } else if emailTextField.text == "", passwordTextField.text != "" {
             showAlert(title: "Notify", message: "Please enter valid email ")
             return false
-        } else if emailTextField.text != "" && passwordTextField.text == "" {
+        } else if emailTextField.text != "", passwordTextField.text == "" {
             showAlert(title: "Notify", message: "Please enter valid password")
             return false
         } else {
@@ -69,34 +92,128 @@ class SignInViewController: UIViewController {
             return false
         }
     }
-    
-    
+
     // MARK: - Private
-    
+
     private func setupUI() {
         signInLabel.text = "Sign in"
         signInLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
-        
+
         emailTextField.layer.borderColor = UIColor(hexString: "#707070").cgColor
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.cornerRadius = 5
-        
+
         passwordTextField.layer.borderColor = UIColor(hexString: "#707070").cgColor
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.cornerRadius = 5
-        
+
         signInButton.layer.cornerRadius = 5
-        
+
         navigationItem.hidesBackButton = true
     }
-    
-    //MARK: - Validation
-}
 
+    // MARK: - Validation
+    // MARK: - Actions
+    @IBAction func onClickSignInButton(_ sender: Any) {
+        if hasErrorStatus().status == true {
+            let title = "Error"
+            let message = hasErrorStatus().messages
+            showAlert(title: title, message: message)
+        } else {
+            if isExistEmail() == true, isExistPassword() == true {
+                userDefaults.set(1, forKey: "id")
+                userDefaults.set(arrayName[1], forKey: "name")
+                userDefaults.set(emailTextField.text!, forKey: "email")
+                AppViewController.shared.pushToWelcomeScreen()
+            } else {
+                showAlert(title: "Notification", message: "Invalid email or password")
+            }
+        }
+    }
+
+    // MARK: - Validation
+}
 
 // MARK: - extensions
 
+extension SignInViewController {
+    // MARK: - Check field empty
+    func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
+        if emailTextField.text?.isEmpty == true {
+            textFieldName = "Email"
+            return (textFieldName, true)
 
+        } else if passwordTextField.text?.isEmpty == true {
+            textFieldName = "Password"
+            return (textFieldName, true)
+        }
+        return (nil, false)
+    }
+
+    // MARK: - Check exist email
+    private func isExistEmail() -> Bool {
+        for email in arrayEmailValid {
+            if emailTextField.text == email {
+                return true
+            }
+        }
+        return false
+    }
+
+    private func isExistPassword() -> Bool {
+        for password in arrayPasswordValid {
+            if passwordTextField.text == password {
+                return true
+            }
+        }
+        return false
+    }
+
+    // MARK: - Set status and message
+    func hasErrorStatus() -> (messages: String?, status: Bool?) {
+        // EmptyField
+        if fieldIsEmpty().status == true {
+            messages = "\(fieldIsEmpty().textFieldName!) is required."
+            status = true
+        } else
+        // Format Email
+        if emailTextField.text?.isValidEmail == false {
+            messages = "Please enter valid email."
+            status = true
+
+        } else
+        // Format Password
+        if passwordTextField.text?.isCorrectFormatPassword == false {
+            messages = "Password doesn’t follow format."
+            status = true
+
+        } else
+        // Field Range
+        if emailTextField.text!.count > 50 {
+            textFieldName = "Email"
+            messages = "\(textFieldName!) can't be longer than 50 character."
+            status = true
+
+        } else if passwordTextField.text!.count > 50 || passwordTextField.text!.count < 8 {
+            textFieldName = "Password"
+            messages = "\(textFieldName!) can't be less than 8 characters and longer than 50 characters."
+            status = true
+
+        } else {
+            return (nil, false)
+        }
+        return (messages, status)
+    }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+}
 
 // MARK: - protocols
-

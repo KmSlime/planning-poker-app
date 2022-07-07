@@ -9,8 +9,13 @@ import UIKit
 
 extension UITextField {
 
-    func customPlaceholderTextColor(withHexCode: String, placeholderHint: String) {
-        let colorOfHint = UIColor(hexString: withHexCode)
-        self.attributedPlaceholder = NSAttributedString(string: placeholderHint, attributes: [NSAttributedString.Key.foregroundColor: colorOfHint])
+    func customPlaceholderTextColor(placeholderHint: String, withHexCode: String? = nil) {
+        let colorOfHint: UIColor!
+        if withHexCode != nil {
+            colorOfHint = UIColor(hexString: withHexCode!)
+        } else {
+            colorOfHint = UIColor(hexString: "#000000")
+        }
+        self.attributedPlaceholder = NSAttributedString(string: placeholderHint, attributes: [NSAttributedString.Key.foregroundColor: colorOfHint as Any])
     }
 }
