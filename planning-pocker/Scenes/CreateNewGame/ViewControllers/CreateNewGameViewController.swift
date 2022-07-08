@@ -20,16 +20,20 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var joinGameButton: UIButton!
 
-
     // MARK: - Properties
     var messages: String?
     var status: Bool?
-    var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"), (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."), (3, "T-Shirt (S, M, L, XL, XXL,...)"), (4, "Power of (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
+    var votingSystemValue: [(index: Int, disPlayValue: String, arrayCardValue: [String])] = [
+        (0, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]),
+        (1, "Power of (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
     var gameName: String?
     let dropdownDeleteTableView = DropDown()
     var gameModel: GameModel?
     var newRoom: RoomModel?
     var mainPlayer: PlayerModel!
+    var cardData: [String]!
+    
+
     // MARK: - Overrides
 
     // MARK: - Life cycles
@@ -37,7 +41,8 @@ class CreateNewGameViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         dropdownDeleteTableView.anchorView = votingSystemTextField
-        votingSystemTextField.placeholder = arrayTest[0].value
+        votingSystemTextField.placeholder = votingSystemValue[0].disPlayValue
+        cardData = votingSystemValue[0].arrayCardValue
         setUpDropdown()
 
     }
@@ -60,21 +65,24 @@ class CreateNewGameViewController: UIViewController {
             [unowned self] (index: Int, item: String) in
             dropdownDeleteTableView.backgroundColor =  UIColor.white
             votingSystemTextField.placeholder = item
+            cardData = votingSystemValue[index].arrayCardValue
+            print(cardData as Any)
         }
     }
+    
 
     // MARK: - Private
     private func setupUI() {
         setupLeftMenu()
     }
     private func setUpDropdown() {
-        // sau nay thay cai nay bang api
-        for item in arrayTest {
-            dropdownDeleteTableView.dataSource.append(item.value)
-            if item.id == arrayTest.count {
-                let customDeckItem: (id: Int, value: String) = (0, "Create custom desk..")
-                arrayTest.append(customDeckItem)
-                dropdownDeleteTableView.dataSource.append(customDeckItem.value)
+        // ko co api, set cung
+        for item in votingSystemValue {
+            dropdownDeleteTableView.dataSource.append(item.disPlayValue)
+            if item.index + 1 == votingSystemValue.count {
+                let customDeckItem: (index: Int, disPlayValue: String, arrayCardValue: [String]) = (0, "Create custom desk..", [])
+                votingSystemValue.append(customDeckItem)
+                dropdownDeleteTableView.dataSource.append(customDeckItem.disPlayValue)
                 break
             }
         }
@@ -92,7 +100,7 @@ class CreateNewGameViewController: UIViewController {
             mainPlayer = PlayerModel(id: idMainPlayer!, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // Nghia sau nay thay cai nay bang default user
             print(mainPlayer as Any)
             
-            newRoom = RoomModel(roomName: gameName!, roomId: 1, cards: [], mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!
+            newRoom = RoomModel(roomName: gameName!, roomId: 1, cards: cardData!, mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!
             
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,

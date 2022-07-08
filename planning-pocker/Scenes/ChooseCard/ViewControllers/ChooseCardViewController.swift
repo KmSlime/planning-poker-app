@@ -72,7 +72,7 @@ class ChooseCardViewController: UIViewController {
                                               forCellWithReuseIdentifier: TableView.CellIdentifiers.cardMainPlayer)
     }
     private func setupFakeData() {
-        let dataCard = ["0", "1", "2", "2", "3", "5", "8", "13", "21", "2", "34", "55", "89", "?"]
+        let dataCard = room.cards
         let mainPlayer = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
         let otherPlayers: [PlayerModel] = [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
            PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),

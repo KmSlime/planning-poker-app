@@ -7,35 +7,31 @@
 
 import Foundation
 class GameModel {
-//    private var gameId: Int?
+    private var gameId: Int? = -1
     private var gameName: String?
     private var gameURL: String?
     
-    init() {
-        
-    }
+    init() { }
 
-//    init(id: Int, name: String, url: String) {
-//        self.gameId = id
-//        self.gameName = name
-//        self.gameURL = url
-//    }
-    
+    init(id: Int, name: String, url: String) {
+        self.gameId = id
+        self.gameName = name
+        self.gameURL = url
+    }
     
     init(name: String, url: String) {
-//        self.gameId = id
         self.gameName = name
         self.gameURL = url
     }
 
-//    public var id: Int {
-//        get {
-//            return self.gameId!
-//        }
-//        set {
-//            return self.gameId = newValue
-//        }
-//    }
+    public var id: Int {
+        get {
+            return self.gameId!
+        }
+        set {
+            return self.gameId = newValue
+        }
+    }
 
     public var name: String {
         get {
