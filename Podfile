@@ -7,8 +7,7 @@ target 'planning-pocker' do
 
   # Pods for planning-pocker
   pod 'SwiftLint'
-  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+  pod 'Socket.IO-Client-Swift'
   pod 'DropDown'
   pod 'MaterialComponents/Snackbar'
-  pod 'iOSDropDown'
 end

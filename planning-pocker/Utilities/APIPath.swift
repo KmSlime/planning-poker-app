@@ -7,8 +7,10 @@
 
 enum APIPath {
     enum Auth: String {
-        case signUp = "/api/account/v1/register"
         case signIn = "/api/account/v1/login"
         case signOut = "/api/account/v1/logout"
+        case signUp = "/api/auth/signup"
+        case createNewGame = "/api/poker/create-name-poker"
+        case getIssueList = "/api/issue/list/"
     }
 }

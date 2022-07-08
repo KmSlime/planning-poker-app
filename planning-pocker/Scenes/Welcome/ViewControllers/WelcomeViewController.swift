@@ -30,6 +30,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        
     }
 
     // MARK: - Publics
@@ -67,7 +68,7 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction func chooseCard(_ sender: UIButton) {
-        AppViewController.shared.pushToChooseCardScreen(newGameModel: nil)
+        AppViewController.shared.pushToChooseCardScreen()
     }
 
     @IBAction func signUp(_ sender: UIButton) {
@@ -96,13 +97,7 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction func onClickStartGameButton(_ sender: Any) {
-        if userDefaults.object(forKey: "name") != nil {
-            userDefaults.set(userDefaults.object(forKey: "name"), forKey: "name")
             AppViewController.shared.pushToCreateNewGameScreen()
-        } else {
-            AppViewController.shared.pushToSignInScreen()
-        }
-
     }
     @IBAction func onClickLoginButton(_ sender: Any) {
 

@@ -7,8 +7,10 @@
 
 import Foundation
 
-class ListIssue: NSObject, Codable {
-    var items = [Issue]()
+class ListIssue: NSObject {
+    
+    var issue = [Issue]()
+    
     var votingIssueIndex: Int {
         get {
             return self.votingIssueIndex

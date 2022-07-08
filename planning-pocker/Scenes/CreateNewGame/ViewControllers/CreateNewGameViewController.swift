@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import SocketIO
 
 let userDefaults = UserDefaults.standard
 
@@ -18,25 +19,21 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var dropdownButton: UIButton!
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var joinGameButton: UIButton!
-//    @IBOutlet weak var dropdownView: UIView!
 
     // MARK: - Properties
     var messages: String?
     var status: Bool?
+    var votingSystemValue: [(index: Int, disPlayValue: String, arrayCardValue: [String])] = [
+        (0, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]),
+        (1, "Power of (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
+    var gameName: String?
     let dropdownDeleteTableView = DropDown()
-    var arrayTest: [(id: Int, value: String)] = [(1, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)"),
-                                                 (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."),
-                                                 (3, "T-Shirt (S, M, L, XL, XXL,...)"),
-                                                 (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
-    var newGame: GameModel?
-    var testPlayer: PlayerModel!
-    private var leftMenuViewController: LeftMenuViewController!
-    private var leftMenuRevealWidth: CGFloat = 300
-    private var paddingForRotation: CGFloat = 150
-    private var isExpanded = false
-    private var leftMenuTrailingConstraint: NSLayoutConstraint!
-    private var revealLeftMenuOnTop = true
-    private var leftMenuShadowView: UIView!
+    var gameModel: GameModel?
+    var newRoom: RoomModel?
+    var mainPlayer: PlayerModel!
+    var cardData: [String]!
+    
+
     // MARK: - Overrides
 
     // MARK: - Life cycles
@@ -44,7 +41,8 @@ class CreateNewGameViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         dropdownDeleteTableView.anchorView = votingSystemTextField
-        votingSystemTextField.placeholder = arrayTest[0].value
+        votingSystemTextField.placeholder = votingSystemValue[0].disPlayValue
+        cardData = votingSystemValue[0].arrayCardValue
         setUpDropdown()
 
     }
@@ -63,40 +61,59 @@ class CreateNewGameViewController: UIViewController {
 
     // MARK: - Publics
     func selectedDropdownItem() {
-        dropdownDeleteTableView.selectionAction = { [unowned self] (_: Int, item: String) in
+        dropdownDeleteTableView.selectionAction = {
+            [unowned self] (index: Int, item: String) in
             dropdownDeleteTableView.backgroundColor =  UIColor.white
             votingSystemTextField.placeholder = item
+            cardData = votingSystemValue[index].arrayCardValue
+            print(cardData as Any)
         }
     }
+    
 
     // MARK: - Private
     private func setupUI() {
         setupLeftMenu()
     }
     private func setUpDropdown() {
-        // sau nay thay cai nay bang api
-        for item in arrayTest {
-            dropdownDeleteTableView.dataSource.append(item.value)
-            if item.id == arrayTest.count {
-                let customDeckItem: (id: Int, value: String) = (0, "Create custom desk..")
-                arrayTest.append(customDeckItem)
-                dropdownDeleteTableView.dataSource.append(customDeckItem.value)
+        // ko co api, set cung
+        for item in votingSystemValue {
+            dropdownDeleteTableView.dataSource.append(item.disPlayValue)
+            if item.index + 1 == votingSystemValue.count {
+                let customDeckItem: (index: Int, disPlayValue: String, arrayCardValue: [String]) = (0, "Create custom desk..", [])
+                votingSystemValue.append(customDeckItem)
+                dropdownDeleteTableView.dataSource.append(customDeckItem.disPlayValue)
                 break
             }
         }
     }
+    
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
-            // create instance of newGameModel (later)
-
-            // {id current user, full name of user}, game {name; id}
-            testPlayer = PlayerModel(id: userDefaults.integer(forKey: "id"), name: userDefaults.string(forKey: "fullName")!, roomId: 1, role: PlayerRole.host)
-            print(testPlayer as Any)
-                newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: testPlayer, otherPlayers: [])
-                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)
+            gameName = gameNameTextField.text!
+            
+            let idMainPlayer = userDefaults.value(forKey: "id") as? Int
+            let nameMainPlayer = userDefaults.value(forKey: "fullName") as? String
+            mainPlayer = PlayerModel(id: idMainPlayer!, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // Nghia sau nay thay cai nay bang default user
+            print(mainPlayer as Any)
+            
+            newRoom = RoomModel(roomName: gameName!, roomId: 1, cards: cardData!, mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!
+            
+            let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
+                                                method: .post,
+                                                parameters: ["name": newRoom?.roomName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
+                                                contentType: .applicationJson)
+            APIRequest.shared.request(router: routerCreateNewGame) {
+                [weak self] error, response in
+                var message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
+                if message != "Log Create new game: Error - Else case!!" {
+                    self!.gameModel = GameModel(name: self!.gameName!, url: message)
+                    AppViewController.shared.pushToChooseCardScreen(newRoomModel: self!.newRoom, gameInfo: self!.gameModel)
+                } else { print(message) }
+            }
         }
     }
 
