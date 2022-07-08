@@ -13,17 +13,17 @@ class GameModel {
     
     init() { }
 
+    init(name: String, url: String) {
+        self.gameName = name
+        self.gameURL = url
+    }
+    
     init(id: Int, name: String, url: String) {
         self.gameId = id
         self.gameName = name
         self.gameURL = url
     }
     
-    init(name: String, url: String) {
-        self.gameName = name
-        self.gameURL = url
-    }
-
     public var id: Int {
         get {
             return self.gameId!

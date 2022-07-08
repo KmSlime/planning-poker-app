@@ -26,10 +26,10 @@ class IssuesListViewController: UIViewController {
     var listIssue = ListIssue()
     var gameUrl: String?
     var issueModel: Issue?
+    var gameInIssue: GameModel?
     var currentSelectedIndex: IndexPath?
     var player: PlayerModel?
 
-    
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,25 +40,27 @@ class IssuesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getDataIssueList()
-        issuesListTableView.reloadData()
-        
     }
-
-    // MARK: - Publics
-
-    
+        
+    override func viewDidAppear(_ animated: Bool) {
+        issuesListTableView.reloadData()
+    }
 
     // MARK: - Private
     private func setupUI() {
         if player?.role == PlayerRole.member {
             tripleMenuButton.isHidden = true
         }
+        
+        // font
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         countAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         
+        // attribute
         countIssueLabel.text = String(listIssue.issue.count) + " issues"
         countAveragePointLabel.text = String(listIssue.issue.count) + " points" // change this for point
 
+        // other
         navigationItem.hidesBackButton = true
     }
     
@@ -76,16 +78,15 @@ class IssuesListViewController: UIViewController {
                 self!.issueModel?.issueDescription = item.dictionary!["description"]?.stringValue ?? ""
                 self!.issueModel?.issueLink = item.dictionary!["link"]?.stringValue ?? "#"
                 self!.issueModel?.issueVoteStatus = item.dictionary!["status"]?.boolValue
-                self!.issueModel?.issueBelongToGame?.id = item.dictionary!["game"]?.dictionary!["id"]?.intValue ?? -1
-                self!.issueModel?.issueBelongToGame?.name = item.dictionary!["game"]?.dictionary!["name"]?.stringValue ?? "#"
-                self!.issueModel?.issueBelongToGame?.url = item.dictionary!["game"]?.dictionary!["url"]?.stringValue ?? self!.gameUrl!
-                print(self!.issueModel!.title)
-                print(self!.issueModel!.id)
-                print(self!.issueModel!.issueBelongToGame?.name) //nil!!
 
-                print("==========")
+                self!.gameInIssue = GameModel()
+                self!.gameInIssue?.id = item.dictionary!["game"]?.dictionary!["id"]?.intValue ?? -1
+                self!.gameInIssue?.name = item.dictionary!["game"]?.dictionary!["name"]?.stringValue ?? "#"
+                self!.gameInIssue?.url = item.dictionary!["game"]?.dictionary!["url"]?.stringValue ?? self!.gameUrl!
+                self!.issueModel?.issueBelongToGame = self!.gameInIssue
+
+                self!.listIssue.issue.append(self!.issueModel!)
             }
-            
         }
     }
 
@@ -120,7 +121,7 @@ extension IssuesListViewController: UITableViewDataSource {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
             cell.delegate = self
-            cell.setValueCell(issue: listIssue.issue[indexPath.row])
+            cell.setValueCell(issueModel: listIssue.issue[indexPath.row])
             return cell
         }
     }

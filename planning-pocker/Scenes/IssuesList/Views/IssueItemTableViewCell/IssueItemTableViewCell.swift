@@ -31,9 +31,9 @@ class IssueItemTableViewCell: UITableViewCell {
     }
 
     // MARK: - Publics
-    func setValueCell(issue: Issue) {
-        issueTitleLabel.text = issue.title
-        issueKeyLabel.text = issue.key
+    func setValueCell(issueModel: Issue) {
+        issueTitleLabel.text = issueModel.title
+        issueKeyLabel.text = issueModel.issueKey
     }
 
     // MARK: - Private

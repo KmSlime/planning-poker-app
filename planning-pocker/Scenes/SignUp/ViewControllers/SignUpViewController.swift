@@ -59,9 +59,7 @@ class SignUpViewController: UIViewController {
                                                   "email": user.email,
                                                   "password": user.password],
                                      contentType: .applicationJson)
-        
         APIRequest.shared.request(router: routerSignUp) { [weak self] error, response in
-            
             var message = response?.dictionary?["message"]?.stringValue ?? "Log: Else Case!!"
             //kiiii@gmail.com
             print(message as Any)
