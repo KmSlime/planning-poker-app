@@ -25,7 +25,7 @@ class CreateNewGameViewController: UIViewController {
     var status: Bool?
     var votingSystemValue: [(index: Int, disPlayValue: String, arrayCardValue: [String])] = [
         (0, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]),
-        (1, "Power of (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
+        (1, "Power of (0, 1, 2, 4, 8, 16, 32, 64, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
     var gameName: String?
     let dropdownDeleteTableView = DropDown()
     var gameModel: GameModel?
@@ -69,12 +69,12 @@ class CreateNewGameViewController: UIViewController {
             print(cardData as Any)
         }
     }
-    
 
     // MARK: - Private
     private func setupUI() {
         setupLeftMenu()
     }
+    
     private func setUpDropdown() {
         // ko co api, set cung
         for item in votingSystemValue {

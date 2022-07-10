@@ -17,6 +17,7 @@ class Issue: NSObject {
     var issueVoteStatus: Bool? = false
     var issueBelongToGame: GameModel?
     var issueIdGame: String = ""
+
     
     override init() {
         

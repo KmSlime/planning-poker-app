@@ -23,19 +23,18 @@ class IssuesListViewController: UIViewController {
     }
   
     // MARK: - Properties
-    var listIssue = ListIssue()
-    var gameUrl: String?
+    var listIssue: [Issue] = []
     var issueModel: Issue?
     var gameInIssue: GameModel?
+    var receiveAveragePoint: String?
+    var gameUrl: String?
     var currentSelectedIndex: IndexPath?
-    var player: PlayerModel?
 
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
-        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,25 +43,32 @@ class IssuesListViewController: UIViewController {
         
     override func viewDidAppear(_ animated: Bool) {
         issuesListTableView.reloadData()
+        countIssueLabel.text = String(listIssue.count) + " issues"
+        setupUI()
     }
 
     // MARK: - Private
     private func setupUI() {
-        if player?.role == PlayerRole.member {
-            tripleMenuButton.isHidden = true
-        }
         
         // font
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         countAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         
         // attribute
-        countIssueLabel.text = String(listIssue.issue.count) + " issues"
-        countAveragePointLabel.text = String(listIssue.issue.count) + " points" // change this for point
-
+        countAveragePointLabel.text = String(listIssue.count) + " points" // change this for point
+        if receiveAveragePoint != nil {
+            
+        }
+        
         // other
         navigationItem.hidesBackButton = true
     }
+    
+//    private func sortIssueList(issueList: ListIssue) {
+//        issueList.issue.sorted(by: {
+//            $0.Int(issueList.issue.!.components(separatedBy: "-")[1]) < $1.Int(issueList.issue.issueKey!.components(separatedBy: "-")[1])
+//        })
+//    }
     
     private func getDataIssueList() {
         gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
@@ -85,7 +91,11 @@ class IssuesListViewController: UIViewController {
                 self!.gameInIssue?.url = item.dictionary!["game"]?.dictionary!["url"]?.stringValue ?? self!.gameUrl!
                 self!.issueModel?.issueBelongToGame = self!.gameInIssue
 
-                self!.listIssue.issue.append(self!.issueModel!)
+                self!.listIssue.append(self!.issueModel!)
+
+            }
+            self!.listIssue.sort {
+                ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
         }
     }
@@ -103,7 +113,7 @@ extension IssuesListViewController: UITableViewDelegate {
 
 extension IssuesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == listIssue.issue.count {
+        if indexPath.row == listIssue.count {
             return 48
         } else {
             return 147
@@ -111,23 +121,23 @@ extension IssuesListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listIssue.issue.count + 1
+        return listIssue.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == listIssue.issue.count {
+        if indexPath.row == listIssue.count {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonItemTableViewCell") as? ButtonItemTableViewCell else { return UITableViewCell() }
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
             cell.delegate = self
-            cell.setValueCell(issueModel: listIssue.issue[indexPath.row])
+            cell.setValueCell(issueModel: listIssue[indexPath.row])
             return cell
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == listIssue.issue.count {
+        if indexPath.row == listIssue.count {
             let createIssueVC = CreateIssueViewController()
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
@@ -147,11 +157,10 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            let newIssue = Issue(id: listIssue.issue.count + 1, key: "PP-" + String(listIssue.issue.count + 1), idGame: "1")
+            //Nghia goi api de them vao list
+            let newIssue = Issue(id: listIssue.count + 1, key: "PP-" + String(listIssue.count + 1), idGame: "1")
             newIssue.title = item
-            listIssue.issue.append(newIssue)
-            countIssueLabel.text = String(listIssue.issue.count) + " issues"
-            issuesListTableView.reloadData()
+            listIssue.append(newIssue)
             AppViewController.shared.popToPreviousScreen()
         }
     }

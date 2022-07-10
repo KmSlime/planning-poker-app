@@ -87,10 +87,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="averagePointButton" destination="yIr-Ru-NRh" id="YTF-A4-1eo"/>
                 <outlet property="backView" destination="5Mj-YM-X0k" id="KL7-6n-nVb"/>
                 <outlet property="issueKeyLabel" destination="do8-tY-kNX" id="YbN-r2-xD2"/>
                 <outlet property="issueTitleLabel" destination="MN1-vj-e4w" id="kiV-rz-Hdh"/>
-                <outlet property="pointDropdownButton" destination="yIr-Ru-NRh" id="YTF-A4-1eo"/>
                 <outlet property="trashcanButton" destination="V0p-RM-24F" id="4wN-2P-8jP"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>

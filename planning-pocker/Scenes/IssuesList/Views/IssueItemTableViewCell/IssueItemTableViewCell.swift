@@ -12,7 +12,7 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var issueKeyLabel: UILabel!
     @IBOutlet weak var issueTitleLabel: UILabel!
     @IBOutlet weak var trashcanButton: UIButton!
-    @IBOutlet weak var pointDropdownButton: UIButton!
+    @IBOutlet weak var averagePointButton: UIButton!
     @IBOutlet weak var backView: UIView!
 
     // MARK: - Properties
@@ -34,6 +34,9 @@ class IssueItemTableViewCell: UITableViewCell {
     func setValueCell(issueModel: Issue) {
         issueTitleLabel.text = issueModel.title
         issueKeyLabel.text = issueModel.issueKey
+    }
+    func displayAveragePoint(value: String) {
+        averagePointButton.setTitle(value, for: .normal)
     }
 
     // MARK: - Private
