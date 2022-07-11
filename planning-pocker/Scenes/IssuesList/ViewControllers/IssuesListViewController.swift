@@ -14,39 +14,84 @@ class IssuesListViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tripleMenuButton: UIButton!
     @IBOutlet weak var countIssueLabel: UILabel!
-    @IBOutlet weak var countAveragePointLabel: UILabel!
+    @IBOutlet weak var sumAveragePointLabel: UILabel!
     @IBOutlet weak var issuesListTableView: UITableView! {
         didSet {
             issuesListTableView.register(UINib(nibName: "IssueItemTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueItemTableViewCell")
             issuesListTableView.register(UINib(nibName: "ButtonItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ButtonItemTableViewCell")
         }
     }
-
+  
     // MARK: - Properties
-    var dataModel = ListIssue()
+    var listIssue: [Issue] = []
+    var issueModel: Issue?
+    var gameInIssue: GameModel?
+    var receiveAveragePoint: String?
+    var sumAveragePoint: String?
+    var gameUrl: String?
     var currentSelectedIndex: IndexPath?
 
-    // MARK: - Overrides
 
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
+        getDataIssueList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
+        
+    override func viewDidAppear(_ animated: Bool) {
+        issuesListTableView.reloadData()
+        countIssueLabel.text = String(listIssue.count) + " issues"
         setupUI()
     }
 
-    // MARK: - Publics
-
     // MARK: - Private
     private func setupUI() {
+        
+        // font
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
-        countIssueLabel.text = String(dataModel.items.count) + " issues"
+        sumAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
+        
+        // attribute
+        sumAveragePointLabel.text = String(listIssue.count) + " points" // change this for point
 
-        countAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
-        countAveragePointLabel.text = String(dataModel.items.count) + " points" // change this for point
-
+        // other
         navigationItem.hidesBackButton = true
+    }
+    
+    private func getDataIssueList() {
+        gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
+        let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
+        let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
+        APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
+
+            for item in response!.self.arrayValue {
+                self!.issueModel = Issue()
+                self!.issueModel?.id = item.dictionary!["id"]?.intValue ?? -1
+                self!.issueModel?.key = item.dictionary!["key"]?.stringValue ?? "PP-0"
+                self!.issueModel?.title = item.dictionary!["title"]?.stringValue ?? "issue #"
+                self!.issueModel?.issueDescription = item.dictionary!["description"]?.stringValue ?? ""
+                self!.issueModel?.issueLink = item.dictionary!["link"]?.stringValue ?? "#"
+                self!.issueModel?.issueVoteStatus = item.dictionary!["status"]?.boolValue
+
+                self!.gameInIssue = GameModel()
+                self!.gameInIssue?.id = item.dictionary!["game"]?.dictionary!["id"]?.intValue ?? -1
+                self!.gameInIssue?.name = item.dictionary!["game"]?.dictionary!["name"]?.stringValue ?? "#"
+                self!.gameInIssue?.url = item.dictionary!["game"]?.dictionary!["url"]?.stringValue ?? self!.gameUrl!
+                self!.issueModel?.issueBelongToGame = self!.gameInIssue
+
+                self!.listIssue.append(self!.issueModel!)
+            }
+            // asc sort by number of key
+            self!.listIssue.sort {
+                ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
+            }
+        }
     }
 
     // MARK: - Actions
@@ -54,38 +99,19 @@ class IssuesListViewController: UIViewController {
         AppViewController.shared.popToPreviousScreen()
     }
 }
+
 // MARK: - extensions
 extension IssuesListViewController: UITableViewDelegate {
-
-}
-
-extension IssuesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == dataModel.items.count {
-            return 60
+        if indexPath.row == listIssue.count {
+            return 48
         } else {
-            return 162
-        }
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel.items.count + 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == dataModel.items.count {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonItemTableViewCell") as? ButtonItemTableViewCell else { return UITableViewCell() }
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
-            cell.delegate = self
-            cell.setValueCell(issue: dataModel.items[indexPath.row])
-            return cell
+            return 147
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == dataModel.items.count {
+        if indexPath.row == listIssue.count {
             let createIssueVC = CreateIssueViewController()
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
@@ -93,6 +119,26 @@ extension IssuesListViewController: UITableViewDataSource {
             print("Print something from didSelectRowAt")
         }
     }
+}
+
+extension IssuesListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listIssue.count + 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == listIssue.count {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonItemTableViewCell") as? ButtonItemTableViewCell else { return UITableViewCell() }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
+            cell.delegate = self
+            cell.setValueCell(issueModel: listIssue[indexPath.row])
+            cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
+            return cell
+        }
+    }
+
 }
 
 extension IssuesListViewController: createIssueViewControllerDelegate {
@@ -105,11 +151,10 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            let newIssue = Issue(id: dataModel.items.count + 1, key: "PP-" + String(dataModel.items.count + 1), idGame: "1")
+            // Nghia goi api de them vao list
+            let newIssue = Issue(id: listIssue.count + 1, key: "PP-" + String(listIssue.count + 1), idGame: "1")
             newIssue.title = item
-            dataModel.items.append(newIssue)
-            countIssueLabel.text = String(dataModel.items.count) + " issues"
-            issuesListTableView.reloadData()
+            listIssue.append(newIssue)
             AppViewController.shared.popToPreviousScreen()
         }
     }
@@ -117,6 +162,11 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
 
 extension IssuesListViewController: IssueItemTableViewCellDelegate {
     func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
-        print("Delegate from click vote button") // receive action click button from IssueItemTableViewCell, continue handle vote issue
+        var indexPath = issuesListTableView.indexPathForRow(at: )
+        print(indexPath)
+//        listIssue[indexPath].status = true
+
+
+        print("Delegate from click vote button")
     }
 }
