@@ -20,9 +20,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssuesListViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="XhL-nQ-EX9" id="EhU-Cy-R1O"/>
-                <outlet property="countAveragePointLabel" destination="ST5-gr-5eO" id="lSx-iU-QKc"/>
                 <outlet property="countIssueLabel" destination="Sbp-P3-bKy" id="1Ow-Rz-gTH"/>
                 <outlet property="issuesListTableView" destination="yZG-om-UHy" id="3MT-kf-PmH"/>
+                <outlet property="sumAveragePointLabel" destination="ST5-gr-5eO" id="lSx-iU-QKc"/>
                 <outlet property="tripleMenuButton" destination="Zad-wH-tS0" id="PUy-uF-4sC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

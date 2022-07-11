@@ -19,7 +19,8 @@ class LeftMenuViewController: UIViewController {
         didSet {
             guard let subView = Bundle.main.loadNibNamed("EditProfileView", owner: profileView, options: nil)?.first as? EditProfileView else { return }
             profileView?.addSubview(subView)
-            subView.frame = subView.superview!.bounds;
+            subView.userNameLabel.text = userDefaults.string(forKey: "fullName")
+            subView.frame = subView.superview!.bounds
             subView.layer.cornerRadius = 50
         }
     }

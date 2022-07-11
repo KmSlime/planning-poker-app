@@ -10,7 +10,6 @@ import Foundation
 class ListIssue: NSObject {
     
     var issue = [Issue]()
-    
     var votingIssueIndex: Int {
         get {
             return self.votingIssueIndex

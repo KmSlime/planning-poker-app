@@ -207,10 +207,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="PxL-qV-yWm" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" id="2Gu-0V-Av5"/>
                 <constraint firstItem="PxL-qV-yWm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="53g-e3-Zhn"/>
                 <constraint firstItem="PxL-qV-yWm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Hhc-fB-rUa"/>
                 <constraint firstItem="PxL-qV-yWm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Y1O-RH-t92"/>
                 <constraint firstItem="c5G-i1-ExJ" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" id="eEV-3O-CDf"/>
+                <constraint firstItem="PxL-qV-yWm" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="fqL-KO-bBB"/>
                 <constraint firstItem="c5G-i1-ExJ" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="iob-8T-b1z"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PxL-qV-yWm" secondAttribute="bottom" id="mhc-aq-RE4"/>
             </constraints>

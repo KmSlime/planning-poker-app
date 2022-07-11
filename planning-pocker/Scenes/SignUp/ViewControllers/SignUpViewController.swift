@@ -30,7 +30,6 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupHideKeyboardOnTap()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,13 +58,11 @@ class SignUpViewController: UIViewController {
                                                   "email": user.email,
                                                   "password": user.password],
                                      contentType: .applicationJson)
-        
         APIRequest.shared.request(router: routerSignUp) { [weak self] error, response in
-            
             var message = response?.dictionary?["message"]?.stringValue ?? "Log: Else Case!!"
-            //kiiii@gmail.com
+            // kiiii@gmail.com
             print(message as Any)
-            //MARK: - Check exist email
+            // MARK: - Check exist email
             if message == "Error: Email is already in use!" {
                 AppViewController.shared.showAlert(tittle: "Error", message: "Email already exists.")
                 return
@@ -77,7 +74,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    //MARK: - Setup UI
+    // MARK: - Setup UI
     private func setupUI() {
         
         // font
@@ -89,26 +86,18 @@ class SignUpViewController: UIViewController {
         // color
         signInLabel.textColor = UIColor.blueTextColor
         signUpButton.backgroundColor = UIColor.blueButtonColor
-        emailTextField.layer.borderColor = UIColor.textFieldBorderColor
-        passwordTextField.layer.borderColor = UIColor.textFieldBorderColor
-        rePasswordTextField.layer.borderColor = UIColor.textFieldBorderColor
-        fullNameTextField.layer.borderColor = UIColor.textFieldBorderColor
-        UITextField.appearance().tintColor = .black
-        
+        UITextField.appearance().tintColor = UIColor.blueTextColor
+
         // style
-        passwordTextField.layer.borderWidth = 1
-        emailTextField.layer.borderWidth = 1
-        rePasswordTextField.layer.borderWidth = 1
-        fullNameTextField.layer.borderWidth = 1
-          
-        // attribute
-        passwordTextField.layer.cornerRadius = 4
-        emailTextField.layer.cornerRadius = 4
-        rePasswordTextField.layer.cornerRadius = 4
-        fullNameTextField.layer.cornerRadius = 4
+        emailTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        passwordTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        rePasswordTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        fullNameTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
         
         // other
         navigationItem.hidesBackButton = true
+        setupHideKeyboardOnTap()
+
     }
     
     // MARK: - Actions
@@ -152,7 +141,7 @@ extension SignUpViewController {
         return (nil, false)
     }
     
-    //MARK: - Set status and message
+    // MARK: - Set status and message
     func hasErrorStatus() -> (messages: String?, status: Bool?) {
         // EmptyField
         if fieldIsEmpty().status  == true {

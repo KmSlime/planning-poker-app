@@ -21,6 +21,7 @@
                 <outlet property="gameNameTextField" destination="rqp-Bw-Qhp" id="z6Z-8n-YVH"/>
                 <outlet property="joinGameButton" destination="abl-w2-kiq" id="CEu-ln-RIG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="votingSystemLabel" destination="Su8-IZ-aph" id="Pjq-32-gbn"/>
                 <outlet property="votingSystemTextField" destination="Tus-qg-zAc" id="tBE-1Z-fQa"/>
             </connections>
         </placeholder>
@@ -36,13 +37,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a name and a voting system for your game" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-cQ-D79">
-                    <rect key="frame" x="46" y="227" width="323" height="16.5"/>
+                    <rect key="frame" x="46" y="227" width="323" height="39.5"/>
                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins Medium" pointSize="14"/>
                     <color key="textColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZQb-DC-s1p">
-                    <rect key="frame" x="24" y="261.5" width="366" height="120"/>
+                    <rect key="frame" x="24" y="284.5" width="366" height="120"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game's Name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rqp-Bw-Qhp">
                             <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
@@ -121,7 +122,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-sP-Oc7">
-                    <rect key="frame" x="24" y="451.5" width="366" height="112"/>
+                    <rect key="frame" x="24" y="474.5" width="366" height="112"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-Ef-OoN">
                             <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
@@ -181,11 +182,12 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rD9-Hq-lvG">
-                    <rect key="frame" x="24" y="24" width="32" height="32"/>
+                    <rect key="frame" x="24" y="44" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="fqj-Mh-fs6"/>
                         <constraint firstAttribute="height" constant="32" id="zTp-is-fyE"/>
                     </constraints>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image=" icon_left_menu">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -209,7 +211,7 @@
                 <constraint firstItem="bcB-sP-Oc7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="VbA-D7-4O4"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="isO-T3-l9A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uaj-cQ-D79" secondAttribute="trailing" constant="45" id="ks8-VK-a4w"/>
-                <constraint firstItem="rD9-Hq-lvG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="mG8-Nu-86Y"/>
+                <constraint firstItem="rD9-Hq-lvG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="mG8-Nu-86Y"/>
                 <constraint firstItem="rD9-Hq-lvG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="pgw-HI-MgS"/>
                 <constraint firstItem="Uaj-cQ-D79" firstAttribute="top" secondItem="O8Q-NU-9n0" secondAttribute="bottom" constant="46" id="wGO-Q4-2i2"/>
             </constraints>

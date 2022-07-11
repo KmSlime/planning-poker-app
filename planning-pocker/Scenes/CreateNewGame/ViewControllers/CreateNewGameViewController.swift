@@ -19,20 +19,21 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var dropdownButton: UIButton!
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var joinGameButton: UIButton!
+    @IBOutlet weak var votingSystemLabel: UILabel!
 
     // MARK: - Properties
     var messages: String?
     var status: Bool?
     var votingSystemValue: [(index: Int, disPlayValue: String, arrayCardValue: [String])] = [
         (0, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]),
-        (1, "Power of (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
+        (1, "Power of (0, 1, 2, 4, 8, 16, 32, 64, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
     var gameName: String?
     let dropdownDeleteTableView = DropDown()
     var gameModel: GameModel?
     var newRoom: RoomModel?
     var mainPlayer: PlayerModel!
     var cardData: [String]!
-    
+
 
     // MARK: - Overrides
 
@@ -67,14 +68,22 @@ class CreateNewGameViewController: UIViewController {
             votingSystemTextField.placeholder = item
             cardData = votingSystemValue[index].arrayCardValue
             print(cardData as Any)
+            votingSystemTextField.layer.borderColor = UIColor.textFieldBorderColor.cgColor
         }
     }
-    
 
     // MARK: - Private
     private func setupUI() {
         setupLeftMenu()
+        gameNameTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        votingSystemTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        votingSystemLabel.textColor = .blueTextColor
+        createGameButton.backgroundColor = UIColor.blueButtonColor
+        joinGameButton.layer.borderWidth = 1
+        joinGameButton.layer.borderColor = UIColor.blueButtonColor.cgColor
+        joinGameButton.tintColor = UIColor.blueButtonColor
     }
+    
     private func setUpDropdown() {
         // ko co api, set cung
         for item in votingSystemValue {
@@ -118,10 +127,12 @@ class CreateNewGameViewController: UIViewController {
     }
 
     @IBAction func joinGame(_ sender: Any) {
+        print("join game action click")
 
     }
 
     @IBAction func showDropdownList(_ sender: Any) {
+        votingSystemTextField.layer.borderColor = UIColor.blueButtonColor.cgColor
         dropdownDeleteTableView.show()
 
     }

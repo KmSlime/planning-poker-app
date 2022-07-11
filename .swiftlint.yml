@@ -1,7 +1,9 @@
 disabled_rules: # rule identifiers to exclude from running
   # - colon
   # - comma
-  - todo
+  # - control_statement
+  - trailing_whitespace
+  # - todo:
 opt_in_rules: # some rules are only opt-in
   - empty_count
   - function_default_parameter_at_end
