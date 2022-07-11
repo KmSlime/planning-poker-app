@@ -21,6 +21,7 @@
                 <outlet property="gameNameTextField" destination="rqp-Bw-Qhp" id="z6Z-8n-YVH"/>
                 <outlet property="joinGameButton" destination="abl-w2-kiq" id="CEu-ln-RIG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="votingSystemLabel" destination="Su8-IZ-aph" id="Pjq-32-gbn"/>
                 <outlet property="votingSystemTextField" destination="Tus-qg-zAc" id="tBE-1Z-fQa"/>
             </connections>
         </placeholder>
@@ -186,6 +187,7 @@
                         <constraint firstAttribute="width" constant="32" id="fqj-Mh-fs6"/>
                         <constraint firstAttribute="height" constant="32" id="zTp-is-fyE"/>
                     </constraints>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image=" icon_left_menu">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>

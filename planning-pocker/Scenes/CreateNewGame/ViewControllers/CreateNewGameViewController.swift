@@ -19,6 +19,7 @@ class CreateNewGameViewController: UIViewController {
     @IBOutlet weak var dropdownButton: UIButton!
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var joinGameButton: UIButton!
+    @IBOutlet weak var votingSystemLabel: UILabel!
 
     // MARK: - Properties
     var messages: String?
@@ -32,7 +33,7 @@ class CreateNewGameViewController: UIViewController {
     var newRoom: RoomModel?
     var mainPlayer: PlayerModel!
     var cardData: [String]!
-    
+
 
     // MARK: - Overrides
 
@@ -67,12 +68,20 @@ class CreateNewGameViewController: UIViewController {
             votingSystemTextField.placeholder = item
             cardData = votingSystemValue[index].arrayCardValue
             print(cardData as Any)
+            votingSystemTextField.layer.borderColor = UIColor.textFieldBorderColor.cgColor
         }
     }
 
     // MARK: - Private
     private func setupUI() {
         setupLeftMenu()
+        gameNameTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        votingSystemTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        votingSystemLabel.textColor = .blueTextColor
+        createGameButton.backgroundColor = UIColor.blueButtonColor
+        joinGameButton.layer.borderWidth = 1
+        joinGameButton.layer.borderColor = UIColor.blueButtonColor.cgColor
+        joinGameButton.tintColor = UIColor.blueButtonColor
     }
     
     private func setUpDropdown() {
@@ -118,10 +127,12 @@ class CreateNewGameViewController: UIViewController {
     }
 
     @IBAction func joinGame(_ sender: Any) {
+        print("join game action click")
 
     }
 
     @IBAction func showDropdownList(_ sender: Any) {
+        votingSystemTextField.layer.borderColor = UIColor.blueButtonColor.cgColor
         dropdownDeleteTableView.show()
 
     }

@@ -14,7 +14,7 @@ class IssuesListViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tripleMenuButton: UIButton!
     @IBOutlet weak var countIssueLabel: UILabel!
-    @IBOutlet weak var countAveragePointLabel: UILabel!
+    @IBOutlet weak var sumAveragePointLabel: UILabel!
     @IBOutlet weak var issuesListTableView: UITableView! {
         didSet {
             issuesListTableView.register(UINib(nibName: "IssueItemTableViewCell", bundle: nil), forCellReuseIdentifier: "IssueItemTableViewCell")
@@ -27,18 +27,21 @@ class IssuesListViewController: UIViewController {
     var issueModel: Issue?
     var gameInIssue: GameModel?
     var receiveAveragePoint: String?
+    var sumAveragePoint: String?
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
+
 
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
+        getDataIssueList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getDataIssueList()
+
     }
         
     override func viewDidAppear(_ animated: Bool) {
@@ -52,23 +55,14 @@ class IssuesListViewController: UIViewController {
         
         // font
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
-        countAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
+        sumAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         
         // attribute
-        countAveragePointLabel.text = String(listIssue.count) + " points" // change this for point
-        if receiveAveragePoint != nil {
-            
-        }
-        
+        sumAveragePointLabel.text = String(listIssue.count) + " points" // change this for point
+
         // other
         navigationItem.hidesBackButton = true
     }
-    
-//    private func sortIssueList(issueList: ListIssue) {
-//        issueList.issue.sorted(by: {
-//            $0.Int(issueList.issue.!.components(separatedBy: "-")[1]) < $1.Int(issueList.issue.issueKey!.components(separatedBy: "-")[1])
-//        })
-//    }
     
     private func getDataIssueList() {
         gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
@@ -92,8 +86,8 @@ class IssuesListViewController: UIViewController {
                 self!.issueModel?.issueBelongToGame = self!.gameInIssue
 
                 self!.listIssue.append(self!.issueModel!)
-
             }
+            // asc sort by number of key
             self!.listIssue.sort {
                 ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
@@ -108,31 +102,11 @@ class IssuesListViewController: UIViewController {
 
 // MARK: - extensions
 extension IssuesListViewController: UITableViewDelegate {
-
-}
-
-extension IssuesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == listIssue.count {
             return 48
         } else {
             return 147
-        }
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listIssue.count + 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == listIssue.count {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonItemTableViewCell") as? ButtonItemTableViewCell else { return UITableViewCell() }
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
-            cell.delegate = self
-            cell.setValueCell(issueModel: listIssue[indexPath.row])
-            return cell
         }
     }
 
@@ -147,6 +121,26 @@ extension IssuesListViewController: UITableViewDataSource {
     }
 }
 
+extension IssuesListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listIssue.count + 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == listIssue.count {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonItemTableViewCell") as? ButtonItemTableViewCell else { return UITableViewCell() }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
+            cell.delegate = self
+            cell.setValueCell(issueModel: listIssue[indexPath.row])
+            cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
+            return cell
+        }
+    }
+
+}
+
 extension IssuesListViewController: createIssueViewControllerDelegate {
     func createIssueViewControllerDidCancel(_ controller: CreateIssueViewController) {
         AppViewController.shared.popToPreviousScreen()
@@ -157,7 +151,7 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            //Nghia goi api de them vao list
+            // Nghia goi api de them vao list
             let newIssue = Issue(id: listIssue.count + 1, key: "PP-" + String(listIssue.count + 1), idGame: "1")
             newIssue.title = item
             listIssue.append(newIssue)
@@ -168,6 +162,11 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
 
 extension IssuesListViewController: IssueItemTableViewCellDelegate {
     func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
-        print("Delegate from click vote button") // receive action click button from IssueItemTableViewCell, continue handle vote issue
+        var indexPath = issuesListTableView.indexPathForRow(at: )
+        print(indexPath)
+//        listIssue[indexPath].status = true
+
+
+        print("Delegate from click vote button")
     }
 }
