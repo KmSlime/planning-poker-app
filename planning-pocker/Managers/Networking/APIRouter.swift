@@ -30,7 +30,7 @@ protocol URLRequestConvertible {
 
 struct APIRouter: URLRequestConvertible {
     static var baseURL: String {
-        return "https://58be1a92-cca8-4d6f-9377-2ee2ebfc4972.mock.pstmn.io"
+        return "http://127.0.0.1:8080"
     }
 
     var path: String

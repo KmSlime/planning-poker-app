@@ -20,7 +20,9 @@ protocol Navigator {
     func pushToEditIssueScreen()
     func pushToLeftMenu()
     func pushToSignOut()
-    //MARK: - POP
+    
+    // MARK: - POP
+    
     //    func pushToChooseCardScreen()
     func popToPreviousScreen()
 }

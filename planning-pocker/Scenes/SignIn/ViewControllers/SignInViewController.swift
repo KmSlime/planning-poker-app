@@ -20,9 +20,9 @@ class SignInViewController: UIViewController {
     var messages: String?
     var status: Bool?
     var textFieldName: String?
-    var arrayEmailValid: [String] = ["kunhan1212@gmail.com", "lele@exit.com"]
-    var arrayPasswordValid: [String] = ["Kunhan@1212"]
-    var arrayName: [String] = ["Hiep", "lalala"]
+    var arrayEmailValid: [String] = ["trong@gmail.com"]
+    var arrayPasswordValid: [String] = ["Trong123@"]
+    var arrayName: [String] = ["Hiep"]
     // MARK: - Overrides
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -66,15 +66,23 @@ class SignInViewController: UIViewController {
         signInScrollView.contentInset = contentInset
     }
     // MARK: - API Called
-    func loginCallAPI (email: String, pass: String) {
+    func signInCallAPI () {
         let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
                                method: .post,
-                               parameters: ["emailAddress": "email", "password": "password"],
-                               contentType: .urlFormEncoded)
-        
+                               parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
+                               contentType: .applicationJson)
         APIRequest.shared.request(router: router) { error, response in
-            let message = response?.dictionary?["message"] ?? ""
-            print(message)
+            guard error == nil else {
+                print("error calling POST")
+                print(error!)
+                return
+            }
+            guard let id = response?.dictionary?["id"] as? Any,
+            let email = response?.dictionary?["email"] as? Any,
+            let displayName = response?.dictionary?["displayName"] as? Any else { return }
+            userDefaults.set(id, forKey: "id")
+            userDefaults.set(email, forKey: "email")
+            userDefaults.set(displayName, forKey: "displayName")
         }
     }
 
@@ -106,9 +114,7 @@ class SignInViewController: UIViewController {
             showAlert(title: title, message: message)
         } else {
             if isExistEmail() == true, isExistPassword() == true {
-                userDefaults.set(1, forKey: "id")
-                userDefaults.set(arrayName[1], forKey: "name")
-                userDefaults.set(emailTextField.text!, forKey: "email")
+                signInCallAPI()
                 AppViewController.shared.pushToWelcomeScreen()
             } else {
                 showAlert(title: "Notification", message: "Invalid email or password")
