@@ -32,9 +32,10 @@ enum APIRouter: URLRequestConvertible {
     case login(email: String, password: String)
     case signUp(firstName: String, lastName: String, email: String, phone: String, password: String)
     case logOut
+    case createNewGame(name: String, idUser: Int)
 
     static var baseURL: String {
-        return "https://gateway.kardsys.com"
+        return "https://58be1a92-cca8-4d6f-9377-2ee2ebfc4972.mock.pstmn.io"
     }
 
     var path: String {
@@ -45,6 +46,8 @@ enum APIRouter: URLRequestConvertible {
             return "/external/api/account/v1/logout"
         case .signUp:
             return "/external/api/account/v1/register"
+        case .createNewGame:
+            return "/api/poker/createNamePoker"
         }
     }
 
@@ -52,7 +55,7 @@ enum APIRouter: URLRequestConvertible {
 
     var method: HttpMethod {
         switch self {
-        case .login, .logOut, .signUp:
+        case .login, .logOut, .signUp, .createNewGame:
             return .post
         default:
             return .get
@@ -76,6 +79,8 @@ enum APIRouter: URLRequestConvertible {
                     "emailAddress": email,
                     "phoneNumber": phone,
                     "password": password]
+        case .createNewGame(name: let name, idUser: let idUser):
+            return ["name": name, "idUser": idUser]
         default:
             return [:]
         }
@@ -83,7 +88,7 @@ enum APIRouter: URLRequestConvertible {
 
     var contentType: ContentType {
         switch self {
-        case .login, .signUp:
+        case .login, .signUp, .createNewGame:
             return ContentType.applicationJson
         default:
             return ContentType.urlFormEncoded
@@ -116,7 +121,7 @@ enum APIRouter: URLRequestConvertible {
         ]
 
         switch self {
-        case .login, .signUp:
+        case .login, .signUp, .createNewGame:
             return headerFieldsJson
         case .logOut:
             var headerWithToken = headerFieldsJson

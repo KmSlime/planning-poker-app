@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import SocketIO
 
 let userDefaults = UserDefaults.standard
 
@@ -28,8 +29,6 @@ class CreateNewGameViewController: UIViewController {
                                                  (2, "Modified Fibonacci (0, 1/2, 1, 2, 3, 5, 8, 13, 20,..."),
                                                  (3, "T-Shirt (S, M, L, XL, XXL,...)"),
                                                  (4, "Power of ( 0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)")]
-    var newGame: GameModel?
-    var testPlayer: PlayerModel!
     private var leftMenuViewController: LeftMenuViewController!
     private var leftMenuRevealWidth: CGFloat = 300
     private var paddingForRotation: CGFloat = 150
@@ -46,9 +45,7 @@ class CreateNewGameViewController: UIViewController {
         dropdownDeleteTableView.anchorView = votingSystemTextField
         votingSystemTextField.placeholder = arrayTest[0].value
         setUpDropdown()
-
     }
-
     override func viewWillAppear(_ animated: Bool) {
         dropdownDeleteTableView.reloadAllComponents()
     }
@@ -85,23 +82,25 @@ class CreateNewGameViewController: UIViewController {
             }
         }
     }
+
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
-            // create instance of newGameModel (later)
-
-            // {id current user, full name of user}, game {name; id}
-            testPlayer = PlayerModel(id: userDefaults.integer(forKey: "id"), name: userDefaults.string(forKey: "fullName")!, roomId: 1, role: PlayerRole.host)
-            print(testPlayer as Any)
-                newGame = GameModel(roomName: gameNameTextField.text!, roomId: 1, cards: [], mainPlayer: testPlayer, otherPlayers: [])
-                AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)
+            let roomName = self.gameNameTextField.text
+            APIRequest.shared.request(router: APIRouter.createNewGame(name: roomName!, idUser: 2)) { _, response  in
+                guard let response = response else {
+                    return
+                }
+                let roomId = response["message"].stringValue
+                SocketIOManager.sharedInstance.createRoom(roomName: roomName!, roomId: roomId, userId: Int.random(in: 1 ... 1000))
+            }
         }
     }
 
     @IBAction func joinGame(_ sender: Any) {
-
+        SocketIOManager.sharedInstance.enterJoinRoom(roomId: "BG852lKCXhI5CcxkJ8Ir1leJr", userId: Int.random(in: 1 ... 1000))
     }
 
     @IBAction func showDropdownList(_ sender: Any) {

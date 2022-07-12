@@ -7,20 +7,20 @@
 
 import Foundation
 
-class GameModel {
+class GameModel{
 
     var cards: [String]
     var otherPlayers: [PlayerModel]!
     var mainPlayer: PlayerModel!
     let roomName: String
-    let roomId: Int
+    let roomId: String
     let isHost: Bool
     var indexSelectedCard: Int?
     var isModeVoteIssue: Bool?
     var listIssues: [String] = []
     var currentIssue: String!
 
-    init(roomName: String, roomId: Int, cards: [String], mainPlayer: PlayerModel, otherPlayers: [PlayerModel]) {
+    init(roomName: String, roomId: String, cards: [String], mainPlayer: PlayerModel, otherPlayers: [PlayerModel]) {
         self.mainPlayer = mainPlayer
         self.otherPlayers = otherPlayers
         self.roomId = roomId
@@ -101,5 +101,9 @@ class GameModel {
         for member in otherPlayers {
             member.vote = nil
         }
+    }
+    
+    func getLinkRoom() -> String {
+        return APIRouter.baseURL + "/" + roomId
     }
 }

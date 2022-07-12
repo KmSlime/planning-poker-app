@@ -73,6 +73,9 @@
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
 		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
 		91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E3334A286EF79D0011F199 /* SignOutViewController.xib */; };
+		94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94344D712876A7D20039DE0B /* SimulatorsList.txt */; };
+		94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344D752877EB7C0039DE0B /* SocketParser.swift */; };
+		94344D782877EC2B0039DE0B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344D772877EC2B0039DE0B /* Game.swift */; };
 		94344E1F286C04D100F40565 /* ListIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E1E286C04D100F40565 /* ListIssue.swift */; };
 		94344E24286C141800F40565 /* ButtonItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E22286C141800F40565 /* ButtonItemTableViewCell.swift */; };
 		94344E25286C141800F40565 /* ButtonItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E23286C141800F40565 /* ButtonItemTableViewCell.xib */; };
@@ -81,6 +84,7 @@
 		94344E33286C6D1000F40565 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E31286C6D1000F40565 /* LeftMenuTableViewCell.xib */; };
 		94344E3A286D824600F40565 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E39286D824600F40565 /* EditProfileView.swift */; };
 		94344E3C286D825700F40565 /* EditProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94344E3B286D825700F40565 /* EditProfileView.xib */; };
+		943FAA8E287C3EFF0018043F /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FAA8D287C3EFF0018043F /* SnackBar.swift */; };
 		94514C2A2872E4C00097214C /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94514C282872E4BF0097214C /* LeftMenuViewController.swift */; };
 		94514C2B2872E4C00097214C /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94514C292872E4C00097214C /* LeftMenuViewController.xib */; };
 		94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC624E28695AC20029674B /* InvitePlayerViewController.swift */; };
@@ -165,6 +169,10 @@
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		91E3334A286EF79D0011F199 /* SignOutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignOutViewController.xib; sourceTree = "<group>"; };
+		94344D712876A7D20039DE0B /* SimulatorsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimulatorsList.txt; sourceTree = "<group>"; };
+		94344D732876A83F0039DE0B /* multipleSimulatorsStartup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = multipleSimulatorsStartup.sh; sourceTree = "<group>"; };
+		94344D752877EB7C0039DE0B /* SocketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
+		94344D772877EC2B0039DE0B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		94344E1E286C04D100F40565 /* ListIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIssue.swift; sourceTree = "<group>"; };
 		94344E22286C141800F40565 /* ButtonItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItemTableViewCell.swift; sourceTree = "<group>"; };
 		94344E23286C141800F40565 /* ButtonItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -173,6 +181,8 @@
 		94344E31286C6D1000F40565 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
 		94344E39286D824600F40565 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		94344E3B286D825700F40565 /* EditProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileView.xib; sourceTree = "<group>"; };
+		943FAA8D287C3EFF0018043F /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
+		943FAA8F287D62170018043F /* planning-pocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "planning-pocker.entitlements"; sourceTree = "<group>"; };
 		94514C282872E4BF0097214C /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		94514C292872E4C00097214C /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		94CC624E28695AC20029674B /* InvitePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayerViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +228,7 @@
 			children = (
 				0EF7D1382862CA7900E8F787 /* AppUrls.swift */,
 				0E17A3FD2862E980002290E6 /* Constants.swift */,
+				943FAA8D287C3EFF0018043F /* SnackBar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -273,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				BA3FE11C2862F9AA00779BE3 /* GameModel.swift */,
+				94344D772877EC2B0039DE0B /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +316,8 @@
 		1905F98428608C8800EEF365 = {
 			isa = PBXGroup;
 			children = (
+				94344D732876A83F0039DE0B /* multipleSimulatorsStartup.sh */,
+				94344D712876A7D20039DE0B /* SimulatorsList.txt */,
 				1905F98F28608C8800EEF365 /* planning-pocker */,
 				1905F98E28608C8800EEF365 /* Products */,
 				1DB4DC11EE4991B185A1656B /* Pods */,
@@ -323,6 +337,7 @@
 		1905F98F28608C8800EEF365 /* planning-pocker */ = {
 			isa = PBXGroup;
 			children = (
+				943FAA8F287D62170018043F /* planning-pocker.entitlements */,
 				602CDBA02861666B00E2EA30 /* Applications */,
 				602CDBD42861752900E2EA30 /* Common */,
 				602CDB912861613500E2EA30 /* Scenes */,
@@ -483,6 +498,7 @@
 			children = (
 				602CDBB828616D6D00E2EA30 /* SocketManager.swift */,
 				0E17A3FB2862E8E4002290E6 /* UserStore.swift */,
+				94344D752877EB7C0039DE0B /* SocketParser.swift */,
 			);
 			path = SocketIO;
 			sourceTree = "<group>";
@@ -954,6 +970,7 @@
 				1905F98A28608C8800EEF365 /* Frameworks */,
 				1905F98B28608C8800EEF365 /* Resources */,
 				4F647636475A3C173A087363 /* [CP] Embed Pods Frameworks */,
+				94344D742876A8C30039DE0B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1032,6 +1049,7 @@
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
+				94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */,
 				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
 				94344E25286C141800F40565 /* ButtonItemTableViewCell.xib in Resources */,
 				9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */,
@@ -1121,6 +1139,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-planning-pocker/Pods-planning-pocker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		94344D742876A8C30039DE0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "custom_sim=`xcrun simctl list | grep 'Custom Simulators' | awk -F'[()]' '{print $2}'`\nif [ ! -z \"${custom_sim}\" ] && [ \"${TARGET_DEVICE_IDENTIFIER}\" = \"${custom_sim}\" ]; then\n/bin/sh multipleSimulatorsStartup.sh\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1144,6 +1179,7 @@
 				0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */,
 				6051A87328644E3F008A6715 /* CreateNewGameViewController.swift in Sources */,
 				19B7C3902861AE3E0047A618 /* Navigator.swift in Sources */,
+				943FAA8E287C3EFF0018043F /* SnackBar.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
 				94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */,
@@ -1161,12 +1197,14 @@
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
 				BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */,
 				BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */,
+				94344D782877EC2B0039DE0B /* Game.swift in Sources */,
 				155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */,
 				94344E1F286C04D100F40565 /* ListIssue.swift in Sources */,
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
+				94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
@@ -1316,11 +1354,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "planning-pocker/planning-pocker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K6NVR2826P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "planning-pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1347,11 +1387,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "planning-pocker/planning-pocker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K6NVR2826P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "planning-pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

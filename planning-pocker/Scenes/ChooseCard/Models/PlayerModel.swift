@@ -13,15 +13,18 @@ enum PlayerRole {
 }
 
 class PlayerModel {
-    let id: Int
+    let id: String
     let name: String
-    let roomId: Int?
+    let roomId: String?
     let role: PlayerRole?
+    var isSelectedCard: Bool
     var vote: String!
-    init(id: Int, name: String, roomId: Int, role: PlayerRole ) {
+    init(id: String, name: String, roomId: String, role: PlayerRole ) {
         self.id = id
         self.name = name
         self.roomId = roomId
         self.role = role
+        self.isSelectedCard = false
     }
 }
+

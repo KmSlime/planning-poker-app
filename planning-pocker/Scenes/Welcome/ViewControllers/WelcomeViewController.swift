@@ -83,7 +83,7 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToCreateIssue()
     }
     @IBAction func invitePlayer(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayerScreen()
+        AppViewController.shared.pushToInvitePlayerScreen(url: "")
     }
     @IBAction func editIssue(_ sender: UIButton) {
         AppViewController.shared.pushToEditIssueScreen()

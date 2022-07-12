@@ -6,5 +6,5 @@
 //
 
 struct AppUrls {
-    static let socketURL = "http://localhost:3000"
+    static let socketURL = "http://localhost:3000/"
 }
