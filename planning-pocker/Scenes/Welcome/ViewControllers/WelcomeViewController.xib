@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="hrf-eq-TNw"/>
+                <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="my5-q5-C9L"/>
                 <outlet property="leftMenuButton" destination="zar-F8-Eb5" id="xb6-zB-wO4"/>
                 <outlet property="startPokerPlanningGameButton" destination="S0l-PD-W3d" id="lks-Jn-hUS"/>
                 <outlet property="startRetrospectiveButton" destination="bZw-wT-Bly" id="Nq5-Do-YFQ"/>
@@ -95,11 +95,11 @@
                         <constraint firstItem="S0l-PD-W3d" firstAttribute="height" secondItem="bZw-wT-Bly" secondAttribute="height" id="ffY-NP-Uci"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Ymy-yx-MBw">
-                    <rect key="frame" x="100" y="135" width="214" height="364"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ymy-yx-MBw">
+                    <rect key="frame" x="100" y="135" width="214" height="365"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UQa-hz-WWv">
-                            <rect key="frame" x="0.0" y="0.0" width="141.5" height="17.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Create New Game"/>
@@ -108,7 +108,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="anb-kt-juZ">
-                            <rect key="frame" x="0.0" y="38.5" width="108" height="17.5"/>
+                            <rect key="frame" x="0.0" y="37" width="214" height="31.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Choose Card"/>
@@ -117,7 +117,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KMz-Eu-3Nl">
-                            <rect key="frame" x="0.0" y="77" width="73" height="17.5"/>
+                            <rect key="frame" x="0.0" y="73.5" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
@@ -126,7 +126,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zem-Bb-3BN">
-                            <rect key="frame" x="0.0" y="115.5" width="68" height="17.5"/>
+                            <rect key="frame" x="0.0" y="110.5" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
@@ -135,7 +135,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XGl-6t-N5H">
-                            <rect key="frame" x="0.0" y="154" width="124" height="17.5"/>
+                            <rect key="frame" x="0.0" y="147.5" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Show Issue List"/>
@@ -144,7 +144,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zKW-KG-7V0">
-                            <rect key="frame" x="0.0" y="192.5" width="104.5" height="17.5"/>
+                            <rect key="frame" x="0.0" y="184.5" width="214" height="31.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Create Issue"/>
@@ -153,7 +153,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iGB-4n-aYX">
-                            <rect key="frame" x="0.0" y="231" width="102.5" height="17.5"/>
+                            <rect key="frame" x="0.0" y="221" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Invite Player"/>
@@ -162,7 +162,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zVk-1R-N60">
-                            <rect key="frame" x="0.0" y="269.5" width="86.5" height="17.5"/>
+                            <rect key="frame" x="0.0" y="258" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Edit Issue"/>
@@ -171,7 +171,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9wH-Hu-MON">
-                            <rect key="frame" x="0.0" y="308" width="89" height="17.5"/>
+                            <rect key="frame" x="0.0" y="295" width="214" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Left Menu"/>
@@ -180,7 +180,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="asP-nM-tR9">
-                            <rect key="frame" x="0.0" y="346.5" width="174.5" height="17.5"/>
+                            <rect key="frame" x="0.0" y="332" width="214" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Show / Edit Issue Detail"/>
@@ -210,16 +210,16 @@
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="2fK-NP-QHH"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="B5K-dV-U5l" secondAttribute="trailing" constant="16" id="3IS-xA-vv5"/>
                 <constraint firstItem="igc-yf-nLH" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="8JD-eD-Pat"/>
-                <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="9Ne-yd-LU5"/>
+                <constraint firstItem="Ymy-yx-MBw" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="100" id="GJ3-DO-shL"/>
                 <constraint firstItem="B5K-dV-U5l" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="Hqx-bU-Njq"/>
+                <constraint firstItem="Ymy-yx-MBw" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="30" id="IPQ-TK-mMD"/>
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="100" id="JDM-av-wnb"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="igc-yf-nLH" secondAttribute="trailing" constant="25" id="JlT-sO-ebB"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="KXj-4n-GaL"/>
-                <constraint firstItem="Ymy-yx-MBw" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="30" id="QUR-UL-uFv"/>
+                <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="Pwf-6C-dgX"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="16" id="aD9-Zx-IwB"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Bgp-ZM-5He" secondAttribute="trailing" constant="25" id="gWS-B0-meM"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="bottom" secondItem="igc-yf-nLH" secondAttribute="bottom" constant="25" id="qgd-qn-qnR"/>
-                <constraint firstItem="Ymy-yx-MBw" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="100" id="vqS-2e-oYQ"/>
             </constraints>
             <point key="canvasLocation" x="-30.434782608695656" y="109.82142857142857"/>
         </view>

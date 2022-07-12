@@ -28,108 +28,41 @@ protocol URLRequestConvertible {
     func asURLRequest() -> URLRequest?
 }
 
-enum APIRouter: URLRequestConvertible {
-    case login(email: String, password: String)
-    case signUp(firstName: String, lastName: String, email: String, phone: String, password: String)
-    case logOut
-    case createNewGame(name: String, idUser: Int)
-
+struct APIRouter: URLRequestConvertible {
     static var baseURL: String {
-        return "https://58be1a92-cca8-4d6f-9377-2ee2ebfc4972.mock.pstmn.io"
+        return "http://127.0.0.1:8080"
     }
 
-    var path: String {
-        switch self {
-        case .login:
-            return "/external/api/account/v1/login"
-        case .logOut:
-            return "/external/api/account/v1/logout"
-        case .signUp:
-            return "/external/api/account/v1/register"
-        case .createNewGame:
-            return "/api/poker/createNamePoker"
-        }
-    }
-
-    // MARK: - HTTPMethod
-
-    var method: HttpMethod {
-        switch self {
-        case .login, .logOut, .signUp, .createNewGame:
-            return .post
-        default:
-            return .get
-        }
-    }
-
-    // MARK: - Parameters
-
-    var parameters: [String: Any] {
-        switch self {
-        case .login(email: let email, password: let password):
-            return ["emailAddress": email,
-                    "password": password]
-        case .signUp(firstName: let firstName,
-                     lastName: let lastName,
-                     email: let email,
-                     phone: let phone,
-                     password: let password):
-            return ["firstName": firstName,
-                    "lastName": lastName,
-                    "emailAddress": email,
-                    "phoneNumber": phone,
-                    "password": password]
-        case .createNewGame(name: let name, idUser: let idUser):
-            return ["name": name, "idUser": idUser]
-        default:
-            return [:]
-        }
-    }
-
-    var contentType: ContentType {
-        switch self {
-        case .login, .signUp, .createNewGame:
-            return ContentType.applicationJson
-        default:
-            return ContentType.urlFormEncoded
-        }
-    }
-
-    var timeoutInterval: TimeInterval {
-        switch self {
-        default:
-            return 60
-        }
-    }
-
+    var path: String
+    var method: HttpMethod
+    var parameters: [String: Any]
+    var contentType: ContentType
+    var timeoutInterval: TimeInterval = 60
+    
     var allHTTPHeaderFields: [String: String] {
-        let headerFields = [
+        let headerWithToken = [
             HTTPHeaderFieldKey.contentType.rawValue: HTTPHeaderFieldValue.formUrlencoded.rawValue,
-            HTTPHeaderFieldKey.xTenant.rawValue: HTTPHeaderFieldValue.xTenant.rawValue,
             HTTPHeaderFieldKey.appPlatform.rawValue: HTTPHeaderFieldValue.appPlatform.rawValue,
             HTTPHeaderFieldKey.appVersion.rawValue: HTTPHeaderFieldValue.appVersion,
             HTTPHeaderFieldKey.token.rawValue: HTTPHeaderFieldValue.token,
             HTTPHeaderFieldKey.deviceId.rawValue: HTTPHeaderFieldValue.deviceId
         ]
 
-        let headerFieldsJson = [
+        let headerFields = [
             HTTPHeaderFieldKey.contentType.rawValue: HTTPHeaderFieldValue.applicationJson.rawValue,
-            HTTPHeaderFieldKey.xTenant.rawValue: HTTPHeaderFieldValue.xTenant.rawValue,
             HTTPHeaderFieldKey.appPlatform.rawValue: HTTPHeaderFieldValue.appPlatform.rawValue,
             HTTPHeaderFieldKey.appVersion.rawValue: HTTPHeaderFieldValue.appVersion,
             HTTPHeaderFieldKey.deviceId.rawValue: HTTPHeaderFieldValue.deviceId
         ]
 
-        switch self {
-        case .login, .signUp, .createNewGame:
-            return headerFieldsJson
-        case .logOut:
-            var headerWithToken = headerFieldsJson
-            headerWithToken[HTTPHeaderFieldKey.token.rawValue] = HTTPHeaderFieldValue.token
-            return headerWithToken
-        default:
-            return headerFields
-        }
+        return HTTPHeaderFieldValue.token.isEmpty ? headerFields : headerWithToken
+    }
+
+    init(path: String, method: HttpMethod = .get, parameters: [String: Any] = [:], contentType: ContentType = .urlFormEncoded) {
+        self.path = path
+        self.method = method
+        self.parameters = parameters
+        self.contentType = contentType
     }
 
     // MARK: - URLRequestConvertible
@@ -162,19 +95,16 @@ enum APIRouter: URLRequestConvertible {
 
 enum HTTPHeaderFieldKey: String {
     case contentType = "content-type"
-    case xTenant = "x-tenant"
     case appPlatform = "appplatform"
     case appVersion = "appversion"
     case token
     case deviceId = "deviceid"
-    case privateKey
 }
 
 /// The values for HTTP header fields
 public enum HTTPHeaderFieldValue: String {
     case formUrlencoded = "application/x-www-form-urlencoded"
     case applicationJson = "application/json"
-    case xTenant = "cloudpayments"
     case appPlatform = "1"
 
     static var appVersion: String {

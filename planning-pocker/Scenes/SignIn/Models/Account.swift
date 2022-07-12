@@ -1,22 +1,21 @@
 //
-//  User.swift
+//  Account.swift
 //  planning-pocker
 //
-//  Created by Nguyen Hong Liem on 6/22/22.
+//  Created by Hiep on 12/07/2022.
 //
 
 import Foundation
 
-class User {
+class Account {
     
     private var userId: Int?
     private var userEmail: String?
     private var userPassword: String?
     private var userFullName: String?
-//    var token: String? //cái này chưa rõ????
     
     init(id: Int, email:  String, password: String, fullName: String) {
-        self.userId = id                                            
+        self.userId = id
         self.userEmail = email
         self.userPassword = password
         self.userFullName = fullName

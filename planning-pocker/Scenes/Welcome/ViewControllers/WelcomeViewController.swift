@@ -30,6 +30,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        
     }
 
     // MARK: - Publics
@@ -51,7 +52,7 @@ class WelcomeViewController: UIViewController {
 
         // set properties for Start Poker Planning Game Button
         startPokerPlanningGameButton.layer.cornerRadius = 5
-        if userDefaults.object(forKey: "name") != nil {
+        if userDefaults.object(forKey: "id") != nil {
             goToTheLoginButton.isHidden = true
             leftMenuButton.isHidden = false
         } else {
@@ -61,13 +62,21 @@ class WelcomeViewController: UIViewController {
     }
 
     // MARK: - Actions
+
+    @IBAction func onClickStartGameButton(_ sender: Any) {
+        if userDefaults.object(forKey: "id") != nil {
+            AppViewController.shared.pushToCreateNewGameScreen()
+        } else {
+            AppViewController.shared.pushToSignInScreen()
+        }
+    }
     // For DELETE
     @IBAction func createNewGame(_ sender: UIButton) {
         AppViewController.shared.pushToCreateNewGameScreen()
     }
 
     @IBAction func chooseCard(_ sender: UIButton) {
-        AppViewController.shared.pushToChooseCardScreen(newGameModel: nil)
+        AppViewController.shared.pushToChooseCardScreen()
     }
 
     @IBAction func signUp(_ sender: UIButton) {
@@ -95,15 +104,6 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToEditIssueScreen()
     }
 
-    @IBAction func onClickStartGameButton(_ sender: Any) {
-        if userDefaults.object(forKey: "name") != nil {
-            userDefaults.set(userDefaults.object(forKey: "name"), forKey: "name")
-            AppViewController.shared.pushToCreateNewGameScreen()
-        } else {
-            AppViewController.shared.pushToSignInScreen()
-        }
-
-    }
     @IBAction func onClickLoginButton(_ sender: Any) {
 
         AppViewController.shared.pushToSignInScreen()

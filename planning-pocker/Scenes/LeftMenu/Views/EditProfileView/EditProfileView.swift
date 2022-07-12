@@ -25,7 +25,7 @@ class EditProfileView: UIView {
 
     @IBOutlet weak var userNameLabel: UILabel! {
         didSet {
-            userNameLabel.text = "Player 1"
+            userNameLabel.text = userDefaults.string(forKey: "fullName")
         }
     }
 }

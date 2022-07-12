@@ -12,11 +12,12 @@ import UIKit
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
     public private(set) var socket: SocketIOClient?
+    
     private var manager: SocketManager?
-    var isShowAlert: Bool = false
+    private var isShowAlert: Bool = false
     private var isReconnecting: Bool = false
-
     private let socketIsNilMessage: String = "Socket is nil"
+    
     override init() {
         super.init()
         self.initSocket()
@@ -29,7 +30,7 @@ class SocketIOManager: NSObject {
 
     func initSocket(isRequestConnect: Bool = false) {
         self.closeConnection()
-        manager = SocketManager(socketURL: URL(string: AppUrls.socketURL)!, config: [.forceNew(true), .reconnects(true), .log(false), .forcePolling(true), .compress, .connectParams(["token": ""])])
+        manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.forceNew(true), .reconnects(true), .log(false), .forcePolling(true), .compress, .connectParams(["token": ""])])
         socket = manager?.defaultSocket
         if isRequestConnect {
             self.connectSocket { status in
@@ -118,8 +119,8 @@ class SocketIOManager: NSObject {
                     let userId: String = jsonArray["userId"]! as! String
                     let cards = ["0", "1", "2", "2", "3", "5", "8", "13", "21", "2", "34", "55", "89", "?"]
                     let player = PlayerModel(id: userId, name: "Player " + userId, roomId: roomId, role: PlayerRole.host)
-                    let newGame = GameModel(roomName: roomName, roomId: roomId, cards: cards, mainPlayer: player, otherPlayers: [])
-                    AppViewController.shared.pushToChooseCardScreen(newGameModel: newGame)
+                    let newGame = RoomModel(roomName: roomName, roomId: roomId, cards: cards, mainPlayer: player, otherPlayers: [])
+                    AppViewController.shared.pushToChooseCardScreen(newRoomModel: newGame)
                 } else {
                     print("bad json")
                 }

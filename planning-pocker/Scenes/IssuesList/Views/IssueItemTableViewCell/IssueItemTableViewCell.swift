@@ -12,12 +12,14 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var issueKeyLabel: UILabel!
     @IBOutlet weak var issueTitleLabel: UILabel!
     @IBOutlet weak var trashcanButton: UIButton!
-    @IBOutlet weak var pointDropdownButton: UIButton!
+    @IBOutlet weak var averagePointButton: UIButton!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var voteButton: UIButton!
 
     // MARK: - Properties
     weak var delegate: IssueItemTableViewCellDelegate?
     var didDelete : ((UITableViewCell) -> Void)?
+    var title: String?
 
     // MARK: - Overrides
     override func awakeFromNib() {
@@ -31,9 +33,12 @@ class IssueItemTableViewCell: UITableViewCell {
     }
 
     // MARK: - Publics
-    func setValueCell(issue: Issue) {
-        issueTitleLabel.text = issue.title
-        issueKeyLabel.text = issue.key
+    func setValueCell(issueModel: Issue) {
+        issueTitleLabel.text = issueModel.title
+        issueKeyLabel.text = issueModel.issueKey
+    }
+    func displayAveragePoint(value: String) {
+        averagePointButton.setTitle(value, for: .normal)
     }
 
     // MARK: - Private
@@ -52,16 +57,26 @@ class IssueItemTableViewCell: UITableViewCell {
         backView.layer.shadowOpacity = 0.1
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
-        didDelete?(self)
     }
 
     // MARK: - Actions
     @IBAction func voteIssue(_ sender: UIButton) {
-        print("Print somthing when click button")
+
+        if voteButton.titleLabel?.text == "Vote this issue" {
+            title = "Voting now..."
+        }
+        if voteButton.titleLabel?.text == "Vote again" {
+            title = "Voting now..."
+        }
+        if voteButton.titleLabel?.text == "Voting now..." {
+            title = "Vote again"
+        }
+        voteButton.setTitle(title, for: .normal)
         delegate?.issueItemTableViewCellDidVote(self)
     }
+
     @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
-        
+        didDelete?(self)
     }
 }
 // MARK: - protocols
