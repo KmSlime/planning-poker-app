@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
-                <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="hrf-eq-TNw"/>
+                <outlet property="goToTheLoginButton" destination="B5K-dV-U5l" id="my5-q5-C9L"/>
                 <outlet property="leftMenuButton" destination="zar-F8-Eb5" id="xb6-zB-wO4"/>
                 <outlet property="startPokerPlanningGameButton" destination="S0l-PD-W3d" id="lks-Jn-hUS"/>
                 <outlet property="startRetrospectiveButton" destination="bZw-wT-Bly" id="Nq5-Do-YFQ"/>
@@ -210,10 +210,13 @@
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="2fK-NP-QHH"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="B5K-dV-U5l" secondAttribute="trailing" constant="16" id="3IS-xA-vv5"/>
                 <constraint firstItem="igc-yf-nLH" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="8JD-eD-Pat"/>
+                <constraint firstItem="Ymy-yx-MBw" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="100" id="GJ3-DO-shL"/>
                 <constraint firstItem="B5K-dV-U5l" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="Hqx-bU-Njq"/>
+                <constraint firstItem="Ymy-yx-MBw" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="30" id="IPQ-TK-mMD"/>
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="100" id="JDM-av-wnb"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="igc-yf-nLH" secondAttribute="trailing" constant="25" id="JlT-sO-ebB"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="KXj-4n-GaL"/>
+                <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="Pwf-6C-dgX"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="16" id="aD9-Zx-IwB"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Bgp-ZM-5He" secondAttribute="trailing" constant="25" id="gWS-B0-meM"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="bottom" secondItem="igc-yf-nLH" secondAttribute="bottom" constant="25" id="qgd-qn-qnR"/>
@@ -225,6 +228,9 @@
         <image name=" icon_left_menu" width="32" height="32"/>
         <image name="background" width="312" height="239.5"/>
         <image name="tpssoft-logo" width="154" height="38"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

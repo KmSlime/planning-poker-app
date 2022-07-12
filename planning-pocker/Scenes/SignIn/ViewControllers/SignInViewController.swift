@@ -66,7 +66,7 @@ class SignInViewController: UIViewController {
         signInScrollView.contentInset = contentInset
     }
     // MARK: - API Called
-    func signInCallAPI () {
+    func signInCallAPI() {
         let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
                                method: .post,
                                parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
@@ -77,12 +77,23 @@ class SignInViewController: UIViewController {
                 print(error!)
                 return
             }
-            guard let id = response?.dictionary?["id"] as? Any,
-            let email = response?.dictionary?["email"] as? Any,
-            let displayName = response?.dictionary?["displayName"] as? Any else { return }
-            userDefaults.set(id, forKey: "id")
-            userDefaults.set(email, forKey: "email")
-            userDefaults.set(displayName, forKey: "displayName")
+            var message = response?.dictionary?["error"]?.stringValue ?? "Log: Else Case!!"
+            print(message as Any)
+            if message == "Unauthorized" {
+                AppViewController.shared.showAlert(tittle: "Notification", message: "Invalid email or password.")
+                return
+            } else {
+                guard let id = response?.dictionary?["id"] as? Any,
+                let email = response?.dictionary?["email"] as? Any,
+                let displayName = response?.dictionary?["displayName"] as? Any else {
+                    return
+                }
+                userDefaults.set(id, forKey: "id")
+                userDefaults.set(email, forKey: "email")
+                userDefaults.set(displayName, forKey: "fullName")
+                AppViewController.shared.pushToWelcomeScreen()
+            }
+            
         }
     }
 
@@ -113,12 +124,7 @@ class SignInViewController: UIViewController {
             let message = hasErrorStatus().messages
             showAlert(title: title, message: message)
         } else {
-            if isExistEmail() == true, isExistPassword() == true {
-                signInCallAPI()
-                AppViewController.shared.pushToWelcomeScreen()
-            } else {
-                showAlert(title: "Notification", message: "Invalid email or password")
-            }
+            signInCallAPI()
         }
     }
 

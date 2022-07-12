@@ -69,6 +69,7 @@ class WelcomeViewController: UIViewController {
         } else {
             AppViewController.shared.pushToSignInScreen()
         }
+    }
     // For DELETE
     @IBAction func createNewGame(_ sender: UIButton) {
         AppViewController.shared.pushToCreateNewGameScreen()
@@ -103,9 +104,6 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToEditIssueScreen()
     }
 
-    @IBAction func onClickStartGameButton(_ sender: Any) {
-            AppViewController.shared.pushToCreateNewGameScreen()
-    }
     @IBAction func onClickLoginButton(_ sender: Any) {
 
         AppViewController.shared.pushToSignInScreen()
