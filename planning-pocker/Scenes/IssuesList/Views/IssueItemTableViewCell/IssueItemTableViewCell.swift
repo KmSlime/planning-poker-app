@@ -57,7 +57,6 @@ class IssueItemTableViewCell: UITableViewCell {
         backView.layer.shadowOpacity = 0.1
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
-        didDelete?(self)
     }
 
     // MARK: - Actions
@@ -77,7 +76,7 @@ class IssueItemTableViewCell: UITableViewCell {
     }
 
     @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
-        
+        didDelete?(self)
     }
 }
 // MARK: - protocols

@@ -166,7 +166,6 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
         print(indexPath)
 //        listIssue[indexPath].status = true
 
-
         print("Delegate from click vote button")
     }
 }

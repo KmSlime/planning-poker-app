@@ -52,7 +52,7 @@ class WelcomeViewController: UIViewController {
 
         // set properties for Start Poker Planning Game Button
         startPokerPlanningGameButton.layer.cornerRadius = 5
-        if userDefaults.object(forKey: "name") != nil {
+        if userDefaults.object(forKey: "id") != nil {
             goToTheLoginButton.isHidden = true
             leftMenuButton.isHidden = false
         } else {
@@ -62,6 +62,14 @@ class WelcomeViewController: UIViewController {
     }
 
     // MARK: - Actions
+
+    @IBAction func onClickStartGameButton(_ sender: Any) {
+        if userDefaults.object(forKey: "id") != nil {
+            AppViewController.shared.pushToCreateNewGameScreen()
+        } else {
+            AppViewController.shared.pushToSignInScreen()
+        }
+    }
     // For DELETE
     @IBAction func createNewGame(_ sender: UIButton) {
         AppViewController.shared.pushToCreateNewGameScreen()
@@ -96,9 +104,6 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToEditIssueScreen()
     }
 
-    @IBAction func onClickStartGameButton(_ sender: Any) {
-            AppViewController.shared.pushToCreateNewGameScreen()
-    }
     @IBAction func onClickLoginButton(_ sender: Any) {
 
         AppViewController.shared.pushToSignInScreen()

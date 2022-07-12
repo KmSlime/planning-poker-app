@@ -36,7 +36,7 @@ class LeftMenuViewController: UIViewController {
                                  LeftMenuModel(icon: UIImage(named: "icon_setting.png")!, title: "My Account"),
                                  LeftMenuModel(icon: UIImage(named: "icon_contact.png")!, title: "Contact us"),
                                  LeftMenuModel(icon: UIImage(named: "icon_support.png")!, title: "Support"),
-                                 LeftMenuModel(icon: UIImage(named: "icon_signout.png")!, title: "Sign out"),]
+                                 LeftMenuModel(icon: UIImage(named: "icon_signout.png")!, title: "Sign out")]
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,14 +20,17 @@ class SignInViewController: UIViewController {
     var messages: String?
     var status: Bool?
     var textFieldName: String?
-    var arrayEmailValid: [String] = ["kunhan1212@gmail.com", "lele@exit.com"]
-    var arrayPasswordValid: [String] = ["Kunhan@1212"]
-    var arrayName: [String] = ["Hiep", "lalala"]
+    var arrayEmailValid: [String] = ["trong@gmail.com"]
+    var arrayPasswordValid: [String] = ["Trong123@"]
+    var arrayName: [String] = ["Hiep"]
     // MARK: - Overrides
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        onClickCreateAccountButton()
     }
 
     // MARK: - Properties
@@ -38,23 +41,14 @@ class SignInViewController: UIViewController {
 
     func onClickCreateAccountButton() {
         let createAccountLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.goToSignUp(recognizer:)))
-        signInLabel.isUserInteractionEnabled = true
-        signInLabel.addGestureRecognizer(createAccountLabelOnClick)
+        createAccountLabel.isUserInteractionEnabled = true
+        createAccountLabel.addGestureRecognizer(createAccountLabelOnClick)
     }
 
     @objc func goToSignUp(recognizer: UIGestureRecognizer) {
         if recognizer.state == .ended {
             AppViewController.shared.pushToSignUpScreen()
         }
-
-//        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
-//                               method: .post,
-//                               parameters: ["emailAddress": "email", "password": "password"],
-//                               contentType: .urlFormEncoded)
-//        
-//        APIRequest.shared.request(router: router) { error, response in
-//        
-//        }
     }
 
     @objc func keyboardAppear(notification: NSNotification) {
@@ -71,25 +65,35 @@ class SignInViewController: UIViewController {
         let contentInset = UIEdgeInsets.zero
         signInScrollView.contentInset = contentInset
     }
-
-    func checkFields() -> Bool {
-        if emailTextField.text != "", passwordTextField.text != "" {
-            if emailTextField.text?.isValidEmail != nil, passwordTextField.text?.isCorrectFormatPassword != nil {
-                showAlert(title: "Notify", message: "Invalid email or password")
-                return true
-            } else {
-                showAlert(title: "Notify", message: "Login successfully")
-                return false
+    // MARK: - API Called
+    func signInCallAPI() {
+        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
+                               method: .post,
+                               parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
+                               contentType: .applicationJson)
+        APIRequest.shared.request(router: router) { error, response in
+            guard error == nil else {
+                print("error calling POST")
+                print(error!)
+                return
             }
-        } else if emailTextField.text == "", passwordTextField.text != "" {
-            showAlert(title: "Notify", message: "Please enter valid email ")
-            return false
-        } else if emailTextField.text != "", passwordTextField.text == "" {
-            showAlert(title: "Notify", message: "Please enter valid password")
-            return false
-        } else {
-            showAlert(title: "Notify", message: "Please enter email and password")
-            return false
+            var message = response?.dictionary?["error"]?.stringValue ?? "Log: Else Case!!"
+            print(message as Any)
+            if message == "Unauthorized" {
+                AppViewController.shared.showAlert(tittle: "Notification", message: "Invalid email or password.")
+                return
+            } else {
+                guard let id = response?.dictionary?["id"] as? Any,
+                let email = response?.dictionary?["email"] as? Any,
+                let displayName = response?.dictionary?["displayName"] as? Any else {
+                    return
+                }
+                userDefaults.set(id, forKey: "id")
+                userDefaults.set(email, forKey: "email")
+                userDefaults.set(displayName, forKey: "fullName")
+                AppViewController.shared.pushToWelcomeScreen()
+            }
+            
         }
     }
 
@@ -120,14 +124,7 @@ class SignInViewController: UIViewController {
             let message = hasErrorStatus().messages
             showAlert(title: title, message: message)
         } else {
-            if isExistEmail() == true, isExistPassword() == true {
-                userDefaults.set(1, forKey: "id")
-                userDefaults.set(arrayName[1], forKey: "name")
-                userDefaults.set(emailTextField.text!, forKey: "email")
-                AppViewController.shared.pushToWelcomeScreen()
-            } else {
-                showAlert(title: "Notification", message: "Invalid email or password")
-            }
+            signInCallAPI()
         }
     }
 
@@ -152,20 +149,16 @@ extension SignInViewController {
 
     // MARK: - Check exist email
     private func isExistEmail() -> Bool {
-        for email in arrayEmailValid {
-            if emailTextField.text == email {
+        for email in arrayEmailValid where emailTextField.text == email {
                 return true
             }
-        }
         return false
     }
 
     private func isExistPassword() -> Bool {
-        for password in arrayPasswordValid {
-            if passwordTextField.text == password {
+        for password in arrayPasswordValid where passwordTextField.text == password {
                 return true
             }
-        }
         return false
     }
 
