@@ -106,7 +106,7 @@ class CreateNewGameViewController: UIViewController {
             
             let idMainPlayer = userDefaults.value(forKey: "id") as? Int
             let nameMainPlayer = userDefaults.value(forKey: "fullName") as? String
-            mainPlayer = PlayerModel(id: idMainPlayer!, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // Nghia sau nay thay cai nay bang default user
+            mainPlayer = PlayerModel(id: idMainPlayer ?? 0, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // Nghia sau nay thay cai nay bang default user
             print(mainPlayer as Any)
             
             newRoom = RoomModel(roomName: gameName!, roomId: 1, cards: cardData!, mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!

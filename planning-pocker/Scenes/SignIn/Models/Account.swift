@@ -9,26 +9,14 @@ import Foundation
 
 class Account {
     
-    private var userId: Int?
     private var userEmail: String?
     private var userPassword: String?
-    private var userFullName: String?
     
-    init(id: Int, email:  String, password: String, fullName: String) {
-        self.userId = id
+    init(email: String, password: String) {
         self.userEmail = email
         self.userPassword = password
-        self.userFullName = fullName
     }
     
-    public var id: Int? {
-        get {
-            return self.userId!
-        }
-        set {
-            return self.userId = newValue
-        }
-    }
 
     public var email: String {
         get {
@@ -45,15 +33,6 @@ class Account {
         }
         set {
             return self.userPassword = newValue
-        }
-    }
-
-    public var fullName: String {
-        get {
-            return self.userFullName!
-        }
-        set {
-            return self.userFullName = newValue
         }
     }
 

@@ -132,9 +132,15 @@ extension IssuesListViewController: UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
-            cell.delegate = self
             cell.setValueCell(issueModel: listIssue[indexPath.row])
             cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
+            cell.deleteIssue = { issue in
+//                self.listIssue.remove(at: issueModel)
+//                self.issuesListTableView.reloadData()
+            }
+            cell.voteIssue = { issue in
+                
+            }
             return cell
         }
     }
@@ -160,12 +166,3 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
     }
 }
 
-extension IssuesListViewController: IssueItemTableViewCellDelegate {
-    func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
-        var indexPath = issuesListTableView.indexPathForRow(at: )
-        print(indexPath)
-//        listIssue[indexPath].status = true
-
-        print("Delegate from click vote button")
-    }
-}
