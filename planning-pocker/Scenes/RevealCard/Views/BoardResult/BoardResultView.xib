@@ -18,10 +18,10 @@
                     <rect key="frame" x="10" y="54" width="660" height="334"/>
                 </stackView>
                 <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GI-Ql-bl1">
-                    <rect key="frame" x="265" y="184" width="150" height="40"/>
+                    <rect key="frame" x="250" y="184" width="180" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="K7d-4y-ljE"/>
-                        <constraint firstAttribute="width" constant="150" id="TLT-m0-Dl8"/>
+                        <constraint firstAttribute="width" constant="180" id="TLT-m0-Dl8"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="New Voting">
@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upt-fw-CCR">
-                    <rect key="frame" x="265" y="184" width="150" height="40"/>
+                    <rect key="frame" x="250" y="184" width="180" height="40"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Start new votting">
                         <backgroundConfiguration key="background" cornerRadius="5">

@@ -72,6 +72,7 @@
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
+		917AD444287ECD0B00399193 /* IssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AD443287ECD0900399193 /* IssueDetailModel.swift */; };
 		917FCF7C287C28C100E1ACD2 /* CustomDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */; };
 		917FCF7D287C28C100E1ACD2 /* VotingSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */; };
 		917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */; };
@@ -182,6 +183,7 @@
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		917AD443287ECD0900399193 /* IssueDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IssueDetailModel.swift; path = "planning-pocker/Scenes/RevealCard/ViewControllers/IssueDetailModel.swift"; sourceTree = SOURCE_ROOT; };
 		917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDeskViewController.swift; sourceTree = "<group>"; };
 		917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingSystemCell.xib; sourceTree = "<group>"; };
 		917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
@@ -427,7 +429,6 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				91F45968287D2B41009265D1 /* RevealCard */,
 				BAD51B262861B50D002961A7 /* ChooseCard */,
 				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
@@ -435,6 +436,7 @@
 				155264E4286B154F0038ABDF /* IssuesList */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
+				91F45968287D2B41009265D1 /* RevealCard */,
 				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
@@ -595,6 +597,7 @@
 		910317AB286BE7EE00BAE25C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				917AD443287ECD0900399193 /* IssueDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1204,6 +1207,7 @@
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
+				917AD444287ECD0B00399193 /* IssueDetailModel.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,

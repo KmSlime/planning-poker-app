@@ -65,7 +65,7 @@ class IssuesListViewController: UIViewController {
     }
     
     private func getDataIssueList() {
-        gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
+        gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7"
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -116,7 +116,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            print("Print something from didSelectRowAt")
+            AppViewController.shared.pushToEditIssueScreen()
         }
     }
 }
@@ -137,9 +137,6 @@ extension IssuesListViewController: UITableViewDataSource {
             cell.deleteIssue = { issue in
 //                self.listIssue.remove(at: issueModel)
 //                self.issuesListTableView.reloadData()
-            }
-            cell.voteIssue = { issue in
-                
             }
             return cell
         }

@@ -53,6 +53,8 @@ class IssueDetailViewController: UIViewController {
     var placeholderTitleContentLabel: UILabel!
 
     var placeholderDescriptionContentLabel: UILabel!
+    
+    var id: String?
 
     // MARK: - Overrides
 
@@ -118,6 +120,12 @@ class IssueDetailViewController: UIViewController {
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
 
+    }
+    func showDetailIssueCallAPI() {
+        id = "2"
+        let path = APIPath.Auth.getIssueDetail.rawValue + "\(id ?? "0")"
+        let getIssueDetailRouter = APIRouter(path: path, method: .get, parameters: [:], contentType: .urlFormEncoded)
+        //APIRequest.shared.re
     }
 
 }
