@@ -108,14 +108,15 @@ class CreateNewGameViewController: UIViewController {
                 [weak self] error, response in
                 var message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
-                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomId: message, userId: userDefaults.integer(forKey: "id"))
+                    
+                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData)
                 } else { print(message) }
             }
         }
     }
 
     @IBAction func joinGame(_ sender: Any) {
-        SocketIOManager.sharedInstance.enterJoinRoom(roomId: "BG852lKCXhI5CcxkJ8Ir1leJr", userId: Int.random(in: 1 ... 1000))
+        AppViewController.shared.pushToJoinRoom()
     }
 
     @IBAction func showDropdownList(_ sender: Any) {

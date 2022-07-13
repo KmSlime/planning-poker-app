@@ -21,6 +21,7 @@ protocol Navigator {
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
+    func pushToJoinRoom()
     
     //MARK: - POP
     func popToPreviousScreen()
@@ -89,6 +90,11 @@ extension AppViewController: Navigator {
     func pushToCreateCustomDesk() {
         let customDeskVC = CustomDeskViewController()
         navigationController?.pushViewController(customDeskVC, animated: true)
+    }
+    
+    func pushToJoinRoom() {
+        let joinRoomVC = JoinRoomViewController()
+        navigationController?.pushViewController(joinRoomVC, animated: true)
     }
     
     

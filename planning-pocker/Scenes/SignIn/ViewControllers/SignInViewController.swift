@@ -67,25 +67,29 @@ class SignInViewController: UIViewController {
     }
     // MARK: - API Called
     func signInCallAPI() {
-        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
-                               method: .post,
-                               parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
-                               contentType: .applicationJson)
-        APIRequest.shared.request(router: router) { error, response in
-            guard error == nil else {
-                print("error calling POST")
-                print(error!)
-                return
-            }
-            var message = response?.dictionary?["error"]?.stringValue ?? "Log: Else Case!!"
-            print(message as Any)
-            if message == "Unauthorized" {
-                AppViewController.shared.showAlert(tittle: "Notification", message: "Invalid email or password.")
-                return
-            } else {
-                guard let id = response?.dictionary?["id"] as? Any,
-                let email = response?.dictionary?["email"] as? Any,
-                let displayName = response?.dictionary?["displayName"] as? Any else {
+            let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
+                                   method: .post,
+                                   parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
+                                   contentType: .applicationJson)
+            APIRequest.shared.request(router: router) { error, response in
+                guard error == nil else {
+                    print("error calling POST")
+                    print(error!)
+                    switch (error?.code ?? 0) {
+                    case 401:
+                        self.showAlert(title: "Notification", message: "Invalid email or password")
+                        break
+                    case 404:
+                        self.showAlert(title: "Notification", message: "System error")
+                        break
+                    default:
+                        break
+                    }
+                    return
+                }
+                guard let id = response?["id"].int,
+                      let email = response?["email"].string,
+                      let displayName = response?["displayName"].string else {
                     return
                 }
                 userDefaults.set(id, forKey: "id")
@@ -93,9 +97,7 @@ class SignInViewController: UIViewController {
                 userDefaults.set(displayName, forKey: "fullName")
                 AppViewController.shared.pushToWelcomeScreen()
             }
-            
         }
-    }
 
     // MARK: - Private
 

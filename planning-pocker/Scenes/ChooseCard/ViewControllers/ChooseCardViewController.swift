@@ -12,6 +12,7 @@ import MaterialComponents.MaterialSnackbar
 
 class ChooseCardViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet weak var chooseCardLabel: UILabel!
     @IBOutlet weak var groupOtherPlayers: UIView!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var issueNameLabel: UILabel!
@@ -34,7 +35,7 @@ class ChooseCardViewController: UIViewController {
     var isHostExist: Bool?
     var room: RoomModel!
     var gameInfo: GameModel!
-
+    var isLockCardToSelect = false
     // identify for collection view cell
     struct TableView {
         struct CellIdentifiers {
@@ -59,6 +60,8 @@ class ChooseCardViewController: UIViewController {
         updateOtherPlayer()
         updateOtherPlayerSelectCard()
         updateOtherPlayerRemovedCard()
+        updateCardToSelect()
+        updateBoardInfo()
     }
 
     // MARK: - Publics
@@ -68,7 +71,7 @@ class ChooseCardViewController: UIViewController {
         SocketIOManager.sharedInstance.updateOtherPlayers { (listUserIds) -> Void in
             self.room.otherPlayers.removeAll()
             for id in listUserIds {
-                self.room.otherPlayers.append(PlayerModel(id: id, name: "Player " + id, roomId: self.room.roomId, role: PlayerRole.member))
+                self.room.otherPlayers.append(PlayerModel(id: id, name: "Player " + id, roomUrl: self.room.roomUrl, role: PlayerRole.member))
             }
             self.showInvitePlayer()
             SnackBar.showSnackBar(message: "Room changed", color: UIColor(hexString: "#5bc0de"))
@@ -91,6 +94,21 @@ class ChooseCardViewController: UIViewController {
             }
         }
     }
+    private func updateCardToSelect() {
+        SocketIOManager.sharedInstance.lockSelectCard { (isLock) -> Void in
+            self.isLockCardToSelect = isLock
+            self.listCardToSelectCollectionView.allowsSelection = self.isLockCardToSelect
+            self.chooseCardLabel.text = "Counting votes..."
+            self.listCardToSelectCollectionView.reloadData()
+            
+        }
+    }
+    private func updateBoardInfo() {
+        SocketIOManager.sharedInstance.showCountDown {
+            self.boardInfoView.showCountDownText()
+        }
+    }
+    
     private func setupIdentifier() { // register xib file for cell of collection view
         listCardToSelectCollectionView.register(UINib(nibName: TableView.CellIdentifiers.cardToSelect,
                                                       bundle: nil),
@@ -138,7 +156,7 @@ class ChooseCardViewController: UIViewController {
         leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
     }
     @IBAction func invitePlayerButton(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayerScreen(url: "game.getLinkRoom()")
+        AppViewController.shared.pushToInvitePlayerScreen(url: room.roomUrl)
     }
 }
 
@@ -161,12 +179,15 @@ extension ChooseCardViewController: UICollectionViewDataSource {
                                                           for: indexPath) as? CardToSelectCollectionViewCell
             cell?.config(name: room.cards[indexPath.row])
             cell?.configSelect(isSelected: (selectedIndex == room.cards[indexPath.row]) ?  true : false)
+            
+            cell?.configLock(isLock: isLockCardToSelect, isSelected: (self.selectedIndex == self.room.cards[indexPath.row]) ?  true : false)
             return cell!
         } else if collectionView == self.cardMainPlayerCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableView.CellIdentifiers.cardMainPlayer,
                                                           for: indexPath) as? CardMainPlayerCollectionViewCell
             cell?.config(name: room.mainPlayer.name)
             cell?.configSelect(isSelected: (selectedIndex != nil) ?  true : false)
+            
             return cell!
         } else if collectionView == self.listCardOtherPlayersCollectionView {
             let cell = collectionView.dequeueReusableCell(
@@ -188,7 +209,7 @@ extension ChooseCardViewController: UICollectionViewDelegate {
                 SocketIOManager.sharedInstance.removeCard(userId: room.mainPlayer.id)
             } else {
                 selectedIndex = room.cards[indexPath.row]
-                SocketIOManager.sharedInstance.selectCard(userId: room.mainPlayer.id,  selectedIndex: room.cards[indexPath.row])
+                SocketIOManager.sharedInstance.selectCard(userId: room.mainPlayer.id, selectedIndex: room.cards[indexPath.row])
             }
             listCardToSelectCollectionView.reloadData()
             cardMainPlayerCollectionView.reloadData()
