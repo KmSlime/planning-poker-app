@@ -30,7 +30,7 @@ class IssuesListViewController: UIViewController {
     var sumAveragePoint: String?
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
-
+    var id: Int?
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -92,6 +92,12 @@ class IssuesListViewController: UIViewController {
                 ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
         }
+    }
+    private func deleteIssue() {
+        id = 2
+        
+        //let path = APIPath.Auth.deleteIssue.rawValue + (id as? String?)
+        //let getDeleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .applicationJson)
     }
 
     // MARK: - Actions

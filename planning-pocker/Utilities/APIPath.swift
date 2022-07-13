@@ -12,5 +12,6 @@ enum APIPath {
         case createNewGame = "/api/poker/createNamePoker"
         case getIssueList = "/api/issue/showIssue/"
         case getIssueDetail = "/api/issue/detail/"
+        case deleteIssue = "/api/issue/"
     }
 }
