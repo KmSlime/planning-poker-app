@@ -8,9 +8,11 @@
 import UIKit
 import SocketIO
 import SwiftUI
+import MaterialComponents.MaterialSnackbar
 
 class ChooseCardViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet weak var chooseCardLabel: UILabel!
     @IBOutlet weak var groupOtherPlayers: UIView!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var issueNameLabel: UILabel!
@@ -29,12 +31,11 @@ class ChooseCardViewController: UIViewController {
     @IBOutlet weak var listCardOtherPlayersCollectionView: UICollectionView!
     @IBOutlet weak var cardMainPlayerCollectionView: UICollectionView!
     // MARK: - Properties
-    let socketManager = SocketIOManager()
     var selectedIndex: String?
     var isHostExist: Bool?
     var room: RoomModel!
     var gameInfo: GameModel!
-
+    var isLockCardToSelect = false
     // identify for collection view cell
     struct TableView {
         struct CellIdentifiers {
@@ -52,13 +53,62 @@ class ChooseCardViewController: UIViewController {
         listCardToSelectCollectionView.delegate = self
         listCardOtherPlayersCollectionView.dataSource = self
         cardMainPlayerCollectionView.dataSource = self
-        setupFakeData()
         setupUI()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateOtherPlayer()
+        updateOtherPlayerSelectCard()
+        updateOtherPlayerRemovedCard()
+        updateCardToSelect()
+        updateBoardInfo()
     }
 
     // MARK: - Publics
 
     // MARK: - Private
+    private func updateOtherPlayer() {
+        SocketIOManager.sharedInstance.updateOtherPlayers { (listUserIds) -> Void in
+            self.room.otherPlayers.removeAll()
+            for id in listUserIds {
+                self.room.otherPlayers.append(PlayerModel(id: id, name: "Player " + id, roomUrl: self.room.roomUrl, role: PlayerRole.member))
+            }
+            self.showInvitePlayer()
+            SnackBar.showSnackBar(message: "Room changed", color: UIColor(hexString: "#5bc0de"))
+            self.listCardOtherPlayersCollectionView.reloadData()
+        }
+    }
+    private func updateOtherPlayerSelectCard() {
+        SocketIOManager.sharedInstance.updateCard { (userId) -> Void in
+            for player in self.room.otherPlayers where player.id == userId {
+                    player.isSelectedCard = true
+                    self.listCardOtherPlayersCollectionView.reloadData()
+            }
+        }
+    }
+    private func updateOtherPlayerRemovedCard() {
+        SocketIOManager.sharedInstance.updateCardRemoved { (userId) -> Void in
+            for player in self.room.otherPlayers where player.id == userId {
+                player.isSelectedCard = false
+                self.listCardOtherPlayersCollectionView.reloadData()
+            }
+        }
+    }
+    private func updateCardToSelect() {
+        SocketIOManager.sharedInstance.lockSelectCard { (isLock) -> Void in
+            self.isLockCardToSelect = isLock
+            self.listCardToSelectCollectionView.allowsSelection = self.isLockCardToSelect
+            self.chooseCardLabel.text = "Counting votes..."
+            self.listCardToSelectCollectionView.reloadData()
+            
+        }
+    }
+    private func updateBoardInfo() {
+        SocketIOManager.sharedInstance.showCountDown {
+            self.boardInfoView.showCountDownText()
+        }
+    }
+    
     private func setupIdentifier() { // register xib file for cell of collection view
         listCardToSelectCollectionView.register(UINib(nibName: TableView.CellIdentifiers.cardToSelect,
                                                       bundle: nil),
@@ -71,29 +121,9 @@ class ChooseCardViewController: UIViewController {
                                                     bundle: nil),
                                               forCellWithReuseIdentifier: TableView.CellIdentifiers.cardMainPlayer)
     }
-    private func setupFakeData() {
-        let dataCard = room.cards
-        let mainPlayer = PlayerModel(id: 1, name: "nghia", roomId: 1, role: PlayerRole.host)
-        let otherPlayers: [PlayerModel] = [  PlayerModel(id: 1, name: "Player A", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 2, name: "Player B", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 3, name: "Player C", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 4, name: "Player D", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 5, name: "Player E", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member),
-           PlayerModel(id: 6, name: "Player F", roomId: 1, role: PlayerRole.member)
-        ]
-//        let otherPlayers : [PlayerModel] =  []
-//        self.room = roomModel(roomName: "NewRoom", roomId: 1, cards: dataCard, mainPlayer: mainPlayer, otherPlayers: otherPlayers)
-       
-        //test receive
-        print("Log ChooseCard: \(gameInfo.url ?? "fail! Don't have URL")")
-        setupUI()
-    }
     private func setupUI() { // load view every time data changed
         setupTitleRoom()
         setupTitleIssue(isShow: false)
-        setupOtherPlayer()
         setupLeftMenu()
     }
     private func setupTitleRoom() { // set room name
@@ -107,12 +137,12 @@ class ChooseCardViewController: UIViewController {
             issueNameLabel.isHidden = true
         }
     }
-    private func setupOtherPlayer() { // check other players in room, else show Invite player
+    private func showInvitePlayer() { // check other players in room, else show Invite player
         guard let foundEmptyList = groupOtherPlayers.viewWithTag(101),
               let foundList = groupOtherPlayers.viewWithTag(102)
         else { return }
-        foundEmptyList.isHidden = (room.isEmptyOtherPlayers() == true ? false : true)
-        foundList.isHidden =  (room.isEmptyOtherPlayers() == true ? true : false)
+        foundEmptyList.isHidden = (room.otherPlayers.isEmpty == true ? false : true)
+        foundList.isHidden =  (room.otherPlayers.isEmpty == true ? true : false)
     }
     private func setupBoardInfo() {
         boardInfoView.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
@@ -126,7 +156,7 @@ class ChooseCardViewController: UIViewController {
         leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
     }
     @IBAction func invitePlayerButton(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayerScreen()
+        AppViewController.shared.pushToInvitePlayerScreen(url: room.roomUrl)
     }
 }
 
@@ -149,19 +179,22 @@ extension ChooseCardViewController: UICollectionViewDataSource {
                                                           for: indexPath) as? CardToSelectCollectionViewCell
             cell?.config(name: room.cards[indexPath.row])
             cell?.configSelect(isSelected: (selectedIndex == room.cards[indexPath.row]) ?  true : false)
+            
+            cell?.configLock(isLock: isLockCardToSelect, isSelected: (self.selectedIndex == self.room.cards[indexPath.row]) ?  true : false)
             return cell!
         } else if collectionView == self.cardMainPlayerCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableView.CellIdentifiers.cardMainPlayer,
                                                           for: indexPath) as? CardMainPlayerCollectionViewCell
             cell?.config(name: room.mainPlayer.name)
             cell?.configSelect(isSelected: (selectedIndex != nil) ?  true : false)
+            
             return cell!
         } else if collectionView == self.listCardOtherPlayersCollectionView {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TableView.CellIdentifiers.cardOtherPlayer,
                 for: indexPath) as? CardOtherPlayersCollectionViewCell
             cell?.config(name: room.otherPlayers[indexPath.row].name)
-            cell?.configSelect(isSelected: true)
+            cell?.configSelect(isSelected: room.otherPlayers[indexPath.row].isSelectedCard ? true : false)
             return cell!
         }
         return UICollectionViewCell()
@@ -171,7 +204,13 @@ extension ChooseCardViewController: UICollectionViewDataSource {
 extension ChooseCardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.listCardToSelectCollectionView {
-            selectedIndex = (room.cards[indexPath.row] == selectedIndex ? nil : room.cards[indexPath.row])
+            if room.cards[indexPath.row] == selectedIndex {
+                selectedIndex = nil
+                SocketIOManager.sharedInstance.removeCard(userId: room.mainPlayer.id)
+            } else {
+                selectedIndex = room.cards[indexPath.row]
+                SocketIOManager.sharedInstance.selectCard(userId: room.mainPlayer.id, selectedIndex: room.cards[indexPath.row])
+            }
             listCardToSelectCollectionView.reloadData()
             cardMainPlayerCollectionView.reloadData()
             setupBoardInfo()

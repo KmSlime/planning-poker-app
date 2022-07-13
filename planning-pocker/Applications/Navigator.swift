@@ -14,13 +14,14 @@ protocol Navigator {
     func pushToSignUpScreen()
     func pushToCreateNewGameScreen()
     func pushToChooseCardScreen(newRoomModel: RoomModel?, gameInfo: GameModel?)
-    func pushToInvitePlayerScreen()
+    func pushToInvitePlayerScreen(url: String)
     func pushToCreateIssue()
     func pushToShowIssueListScreen(url: String?)
     func pushToEditIssueScreen()
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
+    func pushToJoinRoom()
     
     //MARK: - POP
     func popToPreviousScreen()
@@ -56,9 +57,9 @@ extension AppViewController: Navigator {
         let createNewGameVC = CreateNewGameViewController()
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
-    
-    func pushToInvitePlayerScreen() {
+    func pushToInvitePlayerScreen(url: String) {
         let invitePlayerVC = InvitePlayerViewController()
+        invitePlayerVC.url = url
         navigationController?.pushViewController(invitePlayerVC, animated: true)
     }
     
@@ -79,15 +80,6 @@ extension AppViewController: Navigator {
     }
     
     func pushToLeftMenu() {
-        let leftMenuVC = LeftMenuViewController()
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        leftMenuVC.modalPresentationStyle = .overFullScreen
-        present(leftMenuVC, animated: true, completion: nil)
     }
     
     func pushToSignOut() {
@@ -98,6 +90,11 @@ extension AppViewController: Navigator {
     func pushToCreateCustomDesk() {
         let customDeskVC = CustomDeskViewController()
         navigationController?.pushViewController(customDeskVC, animated: true)
+    }
+    
+    func pushToJoinRoom() {
+        let joinRoomVC = JoinRoomViewController()
+        navigationController?.pushViewController(joinRoomVC, animated: true)
     }
     
     

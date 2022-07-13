@@ -60,6 +60,10 @@ class SignUpViewController: UIViewController {
                                      contentType: .applicationJson)
         APIRequest.shared.request(router: routerSignUp) { [weak self] error, response in
             var message = response?.dictionary?["message"]?.stringValue ?? "Log: Else Case!!"
+            print(error)
+            guard error == nil else {
+                return
+            }
             // kiiii@gmail.com
             print(message as Any)
             // MARK: - Check exist email

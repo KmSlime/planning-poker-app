@@ -39,10 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        if AuthenticationService.shared.authenticated && AppDelegate.shared.isInternetAvailable {
 //            connectSocket()
 //        }
+        connectSocket()
     }
 
     private func connectSocket() {
-        SocketIOManager.sharedInstance.connectSocket { status in
+        SocketIOManager.sharedInstance.connectSocket{ status in
             print("Socket status: \(status)")
         }
     }

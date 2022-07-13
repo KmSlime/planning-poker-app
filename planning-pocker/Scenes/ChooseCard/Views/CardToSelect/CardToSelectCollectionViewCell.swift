@@ -38,6 +38,18 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
             numberLabel.textColor = UIColor(hexString: "#80D5F3")
         }
     }
+    
+    func configLock(isLock: Bool, isSelected: Bool) {
+        if isLock && isSelected {
+            contentView.layer.borderColor = UIColor(hexString: "#a8aeb2").cgColor
+            contentView.layer.backgroundColor = UIColor(hexString: "#a8aeb2").cgColor
+            numberLabel.textColor = .white
+        } else if (isLock == true && isSelected == false) {
+            contentView.layer.borderColor = UIColor(hexString: "#a8aeb2").cgColor
+            contentView.layer.backgroundColor = UIColor.white.cgColor
+            numberLabel.textColor = UIColor(hexString: "#a8aeb2")
+        }
+    }
 
     // MARK: - Private
 

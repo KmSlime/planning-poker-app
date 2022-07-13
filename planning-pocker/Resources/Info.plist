@@ -2,8 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>Poppins-Bold.ttf</key>
 	<string>Poppins-Bold.ttf</string>
 	<key>Poppins-ExtraBold.ttf</key>
@@ -22,6 +25,8 @@
 	<string>Poppins-Regular.ttf</string>
 	<key>Poppins-SemiBold.ttf</key>
 	<string>Poppins-SemiBold.ttf</string>
+	<key>UIAppFonts</key>
+	<array/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -41,5 +46,10 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

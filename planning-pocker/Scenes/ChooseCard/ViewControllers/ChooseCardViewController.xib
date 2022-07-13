@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="boardInfoView" destination="UiQ-2c-Fuh" id="St5-on-Xrb"/>
                 <outlet property="cardMainPlayerCollectionView" destination="gWY-S9-zCf" id="apH-K8-nMC"/>
+                <outlet property="chooseCardLabel" destination="qRm-Aa-Mkl" id="BNi-uX-N7f"/>
                 <outlet property="gameNameLabel" destination="gKu-3j-fr2" id="Nkg-Es-ICr"/>
                 <outlet property="groupOtherPlayers" destination="MjW-h6-wxy" id="L4r-Uy-YFF"/>
                 <outlet property="issueNameLabel" destination="f8q-xp-QOA" id="31s-KT-ZX4"/>

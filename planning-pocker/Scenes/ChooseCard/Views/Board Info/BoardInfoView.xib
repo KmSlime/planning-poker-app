@@ -52,19 +52,30 @@
                         <action selector="revealButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="0AR-2I-c9b"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR1-TE-GQS" userLabel="Count Down">
+                    <rect key="frame" x="0.0" y="44" width="680" height="320"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <color key="textColor" red="0.0" green="0.66666666666666663" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.82745098039215681" green="0.92549019607843142" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8Z8-EC-2ar" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="Cel-Gm-Mvc"/>
                 <constraint firstItem="8Z8-EC-2ar" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="MJf-MC-H0O"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lR1-TE-GQS" secondAttribute="trailing" id="PAp-hv-dO3"/>
                 <constraint firstAttribute="bottom" secondItem="8Z8-EC-2ar" secondAttribute="bottom" constant="10" id="PM5-qj-3dj"/>
+                <constraint firstItem="lR1-TE-GQS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="SxJ-Ia-MSc"/>
                 <constraint firstItem="9Re-GY-mzi" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="V5w-Or-IY8"/>
                 <constraint firstItem="9Re-GY-mzi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VKW-38-Icv"/>
+                <constraint firstItem="lR1-TE-GQS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Xcc-dQ-78C"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lR1-TE-GQS" secondAttribute="bottom" id="Ztw-3Q-kyk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Z8-EC-2ar" secondAttribute="trailing" constant="10" id="ng3-r1-mDm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="countDownLabel" destination="lR1-TE-GQS" id="TDX-HH-Ov4"/>
                 <outlet property="notiPickStack" destination="8Z8-EC-2ar" id="Wy9-So-JO7"/>
             </connections>
             <point key="canvasLocation" x="324.63768115942031" y="-84.375"/>

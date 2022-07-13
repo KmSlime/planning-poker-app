@@ -71,7 +71,7 @@ class LeftMenuViewController: UIViewController {
     }
     // MARK: - Function
     @objc func invitePlayer() {
-        AppViewController.shared.pushToInvitePlayerScreen()
+        AppViewController.shared.pushToInvitePlayerScreen(url: "")
     }
 }
 
