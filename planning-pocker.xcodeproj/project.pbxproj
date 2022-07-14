@@ -430,15 +430,15 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				943FAA92287E85CE0018043F /* JoinRoom */,
-				91F45968287D2B41009265D1 /* RevealCard */,
 				BAD51B262861B50D002961A7 /* ChooseCard */,
 				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
 				94CC624A28695A7A0029674B /* Invite Player */,
 				155264E4286B154F0038ABDF /* IssuesList */,
+				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
+				91F45968287D2B41009265D1 /* RevealCard */,
 				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
@@ -1350,12 +1350,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "planning-pocker/planning-pocker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6NVR2826P;
+				DEVELOPMENT_TEAM = 685JD8K6XW;
+				ENABLE_USER_SELECTED_FILES = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "planning-pocker";
+				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1370,6 +1372,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.visikard.planning-pocker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1383,12 +1386,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "planning-pocker/planning-pocker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6NVR2826P;
+				DEVELOPMENT_TEAM = 685JD8K6XW;
+				ENABLE_USER_SELECTED_FILES = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "planning-pocker";
+				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

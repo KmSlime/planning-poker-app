@@ -30,7 +30,8 @@ protocol URLRequestConvertible {
 
 struct APIRouter: URLRequestConvertible {
     static var baseURL: String {
-        return "http://127.0.0.1:8080"
+        return "https://planning-poker.kardsys.com"
+//        return "http://127.0.0.1:8080"
     }
 
     var path: String

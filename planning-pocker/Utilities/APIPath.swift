@@ -9,7 +9,8 @@ enum APIPath {
     enum Auth: String {
         case signIn = "/api/auth/signin"
         case signUp = "/api/auth/signup"
-        case createNewGame = "/api/poker/create-name-poker"
-        case getIssueList = "/api/issue/list/"
+        case createNewGame = "/api/planning-poker/games"
+        case getIssueList = "/api/planning-poker/issues/showIssue/"
+        case voteIssue = "/api/issue/vote-issue/"
     }
 }
