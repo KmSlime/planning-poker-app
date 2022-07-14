@@ -37,16 +37,16 @@ class IssuesListViewController: UIViewController {
         super.viewDidLoad()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
-        getDataIssueList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        listIssue.removeAll()
+        getDataIssueList()
     }
         
     override func viewDidAppear(_ animated: Bool) {
-        issuesListTableView.reloadData()
+        countIssueLabel.text = String(listIssue.count) + " issues"
         setupUI()
-
     }
 
     // MARK: - Private
@@ -65,8 +65,8 @@ class IssuesListViewController: UIViewController {
     
     private func getDataIssueList() {
         // test api list already have issue
-        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
-        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
+//        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
+         gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -107,7 +107,7 @@ class IssuesListViewController: UIViewController {
             self!.issuesListTableView.reloadData()
         }
     }
-
+    
     // MARK: - Actions
     @IBAction func backToChooseCard(_ sender: Any) {
         AppViewController.shared.popToPreviousScreen()
@@ -130,7 +130,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            print("Print something from didSelectRowAt") // TODO: Hiep dung cai nay de goi api edit
+            AppViewController.shared.pushToEditIssueScreen()
         }
 
     }
@@ -151,7 +151,6 @@ extension IssuesListViewController: UITableViewDataSource {
             cell.indexOfIssue = indexPath.row
             cell.setValueCell(issueModel: listIssue[indexPath.row])
             cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
-
             return cell
         }
     }
@@ -167,11 +166,27 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            // TODO: Nghia goi api de them vao list
-            let newIssue = Issue(id: listIssue.count + 1, key: "PP-" + String(listIssue.count + 1), idGame: "1")
-            newIssue.title = item
-            listIssue.append(newIssue)
-            AppViewController.shared.popToPreviousScreen()
+            let routerCreateIssue = APIRouter(path: APIPath.Auth.createIssue.rawValue, method: .post, parameters: [
+                "title": item,
+               "url": gameUrl as? String,
+               "key": "PP-" + String(listIssue.count + 1)
+            ], contentType: .applicationJson)
+            APIRequest.shared.request(router: routerCreateIssue) { [weak self] error, response in
+                guard error == nil else {
+                    print("error calling POST")
+                    AppViewController.shared.showAlert(title: "Error", message: String(error?.code ?? 0))
+                    return
+                }
+                guard let id = response?["id"].int,
+                      let key = response?["key"].string,
+                      let title = response?["title"].string else {
+                    return
+                }
+                print(id)
+                print(key)
+                print(title)
+                AppViewController.shared.popToPreviousScreen()
+            }
         }
     }
 }
@@ -227,6 +242,12 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
 //
 //        }
         print("Delegate from click vote button")
+
+         if listIssue[indexOfIssueInTableView].issueVoteStatus! {
+            SocketIOManager.sharedInstance.voteIssue(issueTitle: listIssue[indexOfIssueInTableView].issueTitle!, issueId: listIssue[indexOfIssueInTableView].issueId!)
+        } else {
+            SocketIOManager.sharedInstance.disableVote() // on socket
+        }
 
     }
 }

@@ -118,9 +118,12 @@ class SocketIOManager: NSObject {
                     let roomUrl: String = jsonArray["roomUrl"]! as! String
                     let userId: String = jsonArray["userId"]! as! String
                     let cards: [String] = jsonArray["cardData"]! as! [String]
+                    let issueTitle: String = jsonArray["currentIssueTitle"]! as! String
                     let player = PlayerModel(id: userId, name: "Player " + userId, roomUrl: roomUrl, role: PlayerRole.host)
-                    let newGame = RoomModel(roomName: roomName, roomUrl: roomUrl, cards: cards, mainPlayer: player, otherPlayers: [])
-                    AppViewController.shared.pushToChooseCardScreen(newRoomModel: newGame)
+                    let newRoom = RoomModel(roomName: roomName, roomUrl: roomUrl, cards: cards, mainPlayer: player, otherPlayers: [])
+                    newRoom.currentIssue = issueTitle
+                    let newGame = GameModel(id: 1, name: roomName, url: roomUrl)
+                    AppViewController.shared.pushToChooseCardScreen(newRoomModel: newRoom, gameInfo: newGame)
                 } else {
                     print("bad json")
                 }
@@ -160,88 +163,8 @@ class SocketIOManager: NSObject {
         #endif
     }
     
-    
-    func updateOtherPlayers(completionHandler: @escaping (_ userIds: [String]) -> Void){
-        socket?.on("update-player"){ (dataArray, ack) in
-            print("xxx")
-            guard let data = dataArray[0] as? String else {
-                print("update-player fail")
-                return
-            }
-            let json = data.data(using: .utf8)!
-            do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? [Dictionary<String,Any>] {
-                    var listUserIds = [String]()
-                    for item in jsonArray {
-                        let userId: String = item["userId"]! as! String
-                        listUserIds.append(userId)
-                    }
-                    completionHandler(listUserIds)
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-    }
-    
-    func updateCard(completionHandler: @escaping (_ userId: String) -> Void) {
-        socket?.on("update-card"){ (dataArray, ack) in
-            guard let data = dataArray[0] as? String else {
-                print("update-card fail")
-                return
-            }
-            let json = data.data(using: .utf8)!
-            do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? Dictionary<String,Any> {
-                    let userId: String = jsonArray["userId"]! as! String
-                    completionHandler(userId)
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-    }
-    
-    func updateCardRemoved(completionHandler: @escaping (_ userId: String) -> Void) {
-        socket?.on("update-card-removed"){ (dataArray, ack) in
-            guard let data = dataArray[0] as? String else {
-                print("updated-card-removed fail")
-                return
-            }
-            let json = data.data(using: .utf8)!
-            do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? Dictionary<String,Any> {
-                    let userId: String = jsonArray["userId"]! as! String
-                    completionHandler(userId)
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-    }
-    
-    func revealCard() {
-        let dic: [String: Any] = ["isRevealCard": true]
-        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
-        socket?.emit("reveal-card", jsonData!)
-    }
-    
-    func lockSelectCard(completionHandler: @escaping (_ isLock: Bool) -> Void) {
-        socket?.on("lock-select-card"){ (dataArray, ack) in
-            completionHandler(true)
-        }
-    }
-    
-    func showCountDown(completionHandler: @escaping () -> Void) {
-        socket?.on("show-countdown"){ (dataArray, ack) in
-            completionHandler()
-        }
-    }
-    
-
+    // TODO: Handle create room (Create, Join)
+    // 1. Emit room data when CreateRoom button selected
     func createRoom(roomName: String, roomUrl: String, userId: Int, cardData: [String]) { // 1 chieu //2 da chieu
         let dic : [String: Any] = [
             "roomName" : roomName,
@@ -251,35 +174,8 @@ class SocketIOManager: NSObject {
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
         socket?.emit("create-room", jsonData!)
-        
     }
-    
-    func selectCard(userId: String, selectedIndex: String) {
-        let dic: [String: Any] = ["selectedIndex": selectedIndex, "userId" : userId]
-        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
-        socket?.emit("select-card", jsonData!)
-    }
-    
-    
-    
-    func removeCard(userId: String) {
-        let dic: [String: Any] = ["userId" : userId]
-        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
-        socket?.emit("remove-card", jsonData!)
-    }
-
-    func stopShareLocation(messageId: Int, groupId: Int) { // Stop share location
-        socket?.emit("stop-share-location", ["messageId": messageId, "groupId": groupId ])
-    }
-
-    func enterJoinRoomPrivate(ownerId: Int, memberId: Int) { // Create room private
-        socket?.emit("join-private-room", ["ownerId": ownerId, "memberId": memberId])
-    }
-
-    func enterJoinRoomSecret(ownerId: Int, memberId: Int) { // Create room private
-        socket?.emit("join-secret-room", ["ownerId": ownerId, "memberId": memberId])
-    }
-
+    // 2. Emit user data when JoinRoom button selected
     func enterJoinRoom(roomId: String, userId: Int) { // Join room type group / private
         guard let socket = self.socket else { return }
         let socketConnectionStatus = socket.status
@@ -316,11 +212,156 @@ class SocketIOManager: NSObject {
                 })
             }
     }
-    
+    // 3. Get error when url of room is invalid
     func unknownUrl(completionHandler: @escaping () -> Void) {
         socket?.on("unknown-code"){ (dataArray, ack) in
             completionHandler()
         }
+    }
+    // 4. When start game successfully, update otherPlayerCollectionView for all clients
+    func updateOtherPlayers(completionHandler: @escaping (_ userIds: [String]) -> Void){
+        socket?.on("update-player"){ (dataArray, ack) in
+            print("xxx")
+            guard let data = dataArray[0] as? String else {
+                print("update-player fail")
+                return
+            }
+            let json = data.data(using: .utf8)!
+            do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? [Dictionary<String,Any>] {
+                    var listUserIds = [String]()
+                    for item in jsonArray {
+                        let userId: String = item["userId"]! as! String
+                        listUserIds.append(userId)
+                    }
+                    completionHandler(listUserIds)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
+    // TODO: Handle issue
+    // 1. Get issue title when push to ChooseCard
+    func updateIssue(completionHandler: @escaping (_ issueTitle: String) -> Void) {
+        socket?.on("update-issue"){ (dataArray, ack) in
+            guard let data = dataArray[0] as? String else {
+                print("update-issue fail")
+                return
+            }
+            let json = data.data(using: .utf8)!
+            do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? Dictionary<String,Any> {
+                    let issueTitle: String = jsonArray["issueTitle"]! as! String
+                    completionHandler(issueTitle)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    // 2. Emit issue when vote issue
+    func voteIssue(issueTitle: String, issueId: Int) {
+        let dic: [String: Any] = ["issueTitle": issueTitle, "issueId": issueId]
+        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
+        socket?.emit("vote-issue", jsonData!)
+    }
+    // 3. Emit disable issue when reverse issue status to false
+    func disableVote() {
+        socket?.emit("disable-vote", [])
+    }
+    // 4. Get no issue notification on ChooseCard when there is no issue voted
+    func issueDisabled(completionHandler: @escaping () -> Void) {
+        socket?.on("issue-disabled"){ (dataArray, ack) in
+            completionHandler()
+        }
+    }
+    
+    // TODO: Handle choose card
+    // 1. Emit card selected
+    func selectCard(userId: String, selectedIndex: String) {
+        let dic: [String: Any] = ["selectedIndex": selectedIndex, "userId" : userId]
+        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
+        socket?.emit("select-card", jsonData!)
+    }
+    // 2. Emit card disable select
+    func removeCard(userId: String) {
+        let dic: [String: Any] = ["userId" : userId]
+        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
+        socket?.emit("remove-card", jsonData!)
+    }
+    // 3. Get card seleted to notify all player in room
+    func updateCard(completionHandler: @escaping (_ userId: String) -> Void) {
+        socket?.on("update-card"){ (dataArray, ack) in
+            guard let data = dataArray[0] as? String else {
+                print("update-card fail")
+                return
+            }
+            let json = data.data(using: .utf8)!
+            do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? Dictionary<String,Any> {
+                    let userId: String = jsonArray["userId"]! as! String
+                    completionHandler(userId)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    // 4. Get card unselected by one user for all in room
+    func updateCardRemoved(completionHandler: @escaping (_ userId: String) -> Void) {
+        socket?.on("update-card-removed"){ (dataArray, ack) in
+            guard let data = dataArray[0] as? String else {
+                print("updated-card-removed fail")
+                return
+            }
+            let json = data.data(using: .utf8)!
+            do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? Dictionary<String,Any> {
+                    let userId: String = jsonArray["userId"]! as! String
+                    completionHandler(userId)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
+    // TODO: Handle reveal card
+    // 1. Emit data when click reveal card
+    func revealCard() {
+        let dic: [String: Any] = ["isRevealCard": true]
+        let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
+        socket?.emit("reveal-card", jsonData!)
+    }
+    // 2. Card selected then no allowed to choose card
+    func lockSelectCard(completionHandler: @escaping (_ isLock: Bool) -> Void) {
+        socket?.on("lock-select-card"){ (dataArray, ack) in
+            completionHandler(true)
+        }
+    }
+    // 3. When reveal button is pressed, notify count down 3s to all clients
+    func showCountDown(completionHandler: @escaping () -> Void) {
+        socket?.on("show-countdown"){ (dataArray, ack) in
+            completionHandler()
+        }
+    }
+
+    func stopShareLocation(messageId: Int, groupId: Int) { // Stop share location
+        socket?.emit("stop-share-location", ["messageId": messageId, "groupId": groupId ])
+    }
+
+    func enterJoinRoomPrivate(ownerId: Int, memberId: Int) { // Create room private
+        socket?.emit("join-private-room", ["ownerId": ownerId, "memberId": memberId])
+    }
+
+    func enterJoinRoomSecret(ownerId: Int, memberId: Int) { // Create room private
+        socket?.emit("join-secret-room", ["ownerId": ownerId, "memberId": memberId])
     }
 
     func removeUserGroup(roomId: Int, userId: Int) { // remove user group

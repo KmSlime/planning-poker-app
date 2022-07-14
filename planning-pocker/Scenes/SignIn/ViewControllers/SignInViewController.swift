@@ -85,9 +85,9 @@ class SignInViewController: UIViewController {
                 }
                 return
             }
-            guard let id = response?["id"].intValue,
-                  let email = response?["email"].stringValue,
-                  let displayName = response?["displayName"].stringValue else {
+            guard let id = response?["id"].int,
+                  let email = response?["email"].string,
+                  let displayName = response?["displayName"].string else {
                 return
             }
             userDefaults.set(id, forKey: "id")

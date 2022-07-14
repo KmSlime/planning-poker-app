@@ -15,13 +15,16 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var averagePointButton: UIButton!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var voteButton: UIButton!
+    
 
     // MARK: - Properties
+    var issueModel: Issue?
     weak var delegate: IssueItemTableViewCellDelegate?
     var didDelete: ((UITableViewCell) -> Void)?
     var title: String?
     var indexOfIssue: Int?
     var issueVoteStatus: Bool = false
+    var deleteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
     override func awakeFromNib() {
@@ -36,6 +39,7 @@ class IssueItemTableViewCell: UITableViewCell {
 
     // MARK: - Publics
     func setValueCell(issueModel: Issue) {
+        self.issueModel = issueModel
         issueTitleLabel.text = issueModel.title
         issueKeyLabel.text = issueModel.issueKey
     }
@@ -70,14 +74,13 @@ class IssueItemTableViewCell: UITableViewCell {
     // MARK: - Actions
     @IBAction func voteIssue(_ sender: UIButton) {
         votingButtonUIHandle()
-
     }
 
     @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
-        didDelete?(self)
+        deleteIssue?(issueModel)
     }
 }
-// MARK: - protocols
+
 protocol IssueItemTableViewCellDelegate: AnyObject {
     func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?)
 }

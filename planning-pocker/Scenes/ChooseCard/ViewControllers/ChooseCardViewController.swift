@@ -62,6 +62,7 @@ class ChooseCardViewController: UIViewController {
         updateOtherPlayerRemovedCard()
         updateCardToSelect()
         updateBoardInfo()
+        updateIssue()
     }
 
     // MARK: - Publics
@@ -108,6 +109,17 @@ class ChooseCardViewController: UIViewController {
             self.boardInfoView.showCountDownText()
         }
     }
+    private func updateIssue() {
+        SocketIOManager.sharedInstance.updateIssue { issueTitle in
+            self.room.currentIssue = issueTitle
+            self.issueNameLabel.text = "Voting: " + issueTitle
+        }
+        SocketIOManager.sharedInstance.issueDisabled {
+            self.room.currentIssue = ""
+            self.issueNameLabel.text = ""
+        }
+    }
+    
     
     private func setupIdentifier() { // register xib file for cell of collection view
         listCardToSelectCollectionView.register(UINib(nibName: TableView.CellIdentifiers.cardToSelect,
@@ -128,6 +140,7 @@ class ChooseCardViewController: UIViewController {
     }
     private func setupTitleRoom() { // set room name
         gameNameLabel.text = room.roomName
+        issueNameLabel.text = room.currentIssue == "" ? room.currentIssue : "Voting: " + room.currentIssue
     }
     private func setupTitleIssue(isShow: Bool) { // check game has issue or not, if not hidden issue name
         if isShow {
