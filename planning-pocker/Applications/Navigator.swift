@@ -24,12 +24,13 @@ protocol Navigator {
     func pushToRevealCard()
     func pushToJoinRoom()
     
-    //MARK: - POP
+    // MARK: - POP
     func popToPreviousScreen()
+    func popToViewScreen(uiViewController: UIViewController?, data: Any?)
 }
 
 extension AppViewController: Navigator {
-    
+
     // MARK: - PUSH ACTION
     func pushToWelcomeScreen(user: User? = nil) {
         let welcomeScreenVC = WelcomeViewController()
@@ -99,13 +100,17 @@ extension AppViewController: Navigator {
     
     func pushToJoinRoom() {
         let joinRoomVC = JoinRoomViewController()
-        navigationController?.pushViewController(joinRoomVC, animated: true)
+        self.present(joinRoomVC, animated: true, completion: nil)
     }
-    
-    
-    //MARK: - POP ACTION
+
+    // MARK: - POP ACTION
     func popToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }
-    
+
+    func popToViewScreen(uiViewController: UIViewController?, data: Any? = nil) {
+        let anyView = uiViewController! as UIViewController
+        navigationController?.popToViewController(anyView, animated: true)
+    }
+
 }

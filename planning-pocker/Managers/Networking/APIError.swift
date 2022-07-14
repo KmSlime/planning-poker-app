@@ -9,11 +9,13 @@ import UIKit
 
 public enum APIErrorCode {
     public static let unknownCode = 0
+    public static let badRequest = 400
     public static let unauthorizedCode = 401
     public static let invalidToken = 403
     public static let timeout = 403
     public static let notFound = 404
     public static let netWorkLost = -1005
+    public static let internalServerError = 500
     public static let badGateway = 502
     public static let serviceUnavailable = 503
 }

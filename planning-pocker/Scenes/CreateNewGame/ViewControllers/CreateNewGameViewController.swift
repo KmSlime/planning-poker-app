@@ -34,8 +34,10 @@ class CreateNewGameViewController: UIViewController {
     var mainPlayer: PlayerModel!
     var cardData: [String]!
 
-
     // MARK: - Overrides
+
+
+
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -55,7 +57,6 @@ class CreateNewGameViewController: UIViewController {
         dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y: (dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
         dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width // get data from api
         selectedDropdownItem()
-
     }
 
     // MARK: - Publics
@@ -100,16 +101,33 @@ class CreateNewGameViewController: UIViewController {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
             self.gameName = gameNameTextField.text!
+            // let idMainPlayer = userDefaults.value(forKey: "id") as? Int
+            // let nameMainPlayer = userDefaults.value(forKey: "fullName") as? String
+            // mainPlayer = PlayerModel(id: idMainPlayer!, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // TODO: Nghia sau nay thay cai nay bang default user
+            // print(mainPlayer as Any)
+            
+            // newRoom = RoomModel(roomName: gameName!, roomId: -1, cards: cardData!, mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!
+            
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,
-                                                parameters: ["name": self.gameName! as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
+                                                parameters: ["name": self.gameName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
                                                 contentType: .applicationJson)
-            APIRequest.shared.request(router: routerCreateNewGame) {
-                [weak self] error, response in
-                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
+            APIRequest.shared.request(router: routerCreateNewGame) { [weak self] error, response in
+                guard error == nil else {
+                    print("Log Create new game: Error [\n \(String(describing: error))]")
+                    self!.showAlert(title: "Opps", message: "Error - Something went wrong")
+                    return
+                }
+                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
                     SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData)
                 } else { print(message) }
+                //     self!.gameModel = GameModel(name: self!.gameName!, url: message)
+                //     AppViewController.shared.pushToChooseCardScreen(newRoomModel: self!.newRoom, gameInfo: self!.gameModel)
+                // } else {
+                //     AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
+                //     return
+                // }
             }
         }
     }

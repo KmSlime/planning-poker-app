@@ -18,11 +18,13 @@ class IssueItemTableViewCell: UITableViewCell {
     
 
     // MARK: - Properties
-    var title: String?
     var issueModel: Issue?
-    var delegate: IssueItemTableViewCellDelegate?
+    weak var delegate: IssueItemTableViewCellDelegate?
+    var didDelete: ((UITableViewCell) -> Void)?
+    var title: String?
+    var indexOfIssue: Int?
+    var issueVoteStatus: Bool = false
     var deleteIssue: ((Issue?)->())?
-    var voteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
     override func awakeFromNib() {
@@ -41,6 +43,7 @@ class IssueItemTableViewCell: UITableViewCell {
         issueTitleLabel.text = issueModel.title
         issueKeyLabel.text = issueModel.issueKey
     }
+
     func displayAveragePoint(value: String) {
         averagePointButton.setTitle(value, for: .normal)
     }
@@ -55,31 +58,22 @@ class IssueItemTableViewCell: UITableViewCell {
         issueTitleLabel.font = UIFont(name: "Poppins-Medium", size: 16.0)
 
         backView.backgroundColor = UIColor.itemIssueCellBackground
+        backView.layer.opacity = 0.77
         backView.layer.cornerRadius = 8
         backView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        backView.layer.shadowRadius = 1
-        backView.layer.shadowOpacity = 0.1
+        backView.layer.shadowRadius = 2.5
+        backView.layer.shadowOpacity = 0.23
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
     }
 
+    private func votingButtonUIHandle() {
+        delegate?.issueItemTableViewCellDidVote(cell: self, index: indexOfIssue)
+    }
+
     // MARK: - Actions
     @IBAction func voteIssue(_ sender: UIButton) {
-
-        if voteButton.titleLabel?.text == "Vote this issue" {
-            title = "Voting now..."
-        }
-        if voteButton.titleLabel?.text == "Vote again" {
-            title = "Voting now..."
-        }
-        if voteButton.titleLabel?.text == "Voting now..." {
-            title = "Vote again"
-        }
-        issueModel?.issueVoteStatus = true
-        voteButton.setTitle(title, for: .normal)
-//        voteIssue?(issueModel)
-        delegate?.issueItemTableViewCellDidVote(self)
-        
+        votingButtonUIHandle()
     }
 
     @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
@@ -88,5 +82,5 @@ class IssueItemTableViewCell: UITableViewCell {
 }
 
 protocol IssueItemTableViewCellDelegate: AnyObject {
-func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell)
+    func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?)
 }

@@ -10,8 +10,9 @@ import UIKit
 class JoinRoomViewController: UIViewController {
 
     @IBAction func backButton(_ sender: UIButton) {
-        AppViewController.shared.popToPreviousScreen()
+        self.dismiss(animated: true)
     }
+
     @IBOutlet weak var popUpView: UIView! {
         didSet {
             popUpView.layer.cornerRadius = 8
@@ -44,6 +45,7 @@ class JoinRoomViewController: UIViewController {
     
     @objc func joinRoom() {
         let text: String = urlTextField.text!
+        self.dismiss(animated: true)
         SocketIOManager.sharedInstance.enterJoinRoom(roomId: text, userId: Int.random(in: 1 ... 1000))
     }
 }

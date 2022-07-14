@@ -30,7 +30,7 @@ class IssuesListViewController: UIViewController {
     var sumAveragePoint: String?
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
-    var id: Int?
+    var countIssue: Int = 0
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -64,7 +64,9 @@ class IssuesListViewController: UIViewController {
     }
     
     private func getDataIssueList() {
-//        gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
+        // test api list already have issue
+//        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
+         gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -78,6 +80,7 @@ class IssuesListViewController: UIViewController {
                 self!.listIssue = []
                 return
             }
+
             for item in response!.self.arrayValue {
                 self!.issueModel = Issue()
                 self!.issueModel?.id = item.dictionary!["id"]?.intValue ?? -1
@@ -86,6 +89,7 @@ class IssuesListViewController: UIViewController {
                 self!.issueModel?.issueDescription = item.dictionary!["description"]?.stringValue ?? ""
                 self!.issueModel?.issueLink = item.dictionary!["link"]?.stringValue ?? "#"
                 self!.issueModel?.issueVoteStatus = item.dictionary!["status"]?.boolValue
+                self!.issueModel?.issueAveragePoint = item.dictionary!["issueAveragePoint"]?.stringValue ?? "-" // TODO: EDIT LATER
 
                 self!.gameInIssue = GameModel()
                 self!.gameInIssue?.id = item.dictionary!["game"]?.dictionary!["id"]?.intValue ?? -1
@@ -99,17 +103,11 @@ class IssuesListViewController: UIViewController {
             self!.listIssue.sort {
                 ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
+            self!.countIssueLabel.text = String(self!.listIssue.count) + " issues"
             self!.issuesListTableView.reloadData()
-            
         }
     }
-    private func deleteIssue() {
-        id = 2
-        
-        //let path = APIPath.Auth.deleteIssue.rawValue + (id as? String?)
-        //let getDeleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .applicationJson)
-    }
-
+    
     // MARK: - Actions
     @IBAction func backToChooseCard(_ sender: Any) {
         AppViewController.shared.popToPreviousScreen()
@@ -134,6 +132,7 @@ extension IssuesListViewController: UITableViewDelegate {
         } else {
             AppViewController.shared.pushToEditIssueScreen()
         }
+
     }
 }
 
@@ -149,16 +148,12 @@ extension IssuesListViewController: UITableViewDataSource {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
             cell.delegate = self
+            cell.indexOfIssue = indexPath.row
             cell.setValueCell(issueModel: listIssue[indexPath.row])
             cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
-            cell.deleteIssue = { issue in
-//                self.listIssue.remove(at: issueModel)
-//                self.issuesListTableView.reloadData()
-            }
             return cell
         }
     }
-
 }
 
 extension IssuesListViewController: createIssueViewControllerDelegate {
@@ -197,19 +192,62 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
 }
 
 extension IssuesListViewController: IssueItemTableViewCellDelegate {
-    func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
-        var indexPath = issuesListTableView.indexPathForRow(at: )
-        print(indexPath)
-//        listIssue[indexPath].status = true
-        guard let issue = self.listIssue[1] as? Issue else { // check issue valid
-            return
+
+    func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?) {
+
+        if cell.voteButton.titleLabel?.text == "Vote this issue" {
+            cell.voteButton.setTitle("Voting now...", for: .normal)
+            cell.voteButton.layer.backgroundColor = UIColor.blueButtonColor.cgColor
+            cell.backView.backgroundColor = UIColor(hexString: "#C3EAF9")
+        } else
+
+        if cell.voteButton.titleLabel?.text == "Vote again" {
+            cell.voteButton.setTitle("Voting now...", for: .normal)
+            cell.voteButton.layer.backgroundColor = UIColor.blueButtonColor.cgColor
+            cell.backView.backgroundColor = UIColor(hexString: "#C3EAF9")
+        } else
+
+        if cell.voteButton.titleLabel?.text == "Voting now..." {
+            cell.voteButton.setTitle("Vote again", for: .normal)
+
+            cell.voteButton.layer.backgroundColor = UIColor.systemGray5.cgColor
+            cell.backView.backgroundColor = UIColor.itemIssueCellBackground
         }
-        if issue.status {
-            SocketIOManager.sharedInstance.voteIssue(issueTitle: issue.issueTitle!, issueId: issue.issueId!)
+
+        // api handle
+        let indexOfIssueInTableView = index.self ?? -1
+        let voteIssueEndpoint = APIPath.Auth.getIssueList.rawValue + "\(listIssue[indexOfIssueInTableView].issueId ?? -1)" // TODO: ID ISSSUE
+        // test data -- vai bua xoa
+        let id = listIssue[indexOfIssueInTableView].issueId ?? -1
+        let title = listIssue[indexOfIssueInTableView].issueTitle ?? "#"
+        let voteIssueRouter = APIRouter(path: voteIssueEndpoint, method: .put, parameters: [:], contentType: .urlFormEncoded)
+
+        // build san
+//        APIRequest.shared.request(router: voteIssueRouter) { [weak self] error, response in
+//            guard error == nil else {
+//                print("Issue List: Error [\n \(String(describing: error))]")
+//                AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
+//                return
+//            }
+//
+//            let isVoteSuccess = response?.dictionary?["success"]?.boolValue ?? false
+//            print(isVoteSuccess.description)
+//            if isVoteSuccess == true {
+//                self!.listIssue = []
+//                self!.getDataIssueList()
+//            } else {
+//                AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
+//                return
+//            }
+//
+//        }
+        print("Delegate from click vote button")
+
+         if listIssue[indexOfIssueInTableView].issueVoteStatus! {
+            SocketIOManager.sharedInstance.voteIssue(issueTitle: listIssue[indexOfIssueInTableView].issueTitle!, issueId: listIssue[indexOfIssueInTableView].issueId!)
         } else {
             SocketIOManager.sharedInstance.disableVote() // on socket
         }
-        
-        print("Delegate from click vote button")
+
     }
 }

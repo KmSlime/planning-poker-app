@@ -163,7 +163,7 @@ class ChooseCardViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
-        AppViewController.shared.pushToShowIssueListScreen(url: gameInfo.url)
+        AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl)
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
         leftMenuState(expanded: MenuHolder.isExpanded ? false : true)

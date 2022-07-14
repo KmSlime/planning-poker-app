@@ -17,8 +17,8 @@ class Issue: NSObject {
     var issueVoteStatus: Bool? = false
     var issueBelongToGame: GameModel?
     var issueIdGame: String = ""
+    var issueAveragePoint: String = ""
 
-    
     override init() {
         
     }
@@ -29,7 +29,7 @@ class Issue: NSObject {
         self.issueIdGame = idGame
     }
 
-    init(id: Int, key: String, title: String, description: String, link: String, status: Bool, ofGame: GameModel) {
+    init(id: Int, key: String, title: String, description: String, link: String, status: Bool, averagePoint: String, ofGame: GameModel) {
         self.issueId = id
         self.issueKey = key
         self.issueTitle = title
@@ -37,9 +37,9 @@ class Issue: NSObject {
         self.issueLink = link
         self.issueVoteStatus = status
         self.issueBelongToGame = ofGame
+        self.issueAveragePoint = averagePoint
     }
-    
-    
+
     public var id: Int {
         get {
             return self.issueId!
@@ -84,5 +84,14 @@ class Issue: NSObject {
         set {
             return self.status = newValue
         }
+    }
+
+    public var averagePoint: String {
+        get {
+            return self.averagePoint
+        } set {
+            return self.averagePoint = newValue
+        }
+
     }
 }
