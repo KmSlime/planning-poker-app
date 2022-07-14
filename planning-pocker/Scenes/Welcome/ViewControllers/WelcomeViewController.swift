@@ -23,6 +23,8 @@ class WelcomeViewController: UIViewController {
     private var leftMenuTrailingConstraint: NSLayoutConstraint!
     private var revealLeftMenuOnTop = true
     private var leftMenuShadowView: UIView!
+    
+    
     // MARK: - Overrides
 
     // MARK: - Life cycles
@@ -53,6 +55,7 @@ class WelcomeViewController: UIViewController {
         // set properties for Start Poker Planning Game Button
         startPokerPlanningGameButton.layer.cornerRadius = 5
         if userDefaults.object(forKey: "id") != nil {
+            userDefaults.object(forKey: "fullName")
             goToTheLoginButton.isHidden = true
             leftMenuButton.isHidden = false
         } else {
@@ -65,6 +68,7 @@ class WelcomeViewController: UIViewController {
 
     @IBAction func onClickStartGameButton(_ sender: Any) {
         if userDefaults.object(forKey: "id") != nil {
+            userDefaults.object(forKey: "fullName")
             AppViewController.shared.pushToCreateNewGameScreen()
         } else {
             AppViewController.shared.pushToSignInScreen()
@@ -102,6 +106,9 @@ class WelcomeViewController: UIViewController {
     }
     @IBAction func show_editIssueDetail(_ sender: UIButton) {
         AppViewController.shared.pushToEditIssueScreen()
+    }
+    @IBAction func revealCard(_ sender: UIButton) {
+        AppViewController.shared.pushToRevealCard()
     }
 
     @IBAction func onClickLoginButton(_ sender: Any) {

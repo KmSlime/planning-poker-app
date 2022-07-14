@@ -30,7 +30,7 @@ class IssuesListViewController: UIViewController {
     var sumAveragePoint: String?
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
-
+    var id: Int?
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -103,6 +103,12 @@ class IssuesListViewController: UIViewController {
             
         }
     }
+    private func deleteIssue() {
+        id = 2
+        
+        //let path = APIPath.Auth.deleteIssue.rawValue + (id as? String?)
+        //let getDeleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .applicationJson)
+    }
 
     // MARK: - Actions
     @IBAction func backToChooseCard(_ sender: Any) {
@@ -126,7 +132,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            print("Print something from didSelectRowAt")
+            AppViewController.shared.pushToEditIssueScreen()
         }
     }
 }
@@ -145,6 +151,10 @@ extension IssuesListViewController: UITableViewDataSource {
             cell.delegate = self
             cell.setValueCell(issueModel: listIssue[indexPath.row])
             cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
+            cell.deleteIssue = { issue in
+//                self.listIssue.remove(at: issueModel)
+//                self.issuesListTableView.reloadData()
+            }
             return cell
         }
     }
