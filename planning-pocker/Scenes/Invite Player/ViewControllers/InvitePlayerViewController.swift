@@ -23,7 +23,7 @@ class InvitePlayerViewController: UIViewController {
             return
         }
         UIPasteboard.general.string = text
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
         guard UIPasteboard.general.string != nil else {
             return
         }

@@ -61,7 +61,7 @@ extension AppViewController: Navigator {
     func pushToInvitePlayerScreen(url: String) {
         let invitePlayerVC = InvitePlayerViewController()
         invitePlayerVC.url = url
-        navigationController?.pushViewController(invitePlayerVC, animated: true)
+        self.presentOnRoot(with: invitePlayerVC)
     }
     
     func pushToCreateIssue() {

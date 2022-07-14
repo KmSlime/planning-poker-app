@@ -72,7 +72,6 @@
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
-		917AD444287ECD0B00399193 /* IssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AD443287ECD0900399193 /* IssueDetailModel.swift */; };
 		917FCF7C287C28C100E1ACD2 /* CustomDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */; };
 		917FCF7D287C28C100E1ACD2 /* VotingSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */; };
 		917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */; };
@@ -1303,7 +1302,6 @@
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
-				917AD444287ECD0B00399193 /* IssueDetailModel.swift in Sources */,
 				94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,

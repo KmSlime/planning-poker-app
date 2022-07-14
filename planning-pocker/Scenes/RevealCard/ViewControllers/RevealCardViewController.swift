@@ -125,7 +125,7 @@ class RevealCardViewController: UIViewController {
         leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
     }
     @IBAction func invitePlayerButton(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayerScreen()
+//        AppViewController.shared.pushToInvitePlayerScreen()
     }
 
 }

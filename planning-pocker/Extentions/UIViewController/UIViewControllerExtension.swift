@@ -128,4 +128,10 @@ extension UIViewController: UIGestureRecognizerDelegate {
         }
         return true
     }
+    
+    func presentOnRoot(with viewController: UIViewController) {
+           let navigationController = UINavigationController(rootViewController: viewController)
+           navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+           self.present(navigationController, animated: true, completion: nil)
+       }
 }

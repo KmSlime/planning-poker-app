@@ -37,15 +37,14 @@ class IssuesListViewController: UIViewController {
         super.viewDidLoad()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
-        getDataIssueList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        listIssue.removeAll()
+        getDataIssueList()
     }
         
     override func viewDidAppear(_ animated: Bool) {
-        issuesListTableView.reloadData()
         countIssueLabel.text = String(listIssue.count) + " issues"
         setupUI()
     }
@@ -65,11 +64,20 @@ class IssuesListViewController: UIViewController {
     }
     
     private func getDataIssueList() {
-        gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7"
+//        gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
+            guard error == nil else {
+                self!.showAlert(title: "Opps", message: "Error - Something went wrong")
+                print("Log Create New Game: Error code - \(String(describing: error?.code))")
+                return
+            }
 
+            guard response != nil else {
+                self!.listIssue = []
+                return
+            }
             for item in response!.self.arrayValue {
                 self!.issueModel = Issue()
                 self!.issueModel?.id = item.dictionary!["id"]?.intValue ?? -1
@@ -91,6 +99,8 @@ class IssuesListViewController: UIViewController {
             self!.listIssue.sort {
                 ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
+            self!.issuesListTableView.reloadData()
+            
         }
     }
     private func deleteIssue() {
@@ -161,12 +171,45 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            // Nghia goi api de them vao list
-            let newIssue = Issue(id: listIssue.count + 1, key: "PP-" + String(listIssue.count + 1), idGame: "1")
-            newIssue.title = item
-            listIssue.append(newIssue)
-            AppViewController.shared.popToPreviousScreen()
+            let routerCreateIssue = APIRouter(path: APIPath.Auth.createIssue.rawValue, method: .post, parameters: [
+                "title": item,
+               "url": gameUrl as? String,
+               "key": "PP-" + String(listIssue.count + 1)
+            ], contentType: .applicationJson)
+            APIRequest.shared.request(router: routerCreateIssue) { [weak self] error, response in
+                guard error == nil else {
+                    print("error calling POST")
+                    AppViewController.shared.showAlert(title: "Error", message: String(error?.code ?? 0))
+                    return
+                }
+                guard let id = response?["id"].int,
+                      let key = response?["key"].string,
+                      let title = response?["title"].string else {
+                    return
+                }
+                print(id)
+                print(key)
+                print(title)
+                AppViewController.shared.popToPreviousScreen()
+            }
         }
     }
 }
 
+extension IssuesListViewController: IssueItemTableViewCellDelegate {
+    func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
+        var indexPath = issuesListTableView.indexPathForRow(at: )
+        print(indexPath)
+//        listIssue[indexPath].status = true
+        guard let issue = self.listIssue[1] as? Issue else { // check issue valid
+            return
+        }
+        if issue.status {
+            SocketIOManager.sharedInstance.voteIssue(issueTitle: issue.issueTitle!, issueId: issue.issueId!)
+        } else {
+            SocketIOManager.sharedInstance.disableVote() // on socket
+        }
+        
+        print("Delegate from click vote button")
+    }
+}
