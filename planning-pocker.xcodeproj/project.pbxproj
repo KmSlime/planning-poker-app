@@ -63,20 +63,28 @@
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
 		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
 		910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextViews.swift */; };
+		910F4D6A287D576F00A3A87F /* BoardResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F4D69287D576F00A3A87F /* BoardResultView.swift */; };
+		910F4D6C287D57C400A3A87F /* BoardResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910F4D6B287D57C400A3A87F /* BoardResultView.xib */; };
+		910F4D70287D767200A3A87F /* CardToResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F4D6E287D767100A3A87F /* CardToResultCollectionViewCell.swift */; };
+		910F4D71287D767200A3A87F /* CardToResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910F4D6F287D767100A3A87F /* CardToResultCollectionViewCell.xib */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
 		9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */; };
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
+		917AD444287ECD0B00399193 /* IssueDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AD443287ECD0900399193 /* IssueDetailModel.swift */; };
 		917FCF7C287C28C100E1ACD2 /* CustomDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */; };
 		917FCF7D287C28C100E1ACD2 /* VotingSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */; };
 		917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */; };
 		917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */; };
+		91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */; };
+		91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */; };
+		91B44BC0287D8E24001AA138 /* RevealCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B44BBE287D8E24001AA138 /* RevealCardViewController.swift */; };
+		91B44BC1287D8E24001AA138 /* RevealCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91B44BBF287D8E24001AA138 /* RevealCardViewController.xib */; };
 		91DBA9AB2873F73D00E100C2 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */; };
 		91DBA9AC2873F73D00E100C2 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */; };
 		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
 		91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E3334A286EF79D0011F199 /* SignOutViewController.xib */; };
-		91F45967287D289F009265D1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F45966287D289E009265D1 /* Account.swift */; };
 		94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94344D712876A7D20039DE0B /* SimulatorsList.txt */; };
 		94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344D752877EB7C0039DE0B /* SocketParser.swift */; };
 		94344E1F286C04D100F40565 /* ListIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E1E286C04D100F40565 /* ListIssue.swift */; };
@@ -170,20 +178,30 @@
 		60C82C4728644771002E2DC2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		910317B2286BF76400BAE25C /* PaddingLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabels.swift; sourceTree = "<group>"; };
 		910317B4286C00C200BAE25C /* MultilineTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextViews.swift; sourceTree = "<group>"; };
+		910F4D65287D56A800A3A87F /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
+		910F4D66287D56A800A3A87F /* RevealCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RevealCardViewController.xib; sourceTree = "<group>"; };
+		910F4D69287D576F00A3A87F /* BoardResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResultView.swift; sourceTree = "<group>"; };
+		910F4D6B287D57C400A3A87F /* BoardResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardResultView.xib; sourceTree = "<group>"; };
+		910F4D6E287D767100A3A87F /* CardToResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		910F4D6F287D767100A3A87F /* CardToResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardToResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
 		9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		917AD443287ECD0900399193 /* IssueDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IssueDetailModel.swift; path = "planning-pocker/Scenes/RevealCard/ViewControllers/IssueDetailModel.swift"; sourceTree = SOURCE_ROOT; };
 		917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDeskViewController.swift; sourceTree = "<group>"; };
 		917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingSystemCell.xib; sourceTree = "<group>"; };
 		917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
 		917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDeskViewController.xib; sourceTree = "<group>"; };
+		91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteIssueViewController.swift; sourceTree = "<group>"; };
+		91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteIssueViewController.xib; sourceTree = "<group>"; };
+		91B44BBE287D8E24001AA138 /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
+		91B44BBF287D8E24001AA138 /* RevealCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RevealCardViewController.xib; sourceTree = "<group>"; };
 		91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		91E3334A286EF79D0011F199 /* SignOutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignOutViewController.xib; sourceTree = "<group>"; };
-		91F45966287D289E009265D1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		94344D712876A7D20039DE0B /* SimulatorsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimulatorsList.txt; sourceTree = "<group>"; };
 		94344D732876A83F0039DE0B /* multipleSimulatorsStartup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = multipleSimulatorsStartup.sh; sourceTree = "<group>"; };
 		94344D752877EB7C0039DE0B /* SocketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
@@ -430,15 +448,16 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				943FAA92287E85CE0018043F /* JoinRoom */,
-				91F45968287D2B41009265D1 /* RevealCard */,
 				BAD51B262861B50D002961A7 /* ChooseCard */,
 				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
+				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
 				155264E4286B154F0038ABDF /* IssuesList */,
+				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
+				91F45968287D2B41009265D1 /* RevealCard */,
 				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
@@ -531,6 +550,7 @@
 				602CDBC72861741700E2EA30 /* Configuration.swift */,
 				602CDBCB2861741700E2EA30 /* ProgressView.swift */,
 				602CDBC92861741700E2EA30 /* Reachability.swift */,
+				91F45969287D4EC0009265D1 /* ViewControllers */,
 				602CDBCA2861741700E2EA30 /* SwiftiJSON.swift */,
 			);
 			path = Common;
@@ -599,6 +619,7 @@
 		910317AB286BE7EE00BAE25C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				917AD443287ECD0900399193 /* IssueDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -633,6 +654,15 @@
 				910317B4286C00C200BAE25C /* MultilineTextViews.swift */,
 			);
 			path = UITextView;
+			sourceTree = "<group>";
+		};
+		910F4D6D287D75F200A3A87F /* CardToResult */ = {
+			isa = PBXGroup;
+			children = (
+				910F4D6E287D767100A3A87F /* CardToResultCollectionViewCell.swift */,
+				910F4D6F287D767100A3A87F /* CardToResultCollectionViewCell.xib */,
+			);
+			path = CardToResult;
 			sourceTree = "<group>";
 		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
@@ -672,7 +702,6 @@
 		9146BC96286306F4001D4B7B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				91F45966287D289E009265D1 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -683,6 +712,48 @@
 				9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		91AD6D56287FC44A00FB2833 /* DeleteIssue */ = {
+			isa = PBXGroup;
+			children = (
+				91AD6D57287FC44A00FB2833 /* Models */,
+				91AD6D58287FC44A00FB2833 /* ViewControllers */,
+				91AD6D59287FC44A00FB2833 /* Views */,
+			);
+			path = DeleteIssue;
+			sourceTree = "<group>";
+		};
+		91AD6D57287FC44A00FB2833 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		91AD6D58287FC44A00FB2833 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */,
+				91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91AD6D59287FC44A00FB2833 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91B44BBD287D8DED001AA138 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				91B44BBE287D8E24001AA138 /* RevealCardViewController.swift */,
+				91B44BBF287D8E24001AA138 /* RevealCardViewController.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		91E33345286EF7220011F199 /* SignOut */ = {
@@ -721,8 +792,37 @@
 		91F45968287D2B41009265D1 /* RevealCard */ = {
 			isa = PBXGroup;
 			children = (
+				91B44BBD287D8DED001AA138 /* ViewControllers */,
+				91F4596B287D4EE5009265D1 /* Views */,
 			);
 			path = RevealCard;
+			sourceTree = "<group>";
+		};
+		91F45969287D4EC0009265D1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				910F4D65287D56A800A3A87F /* RevealCardViewController.swift */,
+				910F4D66287D56A800A3A87F /* RevealCardViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91F4596B287D4EE5009265D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91F4596C287D500A009265D1 /* BoardResult */,
+				910F4D6D287D75F200A3A87F /* CardToResult */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91F4596C287D500A009265D1 /* BoardResult */ = {
+			isa = PBXGroup;
+			children = (
+				910F4D69287D576F00A3A87F /* BoardResultView.swift */,
+				910F4D6B287D57C400A3A87F /* BoardResultView.xib */,
+			);
+			path = BoardResult;
 			sourceTree = "<group>";
 		};
 		94344E20286C13D000F40565 /* IssueItemTableViewCell */ = {
@@ -1037,6 +1137,7 @@
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
+				910F4D6C287D57C400A3A87F /* BoardResultView.xib in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
 				94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */,
 				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
@@ -1047,13 +1148,16 @@
 				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
 				91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */,
 				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
+				91B44BC1287D8E24001AA138 /* RevealCardViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */,
+				910F4D71287D767200A3A87F /* CardToResultCollectionViewCell.xib in Resources */,
 				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
 				0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
+				91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
@@ -1167,6 +1271,7 @@
 				15C09934287450CE00AB7249 /* APIPath.swift in Sources */,
 				602CDBD12861741800E2EA30 /* SwiftiJSON.swift in Sources */,
 				91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */,
+				91B44BC0287D8E24001AA138 /* RevealCardViewController.swift in Sources */,
 				91DBA9AB2873F73D00E100C2 /* CreateNewGameViewController.swift in Sources */,
 				155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */,
 				9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */,
@@ -1176,6 +1281,7 @@
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
 				94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */,
+				91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */,
 				15BB2952286B18C10062A8E9 /* Issue.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* RoomModel.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* RoomModel.swift in Sources */,
@@ -1188,6 +1294,7 @@
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
 				BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */,
 				602CDBD02861741800E2EA30 /* Reachability.swift in Sources */,
+				910F4D70287D767200A3A87F /* CardToResultCollectionViewCell.swift in Sources */,
 				BA084D72286416F800A14A37 /* BoardInfoView.swift in Sources */,
 				BA084D6B2864085500A14A37 /* PlayerModel.swift in Sources */,
 				155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */,
@@ -1196,18 +1303,19 @@
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
+				917AD444287ECD0B00399193 /* IssueDetailModel.swift in Sources */,
 				94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
-				91F45967287D289F009265D1 /* Account.swift in Sources */,
 				60C82C4928644771002E2DC2 /* User.swift in Sources */,
 				1541718028768E2F005C5AAB /* GameModel.swift in Sources */,
 				94514C2A2872E4C00097214C /* LeftMenuViewController.swift in Sources */,
 				917FCF7C287C28C100E1ACD2 /* CustomDeskViewController.swift in Sources */,
 				94344E32286C6D1000F40565 /* LeftMenuTableViewCell.swift in Sources */,
+				910F4D6A287D576F00A3A87F /* BoardResultView.swift in Sources */,
 				9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
 				60465B732862B2100082956B /* (null) in Sources */,

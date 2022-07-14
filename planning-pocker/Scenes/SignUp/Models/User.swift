@@ -8,13 +8,13 @@
 import Foundation
 
 class User {
-    
+    //static let shared = User()
     private var userId: Int?
     private var userEmail: String?
     private var userPassword: String?
     private var userFullName: String?
 //    var token: String? //cái này chưa rõ????
-    
+    //init(){}
     init(id: Int, email:  String, password: String, fullName: String) {
         self.userId = id                                            
         self.userEmail = email

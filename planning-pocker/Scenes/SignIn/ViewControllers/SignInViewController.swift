@@ -20,9 +20,7 @@ class SignInViewController: UIViewController {
     var messages: String?
     var status: Bool?
     var textFieldName: String?
-    var arrayEmailValid: [String] = ["trong@gmail.com"]
-    var arrayPasswordValid: [String] = ["Trong123@"]
-    var arrayName: [String] = ["Hiep"]
+
     // MARK: - Overrides
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -67,38 +65,37 @@ class SignInViewController: UIViewController {
     }
     // MARK: - API Called
     func signInCallAPI() {
-            let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
-                                   method: .post,
-                                   parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
-                                   contentType: .applicationJson)
-            APIRequest.shared.request(router: router) { error, response in
-                guard error == nil else {
-                    print("error calling POST")
-                    print(error!)
-                    switch (error?.code ?? 0) {
-                    case 401:
-                        self.showAlert(title: "Notification", message: "Invalid email or password")
-                        break
-                    case 404:
-                        self.showAlert(title: "Notification", message: "System error")
-                        break
-                    default:
-                        break
-                    }
-                    return
+        let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
+                               method: .post,
+                               parameters: ["email": emailTextField.text!, "password": passwordTextField.text!],
+                               contentType: .applicationJson)
+        APIRequest.shared.request(router: router) { error, response in
+            guard error == nil else {
+                print("error calling POST")
+                print(error!)
+                switch (error?.code ?? 0) {
+                case 401:
+                    self.showAlert(title: "Notification", message: "Invalid email or password")
+                    break
+                case 404:
+                    self.showAlert(title: "Notification", message: "System error")
+                    break
+                default:
+                    break
                 }
-                guard let id = response?["id"].int,
-                      let email = response?["email"].string,
-                      let displayName = response?["displayName"].string else {
-                    return
-                }
-                userDefaults.set(id, forKey: "id")
-                userDefaults.set(email, forKey: "email")
-                userDefaults.set(displayName, forKey: "fullName")
-                AppViewController.shared.pushToWelcomeScreen()
+                return
             }
+            guard let id = response?["id"].int,
+                  let email = response?["email"].string,
+                  let displayName = response?["displayName"].string else {
+                return
+            }
+            userDefaults.set(id, forKey: "id")
+            userDefaults.set(email, forKey: "email")
+            userDefaults.set(displayName, forKey: "fullName")
+            AppViewController.shared.pushToWelcomeScreen()
         }
-
+    }
     // MARK: - Private
 
     private func setupUI() {
@@ -148,22 +145,6 @@ extension SignInViewController {
         }
         return (nil, false)
     }
-
-    // MARK: - Check exist email
-    private func isExistEmail() -> Bool {
-        for email in arrayEmailValid where emailTextField.text == email {
-                return true
-            }
-        return false
-    }
-
-    private func isExistPassword() -> Bool {
-        for password in arrayPasswordValid where passwordTextField.text == password {
-                return true
-            }
-        return false
-    }
-
     // MARK: - Set status and message
     func hasErrorStatus() -> (messages: String?, status: Bool?) {
         // EmptyField

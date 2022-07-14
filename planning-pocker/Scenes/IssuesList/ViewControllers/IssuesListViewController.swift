@@ -30,7 +30,7 @@ class IssuesListViewController: UIViewController {
     var sumAveragePoint: String?
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
-
+    var id: Int?
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class IssuesListViewController: UIViewController {
     }
     
     private func getDataIssueList() {
-        gameUrl = "UpaCkBj0EbypKfdwkzvIhJinF"
+        gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7"
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -93,6 +93,12 @@ class IssuesListViewController: UIViewController {
             }
         }
     }
+    private func deleteIssue() {
+        id = 2
+        
+        //let path = APIPath.Auth.deleteIssue.rawValue + (id as? String?)
+        //let getDeleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .applicationJson)
+    }
 
     // MARK: - Actions
     @IBAction func backToChooseCard(_ sender: Any) {
@@ -116,7 +122,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            print("Print something from didSelectRowAt")
+            AppViewController.shared.pushToEditIssueScreen()
         }
     }
 }
@@ -135,6 +141,10 @@ extension IssuesListViewController: UITableViewDataSource {
             cell.delegate = self
             cell.setValueCell(issueModel: listIssue[indexPath.row])
             cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
+            cell.deleteIssue = { issue in
+//                self.listIssue.remove(at: issueModel)
+//                self.issuesListTableView.reloadData()
+            }
             return cell
         }
     }
@@ -160,12 +170,3 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
     }
 }
 
-extension IssuesListViewController: IssueItemTableViewCellDelegate {
-    func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
-        var indexPath = issuesListTableView.indexPathForRow(at: )
-        print(indexPath)
-//        listIssue[indexPath].status = true
-
-        print("Delegate from click vote button")
-    }
-}
