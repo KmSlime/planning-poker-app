@@ -32,10 +32,9 @@ class InvitePlayerViewController: UIViewController {
         MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#155724")
         MDCSnackbarManager.default.show(snackBarMsg)
     }
+    var url: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        linkLabel.text = "https://viblo.asia/p/swift-cach-tao-popup-view-su-dung-view-controller-rieng-biet-RQqKL24Ol7z"
-
-        // Do any additional setup after loading the view.
+        linkLabel.text = self.url
     }
 }

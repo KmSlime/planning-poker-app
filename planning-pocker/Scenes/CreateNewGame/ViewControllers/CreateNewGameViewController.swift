@@ -45,9 +45,7 @@ class CreateNewGameViewController: UIViewController {
         votingSystemTextField.placeholder = votingSystemValue[0].disPlayValue
         cardData = votingSystemValue[0].arrayCardValue
         setUpDropdown()
-
     }
-
     override func viewWillAppear(_ animated: Bool) {
         dropdownDeleteTableView.reloadAllComponents()
     }
@@ -96,21 +94,12 @@ class CreateNewGameViewController: UIViewController {
             }
         }
     }
-    
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
-            gameName = gameNameTextField.text!
-            
-            let idMainPlayer = userDefaults.value(forKey: "id") as? Int
-            let nameMainPlayer = userDefaults.value(forKey: "fullName") as? String
-            mainPlayer = PlayerModel(id: idMainPlayer ?? 0, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // Nghia sau nay thay cai nay bang default user
-            print(mainPlayer as Any)
-            
-            newRoom = RoomModel(roomName: gameName!, roomId: 1, cards: cardData!, mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!
-            
+            self.gameName = gameNameTextField.text!
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,
                                                 parameters: ["name": newRoom?.roomName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
@@ -119,16 +108,15 @@ class CreateNewGameViewController: UIViewController {
                 [weak self] error, response in
                 var message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
-                    self!.gameModel = GameModel(name: self!.gameName!, url: message)
-                    AppViewController.shared.pushToChooseCardScreen(newRoomModel: self!.newRoom, gameInfo: self!.gameModel)
+                    
+                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData)
                 } else { print(message) }
             }
         }
     }
 
     @IBAction func joinGame(_ sender: Any) {
-        print("join game action click")
-
+        AppViewController.shared.pushToJoinRoom()
     }
 
     @IBAction func showDropdownList(_ sender: Any) {
