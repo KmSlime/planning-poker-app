@@ -102,13 +102,12 @@ class CreateNewGameViewController: UIViewController {
             self.gameName = gameNameTextField.text!
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,
-                                                parameters: ["name": newRoom?.roomName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
+                                                parameters: ["name": self.gameName! as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
                                                 contentType: .applicationJson)
             APIRequest.shared.request(router: routerCreateNewGame) {
                 [weak self] error, response in
-                var message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
+                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
-                    
                     SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData)
                 } else { print(message) }
             }
