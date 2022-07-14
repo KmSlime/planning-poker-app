@@ -44,6 +44,8 @@ class SignOutViewController: UIViewController {
     @IBAction func onClickConfirmSignOutButton (_ sender: UIButton) {
         AppViewController.shared.pushToWelcomeScreen()
         userDefaults.removeObject(forKey: "fullName")
+        userDefaults.removeObject(forKey: "id")
+        userDefaults.removeObject(forKey: "email")
     }
 
 }

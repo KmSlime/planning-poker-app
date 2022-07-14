@@ -85,7 +85,6 @@
 		91DBA9AC2873F73D00E100C2 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */; };
 		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
 		91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E3334A286EF79D0011F199 /* SignOutViewController.xib */; };
-		91F45967287D289F009265D1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F45966287D289E009265D1 /* Account.swift */; };
 		94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94344D712876A7D20039DE0B /* SimulatorsList.txt */; };
 		94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344D752877EB7C0039DE0B /* SocketParser.swift */; };
 		94344E1F286C04D100F40565 /* ListIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94344E1E286C04D100F40565 /* ListIssue.swift */; };
@@ -203,7 +202,6 @@
 		91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		91E3334A286EF79D0011F199 /* SignOutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignOutViewController.xib; sourceTree = "<group>"; };
-		91F45966287D289E009265D1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		94344D712876A7D20039DE0B /* SimulatorsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimulatorsList.txt; sourceTree = "<group>"; };
 		94344D732876A83F0039DE0B /* multipleSimulatorsStartup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = multipleSimulatorsStartup.sh; sourceTree = "<group>"; };
 		94344D752877EB7C0039DE0B /* SocketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
@@ -450,14 +448,13 @@
 		602CDB912861613500E2EA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				943FAA92287E85CE0018043F /* JoinRoom */,
-				91F45968287D2B41009265D1 /* RevealCard */,
-				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				BAD51B262861B50D002961A7 /* ChooseCard */,
 				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
+				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
 				155264E4286B154F0038ABDF /* IssuesList */,
+				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
 				91F45968287D2B41009265D1 /* RevealCard */,
@@ -705,7 +702,6 @@
 		9146BC96286306F4001D4B7B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				91F45966287D289E009265D1 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1314,7 +1310,6 @@
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
-				91F45967287D289F009265D1 /* Account.swift in Sources */,
 				60C82C4928644771002E2DC2 /* User.swift in Sources */,
 				1541718028768E2F005C5AAB /* GameModel.swift in Sources */,
 				94514C2A2872E4C00097214C /* LeftMenuViewController.swift in Sources */,

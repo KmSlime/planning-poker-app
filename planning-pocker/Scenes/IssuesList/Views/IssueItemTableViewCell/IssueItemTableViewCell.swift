@@ -16,12 +16,13 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var voteButton: UIButton!
     
-    var deleteIssue: ((Issue?)->())?
-    var voteIssue: ((Issue?)->())?
 
     // MARK: - Properties
     var title: String?
     var issueModel: Issue?
+    var delegate: IssueItemTableViewCellDelegate?
+    var deleteIssue: ((Issue?)->())?
+    var voteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
     override func awakeFromNib() {
@@ -76,10 +77,16 @@ class IssueItemTableViewCell: UITableViewCell {
         }
         issueModel?.issueVoteStatus = true
         voteButton.setTitle(title, for: .normal)
-        voteIssue?(issueModel)
+//        voteIssue?(issueModel)
+        delegate?.issueItemTableViewCellDidVote(self)
+        
     }
 
     @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
         deleteIssue?(issueModel)
     }
+}
+
+protocol IssueItemTableViewCellDelegate: AnyObject {
+func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell)
 }

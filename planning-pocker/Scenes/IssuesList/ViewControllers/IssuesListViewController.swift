@@ -138,6 +138,7 @@ extension IssuesListViewController: UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "IssueItemTableViewCell") as? IssueItemTableViewCell else { return UITableViewCell() }
+            cell.delegate = self
             cell.setValueCell(issueModel: listIssue[indexPath.row])
             cell.displayAveragePoint(value: receiveAveragePoint ?? "-")
             cell.deleteIssue = { issue in
