@@ -461,7 +461,7 @@
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
 				91F45968287D2B41009265D1 /* RevealCard */,
-				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
+				910317AA286BE6ED00BAE25C /* IssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
 				60C82C4228644771002E2DC2 /* SignUp */,
@@ -609,14 +609,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */ = {
+		910317AA286BE6ED00BAE25C /* IssueDetail */ = {
 			isa = PBXGroup;
 			children = (
 				910317AD286BE80700BAE25C /* ViewControllers */,
 				910317AC286BE7F600BAE25C /* Views */,
 				910317AB286BE7EE00BAE25C /* Models */,
 			);
-			path = "Show-EditIssueDetail";
+			path = IssueDetail;
 			sourceTree = "<group>";
 		};
 		910317AB286BE7EE00BAE25C /* Models */ = {
