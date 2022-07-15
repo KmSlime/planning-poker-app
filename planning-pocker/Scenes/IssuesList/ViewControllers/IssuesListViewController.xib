@@ -83,6 +83,9 @@
                                 <constraint firstAttribute="height" constant="40" id="zbD-Vw-mOQ"/>
                             </constraints>
                             <buttonConfiguration key="configuration" style="plain" image="icon_menu_vertical"/>
+                            <connections>
+                                <action selector="optionDeleteAll:" destination="-1" eventType="touchUpInside" id="rjS-as-ppK"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

@@ -17,19 +17,22 @@ protocol Navigator {
     func pushToInvitePlayerScreen(url: String)
     func pushToCreateIssue()
     func pushToShowIssueListScreen(url: String?)
-    func pushToEditIssueScreen()
+    func pushToEditIssueScreen(issue: Issue?)
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
 //    func pushToRevealCard()
     func pushToJoinRoom()
+    func pushToDeleteIssue(id: Int?)
+    func pushToDeleteAllIssue(url: String?)
     
-    //MARK: - POP
+    // MARK: - POP
     func popToPreviousScreen()
+    func popToViewScreen(uiViewController: UIViewController?, data: Any?)
 }
 
 extension AppViewController: Navigator {
-    
+
     // MARK: - PUSH ACTION
     func pushToWelcomeScreen(user: User? = nil) {
         let welcomeScreenVC = WelcomeViewController()
@@ -75,8 +78,10 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     
-    func pushToEditIssueScreen() {
+    func pushToEditIssueScreen(issue: Issue? = nil) {
         let editIssueVC = IssueDetailViewController()
+        editIssueVC.issueModel = issue
+       
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     
@@ -99,13 +104,27 @@ extension AppViewController: Navigator {
     
     func pushToJoinRoom() {
         let joinRoomVC = JoinRoomViewController()
-        navigationController?.pushViewController(joinRoomVC, animated: true)
+        self.present(joinRoomVC, animated: true, completion: nil)
     }
-    
+    func pushToDeleteIssue(id: Int?) {
+        let deleteIssueVC = DeleteIssueViewController()
+        deleteIssueVC.id = id
+        navigationController?.pushViewController(deleteIssueVC, animated: true)
+    }
+    func pushToDeleteAllIssue(url: String?) {
+        let deleteAllIssueVC = DeleteAllIssueViewController()
+        deleteAllIssueVC.url = url
+        navigationController?.pushViewController(deleteAllIssueVC, animated: true)
+    }
     
     //MARK: - POP ACTION
     func popToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }
-    
+
+    func popToViewScreen(uiViewController: UIViewController?, data: Any? = nil) {
+        let anyView = uiViewController! as UIViewController
+        navigationController?.popToViewController(anyView, animated: true)
+    }
+
 }

@@ -34,8 +34,10 @@ class CreateNewGameViewController: UIViewController {
     var mainPlayer: PlayerModel!
     var cardData: [String]!
 
-
     // MARK: - Overrides
+
+
+
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -55,7 +57,6 @@ class CreateNewGameViewController: UIViewController {
         dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y: (dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
         dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width // get data from api
         selectedDropdownItem()
-
     }
 
     // MARK: - Publics
@@ -102,11 +103,15 @@ class CreateNewGameViewController: UIViewController {
             self.gameName = gameNameTextField.text!
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,
-                                                parameters: ["name": self.gameName! as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
+                                                parameters: ["name": self.gameName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
                                                 contentType: .applicationJson)
-            APIRequest.shared.request(router: routerCreateNewGame) {
-                [weak self] error, response in
-                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
+            APIRequest.shared.request(router: routerCreateNewGame) { [weak self] error, response in
+                guard error == nil else {
+                    print("Log Create new game: Error [\n \(String(describing: error))]")
+                    self!.showAlert(title: "Opps", message: "Error - Something went wrong")
+                    return
+                }
+                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
                     SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData, userName: userDefaults.string(forKey: "fullName")!)
                 } else { print(message) }

@@ -12,8 +12,9 @@ class JoinRoomViewController: UIViewController {
     let userDefaults = UserDefaults.standard
 
     @IBAction func backButton(_ sender: UIButton) {
-        AppViewController.shared.popToPreviousScreen()
+        self.dismiss(animated: true)
     }
+
     @IBOutlet weak var popUpView: UIView! {
         didSet {
             popUpView.layer.cornerRadius = 8

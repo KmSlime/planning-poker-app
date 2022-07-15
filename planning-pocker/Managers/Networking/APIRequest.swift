@@ -193,12 +193,14 @@ extension APIRequest {
             response.statusCode == APIErrorCode.notFound ||
             response.statusCode == APIErrorCode.netWorkLost ||
             response.statusCode == APIErrorCode.badGateway ||
-            response.statusCode == APIErrorCode.serviceUnavailable
+            response.statusCode == APIErrorCode.serviceUnavailable ||
+            response.statusCode == APIErrorCode.badRequest
         {
-            let errorMessageCode = json?["statusCode"].stringValue ?? ""
+            let errorMessage = json?["message"].stringValue ?? ""
+//            let errorMessageCode = json?["statusCode"].stringValue ?? ""
             print("HTTPURLResponse statusCode: \(response.statusCode)")
-            print("Error: \(String(describing: error))")
-            return APIError(code: response.statusCode, messageCode: errorMessageCode)
+            print("Error: \(String(describing: errorMessage))")
+            return APIError(code: response.statusCode, messageCode: errorMessage)
         }
         
         if let status = json?["status"].intValue {
@@ -219,7 +221,8 @@ extension APIRequest {
                 }
                 return APIError(code: APIErrorCode.unknownCode,
                                 messageCode: json?["statusCode"].stringValue ?? "",
-                                message: errors.map { $0.errorMessage }.joined(separator: "\n"))
+                                message: errors.map { $0.errorMessage }.joined(separator: "\n")
+                )
             }
         }
         return nil

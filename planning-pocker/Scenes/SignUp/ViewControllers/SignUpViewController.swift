@@ -30,6 +30,11 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        //test error email exist sign up
+        emailTextField.text = "kiiii@gmail.com"
+        passwordTextField.text = "Ka1@zxcv"
+        rePasswordTextField.text = "Ka1@zxcv"
+        fullNameTextField.text = "iiiii"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,9 +54,8 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    // MARK: - SENDING DATA TO BE - HAVEN'T DONE YET
+    // MARK: - SENDING DATA TO BE
     func register(user: User) {
-        
         let routerSignUp = APIRouter(path: APIPath.Auth.signUp.rawValue,
                                      method: .post,
                                      parameters: ["displayName": user.fullName,
@@ -59,21 +63,27 @@ class SignUpViewController: UIViewController {
                                                   "password": user.password],
                                      contentType: .applicationJson)
         APIRequest.shared.request(router: routerSignUp) { [weak self] error, response in
-            var message = response?.dictionary?["message"]?.stringValue ?? "Log: Else Case!!"
-            print(error)
+
             guard error == nil else {
+                // MARK: - Check exist email
+                if error?.messageCode == "Error: Email is already in use!" {
+                    AppViewController.shared.showAlert(tittle: "Error", message: "Email already exists.")
+                } else {
+                    print("Log Sign Up: Error [\n \(String(describing: error))]")
+                    AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
+                }
                 return
             }
-            // kiiii@gmail.com
+
+            let message = response?.dictionary?["message"]?.stringValue ?? "Log Sign Up: Else Case!!"
             print(message as Any)
-            // MARK: - Check exist email
-            if message == "Error: Email is already in use!" {
-                AppViewController.shared.showAlert(tittle: "Error", message: "Email already exists.")
-                return
-            } else {
+            if message != "Log Sign Up: Else Case!!" {
                 user.id = response?.dictionary?["id"]?.intValue ?? -1
                 userDefaults.set(user.id, forKey: "id")
                 AppViewController.shared.pushToWelcomeScreen(user: user)
+            } else {
+                AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
+                return
             }
         }
     }

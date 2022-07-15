@@ -17,9 +17,7 @@ class AppViewController: UIViewController {
 
     // MARK: - Overrides
 
-    
-    
-    
+
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +33,6 @@ class AppViewController: UIViewController {
     }
 
     // MARK: - Private
-
-
 
     // MARK: - Actions
 

@@ -15,14 +15,13 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var averagePointButton: UIButton!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var voteButton: UIButton!
-    
 
     // MARK: - Properties
-    var title: String?
     var issueModel: Issue?
-    var delegate: IssueItemTableViewCellDelegate?
+    weak var delegate: IssueItemTableViewCellDelegate?
+    var didDelete: ((UITableViewCell) -> Void)?
+    var indexOfIssue: Int?
     var deleteIssue: ((Issue?)->())?
-    var voteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
     override func awakeFromNib() {
@@ -38,11 +37,9 @@ class IssueItemTableViewCell: UITableViewCell {
     // MARK: - Publics
     func setValueCell(issueModel: Issue) {
         self.issueModel = issueModel
-        issueTitleLabel.text = issueModel.title
+        issueTitleLabel.text = issueModel.issueTitle
         issueKeyLabel.text = issueModel.issueKey
-    }
-    func displayAveragePoint(value: String) {
-        averagePointButton.setTitle(value, for: .normal)
+        averagePointButton.setTitle(issueModel.issueAveragePoint, for: .normal)
     }
 
     // MARK: - Private
@@ -55,38 +52,29 @@ class IssueItemTableViewCell: UITableViewCell {
         issueTitleLabel.font = UIFont(name: "Poppins-Medium", size: 16.0)
 
         backView.backgroundColor = UIColor.itemIssueCellBackground
+        backView.layer.opacity = 0.77
         backView.layer.cornerRadius = 8
         backView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        backView.layer.shadowRadius = 1
-        backView.layer.shadowOpacity = 0.1
+        backView.layer.shadowRadius = 2.5
+        backView.layer.shadowOpacity = 0.23
         backView.layer.shouldRasterize = true
         backView.layer.rasterizationScale = UIScreen.main.scale
     }
 
-    // MARK: - Actions
-    @IBAction func voteIssue(_ sender: UIButton) {
-
-        if voteButton.titleLabel?.text == "Vote this issue" {
-            title = "Voting now..."
-        }
-        if voteButton.titleLabel?.text == "Vote again" {
-            title = "Voting now..."
-        }
-        if voteButton.titleLabel?.text == "Voting now..." {
-            title = "Vote again"
-        }
-        issueModel?.issueVoteStatus = true
-        voteButton.setTitle(title, for: .normal)
-//        voteIssue?(issueModel)
-        delegate?.issueItemTableViewCellDidVote(self)
-        
+    private func votingButtonUIHandle() {
+        delegate?.issueItemTableViewCellDidVote(cell: self, index: indexOfIssue)
     }
 
-    @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
-        deleteIssue?(issueModel)
+    // MARK: - Actions
+    @IBAction func voteIssue(_ sender: UIButton) {
+        votingButtonUIHandle()
+    }
+    @IBAction func onCLickDeleteIssue(_ sender: UIButton) {
+        
+        AppViewController.shared.pushToDeleteIssue(id: issueModel?.issueId)
     }
 }
 
 protocol IssueItemTableViewCellDelegate: AnyObject {
-func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell)
+    func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?)
 }
