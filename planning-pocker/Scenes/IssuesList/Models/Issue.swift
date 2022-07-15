@@ -9,86 +9,103 @@ import UIKit
 
 class Issue: NSObject {
 
-    var issueId: Int?
-    var issueKey: String?
-    var issueTitle: String?
-    var issueDescription: String? = ""
-    var issueLink: String?
-    var issueVoteStatus: Bool? = false
-    var issueBelongToGame: GameModel?
-    var issueIdGame: String = ""
-    var issueAveragePoint: String = ""
+    private var id: Int?
+    private var key: String?
+    private var title: String?
+    private var descript: String?
+    private var link: String?
+    private var voteStatus: Bool? = false
+    private var averagePoint: String?
+    private var belongToGame: GameModel?
 
     override init() {
-        
+
     }
     
-    init(id: Int, key: String, idGame: String) {
-        self.issueId = id
-        self.issueKey = key
-        self.issueIdGame = idGame
+//    init(issueId: Int, issueKey: String, idGame: String) {
+//        self.id = id
+//        self.issueKey = key
+//        self.issueIdGame = idGame
+//    }
+
+    init(issueId: Int, issueKey: String, issueTitle: String, issueDescription: String, issueLink: String, issueVoteStatus: Bool, issueAveragePoint: String, ofGame: GameModel) {
+        self.id = issueId
+        self.key = issueKey
+        self.title = issueTitle
+        self.descript = issueDescription
+        self.link = issueLink
+        self.voteStatus = issueVoteStatus
+        self.belongToGame = ofGame
+        self.averagePoint = issueAveragePoint
     }
 
-    init(id: Int, key: String, title: String, description: String, link: String, status: Bool, averagePoint: String, ofGame: GameModel) {
-        self.issueId = id
-        self.issueKey = key
-        self.issueTitle = title
-        self.issueDescription = description
-        self.issueLink = link
-        self.issueVoteStatus = status
-        self.issueBelongToGame = ofGame
-        self.issueAveragePoint = averagePoint
-    }
-
-    public var id: Int {
+    public var issueBelongToGame: GameModel {
         get {
-            return self.issueId!
+            return self.belongToGame!
         }
         set {
-            return self.issueId = newValue
+            return self.belongToGame = newValue
+        }
+    }
+
+    public var issueId: Int {
+        get {
+            return self.id ?? -1
+        }
+        set {
+            return self.id = newValue
         }
     }
     
-   public var key: String {
+   public var issueKey: String {
        get {
-           return self.issueKey!
+           return self.key ?? "PP-0"
        }
        set {
-           return self.issueKey = newValue
+           return self.key = newValue
        }
    }
    
-    public var title: String {
+    public var issueTitle: String {
         get {
-            return self.issueTitle!
+            return self.title ?? "#"
         }
         set {
-            return self.issueTitle = newValue
-        }
-    }
-    
-    public var link: String {
-
-        get {
-            return self.issueLink!
-        }
-        set {
-            return self.issueLink = newValue
-        }
-    }
-    
-    public var status: Bool {
-        get {
-            return self.status
-        }
-        set {
-            return self.status = newValue
+            return self.title = newValue
         }
     }
 
-    public var averagePoint: String {
+    public var issueDescription: String {
         get {
-            return self.averagePoint
+            return self.descript ?? "#"
+        }
+        set {
+            return self.descript = newValue
+        }
+    }
+
+    public var issueLink: String {
+
+        get {
+            return self.link ?? "#"
+        }
+        set {
+            return self.link = newValue
+        }
+    }
+    
+    public var issueVoteStatus: Bool {
+        get {
+            return self.voteStatus ?? false
+        }
+        set {
+            return self.voteStatus = newValue
+        }
+    }
+
+    public var issueAveragePoint: String {
+        get {
+            return self.averagePoint ?? "-"
         } set {
             return self.averagePoint = newValue
         }
