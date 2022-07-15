@@ -101,13 +101,6 @@ class CreateNewGameViewController: UIViewController {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
             self.gameName = gameNameTextField.text!
-            // let idMainPlayer = userDefaults.value(forKey: "id") as? Int
-            // let nameMainPlayer = userDefaults.value(forKey: "fullName") as? String
-            // mainPlayer = PlayerModel(id: idMainPlayer!, name: nameMainPlayer!, roomId: -1, role: PlayerRole.host) // TODO: Nghia sau nay thay cai nay bang default user
-            // print(mainPlayer as Any)
-            
-            // newRoom = RoomModel(roomName: gameName!, roomId: -1, cards: cardData!, mainPlayer: mainPlayer, otherPlayers: []) // sau nay thay cai nay bang gameName de pass data !!!
-            
             let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
                                                 method: .post,
                                                 parameters: ["name": self.gameName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
@@ -120,14 +113,8 @@ class CreateNewGameViewController: UIViewController {
                 }
                 let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
-                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData)
+                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData, userName: userDefaults.string(forKey: "fullName")!)
                 } else { print(message) }
-                //     self!.gameModel = GameModel(name: self!.gameName!, url: message)
-                //     AppViewController.shared.pushToChooseCardScreen(newRoomModel: self!.newRoom, gameInfo: self!.gameModel)
-                // } else {
-                //     AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
-                //     return
-                // }
             }
         }
     }

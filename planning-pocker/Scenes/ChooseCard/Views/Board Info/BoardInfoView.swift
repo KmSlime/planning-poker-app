@@ -9,6 +9,7 @@ import UIKit
 
 class BoardInfoView: UIView {
     var countDownValue = 3
+    var timer: Timer?
     
     @IBOutlet weak var countDownLabel: UILabel! {
         didSet {
@@ -23,32 +24,49 @@ class BoardInfoView: UIView {
         SocketIOManager.sharedInstance.revealCard()
     }
     
+    func showStartNewVotingButton() {
+        guard let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
+            return
+        }
+        startNewVotingButton.isHidden = false
+        startNewVotingButton.titleLabel?.text = "Start new voting"
+        startNewVotingButton.addTarget(self, action: #selector(startNewVoting), for: .touchUpInside)
+        
+    }
+    
+    @objc func startNewVoting() {
+        print("start start start")
+    }
+    
     func showCountDownText() {
             guard let itemNotifyPickStack = self.viewWithTag(101),
                   let itemRealButton = self.viewWithTag(102),
-                  let itemCountDownLabel = self.viewWithTag(103) as? UILabel else {
+                  let itemCountDownLabel = self.viewWithTag(103) as? UILabel,
+                  let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
                 return
             }
+            startNewVotingButton.isHidden = true
             itemNotifyPickStack.isHidden = true
             itemRealButton.isHidden =  true
             itemCountDownLabel.isHidden = false
             itemCountDownLabel.text = String(countDownValue)
             itemCountDownLabel.font = UIFont(name: "Poppins-Bold", size: 30.0)
             
-            _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 DispatchQueue.main.async {
                     if self!.countDownValue > 0 {
                         self!.countDownValue -= 1
                         itemCountDownLabel.text = String(self!.countDownValue)
                     } else {
+                        timer.invalidate()
+                        SocketIOManager.sharedInstance.showResult()
                         itemCountDownLabel.isHidden = true
                         self?.countDownValue = 3
-                        return
                     }
                    
                 }
             }
-        
+            
     }
     func changeBoardInfo(isSelected: Bool) {
         guard let itemNotifyPickStack = self.viewWithTag(101),

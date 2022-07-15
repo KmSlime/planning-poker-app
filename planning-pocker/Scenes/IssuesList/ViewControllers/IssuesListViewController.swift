@@ -63,8 +63,8 @@ class IssuesListViewController: UIViewController {
     
     private func getDataIssueList() {
         // test api list already have issue
-//        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
-        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
+        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // apisd
+//        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -138,6 +138,17 @@ extension IssuesListViewController: UITableViewDelegate {
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
             AppViewController.shared.pushToEditIssueScreen(issue: self.issueModel)
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row != listIssue.count {
+            let upTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -10, 0)
+            cell.layer.transform = upTransform
+            cell.alpha = 0.5
+            UIView.animate(withDuration: 1) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1
+            }
         }
     }
 }
