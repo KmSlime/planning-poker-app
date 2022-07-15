@@ -108,7 +108,7 @@ class CreateNewGameViewController: UIViewController {
                 [weak self] error, response in
                 let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Error - Else case!!"
                 if message != "Log Create new game: Error - Else case!!" {
-                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData)
+                    SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData, userName: userDefaults.string(forKey: "fullName")!)
                 } else { print(message) }
             }
         }

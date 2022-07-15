@@ -21,7 +21,7 @@ protocol Navigator {
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
-    func pushToRevealCard()
+//    func pushToRevealCard()
     func pushToJoinRoom()
     
     //MARK: - POP
@@ -92,10 +92,10 @@ extension AppViewController: Navigator {
         let customDeskVC = CustomDeskViewController()
         navigationController?.pushViewController(customDeskVC, animated: true)
     }
-    func pushToRevealCard() {
-        let revealCardVC = RevealCardViewController()
-        navigationController?.pushViewController(revealCardVC, animated: true)
-    }
+//    func pushToRevealCard() {
+//        let revealCardVC = RevealCardViewController()
+//        navigationController?.pushViewController(revealCardVC, animated: true)
+//    }
     
     func pushToJoinRoom() {
         let joinRoomVC = JoinRoomViewController()

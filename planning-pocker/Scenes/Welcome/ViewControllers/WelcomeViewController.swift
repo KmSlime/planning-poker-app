@@ -107,9 +107,9 @@ class WelcomeViewController: UIViewController {
     @IBAction func show_editIssueDetail(_ sender: UIButton) {
         AppViewController.shared.pushToEditIssueScreen()
     }
-    @IBAction func revealCard(_ sender: UIButton) {
-        AppViewController.shared.pushToRevealCard()
-    }
+//    @IBAction func revealCard(_ sender: UIButton) {
+//        AppViewController.shared.pushToRevealCard()
+//    }
 
     @IBAction func onClickLoginButton(_ sender: Any) {
 

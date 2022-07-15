@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CardToResultCollectionViewCell" customModule="planning_pocker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-kd-iPU">
+                        <rect key="frame" x="10" y="0.0" width="30" height="62.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmP-Dd-h8l" userLabel="Number">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="62.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dmP-Dd-h8l" firstAttribute="top" secondItem="RDe-kd-iPU" secondAttribute="top" id="hUz-Wv-Ft2"/>
+                            <constraint firstItem="dmP-Dd-h8l" firstAttribute="leading" secondItem="RDe-kd-iPU" secondAttribute="leading" id="lgN-hp-o6g"/>
+                            <constraint firstAttribute="trailing" secondItem="dmP-Dd-h8l" secondAttribute="trailing" id="xh7-e2-4B8"/>
+                            <constraint firstAttribute="bottom" secondItem="dmP-Dd-h8l" secondAttribute="bottom" id="zyj-cr-96b"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjP-BS-9Fn" userLabel="Vote">
+                        <rect key="frame" x="0.0" y="62.5" width="50" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="fjP-BS-9Fn" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.3" id="2MQ-aP-2zo"/>
+                <constraint firstItem="RDe-kd-iPU" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.625" id="LJY-ak-RlV"/>
+                <constraint firstItem="RDe-kd-iPU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="baY-tC-S8g"/>
+                <constraint firstItem="RDe-kd-iPU" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="dx9-mE-BRP"/>
+                <constraint firstAttribute="trailing" secondItem="fjP-BS-9Fn" secondAttribute="trailing" id="jxJ-x1-MSR"/>
+                <constraint firstItem="fjP-BS-9Fn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="p2V-8R-l4x"/>
+                <constraint firstItem="RDe-kd-iPU" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.6" id="uET-qw-5wB"/>
+                <constraint firstItem="fjP-BS-9Fn" firstAttribute="top" secondItem="RDe-kd-iPU" secondAttribute="bottom" id="uFU-qZ-aav"/>
+            </constraints>
+            <size key="customSize" width="84" height="120"/>
+            <connections>
+                <outlet property="backCardView" destination="RDe-kd-iPU" id="6vU-F5-hcw"/>
+                <outlet property="cardNumberLabel" destination="dmP-Dd-h8l" id="T2i-2v-Ovf"/>
+                <outlet property="countVoteNumberLabel" destination="fjP-BS-9Fn" id="SAI-NX-dWo"/>
+            </connections>
+            <point key="canvasLocation" x="-43.478260869565219" y="9.375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

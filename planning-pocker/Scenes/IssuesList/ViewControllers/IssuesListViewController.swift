@@ -135,6 +135,17 @@ extension IssuesListViewController: UITableViewDelegate {
             AppViewController.shared.pushToEditIssueScreen()
         }
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row != listIssue.count {
+            let upTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -10, 0)
+            cell.layer.transform = upTransform
+            cell.alpha = 0.5
+            UIView.animate(withDuration: 1) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1
+            }
+        }
+    }
 }
 
 extension IssuesListViewController: UITableViewDataSource {

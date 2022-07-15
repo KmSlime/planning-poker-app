@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class JoinRoomViewController: UIViewController {
+    let userDefaults = UserDefaults.standard
 
     @IBAction func backButton(_ sender: UIButton) {
         AppViewController.shared.popToPreviousScreen()
@@ -44,6 +46,6 @@ class JoinRoomViewController: UIViewController {
     
     @objc func joinRoom() {
         let text: String = urlTextField.text!
-        SocketIOManager.sharedInstance.enterJoinRoom(roomId: text, userId: Int.random(in: 1 ... 1000))
+        SocketIOManager.sharedInstance.enterJoinRoom(roomId: text, userId: Int.random(in: 1 ... 1000), userName: userDefaults.string(forKey: "fullName")!)
     }
 }
