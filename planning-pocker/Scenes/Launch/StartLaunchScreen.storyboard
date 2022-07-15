@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="width" constant="154" id="oFn-3I-9jx"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 108 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="0RZ-v9-jB7">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="0RZ-v9-jB7">
                                         <rect key="frame" x="0.0" y="94" width="311.5" height="239.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="239.5" id="SCU-7l-Ktg"/>
@@ -51,8 +51,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Component 108 – 1" width="312" height="239.5"/>
-        <image name="tpssoft-logo-full-color" width="154" height="38"/>
+        <image name="background" width="312" height="239.5"/>
+        <image name="tpssoft-logo-full-color" width="158" height="39"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

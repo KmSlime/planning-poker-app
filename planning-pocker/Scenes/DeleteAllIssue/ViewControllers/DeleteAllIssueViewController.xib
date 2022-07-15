@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteAllIssueViewController" customModule="planning_pocker" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelDeleteAllButton" destination="tJK-H0-Aqk" id="p03-KP-mqr"/>
+                <outlet property="deleteAllIssueButton" destination="Cbl-CU-QAi" id="rHm-fQ-qDo"/>
+                <outlet property="deleteAllIssueView" destination="oQz-H2-rH7" id="n0g-wM-rRB"/>
+                <outlet property="view" destination="9le-MM-qgP" id="ju7-gR-STm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="CreateIssueViewController" id="9le-MM-qgP">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-H2-rH7">
+                    <rect key="frame" x="10" y="319.5" width="394" height="267.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete all issues?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-ec-wcz">
+                            <rect key="frame" x="20" y="30" width="354" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This operation is irreversible." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z95-Pv-o7a">
+                            <rect key="frame" x="69" y="74.5" width="256" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="lL7-qc-IvY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJK-H0-Aqk">
+                            <rect key="frame" x="20" y="117.5" width="354" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Jq6-5o-zwj"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                <backgroundConfiguration key="background" cornerRadius="4">
+                                    <color key="strokeColor" red="0.78823529410000004" green="0.78823529410000004" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </backgroundConfiguration>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="onClickCancelDeleteAllIssueButton:" destination="-1" eventType="touchUpInside" id="tze-rJ-UTB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbl-CU-QAi">
+                            <rect key="frame" x="20" y="187.5" width="354" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="wUS-Lh-jlp"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Delete issue">
+                                <backgroundConfiguration key="background" cornerRadius="4">
+                                    <color key="backgroundColor" red="1" green="0.22352941179999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </backgroundConfiguration>
+                                <color key="baseForegroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="onClickDeleteAllIssueButton:" destination="-1" eventType="touchUpInside" id="sZW-ha-Tkg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Cbl-CU-QAi" secondAttribute="trailing" constant="20" id="3T1-hk-sx0"/>
+                        <constraint firstItem="Cbl-CU-QAi" firstAttribute="top" secondItem="tJK-H0-Aqk" secondAttribute="bottom" constant="20" id="Akd-hG-KNn"/>
+                        <constraint firstItem="Ris-ec-wcz" firstAttribute="top" secondItem="oQz-H2-rH7" secondAttribute="top" constant="30" id="Coa-2H-wLr"/>
+                        <constraint firstItem="Ris-ec-wcz" firstAttribute="leading" secondItem="oQz-H2-rH7" secondAttribute="leading" constant="20" id="Gra-DD-pQN"/>
+                        <constraint firstAttribute="bottom" secondItem="Cbl-CU-QAi" secondAttribute="bottom" constant="30" id="QCr-e6-Bzq"/>
+                        <constraint firstItem="z95-Pv-o7a" firstAttribute="leading" secondItem="oQz-H2-rH7" secondAttribute="leading" constant="69" id="U0D-kk-DoZ"/>
+                        <constraint firstItem="Cbl-CU-QAi" firstAttribute="leading" secondItem="oQz-H2-rH7" secondAttribute="leading" constant="20" id="Wy5-T7-q6z"/>
+                        <constraint firstItem="z95-Pv-o7a" firstAttribute="top" secondItem="Ris-ec-wcz" secondAttribute="bottom" constant="24" id="dSZ-Z9-Rbl"/>
+                        <constraint firstItem="tJK-H0-Aqk" firstAttribute="leading" secondItem="oQz-H2-rH7" secondAttribute="leading" constant="20" id="ons-Yc-lud"/>
+                        <constraint firstAttribute="trailing" secondItem="tJK-H0-Aqk" secondAttribute="trailing" constant="20" id="sVn-Sx-JVZ"/>
+                        <constraint firstAttribute="trailing" secondItem="z95-Pv-o7a" secondAttribute="trailing" constant="69" id="tJW-ak-KsF"/>
+                        <constraint firstAttribute="trailing" secondItem="Ris-ec-wcz" secondAttribute="trailing" constant="20" id="vKa-w6-ftW"/>
+                        <constraint firstItem="tJK-H0-Aqk" firstAttribute="top" secondItem="z95-Pv-o7a" secondAttribute="bottom" constant="23" id="vaT-OS-haw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Zug-9u-4aI"/>
+            <color key="backgroundColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oQz-H2-rH7" firstAttribute="leading" secondItem="Zug-9u-4aI" secondAttribute="leading" constant="10" id="GTu-xk-Okc"/>
+                <constraint firstItem="oQz-H2-rH7" firstAttribute="centerY" secondItem="Zug-9u-4aI" secondAttribute="centerY" id="asC-Ge-ezT"/>
+                <constraint firstItem="Zug-9u-4aI" firstAttribute="trailing" secondItem="oQz-H2-rH7" secondAttribute="trailing" constant="10" id="iZ1-pP-NCw"/>
+            </constraints>
+            <point key="canvasLocation" x="-920.28985507246387" y="77.678571428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

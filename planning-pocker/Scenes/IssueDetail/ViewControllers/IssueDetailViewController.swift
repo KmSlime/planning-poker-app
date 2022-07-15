@@ -27,34 +27,11 @@ class IssueDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-
-    // MARK: - Actions
-
-    @IBAction func onClickCopy(_ sender: Any) {
-        guard let text = linkContentLabel.text else {
-            return
-        }
-        UIPasteboard.general.string = text
-
-        guard UIPasteboard.general.string != nil else {
-            return
-        }
-        let snackBarMsg = MDCSnackbarMessage()
-        snackBarMsg.text = "Copied successful"
-        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#4BB543")
-        MDCSnackbarManager.default.show(snackBarMsg)
-    }
-    @IBAction func onClickBackToShowIssueList(_ sender: Any) {
-        AppViewController.shared.popToPreviousScreen()
-        }
-    @IBAction func onClickSave(_ sender: Any) {
-    }
+    
     // MARK: - Properties
     var placeholderTitleContentLabel: UILabel!
-
     var placeholderDescriptionContentLabel: UILabel!
-    
-    var id: String?
+    var issueModel: Issue?
 
     // MARK: - Overrides
 
@@ -93,7 +70,7 @@ class IssueDetailViewController: UIViewController {
         titleContentTextView.clipsToBounds = true
         titleContentTextView.layer.masksToBounds = true
         titleContentTextView.layer.cornerRadius = 5
-        placeholderTitleContentLabel.text = "Enter a tittle for the issue"
+    
         placeholderTitleContentLabel.sizeToFit()
         titleContentTextView.addSubview(placeholderTitleContentLabel)
         placeholderTitleContentLabel.frame.origin = CGPoint(x: 5, y: (titleContentTextView.font?.pointSize)! / 2)
@@ -119,15 +96,55 @@ class IssueDetailViewController: UIViewController {
 
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
+        
+        
+
+        issueKeyLabel.text = issueModel?.issueKey
+        titleContentTextView.text = issueModel?.issueTitle
+        linkContentLabel.text = issueModel?.issueLink
+        descriptionContentTextVIew.text = issueModel?.issueDescription
 
     }
-//    func showDetailIssueCallAPI() {
-//        id = "2"
-//        let path = APIPath.Auth.getIssueDetail.rawValue + "\(id ?? "0")"
-//        let getIssueDetailRouter = APIRouter(path: path, method: .get, parameters: [:], contentType: .urlFormEncoded)
-//        //APIRequest.shared.re
-//    }
+    
+    // MARK: - Actions
 
+    @IBAction func onClickCopy(_ sender: Any) {
+        guard let text = linkContentLabel.text else {
+            return
+        }
+        UIPasteboard.general.string = text
+
+        guard UIPasteboard.general.string != nil else {
+            return
+        }
+        let snackBarMsg = MDCSnackbarMessage()
+        snackBarMsg.text = "Copied successful"
+        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#4BB543")
+        MDCSnackbarManager.default.show(snackBarMsg)
+    }
+    @IBAction func onClickBackToShowIssueList(_ sender: Any) {
+        AppViewController.shared.popToPreviousScreen()
+        }
+    @IBAction func onClickSave(_ sender: Any) {
+        //sai -- sua lai theo dang param
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(issueModel!.issueId)"
+        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: [:], contentType: .urlFormEncoded)
+        APIRequest.shared.request(router: getIssueDetailRouter) { [weak self] error, response in
+            guard error == nil else {
+                self!.showAlert(title: "Message", message: "Error - Something went wrong")
+                print("Log Create New Game: Error code - \(String(describing: error?.code))")
+                return
+            }
+            
+            let message = response?.dictionary?["success"]!.boolValue ?? false
+            
+            if message != false {
+                AppViewController.shared.popToPreviousScreen()
+            } else {
+                return
+            }
+        }
+    }
 }
 // MARK: - extensions
 

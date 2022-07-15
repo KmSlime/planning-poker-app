@@ -17,12 +17,14 @@ protocol Navigator {
     func pushToInvitePlayerScreen(url: String)
     func pushToCreateIssue()
     func pushToShowIssueListScreen(url: String?)
-    func pushToEditIssueScreen()
+    func pushToEditIssueScreen(issue: Issue?)
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
     func pushToRevealCard()
     func pushToJoinRoom()
+    func pushToDeleteIssue(id: Int?)
+    func pushToDeleteAllIssue(url: String?)
     
     // MARK: - POP
     func popToPreviousScreen()
@@ -76,8 +78,10 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     
-    func pushToEditIssueScreen() {
+    func pushToEditIssueScreen(issue: Issue? = nil) {
         let editIssueVC = IssueDetailViewController()
+        editIssueVC.issueModel = issue
+       
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     
@@ -102,8 +106,18 @@ extension AppViewController: Navigator {
         let joinRoomVC = JoinRoomViewController()
         self.present(joinRoomVC, animated: true, completion: nil)
     }
-
-    // MARK: - POP ACTION
+    func pushToDeleteIssue(id: Int?) {
+        let deleteIssueVC = DeleteIssueViewController()
+        deleteIssueVC.id = id
+        navigationController?.pushViewController(deleteIssueVC, animated: true)
+    }
+    func pushToDeleteAllIssue(url: String?) {
+        let deleteAllIssueVC = DeleteAllIssueViewController()
+        deleteAllIssueVC.url = url
+        navigationController?.pushViewController(deleteAllIssueVC, animated: true)
+    }
+    
+    //MARK: - POP ACTION
     func popToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }

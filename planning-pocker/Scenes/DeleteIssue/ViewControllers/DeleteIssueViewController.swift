@@ -9,21 +9,56 @@ import UIKit
 
 class DeleteIssueViewController: UIViewController {
 
+    // MARK: - IBOutlet
+    @IBOutlet weak var deleteIssueView: UIView! {
+        didSet {
+            deleteIssueView.layer.cornerRadius = 8
+        }
+    }
+    @IBOutlet weak var cancelDeleteButton: UIButton! {
+        didSet {
+            cancelDeleteButton.layer.cornerRadius = 5
+        }
+    }
+    @IBOutlet weak var deleteIssueButton: UIButton! {
+        didSet {
+            deleteIssueButton.layer.cornerRadius = 5
+        }
+    }
+    // MARK: - Properties
+    var issueModel: Issue?
+    var id: Int?
+    var gameInIssue: GameModel?
+    var listIssue: [Issue] = []
+    // MARK: - Overrides
+    // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Publics
+    // MARK: - Private
+    private func deleteIssueCallAPI() {
+        let idPath = String(id!)
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + ("\(idPath ?? "-1")")
+        let deleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
+        APIRequest.shared.request(router: deleteIssueRouter){ [weak self] error, response in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            AppViewController.shared.pushToShowIssueListScreen()
+        }
+        
     }
-    */
-
+    // MARK: - Setup UI
+    // MARK: - Actions
+    @IBAction func onClickCancelDeleteIssueButton (_ sender: UIButton) {
+        AppViewController.shared.popToPreviousScreen()
+    }
+    @IBAction func onClickDeleteIssueButton (_ sender: UIButton) {
+        deleteIssueCallAPI()
+    }
 }

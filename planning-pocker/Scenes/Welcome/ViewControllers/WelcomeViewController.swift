@@ -23,7 +23,9 @@ class WelcomeViewController: UIViewController {
     private var leftMenuTrailingConstraint: NSLayoutConstraint!
     private var revealLeftMenuOnTop = true
     private var leftMenuShadowView: UIView!
-    
+    var issueModel: Issue?
+    var id: Int?
+
     
     // MARK: - Overrides
 
