@@ -15,15 +15,12 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBOutlet weak var averagePointButton: UIButton!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var voteButton: UIButton!
-    
 
     // MARK: - Properties
     var issueModel: Issue?
     weak var delegate: IssueItemTableViewCellDelegate?
     var didDelete: ((UITableViewCell) -> Void)?
-    var title: String?
     var indexOfIssue: Int?
-    var issueVoteStatus: Bool = false
     var deleteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
@@ -40,12 +37,9 @@ class IssueItemTableViewCell: UITableViewCell {
     // MARK: - Publics
     func setValueCell(issueModel: Issue) {
         self.issueModel = issueModel
-        issueTitleLabel.text = issueModel.title
+        issueTitleLabel.text = issueModel.issueTitle
         issueKeyLabel.text = issueModel.issueKey
-    }
-
-    func displayAveragePoint(value: String) {
-        averagePointButton.setTitle(value, for: .normal)
+        averagePointButton.setTitle(issueModel.issueAveragePoint, for: .normal)
     }
 
     // MARK: - Private
