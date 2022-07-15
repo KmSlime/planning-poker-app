@@ -101,13 +101,13 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToInvitePlayerScreen(url: "")
     }
     @IBAction func editIssue(_ sender: UIButton) {
-        AppViewController.shared.pushToEditIssueScreen(id: issueModel?.id)
+        AppViewController.shared.pushToEditIssueScreen()
     }
     @IBAction func leftMenu(_ sender: UIButton) {
         AppViewController.shared.pushToLeftMenu()
     }
     @IBAction func show_editIssueDetail(_ sender: UIButton) {
-        AppViewController.shared.pushToEditIssueScreen(id: issueModel?.id)
+        AppViewController.shared.pushToEditIssueScreen()
     }
     @IBAction func revealCard(_ sender: UIButton) {
         AppViewController.shared.pushToRevealCard()

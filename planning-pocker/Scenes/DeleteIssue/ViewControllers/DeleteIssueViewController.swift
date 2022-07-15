@@ -41,17 +41,13 @@ class DeleteIssueViewController: UIViewController {
     // MARK: - Publics
     // MARK: - Private
     private func deleteIssueCallAPI() {
-        id = issueModel?.id
         let idPath = String(id!)
-        let path = APIPath.Auth.deleteIssue.rawValue + ("\(idPath ?? "-1")")
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + ("\(idPath ?? "-1")")
         let deleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: deleteIssueRouter){ [weak self] error, response in
             guard error == nil else {
                 print(error!)
                 return
-            }
-            self!.listIssue.sort {
-                ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
             AppViewController.shared.pushToShowIssueListScreen()
         }

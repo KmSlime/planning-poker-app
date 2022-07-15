@@ -17,7 +17,7 @@ protocol Navigator {
     func pushToInvitePlayerScreen(url: String)
     func pushToCreateIssue()
     func pushToShowIssueListScreen(url: String?)
-    func pushToEditIssueScreen(id: Int?, title: String?, link: String?, description: String?)
+    func pushToEditIssueScreen(issue: Issue?)
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
@@ -25,6 +25,7 @@ protocol Navigator {
     func pushToJoinRoom()
     func pushToDeleteIssue(id: Int?)
     func pushToDeleteAllIssue(url: String?)
+    
     // MARK: - POP
     func popToPreviousScreen()
     func popToViewScreen(uiViewController: UIViewController?, data: Any?)
@@ -77,8 +78,10 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     
-    func pushToEditIssueScreen(id: Int?, title: String?, link: String?, description: String?) {
+    func pushToEditIssueScreen(issue: Issue? = nil) {
         let editIssueVC = IssueDetailViewController()
+        editIssueVC.issueModel = issue
+       
         navigationController?.pushViewController(editIssueVC, animated: true)
     }
     

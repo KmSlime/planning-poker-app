@@ -38,16 +38,12 @@ class DeleteAllIssueViewController: UIViewController {
     // MARK: - Publics
     // MARK: - Private
     private func deleteAllIssueCallAPI() {
-        url = "kspqPBBp2kgf48EBBU4Ya1UM7"
         let path = APIPath.Auth.deleteAllIssue.rawValue + ("\(url ?? "")")
         let deleteAllRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: deleteAllRouter) { [weak self] error, response in
             guard error == nil else {
                 print(error!)
                 return
-            }
-            self!.listIssue.sort {
-                ($0.issueKey?.components(separatedBy: "-")[1])! < ($1.issueKey?.components(separatedBy: "-")[1])!
             }
             AppViewController.shared.pushToShowIssueListScreen()
         }

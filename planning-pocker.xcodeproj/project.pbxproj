@@ -190,7 +190,6 @@
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		917AD443287ECD0900399193 /* IssueDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IssueDetailModel.swift; path = "planning-pocker/Scenes/RevealCard/ViewControllers/IssueDetailModel.swift"; sourceTree = SOURCE_ROOT; };
 		917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDeskViewController.swift; sourceTree = "<group>"; };
 		917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingSystemCell.xib; sourceTree = "<group>"; };
 		917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
@@ -623,7 +622,6 @@
 		910317AB286BE7EE00BAE25C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				917AD443287ECD0900399193 /* IssueDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

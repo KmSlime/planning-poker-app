@@ -27,37 +27,10 @@ class IssueDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        showDetailIssueCallAPI()
-    }
-
-    // MARK: - Actions
-
-    @IBAction func onClickCopy(_ sender: Any) {
-        guard let text = linkContentLabel.text else {
-            return
-        }
-        UIPasteboard.general.string = text
-
-        guard UIPasteboard.general.string != nil else {
-            return
-        }
-        let snackBarMsg = MDCSnackbarMessage()
-        snackBarMsg.text = "Copied successful"
-        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#4BB543")
-        MDCSnackbarManager.default.show(snackBarMsg)
-    }
-    @IBAction func onClickBackToShowIssueList(_ sender: Any) {
-        AppViewController.shared.popToPreviousScreen()
-        }
-    @IBAction func onClickSave(_ sender: Any) {
-    }
+    
     // MARK: - Properties
     var placeholderTitleContentLabel: UILabel!
-
     var placeholderDescriptionContentLabel: UILabel!
-    
-    var id: Int?
     var issueModel: Issue?
 
     // MARK: - Overrides
@@ -97,7 +70,7 @@ class IssueDetailViewController: UIViewController {
         titleContentTextView.clipsToBounds = true
         titleContentTextView.layer.masksToBounds = true
         titleContentTextView.layer.cornerRadius = 5
-        placeholderTitleContentLabel.text = "Enter a tittle for the issue"
+    
         placeholderTitleContentLabel.sizeToFit()
         titleContentTextView.addSubview(placeholderTitleContentLabel)
         placeholderTitleContentLabel.frame.origin = CGPoint(x: 5, y: (titleContentTextView.font?.pointSize)! / 2)
@@ -126,38 +99,52 @@ class IssueDetailViewController: UIViewController {
         
         
 
+        issueKeyLabel.text = issueModel?.issueKey
+        titleContentTextView.text = issueModel?.issueTitle
+        linkContentLabel.text = issueModel?.issueLink
+        descriptionContentTextVIew.text = issueModel?.issueDescription
+
     }
-    func showDetailIssueCallAPI() {
-        id = 11
-        let idPath = String(id!)
-        let path = APIPath.Auth.getIssueDetail.rawValue + "\(idPath ?? "-1")"
-        let getIssueDetailRouter = APIRouter(path: path, method: .get, parameters: [:], contentType: .urlFormEncoded)
+    
+    // MARK: - Actions
+
+    @IBAction func onClickCopy(_ sender: Any) {
+        guard let text = linkContentLabel.text else {
+            return
+        }
+        UIPasteboard.general.string = text
+
+        guard UIPasteboard.general.string != nil else {
+            return
+        }
+        let snackBarMsg = MDCSnackbarMessage()
+        snackBarMsg.text = "Copied successful"
+        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = UIColor(hexString: "#4BB543")
+        MDCSnackbarManager.default.show(snackBarMsg)
+    }
+    @IBAction func onClickBackToShowIssueList(_ sender: Any) {
+        AppViewController.shared.popToPreviousScreen()
+        }
+    @IBAction func onClickSave(_ sender: Any) {
+        //sai -- sua lai theo dang param
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(issueModel!.issueId)"
+        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueDetailRouter) { [weak self] error, response in
             guard error == nil else {
                 self!.showAlert(title: "Message", message: "Error - Something went wrong")
                 print("Log Create New Game: Error code - \(String(describing: error?.code))")
                 return
             }
-            guard let key = response?["key"].string,
-                  let title = response?["title"].string,
-                  let link = response?["link"].string,
-                  let description = response?["description"].string
-            else {
+            
+            let message = response?.dictionary?["success"]!.boolValue ?? false
+            
+            if message != false {
+                AppViewController.shared.popToPreviousScreen()
+            } else {
                 return
             }
-                DispatchQueue.global(qos: .background).async {
-                    DispatchQueue.main.async {
-                        self?.issueKeyLabel.text = key
-                        self?.titleContentTextView.text = title
-                        self?.linkContentLabel.text = link
-                        self?.descriptionContentTextVIew.text = description
-                    }
-                }
-        
         }
-        
     }
-
 }
 // MARK: - extensions
 
