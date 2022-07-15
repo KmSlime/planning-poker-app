@@ -27,6 +27,9 @@ class IssueDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        showDetailIssueCallAPI()
+    }
 
     // MARK: - Actions
 
@@ -54,7 +57,8 @@ class IssueDetailViewController: UIViewController {
 
     var placeholderDescriptionContentLabel: UILabel!
     
-    var id: String?
+    var id: Int?
+    var issueModel: Issue?
 
     // MARK: - Overrides
 
@@ -119,14 +123,40 @@ class IssueDetailViewController: UIViewController {
 
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
+        
+        
 
     }
-//    func showDetailIssueCallAPI() {
-//        id = "2"
-//        let path = APIPath.Auth.getIssueDetail.rawValue + "\(id ?? "0")"
-//        let getIssueDetailRouter = APIRouter(path: path, method: .get, parameters: [:], contentType: .urlFormEncoded)
-//        //APIRequest.shared.re
-//    }
+    func showDetailIssueCallAPI() {
+        id = 11
+        let idPath = String(id!)
+        let path = APIPath.Auth.getIssueDetail.rawValue + "\(idPath ?? "-1")"
+        let getIssueDetailRouter = APIRouter(path: path, method: .get, parameters: [:], contentType: .urlFormEncoded)
+        APIRequest.shared.request(router: getIssueDetailRouter) { [weak self] error, response in
+            guard error == nil else {
+                self!.showAlert(title: "Message", message: "Error - Something went wrong")
+                print("Log Create New Game: Error code - \(String(describing: error?.code))")
+                return
+            }
+            guard let key = response?["key"].string,
+                  let title = response?["title"].string,
+                  let link = response?["link"].string,
+                  let description = response?["description"].string
+            else {
+                return
+            }
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        self?.issueKeyLabel.text = key
+                        self?.titleContentTextView.text = title
+                        self?.linkContentLabel.text = link
+                        self?.descriptionContentTextVIew.text = description
+                    }
+                }
+        
+        }
+        
+    }
 
 }
 // MARK: - extensions

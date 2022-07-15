@@ -76,6 +76,8 @@
 		917FCF7D287C28C100E1ACD2 /* VotingSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */; };
 		917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */; };
 		917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */; };
+		9189BF9C28801B44008DB988 /* DeleteAllIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189BF9A28801B43008DB988 /* DeleteAllIssueViewController.swift */; };
+		9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */; };
 		91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */; };
 		91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */; };
 		91B44BC0287D8E24001AA138 /* RevealCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B44BBE287D8E24001AA138 /* RevealCardViewController.swift */; };
@@ -193,6 +195,8 @@
 		917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingSystemCell.xib; sourceTree = "<group>"; };
 		917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
 		917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDeskViewController.xib; sourceTree = "<group>"; };
+		9189BF9A28801B43008DB988 /* DeleteAllIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllIssueViewController.swift; sourceTree = "<group>"; };
+		9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAllIssueViewController.xib; sourceTree = "<group>"; };
 		91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteIssueViewController.swift; sourceTree = "<group>"; };
 		91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteIssueViewController.xib; sourceTree = "<group>"; };
 		91B44BBE287D8E24001AA138 /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
@@ -450,6 +454,7 @@
 				BAD51B262861B50D002961A7 /* ChooseCard */,
 				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
+				9189BF9828801A0F008DB988 /* DeleteAllIssue */,
 				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
 				155264E4286B154F0038ABDF /* IssuesList */,
@@ -711,6 +716,23 @@
 				9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		9189BF9828801A0F008DB988 /* DeleteAllIssue */ = {
+			isa = PBXGroup;
+			children = (
+				9189BF9928801A20008DB988 /* ViewControllers */,
+			);
+			path = DeleteAllIssue;
+			sourceTree = "<group>";
+		};
+		9189BF9928801A20008DB988 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9189BF9A28801B43008DB988 /* DeleteAllIssueViewController.swift */,
+				9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		91AD6D56287FC44A00FB2833 /* DeleteIssue */ = {
@@ -1151,6 +1173,7 @@
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
+				9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */,
 				917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */,
 				910F4D71287D767200A3A87F /* CardToResultCollectionViewCell.xib in Resources */,
 				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
@@ -1257,6 +1280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9189BF9C28801B44008DB988 /* DeleteAllIssueViewController.swift in Sources */,
 				94344E24286C141800F40565 /* ButtonItemTableViewCell.swift in Sources */,
 				943FAA97287E9FCE0018043F /* JoinRoomViewController.swift in Sources */,
 				602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */,

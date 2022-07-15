@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class IssuesListViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tripleMenuButton: UIButton!
@@ -66,7 +66,7 @@ class IssuesListViewController: UIViewController {
     private func getDataIssueList() {
         // test api list already have issue
 //        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
-         gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
+         gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7" // local
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -112,6 +112,10 @@ class IssuesListViewController: UIViewController {
     @IBAction func backToChooseCard(_ sender: Any) {
         AppViewController.shared.popToPreviousScreen()
     }
+    @IBAction func optionDeleteAll(_ sender: Any) {
+        AppViewController.shared.pushToDeleteAllIssue(url: gameInIssue?.url)
+        
+    }
 }
 
 // MARK: - extensions
@@ -130,7 +134,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            AppViewController.shared.pushToEditIssueScreen()
+            AppViewController.shared.pushToEditIssueScreen(id: issueModel?.id, title: issueModel?.title, link: issueModel?.link, description: issueModel?.description)
         }
 
     }
@@ -188,6 +192,10 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
                 AppViewController.shared.popToPreviousScreen()
             }
         }
+    }
+    
+    func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
+            print("lalala")
     }
 }
 

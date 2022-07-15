@@ -75,9 +75,9 @@ class IssueItemTableViewCell: UITableViewCell {
     @IBAction func voteIssue(_ sender: UIButton) {
         votingButtonUIHandle()
     }
-
-    @IBAction func onCLickDeleteAIssue(_ sender: UIButton) {
-        deleteIssue?(issueModel)
+    @IBAction func onCLickDeleteIssue(_ sender: UIButton) {
+        
+        AppViewController.shared.pushToDeleteIssue(id: issueModel?.id)
     }
 }
 

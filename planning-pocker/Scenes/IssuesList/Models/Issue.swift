@@ -12,7 +12,7 @@ class Issue: NSObject {
     var issueId: Int?
     var issueKey: String?
     var issueTitle: String?
-    var issueDescription: String? = ""
+    var issueDescription: String?
     var issueLink: String?
     var issueVoteStatus: Bool? = false
     var issueBelongToGame: GameModel?
@@ -76,7 +76,6 @@ class Issue: NSObject {
             return self.issueLink = newValue
         }
     }
-    
     public var status: Bool {
         get {
             return self.status

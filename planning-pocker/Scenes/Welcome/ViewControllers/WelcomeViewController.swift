@@ -23,7 +23,9 @@ class WelcomeViewController: UIViewController {
     private var leftMenuTrailingConstraint: NSLayoutConstraint!
     private var revealLeftMenuOnTop = true
     private var leftMenuShadowView: UIView!
-    
+    var issueModel: Issue?
+    var id: Int?
+
     
     // MARK: - Overrides
 
@@ -99,13 +101,13 @@ class WelcomeViewController: UIViewController {
         AppViewController.shared.pushToInvitePlayerScreen(url: "")
     }
     @IBAction func editIssue(_ sender: UIButton) {
-        AppViewController.shared.pushToEditIssueScreen()
+        AppViewController.shared.pushToEditIssueScreen(id: issueModel?.id)
     }
     @IBAction func leftMenu(_ sender: UIButton) {
         AppViewController.shared.pushToLeftMenu()
     }
     @IBAction func show_editIssueDetail(_ sender: UIButton) {
-        AppViewController.shared.pushToEditIssueScreen()
+        AppViewController.shared.pushToEditIssueScreen(id: issueModel?.id)
     }
     @IBAction func revealCard(_ sender: UIButton) {
         AppViewController.shared.pushToRevealCard()
