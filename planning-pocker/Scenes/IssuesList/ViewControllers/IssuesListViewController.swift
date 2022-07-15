@@ -64,7 +64,7 @@ class IssuesListViewController: UIViewController {
     private func getDataIssueList() {
         // test api list already have issue
 //        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
-         gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7" // local
+        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -97,7 +97,7 @@ class IssuesListViewController: UIViewController {
 
                 self!.listIssue.append(self!.issueModel!)
             }
-//             asc sort by number of key
+            // asc sort by number of key
             self!.listIssue.sort {
                 ($0.issueKey.components(separatedBy: "-")[1]) < ($1.issueKey.components(separatedBy: "-")[1])
             }
@@ -118,7 +118,6 @@ class IssuesListViewController: UIViewController {
     }
     @IBAction func optionDeleteAll(_ sender: Any) {
         AppViewController.shared.pushToDeleteAllIssue(url: gameInIssue?.url)
-        
     }
 }
 
@@ -140,7 +139,6 @@ extension IssuesListViewController: UITableViewDelegate {
         } else {
             AppViewController.shared.pushToEditIssueScreen(issue: self.issueModel)
         }
-
     }
 }
 
@@ -210,10 +208,6 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
                 AppViewController.shared.popToPreviousScreen()
             }
         }
-    }
-    
-    func issueItemTableViewCellDidVote(_ controller: IssueItemTableViewCell) {
-            print("lalala")
     }
 }
 
