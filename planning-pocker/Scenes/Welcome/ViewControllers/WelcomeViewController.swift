@@ -8,12 +8,13 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    // MARK: - IBOutlets
 
+    // MARK: - IBOutlets
     @IBOutlet weak var goToTheLoginButton: UIButton!
     @IBOutlet weak var startPokerPlanningGameButton: UIButton!
     @IBOutlet weak var startRetrospectiveButton: UIButton!
     @IBOutlet weak var leftMenuButton: UIButton!
+
     // MARK: - Properties
     var user: User!
     private var leftMenuViewController: LeftMenuViewController!
@@ -23,12 +24,8 @@ class WelcomeViewController: UIViewController {
     private var leftMenuTrailingConstraint: NSLayoutConstraint!
     private var revealLeftMenuOnTop = true
     private var leftMenuShadowView: UIView!
-    
-    
-    // MARK: - Overrides
 
     // MARK: - Life cycles
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -55,7 +52,6 @@ class WelcomeViewController: UIViewController {
         // set properties for Start Poker Planning Game Button
         startPokerPlanningGameButton.layer.cornerRadius = 5
         if userDefaults.object(forKey: "id") != nil {
-            userDefaults.object(forKey: "fullName")
             goToTheLoginButton.isHidden = true
             leftMenuButton.isHidden = false
         } else {
@@ -68,7 +64,7 @@ class WelcomeViewController: UIViewController {
 
     @IBAction func onClickStartGameButton(_ sender: Any) {
         if userDefaults.object(forKey: "id") != nil {
-            userDefaults.object(forKey: "fullName")
+//            userDefaults.object(forKey: "fullName")
             AppViewController.shared.pushToCreateNewGameScreen()
         } else {
             AppViewController.shared.pushToSignInScreen()

@@ -18,6 +18,7 @@
 		155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */; };
 		15BB2952286B18C10062A8E9 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB2951286B18C10062A8E9 /* Issue.swift */; };
 		15C09934287450CE00AB7249 /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C09933287450CD00AB7249 /* APIPath.swift */; };
+		15C2B35C288305A50060AFF5 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */; };
 		15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */; };
 		1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902CF3E2861ABE700E27B00 /* AppViewController.swift */; };
 		1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99028608C8800EEF365 /* AppDelegate.swift */; };
@@ -135,6 +136,7 @@
 		155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
 		15BB2951286B18C10062A8E9 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		15C09933287450CD00AB7249 /* APIPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
+		15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		15C35FB4286AD8B8001085AB /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -299,6 +301,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		15C2B35A288301CA0060AFF5 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
 		15C35F9D286AB693001085AB /* CreateNewGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				602CDB6C28615C1500E2EA30 /* Foundation */,
+				15C2B35A288301CA0060AFF5 /* UIButton */,
 				602CDB6A28615C1500E2EA30 /* UIColor */,
 				910317B6286C0EA200BAE25C /* UILabel */,
 				15C35FB1286ABA12001085AB /* UITextField */,
@@ -448,12 +459,11 @@
 				9189BF9828801A0F008DB988 /* DeleteAllIssue */,
 				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
+				910317AA286BE6ED00BAE25C /* IssueDetail */,
 				155264E4286B154F0038ABDF /* IssuesList */,
 				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
-				91F45968287D2B41009265D1 /* RevealCard */,
-				910317AA286BE6ED00BAE25C /* IssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
 				60C82C4228644771002E2DC2 /* SignUp */,
@@ -1236,6 +1246,7 @@
 				9189BF9C28801B44008DB988 /* DeleteAllIssueViewController.swift in Sources */,
 				94344E24286C141800F40565 /* ButtonItemTableViewCell.swift in Sources */,
 				943FAA97287E9FCE0018043F /* JoinRoomViewController.swift in Sources */,
+				15C2B35C288305A50060AFF5 /* UIButtonExtension.swift in Sources */,
 				602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */,
 				917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */,
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
