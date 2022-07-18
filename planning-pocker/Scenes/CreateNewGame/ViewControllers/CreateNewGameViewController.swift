@@ -28,46 +28,52 @@ class CreateNewGameViewController: UIViewController {
         (0, "Fibonacci (0, 1, 2, 3, 5, 8, 13,21, 34, 55, 89, ?)", ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]),
         (1, "Power of (0, 1, 2, 4, 8, 16, 32, 64, ?)", ["0", "1", "2", "4", "8", "16", "32", "64", "?"])]
     var gameName: String?
-    let dropdownDeleteTableView = DropDown()
+    let dropdownSelectedTableView = DropDown()
     var gameModel: GameModel?
     var newRoom: RoomModel?
     var mainPlayer: PlayerModel!
     var cardData: [String]!
 
-    // MARK: - Overrides
-
-
-
-
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        dropdownDeleteTableView.anchorView = votingSystemTextField
+        dropdownSelectedTableView.anchorView = votingSystemTextField
         votingSystemTextField.placeholder = votingSystemValue[0].disPlayValue
         cardData = votingSystemValue[0].arrayCardValue
         setUpDropdown()
     }
+
     override func viewWillAppear(_ animated: Bool) {
-        dropdownDeleteTableView.reloadAllComponents()
+        dropdownSelectedTableView.reloadAllComponents()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        dropdownDeleteTableView.bottomOffset = CGPoint(x: 0, y: (dropdownDeleteTableView.anchorView?.plainView.bounds.height)!)
-        dropdownDeleteTableView.width = dropdownDeleteTableView.anchorView?.plainView.bounds.width // get data from api
+        dropdownSelectedTableView.bottomOffset = CGPoint(x: 0, y: (dropdownSelectedTableView.anchorView?.plainView.bounds.height)!)
+        dropdownSelectedTableView.width = dropdownSelectedTableView.anchorView?.plainView.bounds.width // get data from api
         selectedDropdownItem()
     }
 
     // MARK: - Publics
     func selectedDropdownItem() {
-        dropdownDeleteTableView.selectionAction = {
+        dropdownSelectedTableView.selectionAction = {
             [unowned self] (index: Int, item: String) in
-            dropdownDeleteTableView.backgroundColor =  UIColor.white
+            dropdownSelectedTableView.backgroundColor =  UIColor.white
+            dropdownSelectedTableView.selectedTextColor = UIColor.white
+
             votingSystemTextField.placeholder = item
             cardData = votingSystemValue[index].arrayCardValue
             print(cardData as Any)
+
             votingSystemTextField.layer.borderColor = UIColor.textFieldBorderColor.cgColor
+            if index + 1 == votingSystemValue.count {
+                let customDeskVC = CustomDeskViewController()
+//                customDeskVC.deskValue = { [weak self] in
+//
+//                }
+                self.presentOnRoot(with: customDeskVC)
+            }
         }
     }
 
@@ -86,35 +92,38 @@ class CreateNewGameViewController: UIViewController {
     private func setUpDropdown() {
         // ko co api, set cung
         for item in votingSystemValue {
-            dropdownDeleteTableView.dataSource.append(item.disPlayValue)
+            dropdownSelectedTableView.dataSource.append(item.disPlayValue)
             if item.index + 1 == votingSystemValue.count {
                 let customDeckItem: (index: Int, disPlayValue: String, arrayCardValue: [String]) = (0, "Create custom desk..", [])
                 votingSystemValue.append(customDeckItem)
-                dropdownDeleteTableView.dataSource.append(customDeckItem.disPlayValue)
+                dropdownSelectedTableView.dataSource.append(customDeckItem.disPlayValue)
                 break
             }
         }
     }
+
     // MARK: - Actions
     @IBAction func createNewGame(_ sender: Any) {
         if hasErrorStatus().status == true {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
             self.gameName = gameNameTextField.text!
-            let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue,
-                                                method: .post,
-                                                parameters: ["name": self.gameName as Any, "idUser": userDefaults.value(forKey: "id") ?? -1],
+            let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue, method: .post, parameters: ["name": gameName!, "idUser": userDefaults.value(forKey: "id") ?? -1],
                                                 contentType: .applicationJson)
             APIRequest.shared.request(router: routerCreateNewGame) { [weak self] error, response in
                 guard error == nil else {
                     print("Log Create new game: Error [\n \(String(describing: error))]")
-                    self!.showAlert(title: "Opps", message: "Error - Something went wrong")
+                    AppViewController.shared.showAlert(title: "Opps", message: "Error - Something went wrong")
                     return
                 }
-                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create new game: Else case!!"
-                if message != "Log Create new game: Error - Else case!!" {
+                let message = response?.dictionary?["message"]?.stringValue ?? "Log Create New Game: Else case!!"
+                if message != "Log Create New Game: Else case!!" {
+                    AppViewController.shared.popupAlert(title: "Create game successfully!", colorPopup: UIColor.blueButtonColor)
                     SocketIOManager.sharedInstance.createRoom(roomName: self!.gameName!, roomUrl: message, userId: userDefaults.integer(forKey: "id"), cardData: self!.cardData, userName: userDefaults.string(forKey: "fullName")!)
-                } else { print(message) }
+                } else {
+                    AppViewController.shared.showAlert(title: "Opps", message: "Error - Something went wrong")
+                    return
+                }
             }
         }
     }
@@ -125,7 +134,7 @@ class CreateNewGameViewController: UIViewController {
 
     @IBAction func showDropdownList(_ sender: Any) {
         votingSystemTextField.layer.borderColor = UIColor.blueButtonColor.cgColor
-        dropdownDeleteTableView.show()
+        dropdownSelectedTableView.show()
 
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
@@ -133,6 +142,7 @@ class CreateNewGameViewController: UIViewController {
     }
 }
     // MARK: - extensions
+
 extension CreateNewGameViewController {
 
     // MARK: - Check Validation of Game's Name
@@ -149,6 +159,5 @@ extension CreateNewGameViewController {
         }
         return (messages, status)
     }
-
 }
     // MARK: - protocols

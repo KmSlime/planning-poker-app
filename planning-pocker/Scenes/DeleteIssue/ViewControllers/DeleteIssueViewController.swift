@@ -30,17 +30,16 @@ class DeleteIssueViewController: UIViewController {
     var id: Int?
     var gameInIssue: GameModel?
     var listIssue: [Issue] = []
-    // MARK: - Overrides
-    // MARK: - Life cycles
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-
-    // MARK: - Publics
-    // MARK: - Private
-    private func deleteIssueCallAPI() {
+    // MARK: - Actions
+    @IBAction func onClickCancelDeleteIssueButton (_ sender: UIButton) {
+        AppViewController.shared.popToPreviousScreen()
+    }
+    @IBAction func onClickDeleteIssueButton (_ sender: UIButton) {
         let idPath = String(id!)
         let path = APIPath.Auth.editAndDeleteIssue.rawValue + ("\(idPath ?? "-1")")
         let deleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
@@ -49,16 +48,6 @@ class DeleteIssueViewController: UIViewController {
                 print(error!)
                 return
             }
-            AppViewController.shared.pushToShowIssueListScreen()
-        }
-        
-    }
-    // MARK: - Setup UI
-    // MARK: - Actions
-    @IBAction func onClickCancelDeleteIssueButton (_ sender: UIButton) {
-        AppViewController.shared.popToPreviousScreen()
-    }
-    @IBAction func onClickDeleteIssueButton (_ sender: UIButton) {
-        deleteIssueCallAPI()
-    }
+            AppViewController.shared.popToPreviousScreen()
+        }    }
 }

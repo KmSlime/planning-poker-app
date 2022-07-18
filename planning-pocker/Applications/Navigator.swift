@@ -21,11 +21,10 @@ protocol Navigator {
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
     func pushToSignOut()
-//    func pushToRevealCard()
     func pushToJoinRoom()
     func pushToDeleteIssue(id: Int?)
     func pushToDeleteAllIssue(url: String?)
-    
+
     // MARK: - POP
     func popToPreviousScreen()
     func popToViewScreen(uiViewController: UIViewController?, data: Any?)
@@ -90,18 +89,14 @@ extension AppViewController: Navigator {
     
     func pushToSignOut() {
         let signOutVC = SignOutViewController()
-        navigationController?.pushViewController(signOutVC, animated: true)
+        self.presentOnRoot(with: signOutVC)
     }
     
     func pushToCreateCustomDesk() {
         let customDeskVC = CustomDeskViewController()
         navigationController?.pushViewController(customDeskVC, animated: true)
     }
-//    func pushToRevealCard() {
-//        let revealCardVC = RevealCardViewController()
-//        navigationController?.pushViewController(revealCardVC, animated: true)
-//    }
-    
+
     func pushToJoinRoom() {
         let joinRoomVC = JoinRoomViewController()
         self.present(joinRoomVC, animated: true, completion: nil)
@@ -117,7 +112,7 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(deleteAllIssueVC, animated: true)
     }
     
-    //MARK: - POP ACTION
+    // MARK: - POP ACTION
     func popToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }
