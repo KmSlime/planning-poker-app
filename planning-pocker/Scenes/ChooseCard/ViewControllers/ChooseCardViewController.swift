@@ -12,6 +12,9 @@ import MaterialComponents.MaterialSnackbar
 
 class ChooseCardViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet weak var chooseYourCardLabel: UILabel!
+    @IBOutlet weak var averagePointLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var chooseCardLabel: UILabel!
     @IBOutlet weak var groupOtherPlayers: UIView!
     @IBOutlet weak var gameNameLabel: UILabel!
@@ -27,6 +30,7 @@ class ChooseCardViewController: UIViewController {
             setupBoardInfo()
         }
     }
+    @IBOutlet weak var listCardToResultCollectionView: UICollectionView!
     @IBOutlet weak var listCardToSelectCollectionView: UICollectionView!
     @IBOutlet weak var listCardOtherPlayersCollectionView: UICollectionView!
     @IBOutlet weak var cardMainPlayerCollectionView: UICollectionView!
@@ -36,12 +40,15 @@ class ChooseCardViewController: UIViewController {
     var room: RoomModel!
     var gameInfo: GameModel!
     var isLockCardToSelect = false
+    var isFlipCard = false
+    var listCardResult: Dictionary<String, Int> = [:]
     // identify for collection view cell
     struct TableView {
         struct CellIdentifiers {
             static let cardToSelect = "CardToSelectCollectionViewCell"
             static let cardMainPlayer = "CardMainPlayerCollectionViewCell"
             static let cardOtherPlayer = "CardOtherPlayersCollectionViewCell"
+            static let cardToResult = "CardToResultCollectionViewCell"
         }
     }
 
@@ -52,7 +59,11 @@ class ChooseCardViewController: UIViewController {
         listCardToSelectCollectionView.dataSource = self
         listCardToSelectCollectionView.delegate = self
         listCardOtherPlayersCollectionView.dataSource = self
+        listCardOtherPlayersCollectionView.delegate = self
         cardMainPlayerCollectionView.dataSource = self
+        cardMainPlayerCollectionView.delegate = self
+        listCardToResultCollectionView.dataSource = self
+        listCardToResultCollectionView.delegate = self
         setupUI()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -63,16 +74,17 @@ class ChooseCardViewController: UIViewController {
         updateCardToSelect()
         updateBoardInfo()
         updateIssue()
+        showResult()
     }
 
     // MARK: - Publics
 
     // MARK: - Private
     private func updateOtherPlayer() {
-        SocketIOManager.sharedInstance.updateOtherPlayers { (listUserIds) -> Void in
+        SocketIOManager.sharedInstance.updateOtherPlayers { (users) -> Void in
             self.room.otherPlayers.removeAll()
-            for id in listUserIds {
-                self.room.otherPlayers.append(PlayerModel(id: id, name: "Player " + id, roomUrl: self.room.roomUrl, role: PlayerRole.member))
+            for (id, userName) in users {
+                self.room.otherPlayers.append(PlayerModel(id: id, name: userName, roomUrl: self.room.roomUrl, role: PlayerRole.member))
             }
             self.showInvitePlayer()
             SnackBar.showSnackBar(message: "Room changed", color: UIColor(hexString: "#5bc0de"))
@@ -80,9 +92,10 @@ class ChooseCardViewController: UIViewController {
         }
     }
     private func updateOtherPlayerSelectCard() {
-        SocketIOManager.sharedInstance.updateCard { (userId) -> Void in
+        SocketIOManager.sharedInstance.updateCard { (userId, selectCardValue) -> Void in
             for player in self.room.otherPlayers where player.id == userId {
                     player.isSelectedCard = true
+                    player.vote = selectCardValue
                     self.listCardOtherPlayersCollectionView.reloadData()
             }
         }
@@ -91,14 +104,15 @@ class ChooseCardViewController: UIViewController {
         SocketIOManager.sharedInstance.updateCardRemoved { (userId) -> Void in
             for player in self.room.otherPlayers where player.id == userId {
                 player.isSelectedCard = false
+                player.vote = ""
                 self.listCardOtherPlayersCollectionView.reloadData()
             }
         }
     }
     private func updateCardToSelect() {
         SocketIOManager.sharedInstance.lockSelectCard { (isLock) -> Void in
-            self.isLockCardToSelect = isLock
-            self.listCardToSelectCollectionView.allowsSelection = self.isLockCardToSelect
+            self.isLockCardToSelect = true
+            self.listCardToSelectCollectionView.allowsSelection = false
             self.chooseCardLabel.text = "Counting votes..."
             self.listCardToSelectCollectionView.reloadData()
             
@@ -119,9 +133,27 @@ class ChooseCardViewController: UIViewController {
             self.issueNameLabel.text = ""
         }
     }
+    private func showResult() {
+        SocketIOManager.sharedInstance.getResult { averagePoint, selectedCardsSort in
+            self.listCardToSelectCollectionView.isHidden = true
+            self.listCardToResultCollectionView.isHidden = false
+            self.chooseYourCardLabel.isHidden = true
+            self.averageLabel.isHidden = false
+            self.averagePointLabel.isHidden = false
+            self.averagePointLabel.text = averagePoint
+            self.listCardResult = selectedCardsSort
+            self.boardInfoView.showStartNewVotingButton()
+            
+            self.isFlipCard = true
+            self.listCardToResultCollectionView.reloadData()
+            self.listCardOtherPlayersCollectionView.reloadData()
+            self.cardMainPlayerCollectionView.reloadData()
+        }
+    }
     
     
     private func setupIdentifier() { // register xib file for cell of collection view
+        listCardToResultCollectionView.register(UINib(nibName: TableView.CellIdentifiers.cardToResult, bundle: nil), forCellWithReuseIdentifier: TableView.CellIdentifiers.cardToResult)
         listCardToSelectCollectionView.register(UINib(nibName: TableView.CellIdentifiers.cardToSelect,
                                                       bundle: nil),
                                                 forCellWithReuseIdentifier: TableView.CellIdentifiers.cardToSelect)
@@ -134,6 +166,10 @@ class ChooseCardViewController: UIViewController {
                                               forCellWithReuseIdentifier: TableView.CellIdentifiers.cardMainPlayer)
     }
     private func setupUI() { // load view every time data changed
+        self.listCardToResultCollectionView.isHidden = true
+        self.chooseYourCardLabel.isHidden = false
+        self.averageLabel.isHidden = true
+        self.averagePointLabel.isHidden = true
         setupTitleRoom()
         setupTitleIssue(isShow: false)
         setupLeftMenu()
@@ -175,6 +211,8 @@ class ChooseCardViewController: UIViewController {
 
 // MARK: - Extensions
 extension ChooseCardViewController: UICollectionViewDataSource {
+   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.listCardToSelectCollectionView {
             return room.cards.count
@@ -182,6 +220,8 @@ extension ChooseCardViewController: UICollectionViewDataSource {
             return 1
         } else if collectionView == self.listCardOtherPlayersCollectionView {
             return room.otherPlayers.count
+        } else if collectionView == self.listCardToResultCollectionView {
+            return listCardResult.count
         }
        return 0
     }
@@ -200,6 +240,9 @@ extension ChooseCardViewController: UICollectionViewDataSource {
                                                           for: indexPath) as? CardMainPlayerCollectionViewCell
             cell?.config(name: room.mainPlayer.name)
             cell?.configSelect(isSelected: (selectedIndex != nil) ?  true : false)
+            if isFlipCard {
+                cell?.configFlipCard(point: selectedIndex ?? "")
+            }
             
             return cell!
         } else if collectionView == self.listCardOtherPlayersCollectionView {
@@ -208,6 +251,13 @@ extension ChooseCardViewController: UICollectionViewDataSource {
                 for: indexPath) as? CardOtherPlayersCollectionViewCell
             cell?.config(name: room.otherPlayers[indexPath.row].name)
             cell?.configSelect(isSelected: room.otherPlayers[indexPath.row].isSelectedCard ? true : false)
+            if isFlipCard {
+                cell?.configFlipCard(point: room.otherPlayers[indexPath.row].vote)
+            }
+            return cell!
+        } else if collectionView == self.listCardToResultCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableView.CellIdentifiers.cardToResult, for: indexPath) as? CardToResultCollectionViewCell
+            cell?.config(cardNumber: Array(listCardResult.keys)[indexPath.row], voteNumber: String(Array(listCardResult.values)[indexPath.row]) + " vote")
             return cell!
         }
         return UICollectionViewCell()
@@ -229,7 +279,29 @@ extension ChooseCardViewController: UICollectionViewDelegate {
             setupBoardInfo()
         }
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == self.listCardOtherPlayersCollectionView {
+            let leftTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
+            cell.layer.transform = leftTransform
+            cell.alpha = 0.5
+            UIView.animate(withDuration: 1, animations: {
+              cell.alpha = 1
+              cell.transform = .identity
+            })
+        } else if collectionView == self.listCardToResultCollectionView {
+            
+            let upTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 200, 0)
+            cell.layer.transform = upTransform
+            cell.alpha = 0.5
+            UIView.animate(withDuration: 0.5, animations: {
+              cell.alpha = 1
+              cell.transform = .identity
+            })
+        }
+    }
 }
 
 extension ChooseCardViewController: UICollectionViewDelegateFlowLayout {
 }
+
+

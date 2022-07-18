@@ -29,9 +29,11 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 4.0
         contentView.layer.borderWidth = 1.5
         if isSelected {
-            contentView.layer.borderColor = UIColor(hexString: "#80D5F3").cgColor
-            contentView.layer.backgroundColor = UIColor(hexString: "#00AAE7").cgColor
-            numberLabel.textColor = .white
+            UIView.animate(withDuration: 0.5) {
+                self.contentView.layer.borderColor = UIColor(hexString: "#80D5F3").cgColor
+                self.contentView.layer.backgroundColor = UIColor(hexString: "#00AAE7").cgColor
+                self.numberLabel.textColor = .white
+            }
         } else {
             contentView.layer.borderColor = UIColor(hexString: "#80D5F3").cgColor
             contentView.layer.backgroundColor = UIColor.white.cgColor

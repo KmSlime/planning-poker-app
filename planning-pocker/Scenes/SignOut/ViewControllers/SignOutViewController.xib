@@ -88,10 +88,16 @@
                         <constraint firstAttribute="bottom" secondItem="gt9-ep-0UN" secondAttribute="bottom" constant="30" id="oLR-oY-et6"/>
                         <constraint firstItem="gt9-ep-0UN" firstAttribute="top" secondItem="4EJ-EZ-yQJ" secondAttribute="bottom" constant="20" id="rs6-Hc-KMb"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.bounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.corner">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="YSI-lf-lrW"/>
-            <color key="backgroundColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="YSI-lf-lrW" firstAttribute="trailing" secondItem="5rR-fx-D83" secondAttribute="trailing" constant="10" id="Kpu-81-ue7"/>
                 <constraint firstItem="5rR-fx-D83" firstAttribute="leading" secondItem="YSI-lf-lrW" secondAttribute="leading" constant="10" id="iqt-83-It3"/>

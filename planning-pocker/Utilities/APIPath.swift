@@ -10,11 +10,12 @@ enum APIPath {
         case signIn = "/api/auth/signin"
         case signUp = "/api/auth/signup"
         case createNewGame = "/api/planning-poker/games"
-        case getIssueList = "/api/issue/showIssue/"
+        case getIssueList = "/api/planning-poker/issues/showIssue/"
         case voteIssue = "/api/planning-poker/issues/vote-issue"
         case createIssue = "/api/planning-poker/issues"
         case getIssueDetail = "/api/issue/detail/"
-        case editAndDeleteIssue = "/api/issue/"
+        case editAndDeleteIssue = "/api/planning-poker/issues/"
         case deleteAllIssue = "/api/issue/delete-all/"
     }
 }
+

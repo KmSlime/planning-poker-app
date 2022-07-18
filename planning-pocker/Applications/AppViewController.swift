@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialSnackbar
 
 class AppViewController: UIViewController {
     // MARK: - IBOutlets
@@ -32,15 +33,16 @@ class AppViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    func popupAlert(title: String, colorPopup: UIColor? = nil) {
+        let snackBarMsg = MDCSnackbarMessage()
+        snackBarMsg.text = title
+        MDCSnackbarMessageView.appearance().snackbarMessageViewBackgroundColor = colorPopup ?? UIColor.black
+        MDCSnackbarManager.default.show(snackBarMsg)
+    }
+
     // MARK: - Private
 
     // MARK: - Actions
 
 }
 
-// cái này nằm ngoài class
-    // MARK: - extensions
-
-
-
-    // MARK: - protocols

@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialComponents.MaterialSnackbar
+
 class IssueDetailViewController: UIViewController {
 
     @IBOutlet weak var issueKeyLabel: UILabel!
@@ -22,6 +23,7 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var titleTextViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var issueDetailScrollView: UIScrollView!
+
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,6 @@ class IssueDetailViewController: UIViewController {
     var placeholderDescriptionContentLabel: UILabel!
     var issueModel: Issue?
 
-    // MARK: - Overrides
-
     // MARK: - Publics
         @objc func keyboardAppear(notification: NSNotification) {
             guard let userInfo = notification.userInfo else { return }
@@ -45,6 +45,7 @@ class IssueDetailViewController: UIViewController {
             contentInset.bottom = keyboardFrame.size.height + 50
             issueDetailScrollView.contentInset = contentInset
         }
+    
         @objc func keyboardDisappear(notification: NSNotification) {
             let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             issueDetailScrollView.contentInset = contentInset
@@ -98,22 +99,20 @@ class IssueDetailViewController: UIViewController {
         saveButton.isHidden = false
         
         
-        if issueModel?.issueTitle != nil {
+        if issueModel?.issueTitle != "" {
             placeholderTitleContentLabel.isHidden = true
             titleContentTextView.text = issueModel?.issueTitle
         } else {
             return
         }
-        linkContentLabel.text = issueModel?.issueLink
+        linkContentLabel.text = issueModel?.issueBelongToGame.url
         
-        if issueModel?.issueDescription != nil {
+        if issueModel?.issueDescription != "" {
             placeholderDescriptionContentLabel.isHidden = true
             descriptionContentTextVIew.text = issueModel?.issueDescription
         } else {
             return
         }
-        
-
     }
     
     // MARK: - Actions
@@ -136,71 +135,88 @@ class IssueDetailViewController: UIViewController {
         AppViewController.shared.popToPreviousScreen()
         }
     @IBAction func onClickSave(_ sender: Any) {
-        //sai -- sua lai theo dang param
-        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(issueModel!.issueId)"
-        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: [:], contentType: .urlFormEncoded)
+        let idPath = String(issueModel!.issueId)
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(idPath )"
+        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: ["key": issueKeyLabel.text! as String,
+                                                                                    "title": titleContentTextView.text! as String,
+                                                                                    "link": linkContentLabel.text! as String,
+                                                                                    "description": descriptionContentTextVIew.text! as String], contentType: .applicationJson)
         APIRequest.shared.request(router: getIssueDetailRouter) { [weak self] error, response in
             guard error == nil else {
                 self!.showAlert(title: "Message", message: "Error - Something went wrong")
-                print("Log Create New Game: Error code - \(String(describing: error?.code))")
-                return
+                print(error!)
+                
+                switch ((error?.code)!) {
+                case 400:
+                    self?.showAlert(title: "Notification", message: "System error")
+                    return
+                case 401:
+                    self?.showAlert(title: "Notification", message: "System error")
+                    return
+                case 404:
+                    self?.showAlert(title: "Notification", message: "System error")
+                    return
+                default:
+                    return
+                }
             }
-            
+
             let message = response?.dictionary?["success"]!.boolValue ?? false
-            
+
             if message != false {
                 AppViewController.shared.popToPreviousScreen()
+                print(message)
             } else {
                 return
             }
         }
     }
 }
+
 // MARK: - extensions
-
 extension IssueDetailViewController: UITextViewDelegate {
-func textViewDidBeginEditing(_ textView: UITextView) {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-    if textView == titleContentTextView {
-        titleTextViewHeightConstraints.constant = 126
-        titleContentTextView.backgroundColor = UIColor.white
-        titleContentTextView.layer.borderWidth = 1.0
-        titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
-    } else if textView == descriptionContentTextVIew {
-        descriptionTextViewHeightConstraints.constant = 126
-        descriptionContentTextVIew.backgroundColor = UIColor.white
-        descriptionContentTextVIew.layer.borderWidth = 1.0
-        descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        if textView == titleContentTextView {
+            titleTextViewHeightConstraints.constant = 126
+            titleContentTextView.backgroundColor = UIColor.white
+            titleContentTextView.layer.borderWidth = 1.0
+            titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        } else if textView == descriptionContentTextVIew {
+            descriptionTextViewHeightConstraints.constant = 126
+            descriptionContentTextVIew.backgroundColor = UIColor.white
+            descriptionContentTextVIew.layer.borderWidth = 1.0
+            descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
+        }
     }
-}
 
-func textViewDidEndEditing(_ textView: UITextView) {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
-    if textView == titleContentTextView {
-        titleTextViewHeightConstraints.constant = 48
-        titleContentTextView.layer.borderWidth = 0
-        titleContentTextView.backgroundColor = UIColor(hexString: "#EDEDED")
-    } else if textView == descriptionContentTextVIew {
-        descriptionTextViewHeightConstraints.constant = 48
-        descriptionContentTextVIew.layer.borderWidth = 0
-        descriptionContentTextVIew.backgroundColor = UIColor(hexString: "#EDEDED")
+    func textViewDidEndEditing(_ textView: UITextView) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        if textView == titleContentTextView {
+            titleTextViewHeightConstraints.constant = 48
+            titleContentTextView.layer.borderWidth = 0
+            titleContentTextView.backgroundColor = UIColor(hexString: "#EDEDED")
+        } else if textView == descriptionContentTextVIew {
+            descriptionTextViewHeightConstraints.constant = 48
+            descriptionContentTextVIew.layer.borderWidth = 0
+            descriptionContentTextVIew.backgroundColor = UIColor(hexString: "#EDEDED")
+        }
     }
-}
 
-func textViewDidChange(_ textView: UITextView) {
-    if !titleContentTextView.text.isEmpty {
-        placeholderTitleContentLabel.isHidden = !titleContentTextView.text.isEmpty
-        titleContentTextView.textColor = UIColor.black
-    } else {
-        placeholderTitleContentLabel.isHidden = false
-        titleContentTextView.textColor = UIColor.lightGray
+    func textViewDidChange(_ textView: UITextView) {
+        if !titleContentTextView.text.isEmpty {
+            placeholderTitleContentLabel.isHidden = !titleContentTextView.text.isEmpty
+            titleContentTextView.textColor = UIColor.black
+        } else {
+            placeholderTitleContentLabel.isHidden = false
+            titleContentTextView.textColor = UIColor.lightGray
+        }
+        if !descriptionContentTextVIew.text.isEmpty {
+            placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
+            descriptionContentTextVIew.textColor = UIColor.black
+        } else {
+            placeholderDescriptionContentLabel.isHidden = false
+            descriptionContentTextVIew.textColor = UIColor.lightGray
+        }
     }
-    if !descriptionContentTextVIew.text.isEmpty {
-        placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
-        descriptionContentTextVIew.textColor = UIColor.black
-    } else {
-        placeholderDescriptionContentLabel.isHidden = false
-        descriptionContentTextVIew.textColor = UIColor.lightGray
-    }
-}
 }
