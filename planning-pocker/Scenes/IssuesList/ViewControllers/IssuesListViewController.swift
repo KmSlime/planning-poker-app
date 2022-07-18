@@ -87,7 +87,7 @@ class IssuesListViewController: UIViewController {
                 self!.issueModel?.issueDescription = item.dictionary!["description"]?.stringValue ?? ""
                 self!.issueModel?.issueLink = item.dictionary!["link"]?.stringValue ?? "#"
                 self!.issueModel?.issueVoteStatus = item.dictionary!["status"]?.boolValue ?? false
-                self!.issueModel?.issueAveragePoint = (item.dictionary!["average"]?.rawString()! == "null" ? "-" : (item.dictionary!["average"]?.stringValue)!)
+//                self!.issueModel?.issueAveragePoint = (item.dictionary!["average"]?.rawString()! == "null" ? "-" : (item.dictionary!["average"]?.stringValue)!)
 
                 self!.gameInIssue = GameModel()
                 self!.gameInIssue?.id = item.dictionary!["game"]?.dictionary!["id"]?.intValue ?? -1
@@ -98,9 +98,9 @@ class IssuesListViewController: UIViewController {
                 self!.listIssue.append(self!.issueModel!)
             }
 //             asc sort by number of key
-            self!.listIssue.sort {
-                ($0.issueKey.components(separatedBy: "-")[1]) < ($1.issueKey.components(separatedBy: "-")[1])
-            }
+//            self!.listIssue.sort {
+//                ($0.issueKey.components(separatedBy: "-")[1]) < ($1.issueKey.components(separatedBy: "-")[1])
+//            }
             self!.countIssueLabel.text = String(self!.listIssue.count) + " issues"
             for item in self!.listIssue {
                 if item.issueAveragePoint != "-" {

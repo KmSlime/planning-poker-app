@@ -70,7 +70,7 @@ class IssueDetailViewController: UIViewController {
         titleContentTextView.clipsToBounds = true
         titleContentTextView.layer.masksToBounds = true
         titleContentTextView.layer.cornerRadius = 5
-    
+        placeholderTitleContentLabel.text = "Enter a tittle for the issue"
         placeholderTitleContentLabel.sizeToFit()
         titleContentTextView.addSubview(placeholderTitleContentLabel)
         placeholderTitleContentLabel.frame.origin = CGPoint(x: 5, y: (titleContentTextView.font?.pointSize)! / 2)
@@ -98,11 +98,21 @@ class IssueDetailViewController: UIViewController {
         saveButton.isHidden = false
         
         
-
-        issueKeyLabel.text = issueModel?.issueKey
-        titleContentTextView.text = issueModel?.issueTitle
+        if issueModel?.issueTitle != nil {
+            placeholderTitleContentLabel.isHidden = true
+            titleContentTextView.text = issueModel?.issueTitle
+        } else {
+            return
+        }
         linkContentLabel.text = issueModel?.issueLink
-        descriptionContentTextVIew.text = issueModel?.issueDescription
+        
+        if issueModel?.issueDescription != nil {
+            placeholderDescriptionContentLabel.isHidden = true
+            descriptionContentTextVIew.text = issueModel?.issueDescription
+        } else {
+            return
+        }
+        
 
     }
     
