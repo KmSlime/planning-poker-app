@@ -65,7 +65,7 @@ class IssuesListViewController: UIViewController {
     
     private func getDataIssueList() {
          //        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
-        gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7" // local
+//        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
 
         sumAveragePoint = 0
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
