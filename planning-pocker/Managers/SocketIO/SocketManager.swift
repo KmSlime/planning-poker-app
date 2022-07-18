@@ -120,7 +120,9 @@ class SocketIOManager: NSObject {
                     let cards: [String] = jsonArray["cardData"]! as! [String]
                     let issueTitle: String = jsonArray["currentIssueTitle"]! as! String
                     let userName: String = jsonArray["userName"]! as! String
-                    let player = PlayerModel(id: userId, name: userName, roomUrl: roomUrl, role: PlayerRole.host)
+                    
+                    let player = PlayerModel(id: userId, name: userName, roomUrl: roomUrl, role: PlayerRole.host, vote: "", isSelectedCard: false)
+                    
                     let newRoom = RoomModel(roomName: roomName, roomUrl: roomUrl, cards: cards, mainPlayer: player, otherPlayers: [])
                     newRoom.currentIssue = issueTitle
                     let newGame = GameModel(id: 1, name: roomName, url: roomUrl)
@@ -222,7 +224,7 @@ class SocketIOManager: NSObject {
         }
     }
     // 4. When start game successfully, update otherPlayerCollectionView for all clients
-    func updateOtherPlayers(completionHandler: @escaping (_ users:  Dictionary<String , String>) -> Void){
+    func updateOtherPlayers(completionHandler: @escaping (_ users: [Dictionary<String,String>]) -> Void){
         socket?.on("update-player"){ (dataArray, ack) in
             print("xxx")
             guard let data = dataArray[0] as? String else {
@@ -231,14 +233,8 @@ class SocketIOManager: NSObject {
             }
             let json = data.data(using: .utf8)!
             do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? [Dictionary<String,Any>] {
-                    var listUserIds : Dictionary<String , String> = [:]
-                    for item in jsonArray {
-                        let userId: String = item["userId"]! as! String
-                        let userName: String = item["userName"]! as! String
-                        listUserIds[userId] = userName
-                    }
-                    completionHandler(listUserIds)
+                if let jsonArray = try JSONSerialization.jsonObject(with: json) as? [Dictionary<String,String>] {
+                    completionHandler(jsonArray)
                 }
             } catch {
                 print(error)
@@ -379,6 +375,18 @@ class SocketIOManager: NSObject {
     // 5. Show result
     func showResult() {
         socket?.emit("show-result", [])
+    }
+    
+    // 6. Start new voting
+    func startNewVoting() {
+        socket?.emit("start-voting", [])
+    }
+    
+    // 7. Reset default
+    func resetDefault(completionHandler: @escaping () -> Void) {
+        socket?.on("reset-default"){ (dataArray, ack) in
+            completionHandler()
+        }
     }
     
     // Test

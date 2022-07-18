@@ -63,7 +63,7 @@ class IssuesListViewController: UIViewController {
     
     private func getDataIssueList() {
         // test api list already have issue
-        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // apisd
+//        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // apisd
 //        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
         let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
@@ -237,7 +237,7 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
             }
 
             let isVoteSuccess = response?.dictionary?["success"]?.boolValue ?? false
-            print(isVoteSuccess.description)
+            print(isVoteSuccess.description)    
             if isVoteSuccess == true {
                 self!.listIssue.removeAll()
                 self!.getDataIssueList()

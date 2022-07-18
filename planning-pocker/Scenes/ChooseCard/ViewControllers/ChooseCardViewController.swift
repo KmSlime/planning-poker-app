@@ -41,7 +41,7 @@ class ChooseCardViewController: UIViewController {
     var gameInfo: GameModel!
     var isLockCardToSelect = false
     var isFlipCard = false
-    var listCardResult: Dictionary<String, Int> = [:]
+    var listCardResult: [String: Int] = [:]
     // identify for collection view cell
     struct TableView {
         struct CellIdentifiers {
@@ -75,6 +75,8 @@ class ChooseCardViewController: UIViewController {
         updateBoardInfo()
         updateIssue()
         showResult()
+        restartRoom()
+        
     }
 
     // MARK: - Publics
@@ -83,8 +85,18 @@ class ChooseCardViewController: UIViewController {
     private func updateOtherPlayer() {
         SocketIOManager.sharedInstance.updateOtherPlayers { (users) -> Void in
             self.room.otherPlayers.removeAll()
-            for (id, userName) in users {
-                self.room.otherPlayers.append(PlayerModel(id: id, name: userName, roomUrl: self.room.roomUrl, role: PlayerRole.member))
+            for item in users {
+                guard let userId = item["userId"],
+                let userName = item["userName"],
+                      let selectedCardValue = item["selectedCardValue"] else {
+                    return
+                }
+                self.room.otherPlayers.append(PlayerModel(id: userId,
+                                                          name: userName,
+                                                          roomUrl: self.room.roomUrl,
+                                                          role: PlayerRole.member,
+                                                          vote: selectedCardValue,
+                                                          isSelectedCard: selectedCardValue != "" ? true : false))
             }
             self.showInvitePlayer()
             SnackBar.showSnackBar(message: "Room changed", color: UIColor(hexString: "#5bc0de"))
@@ -143,14 +155,35 @@ class ChooseCardViewController: UIViewController {
             self.averagePointLabel.text = averagePoint
             self.listCardResult = selectedCardsSort
             self.boardInfoView.showStartNewVotingButton()
-            
+            self.listCardToSelectCollectionView.allowsSelection = true
+                
             self.isFlipCard = true
             self.listCardToResultCollectionView.reloadData()
             self.listCardOtherPlayersCollectionView.reloadData()
             self.cardMainPlayerCollectionView.reloadData()
         }
     }
-    
+    private func restartRoom() {
+        SocketIOManager.sharedInstance.resetDefault {
+            self.listCardToSelectCollectionView.isHidden = false
+            self.listCardToResultCollectionView.isHidden = true
+            self.chooseYourCardLabel.isHidden = false
+            self.chooseYourCardLabel.text = "Choose your card"
+            self.averageLabel.isHidden = true
+            self.averagePointLabel.isHidden = true
+            self.averagePointLabel.text = ""
+            self.listCardResult.removeAll()
+            self.boardInfoView.showResetDefault()
+            self.isLockCardToSelect = false
+            self.selectedIndex = nil
+                
+            self.isFlipCard = false
+            self.listCardToSelectCollectionView.reloadData()
+            self.listCardToResultCollectionView.reloadData()
+            self.listCardOtherPlayersCollectionView.reloadData()
+            self.cardMainPlayerCollectionView.reloadData()
+        }
+    }
     
     private func setupIdentifier() { // register xib file for cell of collection view
         listCardToResultCollectionView.register(UINib(nibName: TableView.CellIdentifiers.cardToResult, bundle: nil), forCellWithReuseIdentifier: TableView.CellIdentifiers.cardToResult)
@@ -194,7 +227,7 @@ class ChooseCardViewController: UIViewController {
         foundList.isHidden =  (room.otherPlayers.isEmpty == true ? true : false)
     }
     private func setupBoardInfo() {
-        boardInfoView.changeBoardInfo(isSelected: selectedIndex != nil ? true : false)
+        boardInfoView.showIconPickCard(isSelected: selectedIndex != nil ? true : false)
     }
 
     // MARK: - Actions

@@ -24,18 +24,17 @@ class BoardInfoView: UIView {
         SocketIOManager.sharedInstance.revealCard()
     }
     
-    func showStartNewVotingButton() {
-        guard let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
+    func showIconPickCard(isSelected: Bool) {
+        guard let itemNotifyPickStack = self.viewWithTag(101),
+              let itemRealButton = self.viewWithTag(102),
+                let itemCountDownLabel = self.viewWithTag(103) as? UILabel,
+                let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
             return
         }
-        startNewVotingButton.isHidden = false
-        startNewVotingButton.titleLabel?.text = "Start new voting"
-        startNewVotingButton.addTarget(self, action: #selector(startNewVoting), for: .touchUpInside)
-        
-    }
-    
-    @objc func startNewVoting() {
-        print("start start start")
+        itemCountDownLabel.isHidden = true
+        startNewVotingButton.isHidden = true
+        itemNotifyPickStack.isHidden = isSelected == true ? true : false
+        itemRealButton.isHidden = isSelected == true ? false : true
     }
     
     func showCountDownText() {
@@ -66,14 +65,32 @@ class BoardInfoView: UIView {
                    
                 }
             }
-            
     }
-    func changeBoardInfo(isSelected: Bool) {
-        guard let itemNotifyPickStack = self.viewWithTag(101),
-              let itemRealButton = self.viewWithTag(102) else {
+    
+    func showStartNewVotingButton() {
+        guard let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
             return
         }
-        itemNotifyPickStack.isHidden = isSelected == true ? true : false
-        itemRealButton.isHidden = isSelected == true ? false : true
+        startNewVotingButton.isHidden = false
+        startNewVotingButton.titleLabel?.text = "Start new voting"
+        startNewVotingButton.addTarget(self, action: #selector(startNewVoting), for: .touchUpInside)
+        
+    }
+    
+    func showResetDefault() {
+        guard let itemNotifyPickStack = self.viewWithTag(101),
+              let itemRealButton = self.viewWithTag(102),
+              let itemCountDownLabel = self.viewWithTag(103) as? UILabel,
+              let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
+            return
+        }
+        itemNotifyPickStack.isHidden = false
+        itemRealButton.isHidden = true
+        itemCountDownLabel.isHidden = true
+        startNewVotingButton.isHidden = true
+    }
+    
+    @objc func startNewVoting() {
+        SocketIOManager.sharedInstance.startNewVoting()
     }
 }

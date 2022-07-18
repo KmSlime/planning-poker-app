@@ -170,7 +170,7 @@
                     </subviews>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="j1U-JS-tAl" userLabel="Card To Select">
-                    <rect key="frame" x="10" y="493.5" width="300" height="64.5"/>
+                    <rect key="frame" x="20" y="493.5" width="280" height="64.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LAt-g3-60s">
                         <size key="itemSize" width="60" height="70"/>
@@ -180,7 +180,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pot-EX-93h" userLabel="Card To Result">
-                    <rect key="frame" x="10" y="496" width="300" height="62"/>
+                    <rect key="frame" x="20" y="496" width="280" height="62"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EFU-SC-BdQ">
                         <size key="itemSize" width="50" height="70"/>
@@ -196,18 +196,18 @@
                 <constraint firstItem="JBz-dO-3gr" firstAttribute="top" secondItem="cq5-bp-wok" secondAttribute="bottom" constant="5" id="Dch-ko-PkW"/>
                 <constraint firstItem="j1U-JS-tAl" firstAttribute="top" secondItem="JBz-dO-3gr" secondAttribute="bottom" constant="5" id="Khh-T8-wJW"/>
                 <constraint firstItem="j1U-JS-tAl" firstAttribute="top" secondItem="qRm-Aa-Mkl" secondAttribute="bottom" constant="5" id="Kmc-37-YkT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pot-EX-93h" secondAttribute="trailing" constant="10" id="NNp-bH-fVR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j1U-JS-tAl" secondAttribute="trailing" constant="10" id="OLT-nx-DBH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pot-EX-93h" secondAttribute="trailing" constant="20" id="NNp-bH-fVR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j1U-JS-tAl" secondAttribute="trailing" constant="20" id="OLT-nx-DBH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pot-EX-93h" secondAttribute="bottom" constant="10" id="X9j-wo-gSI"/>
                 <constraint firstItem="qRm-Aa-Mkl" firstAttribute="top" secondItem="cq5-bp-wok" secondAttribute="bottom" constant="5" id="Xmh-xn-Hoh"/>
-                <constraint firstItem="j1U-JS-tAl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="YYb-Ia-eGD"/>
+                <constraint firstItem="j1U-JS-tAl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="YYb-Ia-eGD"/>
                 <constraint firstItem="cq5-bp-wok" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c3l-2r-cGh"/>
                 <constraint firstItem="JBz-dO-3gr" firstAttribute="centerX" secondItem="cq5-bp-wok" secondAttribute="centerX" id="fLy-9J-n7P"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qRm-Aa-Mkl" secondAttribute="trailing" constant="20" id="jxs-wM-igJ"/>
                 <constraint firstItem="qRm-Aa-Mkl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kDl-vw-aeo"/>
                 <constraint firstItem="cq5-bp-wok" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="mPQ-hO-sal"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="j1U-JS-tAl" secondAttribute="bottom" constant="10" id="nv9-9D-sgy"/>
-                <constraint firstItem="Pot-EX-93h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="q40-k2-VuT"/>
+                <constraint firstItem="Pot-EX-93h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="q40-k2-VuT"/>
                 <constraint firstItem="Pot-EX-93h" firstAttribute="top" secondItem="qRm-Aa-Mkl" secondAttribute="bottom" constant="7.5" id="qEF-OE-kzb"/>
                 <constraint firstItem="cq5-bp-wok" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ryV-gv-STL"/>
                 <constraint firstItem="cq5-bp-wok" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.8" id="yzS-p0-QVR"/>
