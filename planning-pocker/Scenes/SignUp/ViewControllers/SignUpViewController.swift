@@ -125,6 +125,7 @@ class SignUpViewController: UIViewController {
             email = emailTextField.text!
             fullName = fullNameTextField.text!
             newUser = User(id: -1, email: email!, password: passwordTextField.text!, fullName: fullName!)
+            
             userDefaults.set(email, forKey: "email")
             userDefaults.set(fullName, forKey: "fullName")
             register(user: newUser)

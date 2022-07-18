@@ -19,12 +19,13 @@ class PlayerModel {
     let role: PlayerRole?
     var isSelectedCard: Bool
     var vote: String = ""
-    init(id: String, name: String, roomUrl: String, role: PlayerRole ) {
+    init(id: String, name: String, roomUrl: String, role: PlayerRole, vote: String, isSelectedCard: Bool ) {
         self.id = id
         self.name = name
         self.roomUrl = roomUrl
         self.role = role
-        self.isSelectedCard = false
+        self.isSelectedCard = isSelectedCard
+        self.vote = vote
     }
 }
 

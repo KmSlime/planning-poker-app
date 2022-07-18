@@ -41,6 +41,7 @@ class SignOutViewController: UIViewController {
         userDefaults.removeObject(forKey: "email")
         UserDefaults.resetStandardUserDefaults()
         self.dismiss(animated: true)
+        print(userDefaults.string(forKey: "fullName"))
         AppViewController.shared.pushToWelcomeScreen()
     }
 }
