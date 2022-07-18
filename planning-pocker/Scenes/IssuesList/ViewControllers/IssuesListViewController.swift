@@ -139,7 +139,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            AppViewController.shared.pushToEditIssueScreen(issue: self.issueModel)
+            AppViewController.shared.pushToEditIssueScreen(issue: listIssue[indexPath.row])
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -263,11 +263,11 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
 
         print("Log Vote Issue: vote for issue has id \(String(describing: cell.issueModel?.issueId))!")
         // socket vote handle
-        if listIssue[indexOfIssueInTableView].issueVoteStatus {
-            SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
-        } else {
-            SocketIOManager.sharedInstance.disableVote() // on socket
-        }
+//        if listIssue[indexOfIssueInTableView].issueVoteStatus {
+//            SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
+//        } else {
+//            SocketIOManager.sharedInstance.disableVote() // on socket
+//        }
 
     }
 }

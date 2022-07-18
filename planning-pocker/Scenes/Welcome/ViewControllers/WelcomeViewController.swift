@@ -54,9 +54,11 @@ class WelcomeViewController: UIViewController {
         if userDefaults.object(forKey: "id") != nil {
             goToTheLoginButton.isHidden = true
             leftMenuButton.isHidden = false
+            leftMenuButton.isEnabled = true
         } else {
             goToTheLoginButton.isHidden = false
             leftMenuButton.isHidden = true
+            leftMenuButton.isEnabled = false
         }
     }
 
