@@ -136,11 +136,21 @@ class ChooseCardViewController: UIViewController {
         }
     }
     private func updateIssue() {
+        if room.currentIssue == "" {
+            self.issueNameLabel.isHidden = true
+        } else {
+            self.issueNameLabel.isHidden = false
+            self.issueNameLabel.text = "Voting: " + room.currentIssue
+        }
+        
         SocketIOManager.sharedInstance.updateIssue { issueTitle in
+            print(issueTitle)
+            self.issueNameLabel.isHidden = false
             self.room.currentIssue = issueTitle
             self.issueNameLabel.text = "Voting: " + issueTitle
         }
         SocketIOManager.sharedInstance.issueDisabled {
+            self.issueNameLabel.isHidden = true
             self.room.currentIssue = ""
             self.issueNameLabel.text = ""
         }

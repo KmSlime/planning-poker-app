@@ -33,6 +33,7 @@ class JoinRoomViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +48,7 @@ class JoinRoomViewController: UIViewController {
     
     @objc func joinRoom() {
         let text: String = urlTextField.text!
-        SocketIOManager.sharedInstance.enterJoinRoom(roomId: text, userId: Int.random(in: 1 ... 1000), userName: userDefaults.string(forKey: "fullName")!)
+        SocketIOManager.sharedInstance.enterJoinRoom(roomId: text, userId: userDefaults.integer(forKey: "id"), userName: userDefaults.string(forKey: "fullName")!)
+        self.dismiss(animated: true)
     }
 }

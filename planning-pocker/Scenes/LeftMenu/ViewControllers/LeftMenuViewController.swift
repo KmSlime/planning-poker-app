@@ -15,14 +15,14 @@ class LeftMenuViewController: UIViewController {
             leftMenuTableView.register(UINib(nibName: "LeftMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "LeftMenuTableViewCell")
         }
     }
-    @IBOutlet weak var profileView: UIView! {
+    @IBOutlet weak var profileView: EditProfileView!
+    {
         didSet {
             guard let subView = Bundle.main.loadNibNamed("EditProfileView", owner: profileView, options: nil)?.first as? EditProfileView else { return }
             profileView?.addSubview(subView)
+            print("using")
+            subView.config(name: "User")
             
-            if userDefaults.integer(forKey: "id") != -1 {
-                subView.userNameLabel.text = userDefaults.string(forKey: "fullName")
-            }
             subView.frame = subView.superview!.bounds
             subView.layer.cornerRadius = 50
         }
@@ -46,6 +46,10 @@ class LeftMenuViewController: UIViewController {
         leftMenuTableView.delegate = self
         leftMenuTableView.dataSource = self
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     // MARK: - Private
     private func setupUI() {
