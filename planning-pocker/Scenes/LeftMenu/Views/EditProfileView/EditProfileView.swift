@@ -25,7 +25,13 @@ class EditProfileView: UIView {
 
     @IBOutlet weak var userNameLabel: UILabel! {
         didSet {
-            userNameLabel.text = userDefaults.string(forKey: "fullName")
+            userNameLabel.text = "User"
         }
     }
+    
+    
+    func config(name: String) {
+        userNameLabel.text = name
+    }
+    
 }

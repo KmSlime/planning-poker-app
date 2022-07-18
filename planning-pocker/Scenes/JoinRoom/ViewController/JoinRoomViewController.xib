@@ -22,19 +22,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEP-sn-a9N" userLabel="Popup">
-                    <rect key="frame" x="30" y="234" width="354" height="350"/>
+                    <rect key="frame" x="10" y="234" width="394" height="350"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsO-iX-Gjn">
-                            <rect key="frame" x="20" y="30" width="314" height="20.5"/>
+                            <rect key="frame" x="20" y="30" width="354" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E0o-wY-CO1">
-                            <rect key="frame" x="20" y="95.5" width="314" height="84"/>
+                            <rect key="frame" x="20" y="95.5" width="354" height="84"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter game ID to join" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgd-Pr-j5X">
-                                    <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="34" id="Y8o-b1-sTe"/>
                                     </constraints>
@@ -43,7 +43,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfC-0q-5LK">
-                                    <rect key="frame" x="0.0" y="34" width="314" height="50"/>
+                                    <rect key="frame" x="0.0" y="34" width="354" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="yXb-qM-fMB"/>
                                     </constraints>
@@ -56,7 +56,7 @@
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4M-zK-5MC">
-                            <rect key="frame" x="20" y="204.5" width="314" height="50"/>
+                            <rect key="frame" x="20" y="204.5" width="354" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="GyP-Rh-Uxz"/>
                             </constraints>
@@ -69,7 +69,7 @@
                             </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e3-kd-9zU">
-                            <rect key="frame" x="20" y="264.5" width="314" height="50"/>
+                            <rect key="frame" x="20" y="264.5" width="354" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="IJ1-mg-u9n"/>
                             </constraints>
@@ -111,12 +111,13 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="BEP-sn-a9N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="8Fl-S7-IrP"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BEP-sn-a9N" secondAttribute="trailing" constant="30" id="HpI-5e-bJ8"/>
+                <constraint firstItem="BEP-sn-a9N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="8Fl-S7-IrP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BEP-sn-a9N" secondAttribute="trailing" constant="10" id="HpI-5e-bJ8"/>
                 <constraint firstItem="BEP-sn-a9N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="190" id="k7g-hc-gQQ"/>
             </constraints>
+            <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="79.6875"/>
         </view>
     </objects>

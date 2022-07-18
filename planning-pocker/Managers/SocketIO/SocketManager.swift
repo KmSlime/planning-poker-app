@@ -288,7 +288,7 @@ class SocketIOManager: NSObject {
         socket?.emit("select-card", jsonData!)
     }
     // 2. Emit card disable select
-    func removeCard(userId: String) {
+    func removeCard(userId: String, cardSelectedIndex: String) {
         let dic: [String: Any] = ["userId" : userId]
         let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
         socket?.emit("remove-card", jsonData!)
@@ -336,7 +336,7 @@ class SocketIOManager: NSObject {
     // TODO: Handle reveal card
     // 1. Emit data when click reveal card
     func revealCard() {
-        let dic: [String: Any] = ["isRevealCard": true]
+        let dic: [String: Any] = ["userId": userDefaults.integer(forKey: "id")]
         let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
         socket?.emit("reveal-card", jsonData!)
     }

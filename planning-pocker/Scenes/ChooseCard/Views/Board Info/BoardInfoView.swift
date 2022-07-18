@@ -8,13 +8,11 @@
 import UIKit
 
 class BoardInfoView: UIView {
-    var countDownValue = 3
     var timer: Timer?
     
     @IBOutlet weak var countDownLabel: UILabel! {
         didSet {
             countDownLabel.isHidden = true
-            countDownLabel.text = String(countDownValue)
             countDownLabel.font = UIFont(name: "Poppins-Bold", size: 30.0)
         }
     }
@@ -48,29 +46,37 @@ class BoardInfoView: UIView {
             itemNotifyPickStack.isHidden = true
             itemRealButton.isHidden =  true
             itemCountDownLabel.isHidden = false
-            itemCountDownLabel.text = String(countDownValue)
             itemCountDownLabel.font = UIFont(name: "Poppins-Bold", size: 30.0)
-            
+        
+            var numberCount: Int = 3
+            itemCountDownLabel.text = String(numberCount)
+            print("Before count: " + String(numberCount))
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 DispatchQueue.main.async {
-                    if self!.countDownValue > 0 {
-                        self!.countDownValue -= 1
-                        itemCountDownLabel.text = String(self!.countDownValue)
+                    if numberCount > 0 {
+                        numberCount -= 1
+                        itemCountDownLabel.text = String(numberCount)
                     } else {
+                        itemCountDownLabel.isHidden = true
                         timer.invalidate()
                         SocketIOManager.sharedInstance.showResult()
-                        itemCountDownLabel.isHidden = true
-                        self?.countDownValue = 3
                     }
                    
                 }
             }
+        numberCount = 3
     }
     
     func showStartNewVotingButton() {
-        guard let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
+        guard let itemNotifyPickStack = self.viewWithTag(101),
+              let itemRealButton = self.viewWithTag(102),
+              let itemCountDownLabel = self.viewWithTag(103) as? UILabel,
+              let startNewVotingButton = self.viewWithTag(104) as? UIButton else {
             return
         }
+        itemNotifyPickStack.isHidden = true
+        itemRealButton.isHidden = true
+        itemCountDownLabel.isHidden = true
         startNewVotingButton.isHidden = false
         startNewVotingButton.titleLabel?.text = "Start new voting"
         startNewVotingButton.addTarget(self, action: #selector(startNewVoting), for: .touchUpInside)
@@ -88,6 +94,7 @@ class BoardInfoView: UIView {
         itemRealButton.isHidden = true
         itemCountDownLabel.isHidden = true
         startNewVotingButton.isHidden = true
+        print("showResetDefault")
     }
     
     @objc func startNewVoting() {

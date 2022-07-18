@@ -248,13 +248,15 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
             let isVoteSuccess = response?.dictionary?["success"]?.boolValue ?? false
             if isVoteSuccess == true {
                 if cell.issueModel?.issueVoteStatus == false {
+                    SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
                     AppViewController.shared.popupAlert(title: "Vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.blueButtonColor)
                 } else {
+                    SocketIOManager.sharedInstance.disableVote() // on socket
                     AppViewController.shared.popupAlert(title: "Cancel vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.systemGreen)
                 }
+                
                 self!.listIssue.removeAll()
                 self!.getDataIssueList()
-
             } else {
                 AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
                 return
@@ -263,11 +265,7 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
 
         print("Log Vote Issue: vote for issue has id \(String(describing: cell.issueModel?.issueId))!")
         // socket vote handle
-        if listIssue[indexOfIssueInTableView].issueVoteStatus {
-            SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
-        } else {
-            SocketIOManager.sharedInstance.disableVote() // on socket
-        }
+      
 
     }
 }
