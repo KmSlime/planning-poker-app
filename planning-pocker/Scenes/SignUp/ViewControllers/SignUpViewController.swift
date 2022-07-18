@@ -30,11 +30,11 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //test error email exist sign up
-        emailTextField.text = "kiiii@gmail.com"
+        // test error email exist sign up
+        emailTextField.text = "slimenguyen@gmail.com"
         passwordTextField.text = "Ka1@zxcv"
         rePasswordTextField.text = "Ka1@zxcv"
-        fullNameTextField.text = "iiiii"
+        fullNameTextField.text = "slime"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +80,7 @@ class SignUpViewController: UIViewController {
             if message != "Log Sign Up: Else Case!!" {
                 user.id = response?.dictionary?["id"]?.intValue ?? -1
                 userDefaults.set(user.id, forKey: "id")
+                AppViewController.shared.popupAlert(title: "Register successfully!", colorPopup: UIColor.systemGreen)
                 AppViewController.shared.pushToWelcomeScreen(user: user)
             } else {
                 AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
@@ -124,6 +125,7 @@ class SignUpViewController: UIViewController {
             email = emailTextField.text!
             fullName = fullNameTextField.text!
             newUser = User(id: -1, email: email!, password: passwordTextField.text!, fullName: fullName!)
+            
             userDefaults.set(email, forKey: "email")
             userDefaults.set(fullName, forKey: "fullName")
             register(user: newUser)

@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialComponents.MaterialSnackbar
+
 class IssueDetailViewController: UIViewController {
 
     @IBOutlet weak var issueKeyLabel: UILabel!
@@ -22,6 +23,7 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var titleTextViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var issueDetailScrollView: UIScrollView!
+
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,6 @@ class IssueDetailViewController: UIViewController {
     var placeholderDescriptionContentLabel: UILabel!
     var issueModel: Issue?
 
-    // MARK: - Overrides
-
     // MARK: - Publics
         @objc func keyboardAppear(notification: NSNotification) {
             guard let userInfo = notification.userInfo else { return }
@@ -45,6 +45,7 @@ class IssueDetailViewController: UIViewController {
             contentInset.bottom = keyboardFrame.size.height + 50
             issueDetailScrollView.contentInset = contentInset
         }
+    
         @objc func keyboardDisappear(notification: NSNotification) {
             let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             issueDetailScrollView.contentInset = contentInset
@@ -96,8 +97,6 @@ class IssueDetailViewController: UIViewController {
 
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
-        
-        
 
         issueKeyLabel.text = issueModel?.issueKey
         titleContentTextView.text = issueModel?.issueTitle
@@ -135,9 +134,9 @@ class IssueDetailViewController: UIViewController {
                 print("Log Create New Game: Error code - \(String(describing: error?.code))")
                 return
             }
-            
+
             let message = response?.dictionary?["success"]!.boolValue ?? false
-            
+
             if message != false {
                 AppViewController.shared.popToPreviousScreen()
             } else {
@@ -146,51 +145,51 @@ class IssueDetailViewController: UIViewController {
         }
     }
 }
+
 // MARK: - extensions
-
 extension IssueDetailViewController: UITextViewDelegate {
-func textViewDidBeginEditing(_ textView: UITextView) {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-    if textView == titleContentTextView {
-        titleTextViewHeightConstraints.constant = 126
-        titleContentTextView.backgroundColor = UIColor.white
-        titleContentTextView.layer.borderWidth = 1.0
-        titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
-    } else if textView == descriptionContentTextVIew {
-        descriptionTextViewHeightConstraints.constant = 126
-        descriptionContentTextVIew.backgroundColor = UIColor.white
-        descriptionContentTextVIew.layer.borderWidth = 1.0
-        descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        if textView == titleContentTextView {
+            titleTextViewHeightConstraints.constant = 126
+            titleContentTextView.backgroundColor = UIColor.white
+            titleContentTextView.layer.borderWidth = 1.0
+            titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        } else if textView == descriptionContentTextVIew {
+            descriptionTextViewHeightConstraints.constant = 126
+            descriptionContentTextVIew.backgroundColor = UIColor.white
+            descriptionContentTextVIew.layer.borderWidth = 1.0
+            descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
+        }
     }
-}
 
-func textViewDidEndEditing(_ textView: UITextView) {
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
-    if textView == titleContentTextView {
-        titleTextViewHeightConstraints.constant = 48
-        titleContentTextView.layer.borderWidth = 0
-        titleContentTextView.backgroundColor = UIColor(hexString: "#EDEDED")
-    } else if textView == descriptionContentTextVIew {
-        descriptionTextViewHeightConstraints.constant = 48
-        descriptionContentTextVIew.layer.borderWidth = 0
-        descriptionContentTextVIew.backgroundColor = UIColor(hexString: "#EDEDED")
+    func textViewDidEndEditing(_ textView: UITextView) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        if textView == titleContentTextView {
+            titleTextViewHeightConstraints.constant = 48
+            titleContentTextView.layer.borderWidth = 0
+            titleContentTextView.backgroundColor = UIColor(hexString: "#EDEDED")
+        } else if textView == descriptionContentTextVIew {
+            descriptionTextViewHeightConstraints.constant = 48
+            descriptionContentTextVIew.layer.borderWidth = 0
+            descriptionContentTextVIew.backgroundColor = UIColor(hexString: "#EDEDED")
+        }
     }
-}
 
-func textViewDidChange(_ textView: UITextView) {
-    if !titleContentTextView.text.isEmpty {
-        placeholderTitleContentLabel.isHidden = !titleContentTextView.text.isEmpty
-        titleContentTextView.textColor = UIColor.black
-    } else {
-        placeholderTitleContentLabel.isHidden = false
-        titleContentTextView.textColor = UIColor.lightGray
+    func textViewDidChange(_ textView: UITextView) {
+        if !titleContentTextView.text.isEmpty {
+            placeholderTitleContentLabel.isHidden = !titleContentTextView.text.isEmpty
+            titleContentTextView.textColor = UIColor.black
+        } else {
+            placeholderTitleContentLabel.isHidden = false
+            titleContentTextView.textColor = UIColor.lightGray
+        }
+        if !descriptionContentTextVIew.text.isEmpty {
+            placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
+            descriptionContentTextVIew.textColor = UIColor.black
+        } else {
+            placeholderDescriptionContentLabel.isHidden = false
+            descriptionContentTextVIew.textColor = UIColor.lightGray
+        }
     }
-    if !descriptionContentTextVIew.text.isEmpty {
-        placeholderDescriptionContentLabel.isHidden = !descriptionContentTextVIew.text.isEmpty
-        descriptionContentTextVIew.textColor = UIColor.black
-    } else {
-        placeholderDescriptionContentLabel.isHidden = false
-        descriptionContentTextVIew.textColor = UIColor.lightGray
-    }
-}
 }
