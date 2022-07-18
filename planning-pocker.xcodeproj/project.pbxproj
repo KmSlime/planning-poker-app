@@ -65,7 +65,6 @@
 		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
 		910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextViews.swift */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
-		9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */; };
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
@@ -94,6 +93,7 @@
 		943FAA8E287C3EFF0018043F /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FAA8D287C3EFF0018043F /* SnackBar.swift */; };
 		943FAA97287E9FCE0018043F /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FAA95287E9FCE0018043F /* JoinRoomViewController.swift */; };
 		943FAA98287E9FCE0018043F /* JoinRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943FAA96287E9FCE0018043F /* JoinRoomViewController.xib */; };
+		943FF91328857E40002C6146 /* TPSLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943FF91228857E40002C6146 /* TPSLaunchScreen.storyboard */; };
 		94514C2A2872E4C00097214C /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94514C282872E4BF0097214C /* LeftMenuViewController.swift */; };
 		94514C2B2872E4C00097214C /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94514C292872E4C00097214C /* LeftMenuViewController.xib */; };
 		94C836CF28801C9700FE8923 /* CardToResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C836CD28801C9700FE8923 /* CardToResultCollectionViewCell.swift */; };
@@ -180,7 +180,6 @@
 		910F4D65287D56A800A3A87F /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
 		910F4D66287D56A800A3A87F /* RevealCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RevealCardViewController.xib; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
-		9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -212,6 +211,7 @@
 		943FAA8F287D62170018043F /* planning-pocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "planning-pocker.entitlements"; sourceTree = "<group>"; };
 		943FAA95287E9FCE0018043F /* JoinRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewController.swift; sourceTree = "<group>"; };
 		943FAA96287E9FCE0018043F /* JoinRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinRoomViewController.xib; sourceTree = "<group>"; };
+		943FF91228857E40002C6146 /* TPSLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPSLaunchScreen.storyboard; sourceTree = "<group>"; };
 		94514C282872E4BF0097214C /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		94514C292872E4C00097214C /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		94C836CD28801C9700FE8923 /* CardToResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToResultCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -459,11 +459,11 @@
 				9189BF9828801A0F008DB988 /* DeleteAllIssue */,
 				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
-				910317AA286BE6ED00BAE25C /* IssueDetail */,
 				155264E4286B154F0038ABDF /* IssuesList */,
 				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
+				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
 				60C82C4228644771002E2DC2 /* SignUp */,
@@ -611,14 +611,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		910317AA286BE6ED00BAE25C /* IssueDetail */ = {
+		910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */ = {
 			isa = PBXGroup;
 			children = (
 				910317AD286BE80700BAE25C /* ViewControllers */,
 				910317AC286BE7F600BAE25C /* Views */,
 				910317AB286BE7EE00BAE25C /* Models */,
 			);
-			path = IssueDetail;
+			path = "Show-EditIssueDetail";
 			sourceTree = "<group>";
 		};
 		910317AB286BE7EE00BAE25C /* Models */ = {
@@ -663,7 +663,7 @@
 		9146BC90286304B0001D4B7B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				9146BC91286304CB001D4B7B /* StartLaunchScreen.storyboard */,
+				943FF91228857E40002C6146 /* TPSLaunchScreen.storyboard */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -1123,6 +1123,7 @@
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
+				943FF91328857E40002C6146 /* TPSLaunchScreen.storyboard in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
 				94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */,
 				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
@@ -1131,7 +1132,6 @@
 				94CC6266286A9C5E0029674B /* CreateIssueViewController.xib in Resources */,
 				91DBA9AC2873F73D00E100C2 /* CreateNewGameViewController.xib in Resources */,
 				94C836D028801C9700FE8923 /* CardToResultCollectionViewCell.xib in Resources */,
-				9146BC92286304CB001D4B7B /* StartLaunchScreen.storyboard in Resources */,
 				91E3334C286EF79E0011F199 /* SignOutViewController.xib in Resources */,
 				155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */,
 				1905F99828608C8800EEF365 /* Main.storyboard in Resources */,
@@ -1451,7 +1451,7 @@
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = TPSLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1487,7 +1487,7 @@
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = TPSLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

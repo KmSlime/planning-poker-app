@@ -71,7 +71,7 @@ class IssueDetailViewController: UIViewController {
         titleContentTextView.clipsToBounds = true
         titleContentTextView.layer.masksToBounds = true
         titleContentTextView.layer.cornerRadius = 5
-    
+        placeholderTitleContentLabel.text = "Enter a tittle for the issue"
         placeholderTitleContentLabel.sizeToFit()
         titleContentTextView.addSubview(placeholderTitleContentLabel)
         placeholderTitleContentLabel.frame.origin = CGPoint(x: 5, y: (titleContentTextView.font?.pointSize)! / 2)
@@ -97,12 +97,22 @@ class IssueDetailViewController: UIViewController {
 
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
-
-        issueKeyLabel.text = issueModel?.issueKey
-        titleContentTextView.text = issueModel?.issueTitle
-        linkContentLabel.text = issueModel?.issueLink
-        descriptionContentTextVIew.text = issueModel?.issueDescription
-
+        
+        
+        if issueModel?.issueTitle != "" {
+            placeholderTitleContentLabel.isHidden = true
+            titleContentTextView.text = issueModel?.issueTitle
+        } else {
+            return
+        }
+        linkContentLabel.text = issueModel?.issueBelongToGame.url
+        
+        if issueModel?.issueDescription != "" {
+            placeholderDescriptionContentLabel.isHidden = true
+            descriptionContentTextVIew.text = issueModel?.issueDescription
+        } else {
+            return
+        }
     }
     
     // MARK: - Actions
@@ -125,20 +135,37 @@ class IssueDetailViewController: UIViewController {
         AppViewController.shared.popToPreviousScreen()
         }
     @IBAction func onClickSave(_ sender: Any) {
-        //sai -- sua lai theo dang param
-        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(issueModel!.issueId)"
-        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: [:], contentType: .urlFormEncoded)
+        let idPath = String(issueModel!.issueId)
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(idPath )"
+        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: ["key": issueKeyLabel.text! as String,
+                                                                                    "title": titleContentTextView.text! as String,
+                                                                                    "link": linkContentLabel.text! as String,
+                                                                                    "description": descriptionContentTextVIew.text! as String], contentType: .applicationJson)
         APIRequest.shared.request(router: getIssueDetailRouter) { [weak self] error, response in
             guard error == nil else {
                 self!.showAlert(title: "Message", message: "Error - Something went wrong")
-                print("Log Create New Game: Error code - \(String(describing: error?.code))")
-                return
+                print(error!)
+                
+                switch ((error?.code)!) {
+                case 400:
+                    self?.showAlert(title: "Notification", message: "System error")
+                    return
+                case 401:
+                    self?.showAlert(title: "Notification", message: "System error")
+                    return
+                case 404:
+                    self?.showAlert(title: "Notification", message: "System error")
+                    return
+                default:
+                    return
+                }
             }
 
             let message = response?.dictionary?["success"]!.boolValue ?? false
 
             if message != false {
                 AppViewController.shared.popToPreviousScreen()
+                print(message)
             } else {
                 return
             }

@@ -139,7 +139,7 @@ extension IssuesListViewController: UITableViewDelegate {
             createIssueVC.delegate = self
             navigationController?.pushViewController(createIssueVC, animated: true)
         } else {
-            AppViewController.shared.pushToEditIssueScreen(issue: self.issueModel)
+            AppViewController.shared.pushToEditIssueScreen(issue: listIssue[indexPath.row])
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
