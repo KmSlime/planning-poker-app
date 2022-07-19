@@ -99,7 +99,7 @@ extension AppViewController: Navigator {
 
     func pushToJoinRoom() {
         let joinRoomVC = JoinRoomViewController()
-        self.present(joinRoomVC, animated: true, completion: nil)
+        self.presentOnRoot(with: joinRoomVC)
     }
     func pushToDeleteIssue(id: Int?) {
         let deleteIssueVC = DeleteIssueViewController()

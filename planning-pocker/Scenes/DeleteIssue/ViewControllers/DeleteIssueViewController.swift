@@ -41,7 +41,7 @@ class DeleteIssueViewController: UIViewController {
     
     @IBAction func onClickDeleteIssueButton (_ sender: UIButton) {
         let idPath = String(id!)
-        let path = APIPath.Auth.editAndDeleteIssue.rawValue + ("\(idPath )")
+        let path = APIPath.Issue.editAndDeleteIssue.rawValue + ("\(idPath )")
         let deleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: deleteIssueRouter){ [weak self] error, response in
             guard error == nil else {

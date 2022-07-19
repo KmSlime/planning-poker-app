@@ -135,7 +135,7 @@ class IssueDetailViewController: UIViewController {
         }
     @IBAction func onClickSave(_ sender: Any) {
         let idPath = String(issueModel!.issueId)
-        let path = APIPath.Auth.editAndDeleteIssue.rawValue + "\(idPath )"
+        let path = APIPath.Issue.editAndDeleteIssue.rawValue + "\(idPath )"
         let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: ["key": issueKeyLabel.text! as String,
                                                                                     "title": titleContentTextView.text! as String,
                                                                                     "link": linkContentLabel.text! as String,
@@ -146,15 +146,10 @@ class IssueDetailViewController: UIViewController {
                 print(error!)
                 
                 switch ((error?.code)!) {
-                case 400:
+                case 400,401,404:
                     self?.showAlert(title: "Notification", message: "System error")
                     return
-                case 401:
-                    self?.showAlert(title: "Notification", message: "System error")
-                    return
-                case 404:
-                    self?.showAlert(title: "Notification", message: "System error")
-                    return
+
                 default:
                     return
                 }
@@ -180,12 +175,12 @@ extension IssueDetailViewController: UITextViewDelegate {
             titleTextViewHeightConstraints.constant = 126
             titleContentTextView.backgroundColor = UIColor.white
             titleContentTextView.layer.borderWidth = 1.0
-            titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
+            titleContentTextView.layer.borderColor = .lightGray.cgColor
         } else if textView == descriptionContentTextVIew {
             descriptionTextViewHeightConstraints.constant = 126
             descriptionContentTextVIew.backgroundColor = UIColor.white
             descriptionContentTextVIew.layer.borderWidth = 1.0
-            descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
+            descriptionContentTextVIew.layer.borderColor = .lightGray.cgColor
         }
     }
 

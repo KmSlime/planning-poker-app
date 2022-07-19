@@ -68,7 +68,7 @@ class IssuesListViewController: UIViewController {
         gameUrl = "kspqPBBp2kgf48EBBU4Ya1UM7" // local
 
         sumAveragePoint = 0
-        let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
+        let apiEndPoint = APIPath.Issue.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
             guard error == nil else {
@@ -205,7 +205,7 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            let routerCreateIssue = APIRouter(path: APIPath.Auth.createIssue.rawValue, method: .post, parameters: [
+            let routerCreateIssue = APIRouter(path: APIPath.Issue.createIssue.rawValue, method: .post, parameters: [
                 "title": item,
                 "url": gameUrl ?? "#",
                 "key": "PP-" + String(listIssue.count + 1)
@@ -236,7 +236,7 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
         spinner.startAnimating()
         // api handle
         let indexOfIssueInTableView = index.self ?? -1
-        let voteIssueEndpoint = APIPath.Auth.voteIssue.rawValue
+        let voteIssueEndpoint = APIPath.Issue.voteIssue.rawValue
         let voteIssueRouter = APIRouter(path: voteIssueEndpoint, method: .put, parameters: ["id": (cell.issueModel?.issueId)!], contentType: .applicationJson)
         APIRequest.shared.request(router: voteIssueRouter) { [weak self] error, response in
             guard error == nil else {
@@ -248,13 +248,15 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
             let isVoteSuccess = response?.dictionary?["success"]?.boolValue ?? false
             if isVoteSuccess == true {
                 if cell.issueModel?.issueVoteStatus == false {
+                    SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
                     AppViewController.shared.popupAlert(title: "Vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.blueButtonColor)
                 } else {
+                    SocketIOManager.sharedInstance.disableVote() // on socket
                     AppViewController.shared.popupAlert(title: "Cancel vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.systemGreen)
                 }
+                
                 self!.listIssue.removeAll()
                 self!.getDataIssueList()
-
             } else {
                 AppViewController.shared.showAlert(tittle: "Opps", message: "Something went wrong!")
                 return
@@ -263,11 +265,7 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
 
         print("Log Vote Issue: vote for issue has id \(String(describing: cell.issueModel?.issueId))!")
         // socket vote handle
-//        if listIssue[indexOfIssueInTableView].issueVoteStatus {
-//            SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
-//        } else {
-//            SocketIOManager.sharedInstance.disableVote() // on socket
-//        }
+      
 
     }
 }

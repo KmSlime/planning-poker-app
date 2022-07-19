@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E17A3FC2862E8E4002290E6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FB2862E8E4002290E6 /* UserStore.swift */; };
 		0E17A3FE2862E980002290E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A3FD2862E980002290E6 /* Constants.swift */; };
-		0EB73AD3286C4E2D00B74B4C /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */; };
-		0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */; };
 		1541718028768E2F005C5AAB /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541717F28768E2E005C5AAB /* GameModel.swift */; };
 		155264EC286B154F0038ABDF /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264E7286B154F0038ABDF /* IssuesListViewController.swift */; };
 		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
@@ -64,7 +62,8 @@
 		73366F4052E4C04E75BD5716 /* Pods_planning_pocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43860CEF8286EACD0555BCDF /* Pods_planning_pocker.framework */; };
 		910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B2286BF76400BAE25C /* PaddingLabels.swift */; };
 		910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910317B4286C00C200BAE25C /* MultilineTextViews.swift */; };
-		912D3A0D28857B84009198F8 /* TPSLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912D3A0C28857B83009198F8 /* TPSLaunchScreen.storyboard */; };
+		91377E2F28869DCC00300909 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91377E2D28869DBD00300909 /* IssueDetailViewController.swift */; };
+		91377E3028869DCC00300909 /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91377E2E28869DBD00300909 /* IssueDetailViewController.xib */; };
 		9146BC8F286302D4001D4B7B /* UIClolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */; };
 		9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC972863071B001D4B7B /* SignInViewController.swift */; };
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
@@ -122,8 +121,6 @@
 		05FFDA9C20FAB14AAEB84E97 /* Pods-planning-pocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-planning-pocker.release.xcconfig"; path = "Target Support Files/Pods-planning-pocker/Pods-planning-pocker.release.xcconfig"; sourceTree = "<group>"; };
 		0E17A3FB2862E8E4002290E6 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		0E17A3FD2862E980002290E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
-		0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		0EF7D1382862CA7900E8F787 /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
 		1541717F28768E2E005C5AAB /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		15491B12286F0BF700B75188 /* VotingSystemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
@@ -180,6 +177,8 @@
 		910F4D65287D56A800A3A87F /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
 		910F4D66287D56A800A3A87F /* RevealCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RevealCardViewController.xib; sourceTree = "<group>"; };
 		912D3A0C28857B83009198F8 /* TPSLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPSLaunchScreen.storyboard; sourceTree = "<group>"; };
+		91377E2D28869DBD00300909 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		91377E2E28869DBD00300909 /* IssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
 		9146BC972863071B001D4B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -459,11 +458,11 @@
 				9189BF9828801A0F008DB988 /* DeleteAllIssue */,
 				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
+				91377E2B28869DBD00300909 /* IssueDetail */,
 				155264E4286B154F0038ABDF /* IssuesList */,
 				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
 				94344E26286C66B000F40565 /* LeftMenu */,
-				910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */,
 				9146BC93286306AB001D4B7B /* SignIn */,
 				91E33345286EF7220011F199 /* SignOut */,
 				60C82C4228644771002E2DC2 /* SignUp */,
@@ -611,39 +610,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		910317AA286BE6ED00BAE25C /* Show-EditIssueDetail */ = {
-			isa = PBXGroup;
-			children = (
-				910317AD286BE80700BAE25C /* ViewControllers */,
-				910317AC286BE7F600BAE25C /* Views */,
-				910317AB286BE7EE00BAE25C /* Models */,
-			);
-			path = "Show-EditIssueDetail";
-			sourceTree = "<group>";
-		};
-		910317AB286BE7EE00BAE25C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		910317AC286BE7F600BAE25C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		910317AD286BE80700BAE25C /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				0EB73AD1286C4E2D00B74B4C /* IssueDetailViewController.swift */,
-				0EB73AD2286C4E2D00B74B4C /* IssueDetailViewController.xib */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		910317B6286C0EA200BAE25C /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +624,23 @@
 				910317B4286C00C200BAE25C /* MultilineTextViews.swift */,
 			);
 			path = UITextView;
+			sourceTree = "<group>";
+		};
+		91377E2B28869DBD00300909 /* IssueDetail */ = {
+			isa = PBXGroup;
+			children = (
+				91377E2C28869DBD00300909 /* ViewControllers */,
+			);
+			path = IssueDetail;
+			sourceTree = "<group>";
+		};
+		91377E2C28869DBD00300909 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				91377E2D28869DBD00300909 /* IssueDetailViewController.swift */,
+				91377E2E28869DBD00300909 /* IssueDetailViewController.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
@@ -1123,7 +1106,6 @@
 				6051A86A28644B38008A6715 /* Poppins-MediumItalic.ttf in Resources */,
 				1905F99A28608C8900EEF365 /* Assets.xcassets in Resources */,
 				BA3FE1192862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.xib in Resources */,
-				912D3A0D28857B84009198F8 /* TPSLaunchScreen.storyboard in Resources */,
 				602CDBB328616CBA00E2EA30 /* Icon.xcassets in Resources */,
 				94344D722876A7D20039DE0B /* SimulatorsList.txt in Resources */,
 				BA084D6E2864169B00A14A37 /* BoardInfoView.xib in Resources */,
@@ -1140,7 +1122,6 @@
 				9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */,
 				917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */,
 				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
-				0EB73AD4286C4E2D00B74B4C /* IssueDetailViewController.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
@@ -1150,6 +1131,7 @@
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */,
+				91377E3028869DCC00300909 /* IssueDetailViewController.xib in Resources */,
 				6051A86328644B38008A6715 /* Poppins-Medium.ttf in Resources */,
 				6051A86228644B38008A6715 /* Poppins-Light.ttf in Resources */,
 				943FAA98287E9FCE0018043F /* JoinRoomViewController.xib in Resources */,
@@ -1272,7 +1254,6 @@
 				BA3FE11D2862F9AA00779BE3 /* RoomModel.swift in Sources */,
 				BA3FE11D2862F9AA00779BE3 /* RoomModel.swift in Sources */,
 				94CC625028695AC20029674B /* InvitePlayerViewController.swift in Sources */,
-				0EB73AD3286C4E2D00B74B4C /* IssueDetailViewController.swift in Sources */,
 				BA3FE10E2862BC9D00779BE3 /* UIColor.swift in Sources */,
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
 				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
@@ -1288,6 +1269,7 @@
 				602CDBCD2861741800E2EA30 /* APIRouter.swift in Sources */,
 				BA3FE1182862C45E00779BE3 /* CardOtherPlayersCollectionViewCell.swift in Sources */,
 				910317B3286BF76400BAE25C /* PaddingLabels.swift in Sources */,
+				91377E2F28869DCC00300909 /* IssueDetailViewController.swift in Sources */,
 				9146BC992863071B001D4B7B /* SignInViewController.swift in Sources */,
 				94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
