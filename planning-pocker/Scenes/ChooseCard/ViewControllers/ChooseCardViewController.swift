@@ -246,7 +246,10 @@ class ChooseCardViewController: UIViewController {
         AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl)
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
-        let menu = SideMenuNavigationController(rootViewController: LeftMenuViewController())
+        let vc = LeftMenuViewController()
+        vc.isGameStarted = true
+        vc.url = room.roomUrl
+        let menu = SideMenuNavigationController(rootViewController: vc)
         menu.alwaysAnimate = true
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)

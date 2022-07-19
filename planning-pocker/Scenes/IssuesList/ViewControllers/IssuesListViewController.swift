@@ -64,11 +64,8 @@ class IssuesListViewController: UIViewController {
     }
     
     private func getDataIssueList() {
-         //        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
-//        gameUrl = "gMSP2oOeIumdghW8unvaqMy1u" // local
-
         sumAveragePoint = 0
-        let apiEndPoint = APIPath.Auth.getIssueList.rawValue + "\(gameUrl ?? "#")"
+        let apiEndPoint = APIPath.Issue.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
             guard error == nil else {
@@ -205,7 +202,7 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
             controller.warningLabel.text = "Tittle issue must have content"
             controller.warningLabel.isHidden = false
         } else {
-            let routerCreateIssue = APIRouter(path: APIPath.Auth.createIssue.rawValue, method: .post, parameters: [
+            let routerCreateIssue = APIRouter(path: APIPath.Issue.createIssue.rawValue, method: .post, parameters: [
                 "title": item,
                 "url": gameUrl ?? "#",
                 "key": "PP-" + String(listIssue.count + 1)
@@ -236,7 +233,7 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
         spinner.startAnimating()
         // api handle
         let indexOfIssueInTableView = index.self ?? -1
-        let voteIssueEndpoint = APIPath.Auth.voteIssue.rawValue
+        let voteIssueEndpoint = APIPath.Issue.voteIssue.rawValue
         let voteIssueRouter = APIRouter(path: voteIssueEndpoint, method: .put, parameters: ["id": (cell.issueModel?.issueId)!], contentType: .applicationJson)
         APIRequest.shared.request(router: voteIssueRouter) { [weak self] error, response in
             guard error == nil else {

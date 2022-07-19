@@ -109,7 +109,7 @@ class CreateNewGameViewController: UIViewController {
             AppViewController.shared.showAlert(tittle: "Error", message: hasErrorStatus().messages!)
         } else {
             self.gameName = gameNameTextField.text!
-            let routerCreateNewGame = APIRouter(path: APIPath.Auth.createNewGame.rawValue, method: .post, parameters: ["name": gameName!, "idUser": userDefaults.value(forKey: "id") ?? -1],
+            let routerCreateNewGame = APIRouter(path: APIPath.Issue.createNewGame.rawValue, method: .post, parameters: ["name": gameName!, "idUser": userDefaults.value(forKey: "id") ?? -1],
                                                 contentType: .applicationJson)
             APIRequest.shared.request(router: routerCreateNewGame) { [weak self] error, response in
                 guard error == nil else {

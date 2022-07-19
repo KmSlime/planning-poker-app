@@ -32,6 +32,7 @@ class LeftMenuViewController: UIViewController {
     }
     // MARK: - Properties
     var isGameStarted = false
+    var url = ""
     var defaultHighLightedCell: Int = 0
     var menu: [LeftMenuModel] = [LeftMenuModel(icon: UIImage(named: "icon_eye.png")!, title: "Spectator Mode"),
                                  LeftMenuModel(icon: UIImage(named: "icon_setting.png")!, title: "My Account"),
@@ -52,7 +53,7 @@ class LeftMenuViewController: UIViewController {
     // MARK: - Private
     private func setupUI() {
         self.invitePlayerButton.isHidden = isGameStarted ? false : true
-        self.heightButtonConstraint.constant = isGameStarted ? 50 : 0
+        self.heightButtonConstraint.constant = isGameStarted ? 40 : 0
     }
     private func selectedCell(_ row: Int) {
         switch row {
@@ -77,7 +78,9 @@ class LeftMenuViewController: UIViewController {
     }
     // MARK: - Function
     @objc func invitePlayer() {
-        AppViewController.shared.pushToInvitePlayerScreen(url: "")
+        self.dismiss(animated: true)
+        AppViewController.shared.pushToInvitePlayerScreen(url: self.url)
+        
     }
 }
 
