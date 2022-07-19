@@ -25,12 +25,11 @@ class DeleteIssueViewController: UIViewController {
             deleteIssueButton.layer.cornerRadius = 5
         }
     }
+    
     // MARK: - Properties
-    var issueModel: Issue?
     var id: Int?
-    var gameInIssue: GameModel?
-    var listIssue: [Issue] = []
 
+    // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,9 +38,10 @@ class DeleteIssueViewController: UIViewController {
     @IBAction func onClickCancelDeleteIssueButton (_ sender: UIButton) {
         AppViewController.shared.popToPreviousScreen()
     }
+    
     @IBAction func onClickDeleteIssueButton (_ sender: UIButton) {
         let idPath = String(id!)
-        let path = APIPath.Auth.editAndDeleteIssue.rawValue + ("\(idPath ?? "-1")")
+        let path = APIPath.Auth.editAndDeleteIssue.rawValue + ("\(idPath )")
         let deleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: deleteIssueRouter){ [weak self] error, response in
             guard error == nil else {
@@ -49,5 +49,6 @@ class DeleteIssueViewController: UIViewController {
                 return
             }
             AppViewController.shared.popToPreviousScreen()
-        }    }
+        }
+    }
 }

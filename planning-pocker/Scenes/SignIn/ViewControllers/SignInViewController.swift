@@ -8,35 +8,31 @@
 import UIKit
 
 class SignInViewController: UIViewController {
+    
     // MARK: - IBOutlets
-
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createAccountLabel: UILabel!
     @IBOutlet weak var signInScrollView: UIScrollView!
+    
     // MARK: - Properties
     var messages: String?
     var status: Bool?
     var textFieldName: String?
 
-    // MARK: - Overrides
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         onClickCreateAccountButton()
     }
 
-    // MARK: - Properties
-
-    // MARK: - Overrides
-
     // MARK: - Publics
-
     func onClickCreateAccountButton() {
         let createAccountLabelOnClick = UITapGestureRecognizer(target: self, action: #selector(self.goToSignUp(recognizer:)))
         createAccountLabel.isUserInteractionEnabled = true
@@ -48,21 +44,21 @@ class SignInViewController: UIViewController {
             AppViewController.shared.pushToSignUpScreen()
         }
     }
-
+    
     @objc func keyboardAppear(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
         var contentInset: UIEdgeInsets = self.signInScrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height + 50
         signInScrollView.contentInset = contentInset
     }
-
+    
     @objc func keyboardDisappear(notification: NSNotification) {
-        let contentInset = UIEdgeInsets.zero
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
         signInScrollView.contentInset = contentInset
     }
+    
     // MARK: - API Called
     func signInCallAPI() {
         let router = APIRouter(path: APIPath.Auth.signIn.rawValue,
@@ -76,49 +72,46 @@ class SignInViewController: UIViewController {
                 switch (error?.code ?? 0) {
                 case 401:
                     self.showAlert(title: "Notification", message: "Invalid email or password")
-                    break
+                    return
                 case 404:
                     self.showAlert(title: "Notification", message: "System error")
-                    break
+                    return
                 default:
-                    break
+                    return
                 }
-                return
             }
             guard let id = response?["id"].int,
                   let email = response?["email"].string,
-                  let displayName = response?["displayName"].string else {
-                return
-            }
+                  let displayName = response?["displayName"].string else { return }
             userDefaults.set(id, forKey: "id")
             userDefaults.set(email, forKey: "email")
             userDefaults.set(displayName, forKey: "fullName")
             AppViewController.shared.pushToWelcomeScreen()
         }
     }
+    
     // MARK: - Private
-
     private func setupUI() {
-        signInLabel.text = "Sign in"
+        // font
         signInLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
-
-        emailTextField.layer.borderColor = UIColor(hexString: "#707070").cgColor
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.cornerRadius = 5
-
-        passwordTextField.layer.borderColor = UIColor(hexString: "#707070").cgColor
-        passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.cornerRadius = 5
-
-        signInButton.layer.cornerRadius = 5
-
-        navigationItem.hidesBackButton = true
         
-        emailTextField.text = "slimenguyen@gmail.com"
-        passwordTextField.text = "Ka1@zxcv"
+        // style
+        emailTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        passwordTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
+        signInButton.customButtonUI(borderRadius: 4)
+        
+        // attribute
+        emailTextField.text = "vgtmaxwell@gmail.com"
+        passwordTextField.text = "Kunhan@1212"
+        signInLabel.text = "Sign in"
+        
+        // other
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        navigationItem.hidesBackButton = true
+        setupHideKeyboardOnTap()
     }
 
-    // MARK: - Validation
     // MARK: - Actions
     @IBAction func onClickSignInButton(_ sender: Any) {
         if hasErrorStatus().status == true {
@@ -129,12 +122,9 @@ class SignInViewController: UIViewController {
             signInCallAPI()
         }
     }
-
-    // MARK: - Validation
 }
 
-// MARK: - extensions
-
+// MARK: - Extensions
 extension SignInViewController {
     // MARK: - Check field empty
     func fieldIsEmpty() -> (textFieldName: String?, status: Bool) {
@@ -194,5 +184,3 @@ extension SignInViewController: UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
-
-// MARK: - protocols

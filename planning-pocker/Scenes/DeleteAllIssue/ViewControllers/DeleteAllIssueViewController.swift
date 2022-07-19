@@ -8,7 +8,7 @@
 import UIKit
 
 class DeleteAllIssueViewController: UIViewController {
-
+    
     // MARK: - IBOutlet
     @IBOutlet weak var deleteAllIssueView: UIView! {
         didSet {
@@ -25,17 +25,16 @@ class DeleteAllIssueViewController: UIViewController {
             deleteAllIssueButton.layer.cornerRadius = 5
         }
     }
-    var gameInIssue: GameModel?
-    var listIssue: [Issue] = []
+    
+    // MARK: - Properties
     var url: String?
+    
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
-    // MARK: - Publics
     // MARK: - Private
     private func deleteAllIssueCallAPI() {
         let path = APIPath.Auth.deleteAllIssue.rawValue + ("\(url ?? "")")
@@ -45,16 +44,17 @@ class DeleteAllIssueViewController: UIViewController {
                 print(error!)
                 return
             }
-            AppViewController.shared.pushToShowIssueListScreen()
+            AppViewController.shared.popToPreviousScreen()
         }
     }
-    // MARK: - Setup UI
+    
     // MARK: - Actions
     @IBAction func onClickCancelDeleteAllIssueButton (_ sender: UIButton) {
         AppViewController.shared.popToPreviousScreen()
     }
+    
     @IBAction func onClickDeleteAllIssueButton (_ sender: UIButton) {
         deleteAllIssueCallAPI()
     }
-
+    
 }

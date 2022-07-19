@@ -98,7 +98,6 @@ class IssueDetailViewController: UIViewController {
         saveButton.layer.cornerRadius = 5
         saveButton.isHidden = false
         
-        
         if issueModel?.issueTitle != "" {
             placeholderTitleContentLabel.isHidden = true
             titleContentTextView.text = issueModel?.issueTitle
