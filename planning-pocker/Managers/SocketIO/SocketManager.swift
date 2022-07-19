@@ -226,7 +226,7 @@ class SocketIOManager: NSObject {
     // 4. When start game successfully, update otherPlayerCollectionView for all clients
     func updateOtherPlayers(completionHandler: @escaping (_ users: [Dictionary<String,String>]) -> Void){
         socket?.on("update-player"){ (dataArray, ack) in
-            print("xxx")
+            print("name: " + userDefaults.string(forKey: "fullName")!)
             guard let data = dataArray[0] as? String else {
                 print("update-player fail")
                 return
@@ -388,11 +388,7 @@ class SocketIOManager: NSObject {
             completionHandler()
         }
     }
-    
-    // Test
-    func test() {
-        socket?.emit("/topic/greetings", [])
-    }
+
 
     func stopShareLocation(messageId: Int, groupId: Int) { // Stop share location
         socket?.emit("stop-share-location", ["messageId": messageId, "groupId": groupId ])

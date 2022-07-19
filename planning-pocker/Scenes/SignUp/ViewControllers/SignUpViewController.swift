@@ -30,11 +30,6 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // test error email exist sign up
-        emailTextField.text = "slimenguyen@gmail.com"
-        passwordTextField.text = "Ka1@zxcv"
-        rePasswordTextField.text = "Ka1@zxcv"
-        fullNameTextField.text = "slime"
     }
 
     override func viewWillAppear(_ animated: Bool) {

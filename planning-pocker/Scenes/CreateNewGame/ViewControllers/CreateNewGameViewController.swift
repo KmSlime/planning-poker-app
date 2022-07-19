@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 import SocketIO
+import SideMenu
 
 let userDefaults = UserDefaults.standard
 
@@ -79,7 +80,7 @@ class CreateNewGameViewController: UIViewController {
 
     // MARK: - Private
     private func setupUI() {
-        setupLeftMenu()
+//        setupLeftMenu()
         gameNameTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
         votingSystemTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
         votingSystemLabel.textColor = .blueTextColor
@@ -138,7 +139,12 @@ class CreateNewGameViewController: UIViewController {
 
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
-        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
+        let menu = SideMenuNavigationController(rootViewController: LeftMenuViewController())
+        menu.alwaysAnimate = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        menu.statusBarEndAlpha = 0
+        present(menu, animated: true, completion: nil)
     }
 }
     // MARK: - extensions

@@ -175,12 +175,12 @@ extension IssueDetailViewController: UITextViewDelegate {
             titleTextViewHeightConstraints.constant = 126
             titleContentTextView.backgroundColor = UIColor.white
             titleContentTextView.layer.borderWidth = 1.0
-            titleContentTextView.layer.borderColor = .lightGray.cgColor
+            titleContentTextView.layer.borderColor = UIColor.lightGray.cgColor
         } else if textView == descriptionContentTextVIew {
             descriptionTextViewHeightConstraints.constant = 126
             descriptionContentTextVIew.backgroundColor = UIColor.white
             descriptionContentTextVIew.layer.borderWidth = 1.0
-            descriptionContentTextVIew.layer.borderColor = .lightGray.cgColor
+            descriptionContentTextVIew.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
 
