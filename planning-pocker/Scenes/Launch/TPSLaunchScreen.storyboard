@@ -11,7 +11,6 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -44,7 +43,9 @@
                             <constraint firstItem="Sh6-iJ-oty" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uad-dM-mIc"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="413" height="896"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
