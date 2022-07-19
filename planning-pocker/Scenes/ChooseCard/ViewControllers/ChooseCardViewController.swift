@@ -9,6 +9,7 @@ import UIKit
 import SocketIO
 import SwiftUI
 import MaterialComponents.MaterialSnackbar
+import SideMenu
 
 class ChooseCardViewController: UIViewController {
     // MARK: - IBOutlets
@@ -42,6 +43,7 @@ class ChooseCardViewController: UIViewController {
     var isLockCardToSelect = false
     var isFlipCard = false
     var listCardResult: [String: Int] = [:]
+    
     // identify for collection view cell
     struct TableView {
         struct CellIdentifiers {
@@ -66,6 +68,7 @@ class ChooseCardViewController: UIViewController {
         listCardToResultCollectionView.delegate = self
         setupUI()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateOtherPlayer()
@@ -78,7 +81,6 @@ class ChooseCardViewController: UIViewController {
         restartRoom()
         
     }
-
     // MARK: - Publics
 
     // MARK: - Private
@@ -215,7 +217,6 @@ class ChooseCardViewController: UIViewController {
         self.averagePointLabel.isHidden = true
         setupTitleRoom()
         setupTitleIssue(isShow: false)
-        setupLeftMenu()
     }
     private func setupTitleRoom() { // set room name
         gameNameLabel.text = room.roomName
@@ -245,7 +246,12 @@ class ChooseCardViewController: UIViewController {
         AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl)
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
-        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
+        let menu = SideMenuNavigationController(rootViewController: LeftMenuViewController())
+        menu.alwaysAnimate = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        menu.statusBarEndAlpha = 0
+        present(menu, animated: true)
     }
     @IBAction func invitePlayerButton(_ sender: UIButton) {
         AppViewController.shared.pushToInvitePlayerScreen(url: room.roomUrl)
@@ -254,8 +260,6 @@ class ChooseCardViewController: UIViewController {
 
 // MARK: - Extensions
 extension ChooseCardViewController: UICollectionViewDataSource {
-   
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.listCardToSelectCollectionView {
             return room.cards.count
@@ -345,6 +349,5 @@ extension ChooseCardViewController: UICollectionViewDelegate {
 }
 
 extension ChooseCardViewController: UICollectionViewDelegateFlowLayout {
+   
 }
-
-

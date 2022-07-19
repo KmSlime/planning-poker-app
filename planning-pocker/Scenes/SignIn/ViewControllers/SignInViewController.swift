@@ -113,9 +113,6 @@ class SignInViewController: UIViewController {
         signInButton.layer.cornerRadius = 5
 
         navigationItem.hidesBackButton = true
-        
-        emailTextField.text = "slimenguyen@gmail.com"
-        passwordTextField.text = "Ka1@zxcv"
     }
 
     // MARK: - Validation

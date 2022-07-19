@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class WelcomeViewController: UIViewController {
 
@@ -37,8 +38,6 @@ class WelcomeViewController: UIViewController {
     // MARK: - Private
 
     private func setUpUI() {
-        setupLeftMenu()
-
         // set properties for Login Button
         goToTheLoginButton.layer.borderWidth = 1
         goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
@@ -72,50 +71,18 @@ class WelcomeViewController: UIViewController {
             AppViewController.shared.pushToSignInScreen()
         }
     }
-    // For DELETE
-    @IBAction func createNewGame(_ sender: UIButton) {
-        AppViewController.shared.pushToCreateNewGameScreen()
-    }
-
-    @IBAction func chooseCard(_ sender: UIButton) {
-        AppViewController.shared.pushToChooseCardScreen()
-    }
-
-    @IBAction func signUp(_ sender: UIButton) {
-        AppViewController.shared.pushToSignUpScreen()
-    }
-    @IBAction func signIn(_ sender: UIButton) {
-        AppViewController.shared.pushToSignInScreen()
-    }
-    @IBAction func showIssueList(_ sender: UIButton) {
-        AppViewController.shared.pushToShowIssueListScreen()
-    }
-    @IBAction func createIssue(_ sender: UIButton) {
-        AppViewController.shared.pushToCreateIssue()
-    }
-    @IBAction func invitePlayer(_ sender: UIButton) {
-        AppViewController.shared.pushToInvitePlayerScreen(url: "")
-    }
-    @IBAction func editIssue(_ sender: UIButton) {
-        AppViewController.shared.pushToEditIssueScreen()
-    }
-    @IBAction func leftMenu(_ sender: UIButton) {
-        AppViewController.shared.pushToLeftMenu()
-    }
-    @IBAction func show_editIssueDetail(_ sender: UIButton) {
-        AppViewController.shared.pushToEditIssueScreen()
-    }
-//    @IBAction func revealCard(_ sender: UIButton) {
-//        AppViewController.shared.pushToRevealCard()
-//    }
-
     @IBAction func onClickLoginButton(_ sender: Any) {
 
         AppViewController.shared.pushToSignInScreen()
 
     }
     @IBAction func onClickLeftMenuButton(_ sender: Any) {
-        self.leftMenuState(expanded: self.isExpanded ? false : true)
+        let menu = SideMenuNavigationController(rootViewController: LeftMenuViewController())
+        menu.alwaysAnimate = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        menu.statusBarEndAlpha = 0
+        present(menu, animated: true, completion: nil)
     }
 }
 // MARK: - extensions

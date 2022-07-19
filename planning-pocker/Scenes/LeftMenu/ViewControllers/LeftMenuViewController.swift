@@ -20,9 +20,7 @@ class LeftMenuViewController: UIViewController {
         didSet {
             guard let subView = Bundle.main.loadNibNamed("EditProfileView", owner: profileView, options: nil)?.first as? EditProfileView else { return }
             profileView?.addSubview(subView)
-            print("using")
-            subView.config(name: "User")
-            
+            subView.config(name: userDefaults.string(forKey: "fullName") ?? "User")
             subView.frame = subView.superview!.bounds
             subView.layer.cornerRadius = 50
         }
@@ -71,6 +69,7 @@ class LeftMenuViewController: UIViewController {
             print("Support")
             return
         case 4:
+            self.dismiss(animated: true)
             AppViewController.shared.pushToSignOut()
         default:
             break
