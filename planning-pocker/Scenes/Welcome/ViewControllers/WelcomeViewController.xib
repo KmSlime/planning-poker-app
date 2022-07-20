@@ -95,111 +95,6 @@
                         <constraint firstItem="S0l-PD-W3d" firstAttribute="height" secondItem="bZw-wT-Bly" secondAttribute="height" id="ffY-NP-Uci"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ymy-yx-MBw">
-                    <rect key="frame" x="100" y="135" width="214" height="365"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UQa-hz-WWv">
-                            <rect key="frame" x="0.0" y="0.0" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Create New Game"/>
-                            <connections>
-                                <action selector="createNewGame:" destination="-1" eventType="touchUpInside" id="07g-kB-0HV"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="anb-kt-juZ">
-                            <rect key="frame" x="0.0" y="34" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Choose Card"/>
-                            <connections>
-                                <action selector="chooseCard:" destination="-1" eventType="touchUpInside" id="CdM-cM-sor"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KMz-Eu-3Nl">
-                            <rect key="frame" x="0.0" y="68" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
-                            <connections>
-                                <action selector="signUp:" destination="-1" eventType="touchUpInside" id="eLl-F5-THV"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zem-Bb-3BN">
-                            <rect key="frame" x="0.0" y="102" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
-                            <connections>
-                                <action selector="signIn:" destination="-1" eventType="touchUpInside" id="W4U-mB-Cp1"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XGl-6t-N5H">
-                            <rect key="frame" x="0.0" y="136" width="214" height="28.5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Show Issue List"/>
-                            <connections>
-                                <action selector="showIssueList:" destination="-1" eventType="touchUpInside" id="pQE-bY-DCo"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zKW-KG-7V0">
-                            <rect key="frame" x="0.0" y="169.5" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Create Issue"/>
-                            <connections>
-                                <action selector="createIssue:" destination="-1" eventType="touchUpInside" id="rpC-Jv-bNU"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iGB-4n-aYX">
-                            <rect key="frame" x="0.0" y="203.5" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Invite Player"/>
-                            <connections>
-                                <action selector="invitePlayer:" destination="-1" eventType="touchUpInside" id="wUI-r3-CGu"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zVk-1R-N60">
-                            <rect key="frame" x="0.0" y="237.5" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Edit Issue"/>
-                            <connections>
-                                <action selector="editIssue:" destination="-1" eventType="touchUpInside" id="8NK-Uj-jmS"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9wH-Hu-MON">
-                            <rect key="frame" x="0.0" y="271.5" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Left Menu"/>
-                            <connections>
-                                <action selector="leftMenu:" destination="-1" eventType="touchUpInside" id="xYr-W1-ioU"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="asP-nM-tR9">
-                            <rect key="frame" x="0.0" y="305.5" width="214" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Show / Edit Issue Detail"/>
-                            <connections>
-                                <action selector="show_editIssueDetail:" destination="-1" eventType="touchUpInside" id="8dI-h7-k5d"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iuA-Em-vRc">
-                            <rect key="frame" x="0.0" y="339.5" width="214" height="25.5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Reveal Card"/>
-                            <connections>
-                                <action selector="revealCard:" destination="-1" eventType="touchUpInside" id="hdq-QQ-Uxt"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="labelColor"/>
-                </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zar-F8-Eb5" userLabel="leftmenu">
                     <rect key="frame" x="16" y="60" width="32" height="32"/>
                     <constraints>
@@ -219,16 +114,13 @@
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="2fK-NP-QHH"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="B5K-dV-U5l" secondAttribute="trailing" constant="16" id="3IS-xA-vv5"/>
                 <constraint firstItem="igc-yf-nLH" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="8JD-eD-Pat"/>
-                <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="8oI-1L-mzy"/>
                 <constraint firstItem="B5K-dV-U5l" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="Hqx-bU-Njq"/>
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="100" id="JDM-av-wnb"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="igc-yf-nLH" secondAttribute="trailing" constant="25" id="JlT-sO-ebB"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="KXj-4n-GaL"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="16" id="aD9-Zx-IwB"/>
-                <constraint firstItem="Ymy-yx-MBw" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="100" id="aWd-vP-yMX"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Bgp-ZM-5He" secondAttribute="trailing" constant="25" id="gWS-B0-meM"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="bottom" secondItem="igc-yf-nLH" secondAttribute="bottom" constant="25" id="qgd-qn-qnR"/>
-                <constraint firstItem="Ymy-yx-MBw" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="30" id="xna-Pm-Eh0"/>
             </constraints>
             <point key="canvasLocation" x="-30.434782608695656" y="109.82142857142857"/>
         </view>
@@ -237,9 +129,6 @@
         <image name=" icon_left_menu" width="32" height="32"/>
         <image name="background" width="312" height="239.5"/>
         <image name="tpssoft-logo" width="154" height="38"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
