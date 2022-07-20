@@ -226,9 +226,7 @@ class SocketIOManager: NSObject {
     }
     // 4. When start game successfully, update otherPlayerCollectionView for all clients
     func updateOtherPlayers(completionHandler: @escaping (_ users: [Dictionary<String,String>]) -> Void){
-        print("name: " + userDefaults.string(forKey: "fullName")! + " first time")
         socket?.on("update-player"){ (dataArray, ack) in
-            print("name: " + userDefaults.string(forKey: "fullName")! + " second time")
             guard let data = dataArray[0] as? String else {
                 print("update-player fail")
                 return
@@ -347,9 +345,9 @@ class SocketIOManager: NSObject {
         socket?.emit("reveal-card", jsonData!)
     }
     // 2. Card selected then no allowed to choose card
-    func lockSelectCard(completionHandler: @escaping (_ isLock: Bool) -> Void) {
+    func lockSelectCard(completionHandler: @escaping () -> Void) {
         socket?.on("lock-select-card"){ (dataArray, ack) in
-            completionHandler(true)
+            completionHandler()
         }
     }
     // 3. When reveal button is pressed, notify count down 3s to all clients

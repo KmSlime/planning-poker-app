@@ -43,6 +43,8 @@ class SignOutViewController: UIViewController {
         UserDefaults.resetStandardUserDefaults()
         self.dismiss(animated: true)
         print(userDefaults.string(forKey: "fullName"))
+        SocketIOManager.sharedInstance.closeConnection()
         AppViewController.shared.pushToWelcomeScreen()
+        SocketIOManager.sharedInstance.initSocket(isRequestConnect: true)
     }
 }

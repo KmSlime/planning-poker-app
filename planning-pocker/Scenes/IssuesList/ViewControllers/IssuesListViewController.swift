@@ -101,7 +101,6 @@ class IssuesListViewController: UIViewController {
     }
 
     private func getDataIssueList() {
-        gameUrl = "FcAfZAP5crnvCndpRiOmz7cMV" // api
         sumAveragePoint = 0
         let apiEndPoint = APIPath.Issue.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
