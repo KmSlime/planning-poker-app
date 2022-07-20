@@ -20,6 +20,7 @@ class ChooseCardViewController: UIViewController {
     @IBOutlet weak var groupOtherPlayers: UIView!
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var issueNameLabel: UILabel!
+    
     @IBOutlet weak var boardInfoView: BoardInfoView! {
         didSet {
             guard let subView = Bundle.main.loadNibNamed("BoardInfoView",
@@ -67,6 +68,8 @@ class ChooseCardViewController: UIViewController {
         listCardToResultCollectionView.dataSource = self
         listCardToResultCollectionView.delegate = self
         setupUI()
+        SocketIOManager.sharedInstance.reloadRoom()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,12 +82,12 @@ class ChooseCardViewController: UIViewController {
         updateIssue()
         showResult()
         restartRoom()
-        
     }
     // MARK: - Publics
 
     // MARK: - Private
     private func updateOtherPlayer() {
+        print("Prepare")
         SocketIOManager.sharedInstance.updateOtherPlayers { (users) -> Void in
             self.room.otherPlayers.removeAll()
             for item in users {
@@ -124,7 +127,7 @@ class ChooseCardViewController: UIViewController {
         }
     }
     private func updateCardToSelect() {
-        SocketIOManager.sharedInstance.lockSelectCard { (isLock) -> Void in
+        SocketIOManager.sharedInstance.lockSelectCard { () -> Void in
             self.isLockCardToSelect = true
             self.listCardToSelectCollectionView.allowsSelection = false
             self.chooseCardLabel.text = "Counting votes..."
@@ -243,7 +246,7 @@ class ChooseCardViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
-        AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl)
+        AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl, cardData: room.cards)
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
         let vc = LeftMenuViewController()
@@ -331,7 +334,7 @@ extension ChooseCardViewController: UICollectionViewDelegate {
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.listCardOtherPlayersCollectionView {
-            let leftTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
+            let leftTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 0, 0)
             cell.layer.transform = leftTransform
             cell.alpha = 0.5
             UIView.animate(withDuration: 1, animations: {
@@ -352,5 +355,27 @@ extension ChooseCardViewController: UICollectionViewDelegate {
 }
 
 extension ChooseCardViewController: UICollectionViewDelegateFlowLayout {
-   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView != self.listCardToSelectCollectionView {
+            let itemSize: CGSize? = (collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize
+                let spacing: CGFloat? = (collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing
+
+            let count: Int = collectionView.numberOfItems(inSection: 0)
+                let totalCellWidth = (itemSize?.width ?? 0.0) * CGFloat(count)
+                let totalSpacingWidth = (spacing ?? 0.0) * CGFloat(((count - 1) < 0 ? 0 : count - 1))
+                let leftInset: CGFloat = (collectionView.layer.bounds.width - (totalCellWidth + totalSpacingWidth)) / 2
+                if leftInset < 0 {
+                    let inset: UIEdgeInsets? = (collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset
+                    return inset!
+                }
+                let rightInset: CGFloat = leftInset
+                let sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+                return sectionInset
+        } else {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+           
+       
+    }
+    
 }

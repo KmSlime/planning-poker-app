@@ -16,7 +16,7 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        numberLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
+        numberLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24.0)
     }
 
     // MARK: - Life cycles
@@ -30,14 +30,14 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderWidth = 1.5
         if isSelected {
             UIView.animate(withDuration: 0.5) {
-                self.contentView.layer.borderColor = UIColor(hexString: "#80D5F3").cgColor
+                self.contentView.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
                 self.contentView.layer.backgroundColor = UIColor(hexString: "#00AAE7").cgColor
                 self.numberLabel.textColor = .white
             }
         } else {
-            contentView.layer.borderColor = UIColor(hexString: "#80D5F3").cgColor
+            contentView.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
             contentView.layer.backgroundColor = UIColor.white.cgColor
-            numberLabel.textColor = UIColor(hexString: "#80D5F3")
+            numberLabel.textColor = UIColor(hexString: "#00AAE7")
         }
     }
     
