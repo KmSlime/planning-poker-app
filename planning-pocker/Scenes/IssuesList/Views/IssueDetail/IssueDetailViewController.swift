@@ -27,6 +27,9 @@ class IssueDetailViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         setupUI()
     }
     
@@ -105,6 +108,7 @@ class IssueDetailViewController: UIViewController {
             return
         }
         linkContentLabel.text = issueModel?.issueBelongToGame.url
+        issueKeyLabel.text = issueModel?.issueKey
         
         if issueModel?.issueDescription != "" {
             placeholderDescriptionContentLabel.isHidden = true
@@ -136,7 +140,7 @@ class IssueDetailViewController: UIViewController {
     @IBAction func onClickSave(_ sender: Any) {
         let idPath = String(issueModel!.issueId)
         let path = APIPath.Issue.editAndDeleteIssue.rawValue + "\(idPath )"
-        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: ["key": issueKeyLabel.text! as String,
+        let getIssueDetailRouter = APIRouter(path: path, method: .put, parameters: [
                                                                                     "title": titleContentTextView.text! as String,
                                                                                     "link": linkContentLabel.text! as String,
                                                                                     "description": descriptionContentTextVIew.text! as String], contentType: .applicationJson)

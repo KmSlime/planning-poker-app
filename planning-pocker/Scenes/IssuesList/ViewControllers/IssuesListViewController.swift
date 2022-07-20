@@ -23,9 +23,9 @@ class IssuesListViewController: UIViewController {
         }
     }
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
+    @IBOutlet weak var averagePointDropDownUICollectionView: UICollectionView!
+
     // MARK: - Properties
-    let averagePointDropDownUICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 187, height: 142), collectionViewLayout: UICollectionViewLayout())
     let dropdownTriplePointTableView = DropDown()
     var listIssue: [Issue] = []
     var issueModel: Issue?
@@ -34,7 +34,7 @@ class IssuesListViewController: UIViewController {
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
     var countIssue: Int = 0
-    var cardData: [String] = ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]
+    var cardData: [String] = []
     var averagePointSelected = false
 
     // MARK: - Override
@@ -43,6 +43,7 @@ class IssuesListViewController: UIViewController {
         dropdownTriplePointTableView.bottomOffset = CGPoint(x: -130, y: (dropdownTriplePointTableView.anchorView?.plainView.bounds.height)!)
         
         selectedDropdownItem()
+        averagePointDropDownUICollectionView.register(UINib(nibName: AverageButtonCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: AverageButtonCollectionViewCell.identifier)
     }
 
     // MARK: - Life cycles
@@ -55,29 +56,45 @@ class IssuesListViewController: UIViewController {
         issuesListTableView.dataSource = self
         averagePointDropDownUICollectionView.delegate = self
         averagePointDropDownUICollectionView.dataSource = self
-        averagePointDropDownUICollectionView.register(UINib(nibName: "AverageButtonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AverageButtonCollectionViewCell")
         averagePointDropDownUICollectionView.isHidden = true
+        setupAverageCollectionViewUI()
+//        averagePointDropDownUICollectionView.layer.rasterizationScale = UIScreen.main.scale
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.userActivity?.accessibilityRespondsToUserInteraction = false
+        self.view.isUserInteractionEnabled = false
         listIssue.removeAll()
         getDataIssueList()
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         setupUI()
+        self.accessibilityRespondsToUserInteraction = true
+        self.view.isUserInteractionEnabled = true
     }
 
     // MARK: - Private
     private func setupUI() {
-        
         // font
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         sumAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         // other
         navigationItem.hidesBackButton = true
         spinner.hidesWhenStopped = true
+    }
+
+    private func setupAverageCollectionViewUI() {
+        averagePointDropDownUICollectionView.layer.cornerRadius = 4
+        averagePointDropDownUICollectionView.frame.size = CGSize(width: 187, height: 142)
+        averagePointDropDownUICollectionView.layer.masksToBounds = false
+        averagePointDropDownUICollectionView.layer.shadowColor = UIColor.black.cgColor
+        averagePointDropDownUICollectionView.layer.shadowOpacity = 0.2
+        averagePointDropDownUICollectionView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        averagePointDropDownUICollectionView.layer.shadowRadius = 1.5
+        averagePointDropDownUICollectionView.layer.shadowPath = UIBezierPath(rect: averagePointDropDownUICollectionView.bounds).cgPath
+        averagePointDropDownUICollectionView.layer.shouldRasterize = true
+        averagePointDropDownUICollectionView.layer.rasterizationScale = UIScreen.main.scale
     }
 
     private func setupDropDown() {
@@ -89,10 +106,6 @@ class IssuesListViewController: UIViewController {
         
         dropdownTriplePointTableView.customCellConfiguration = { index, item, cell in
             guard cell is DropdownTriplePointTableViewCell else { return }
-//            guard let cell = cell as? DropdownTriplePointTableViewCell else { return }
-//            cell.optionLabel.text = self.dropdownTriplePointTableView.dataSource[index]
-//            cell.myImageView.image = UIImage(systemName: "icon_trashcan")
-
         }
     }
 
@@ -106,6 +119,7 @@ class IssuesListViewController: UIViewController {
 
     private func getDataIssueList() {
         sumAveragePoint = 0
+        self.userActivity?.accessibilityRespondsToUserInteraction = false
         let apiEndPoint = APIPath.Issue.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
         APIRequest.shared.request(router: getIssueListRouter) { [weak self] error, response in
@@ -154,7 +168,9 @@ class IssuesListViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func backToChooseCard(_ sender: Any) {
+//        AppViewController.shared.popToViewScreen(uiViewController: ChooseCardViewController())
         AppViewController.shared.popToPreviousScreen()
+
     }
     @IBAction func optionDeleteAll(_ sender: Any) {
         dropdownTriplePointTableView.show()
@@ -181,7 +197,6 @@ extension IssuesListViewController: UITableViewDelegate {
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
     }
 }
 
@@ -276,6 +291,8 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
 
             let isVoteSuccess = response?.dictionary?["success"]?.boolValue ?? false
             if isVoteSuccess == true {
+                self!.averagePointDropDownUICollectionView.isHidden = true
+
                 if cell.issueModel?.issueVoteStatus == false {
                     SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
                     AppViewController.shared.popupAlert(title: "Vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.blueButtonColor)
@@ -296,16 +313,13 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
         print("Log Vote Issue: vote for issue has id \(String(describing: cell.issueModel?.issueId))!")
     }
 
-    func issueItemAveragePointClick(cell: IssueItemTableViewCell, index: Int?) {
-        let xPosition = cell.voteButton.frame.origin.x
-        let yPosition = cell.voteButton.frame.origin.y
+    func issueItemAveragePointClick(cell: IssueItemTableViewCell, index: Int?, frame: CGRect) {
         if averagePointSelected == false {
-            averagePointDropDownUICollectionView.frame = CGRect(x: xPosition, y: yPosition, width: 187, height: 142)
-
-            self.view.addSubview(averagePointDropDownUICollectionView)
-            averagePointDropDownUICollectionView.translatesAutoresizingMaskIntoConstraints = false
-            averagePointDropDownUICollectionView.topAnchor.constraint(equalTo: cell.voteButton.self.bottomAnchor, constant: 5)
-//            averagePointDropDownUICollectionView.topAnchor.constraint(equalTo: self.tableView(issuesListTableView, cellForRowAt: index as IndexPath).bottomAnchor, constant: CGFloat(5))
+            self.averagePointDropDownUICollectionView.frame =
+            CGRect(x: cell.averagePointButton.zhmfPositionInScreen().x - 187 + 32,
+                   y: cell.averagePointButton.zhmfPositionInScreen().y + 36,
+                   width: 187,
+                   height: 142)
             averagePointDropDownUICollectionView.isHidden = false
             averagePointSelected.toggle()
         } else {
@@ -340,10 +354,14 @@ extension IssuesListViewController: UICollectionViewDataSource {
 
 extension IssuesListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.size.width/4)-4, height: (view.frame.size.width/4)-3)
+        return CGSize(width: 32, height: 32)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+    func collectionView(_ collectionView: UICollectionView, lasyout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 18
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 18, left: 5, bottom: 0, right: 5)
     }
 }

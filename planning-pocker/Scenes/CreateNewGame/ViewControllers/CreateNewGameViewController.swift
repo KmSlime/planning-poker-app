@@ -42,6 +42,7 @@ class CreateNewGameViewController: UIViewController {
         dropdownSelectedTableView.anchorView = votingSystemTextField
         votingSystemTextField.placeholder = votingSystemValue[0].disPlayValue
         cardData = votingSystemValue[0].arrayCardValue
+        setupHideKeyboardOnTap()
     }
 
     override func viewWillAppear(_ animated: Bool) {

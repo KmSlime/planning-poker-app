@@ -27,7 +27,7 @@ protocol Navigator {
 
     // MARK: - POP
     func popToPreviousScreen()
-    func popToViewScreen(uiViewController: UIViewController?, data: Any?)
+    func popToViewScreen(uiViewController: UIViewController)
 }
 
 extension AppViewController: Navigator {
@@ -132,8 +132,8 @@ extension AppViewController: Navigator {
         navigationController?.popViewController(animated: true)
     }
 
-    func popToViewScreen(uiViewController: UIViewController?, data: Any? = nil) {
-        let anyView = uiViewController! as UIViewController
+    func popToViewScreen(uiViewController: UIViewController) {
+        let anyView = uiViewController
         navigationController?.popToViewController(anyView, animated: true)
     }
 
