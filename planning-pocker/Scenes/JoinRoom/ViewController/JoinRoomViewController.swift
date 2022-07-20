@@ -7,9 +7,7 @@
 
 import UIKit
 
-
 class JoinRoomViewController: UIViewController {
-//    let userDefaults = UserDefaults.standard
 
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true)

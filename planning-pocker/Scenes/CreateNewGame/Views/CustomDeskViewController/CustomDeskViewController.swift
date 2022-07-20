@@ -13,24 +13,19 @@ class CustomDeskViewController: UIViewController {
     @IBOutlet weak var customDeskNameTextField: UITextField!
     @IBOutlet weak var deskValueTextField: UITextField!
     @IBOutlet weak var displayCardValueCollectionView: UICollectionView!
-//    {
-//        didSet {
-//            displayCardValueCollectionView?.register(UINib(nibName: "CardToSelectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardToSelectCollectionViewCell")
-//        }
-//    }
-//    var deskValue: ((displayValue: String, arrayValue: [String])->())?
+
     var arrayDesk: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayCardValueCollectionView?.register(UINib(nibName: "CardToSelectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardToSelectCollectionViewCell")
+        displayCardValueCollectionView?.register(UINib(nibName: "CardPreviewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardPreviewCollectionViewCell")
         displayCardValueCollectionView.dataSource = self
         displayCardValueCollectionView.delegate = self
         setupUI()
     }
 
     func splitDeskValueToGetArray(displayValue: String) -> [String] {
-        let arrayAfterSplit = displayValue.filter{!$0.isWhitespace}.components(separatedBy: ",")
+        let arrayAfterSplit = displayValue.filter {!$0.isWhitespace}.components(separatedBy: ",")
         var arrayValue: [String] = []
         for item in arrayAfterSplit where item != "" {
             arrayValue.append(item)
@@ -50,11 +45,8 @@ class CustomDeskViewController: UIViewController {
             AppViewController.shared.popupAlert(title: "Desk values required", colorPopup: UIColor.systemRed)
             return
         }
-        if customDeskNameTextField.text?.isEmpty == true {
-            customDeskNameTextField.text = deskValueTextField?.text!
-        }
-//        deskValue(customDeskNameTextField.text ?? "#", self.arrayDesk)
         self.dismiss(animated: true)
+        AppViewController.shared.pushToCreateNewGameScreen(customDesk: customDeskNameTextField.text, deskValue: arrayDesk)
     }
 
     @IBAction func cancel(_ sender: Any) {
@@ -69,32 +61,31 @@ class CustomDeskViewController: UIViewController {
 }
 
 extension CustomDeskViewController: UICollectionViewDelegate {
-//
-//    func reloadCollectionView(collectionView: UICollectionView, index:IndexPath){
-//        let contentOffset = collectionView.contentOffset
-//        collectionView.reloadData()
-//        collectionView.layoutIfNeeded()
-//        collectionView.setContentOffset(contentOffset, animated: false)
-//        collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-//    }
 
 }
 
 extension CustomDeskViewController: UICollectionViewDataSource {
-//    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.arrayDesk.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardToSelectCollectionViewCell", for: indexPath) as? CardToSelectCollectionViewCell
-        cell?.config(name: self.arrayDesk[indexPath.row])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardPreviewCollectionViewCell", for: indexPath) as? CardPreviewCollectionViewCell
+        cell?.configName(cardNum: self.arrayDesk[indexPath.row])
         return cell!
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CardPreviewCollectionViewCell {
+            cell.configSelected()
+
+        }
     }
 }
 
 extension CustomDeskViewController: UICollectionViewDelegateFlowLayout {
+    // MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 35, height: 54)
+    }
 }
