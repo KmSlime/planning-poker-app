@@ -67,6 +67,7 @@ class ChooseCardViewController: UIViewController {
         listCardToResultCollectionView.dataSource = self
         listCardToResultCollectionView.delegate = self
         setupUI()
+        SocketIOManager.sharedInstance.reloadRoom()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +86,7 @@ class ChooseCardViewController: UIViewController {
 
     // MARK: - Private
     private func updateOtherPlayer() {
+        print("Prepare")
         SocketIOManager.sharedInstance.updateOtherPlayers { (users) -> Void in
             self.room.otherPlayers.removeAll()
             for item in users {

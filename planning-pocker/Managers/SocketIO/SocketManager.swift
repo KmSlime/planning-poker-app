@@ -136,6 +136,7 @@ class SocketIOManager: NSObject {
         }
         
         _socket.on("notification-change") { data, ack in
+            print("ready for reload room")
             self.socket?.emit("reload-room", [])
         }
         
@@ -225,8 +226,9 @@ class SocketIOManager: NSObject {
     }
     // 4. When start game successfully, update otherPlayerCollectionView for all clients
     func updateOtherPlayers(completionHandler: @escaping (_ users: [Dictionary<String,String>]) -> Void){
+        print("name: " + userDefaults.string(forKey: "fullName")! + " first time")
         socket?.on("update-player"){ (dataArray, ack) in
-            print("name: " + userDefaults.string(forKey: "fullName")!)
+            print("name: " + userDefaults.string(forKey: "fullName")! + " second time")
             guard let data = dataArray[0] as? String else {
                 print("update-player fail")
                 return
@@ -241,6 +243,10 @@ class SocketIOManager: NSObject {
             }
             
         }
+    }
+    
+    func reloadRoom() {
+        self.socket?.emit("reload-room", [])
     }
     
     // TODO: Handle issue
