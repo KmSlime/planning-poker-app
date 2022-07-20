@@ -101,8 +101,6 @@ class SignInViewController: UIViewController {
         signInButton.customButtonUI(borderRadius: 4)
         
         // attribute
-        emailTextField.text = "vgtmaxwell@gmail.com"
-        passwordTextField.text = "Kunhan@1212"
         signInLabel.text = "Sign in"
         
         // other

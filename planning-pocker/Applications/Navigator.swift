@@ -104,12 +104,12 @@ extension AppViewController: Navigator {
     func pushToDeleteIssue(id: Int?) {
         let deleteIssueVC = DeleteIssueViewController()
         deleteIssueVC.id = id
-        navigationController?.pushViewController(deleteIssueVC, animated: true)
+        self.presentOnRoot(with: deleteIssueVC)
     }
     func pushToDeleteAllIssue(url: String?) {
         let deleteAllIssueVC = DeleteAllIssueViewController()
         deleteAllIssueVC.url = url
-        navigationController?.pushViewController(deleteAllIssueVC, animated: true)
+        self.presentOnRoot(with: deleteAllIssueVC)
     }
     
     // MARK: - POP ACTION

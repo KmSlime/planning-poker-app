@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import DropDown
 
 class IssuesListViewController: UIViewController {
     
@@ -31,6 +32,7 @@ class IssuesListViewController: UIViewController {
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
     var countIssue: Int = 0
+    let dropdownTriplePointTableView = DropDown()
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -38,11 +40,14 @@ class IssuesListViewController: UIViewController {
         spinner.startAnimating()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
+        setupDropDown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         listIssue.removeAll()
         getDataIssueList()
+        dropdownTriplePointTableView.anchorView = tripleMenuButton
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +67,30 @@ class IssuesListViewController: UIViewController {
         navigationItem.hidesBackButton = true
         spinner.hidesWhenStopped = true
     }
+    
+    private func setupDropDown() {
+            dropdownTriplePointTableView.dataSource = [
+                "Delete all issues"
+            ]
+    //        self.dropdownTriplePointTableView.cellNib = UINib(nibName: "DropdownTriplePointTableViewCell", bundle: nil)
+    //        dropdownTriplePointTableView.customCellConfiguration = { index, item, cell in
+    //
+    //            guard cell is DropdownTriplePointTableViewCell else { return }
+    //            cell.configDisplayCell(descriptionCell: dropdownTriplePointTableView.dataSource[])
+
+    //        }
+
+        }
+
+        private func selectedDropdownItem() {
+            dropdownTriplePointTableView.selectionAction = { [unowned self] (index: Int, item: String) in
+                if item == "Delete all issues" {
+                    AppViewController.shared.pushToDeleteAllIssue(url: gameUrl!)
+                }
+            }
+        }
+
+
     
     private func getDataIssueList() {
          //        gameUrl = "hEzx3ik8EZrcs0XmavuB7g4c9" // api
@@ -119,7 +148,9 @@ class IssuesListViewController: UIViewController {
         AppViewController.shared.popToPreviousScreen()
     }
     @IBAction func optionDeleteAll(_ sender: Any) {
-        AppViewController.shared.pushToDeleteAllIssue(url: gameInIssue?.url)
+//        AppViewController.shared.pushToDeleteAllIssue(url: gameInIssue?.url)
+        dropdownTriplePointTableView.show()
+
     }
 }
 

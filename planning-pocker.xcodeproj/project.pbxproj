@@ -76,6 +76,8 @@
 		9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */; };
 		91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */; };
 		91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */; };
+		91C5065928879CA400BFEDD1 /* DropdownTriplePointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */; };
+		91C5065A28879CA400BFEDD1 /* DropdownTriplePointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */; };
 		91DBA9AB2873F73D00E100C2 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */; };
 		91DBA9AC2873F73D00E100C2 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */; };
 		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
@@ -191,6 +193,8 @@
 		9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAllIssueViewController.xib; sourceTree = "<group>"; };
 		91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteIssueViewController.swift; sourceTree = "<group>"; };
 		91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteIssueViewController.xib; sourceTree = "<group>"; };
+		91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownTriplePointTableViewCell.swift; sourceTree = "<group>"; };
+		91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownTriplePointTableViewCell.xib; sourceTree = "<group>"; };
 		91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 		155264E9286B154F0038ABDF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91C5065628879B9E00BFEDD1 /* DropdownTriplePointTableViewCell */,
 				94344E21286C13E600F40565 /* ButtonItemTableViewCell */,
 				94344E20286C13D000F40565 /* IssueItemTableViewCell */,
 			);
@@ -742,6 +747,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		91C5065628879B9E00BFEDD1 /* DropdownTriplePointTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */,
+				91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */,
+			);
+			path = DropdownTriplePointTableViewCell;
+			sourceTree = "<group>";
+		};
 		91E33345286EF7220011F199 /* SignOut */ = {
 			isa = PBXGroup;
 			children = (
@@ -1122,6 +1136,7 @@
 				9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */,
 				917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */,
 				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
+				91C5065A28879CA400BFEDD1 /* DropdownTriplePointTableViewCell.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
@@ -1274,6 +1289,7 @@
 				94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
+				91C5065928879CA400BFEDD1 /* DropdownTriplePointTableViewCell.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
