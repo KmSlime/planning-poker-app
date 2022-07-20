@@ -17,4 +17,16 @@ extension UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
     }
+
+    func makeRounded(borderWidth: CGFloat? = nil, borderColor: UIColor? = nil) {
+        if borderWidth != nil {
+            layer.borderWidth = borderWidth!
+        }
+        if borderColor != nil {
+            layer.borderColor = borderColor!.cgColor
+        }
+        layer.masksToBounds = false
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+    }
 }

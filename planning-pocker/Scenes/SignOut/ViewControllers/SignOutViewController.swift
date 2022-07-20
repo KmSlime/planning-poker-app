@@ -39,7 +39,7 @@ class SignOutViewController: UIViewController {
     @IBAction func onClickConfirmSignOutButton (_ sender: UIButton) {
         userDefaults.removeObject(forKey: "fullName")
         userDefaults.removeObject(forKey: "id")
-        userDefaults.removeObject(forKey: "email")
+
         UserDefaults.resetStandardUserDefaults()
         self.dismiss(animated: true)
         print(userDefaults.string(forKey: "fullName"))

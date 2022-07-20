@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import DropDown
 
 class IssuesListViewController: UIViewController {
     
@@ -24,6 +25,8 @@ class IssuesListViewController: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     // MARK: - Properties
+    let averagePointDropDownUICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 187, height: 142), collectionViewLayout: UICollectionViewLayout())
+    let dropdownTriplePointTableView = DropDown()
     var listIssue: [Issue] = []
     var issueModel: Issue?
     var gameInIssue: GameModel?
@@ -31,13 +34,28 @@ class IssuesListViewController: UIViewController {
     var gameUrl: String?
     var currentSelectedIndex: IndexPath?
     var countIssue: Int = 0
+    var cardData: [String] = ["0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?"]
+    var averagePointSelected = false
+
+    // MARK: - Override
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        dropdownTriplePointTableView.bottomOffset = CGPoint(x: -100, y: (dropdownTriplePointTableView.anchorView?.plainView.bounds.height)!)
+        selectedDropdownItem()
+    }
 
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.startAnimating()
+        dropdownTriplePointTableView.anchorView = tripleMenuButton
+        setupDropDown()
         issuesListTableView.delegate = self
         issuesListTableView.dataSource = self
+        averagePointDropDownUICollectionView.delegate = self
+        averagePointDropDownUICollectionView.dataSource = self
+        averagePointDropDownUICollectionView.register(UINib(nibName: "AverageButtonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AverageButtonCollectionViewCell")
+        averagePointDropDownUICollectionView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,15 +73,35 @@ class IssuesListViewController: UIViewController {
         // font
         countIssueLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
         sumAveragePointLabel.font = UIFont(name: "Poppins-Medium", size: 12.0)
-        
-        // attribute
-
         // other
         navigationItem.hidesBackButton = true
         spinner.hidesWhenStopped = true
     }
-    
+
+    private func setupDropDown() {
+        dropdownTriplePointTableView.dataSource = [
+            "Delete all issues"
+        ]
+//        self.dropdownTriplePointTableView.cellNib = UINib(nibName: "DropdownTriplePointTableViewCell", bundle: nil)
+//        dropdownTriplePointTableView.customCellConfiguration = { index, item, cell in
+//
+//            guard cell is DropdownTriplePointTableViewCell else { return }
+//            cell.configDisplayCell(descriptionCell: dropdownTriplePointTableView.dataSource[])
+
+//        }
+
+    }
+
+    private func selectedDropdownItem() {
+        dropdownTriplePointTableView.selectionAction = { [unowned self] (index: Int, item: String) in
+            if item == "Delete all issues" {
+                AppViewController.shared.pushToDeleteAllIssue()
+            }
+        }
+    }
+
     private func getDataIssueList() {
+        gameUrl = "FcAfZAP5crnvCndpRiOmz7cMV" // api
         sumAveragePoint = 0
         let apiEndPoint = APIPath.Issue.getIssueList.rawValue + "\(gameUrl ?? "#")"
         let getIssueListRouter = APIRouter(path: apiEndPoint, method: .get, parameters: [:], contentType: .urlFormEncoded)
@@ -116,7 +154,7 @@ class IssuesListViewController: UIViewController {
         AppViewController.shared.popToPreviousScreen()
     }
     @IBAction func optionDeleteAll(_ sender: Any) {
-        AppViewController.shared.pushToDeleteAllIssue(url: gameInIssue?.url)
+        dropdownTriplePointTableView.show()
     }
 }
 
@@ -228,7 +266,6 @@ extension IssuesListViewController: createIssueViewControllerDelegate {
 }
 
 extension IssuesListViewController: IssueItemTableViewCellDelegate {
-
     func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?) {
         spinner.startAnimating()
         // api handle
@@ -259,10 +296,57 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
                 return
             }
         }
-
         print("Log Vote Issue: vote for issue has id \(String(describing: cell.issueModel?.issueId))!")
-        // socket vote handle
-      
+    }
 
+    func issueItemAveragePointClick(cell: IssueItemTableViewCell, index: Int?) {
+        let xPosition = cell.voteButton.frame.origin.x
+        let yPosition = cell.voteButton.frame.origin.y
+        if averagePointSelected == false {
+            averagePointDropDownUICollectionView.frame = CGRect(x: xPosition, y: yPosition, width: 187, height: 142)
+
+            self.view.addSubview(averagePointDropDownUICollectionView)
+            averagePointDropDownUICollectionView.translatesAutoresizingMaskIntoConstraints = false
+            averagePointDropDownUICollectionView.topAnchor.constraint(equalTo: cell.voteButton.self.bottomAnchor, constant: 5)
+//            averagePointDropDownUICollectionView.topAnchor.constraint(equalTo: self.tableView(issuesListTableView, cellForRowAt: index as IndexPath).bottomAnchor, constant: CGFloat(5))
+            averagePointDropDownUICollectionView.isHidden = false
+            averagePointSelected.toggle()
+        } else {
+            averagePointDropDownUICollectionView.isHidden = true
+            averagePointSelected.toggle()
+        }
+    }
+}
+
+extension IssuesListViewController: UICollectionViewDelegate {
+
+}
+
+extension IssuesListViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cardData.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AverageButtonCollectionViewCell", for: indexPath) as? AverageButtonCollectionViewCell
+        cell?.configDisplay(cardPoint: self.cardData[indexPath.row])
+        return cell!
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? AverageButtonCollectionViewCell {
+            cell.configSelected()
+        }
+    }
+}
+
+extension IssuesListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (view.frame.size.width/4)-4, height: (view.frame.size.width/4)-3)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
 }

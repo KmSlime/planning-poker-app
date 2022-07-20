@@ -52,9 +52,4 @@ class CardToSelectCollectionViewCell: UICollectionViewCell {
             numberLabel.textColor = UIColor(hexString: "#a8aeb2")
         }
     }
-
-    // MARK: - Private
-
-    // MARK: - Actions
-
 }

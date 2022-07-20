@@ -34,7 +34,40 @@ class WelcomeViewController: UIViewController {
     }
 
     // MARK: - Publics
+    // For DELETE
+    @IBAction func createNewGame(_ sender: UIButton) {
+        AppViewController.shared.pushToCreateNewGameScreen()
+    }
 
+    @IBAction func chooseCard(_ sender: UIButton) {
+        AppViewController.shared.pushToChooseCardScreen()
+    }
+
+    @IBAction func signUp(_ sender: UIButton) {
+        AppViewController.shared.pushToSignUpScreen()
+    }
+    @IBAction func signIn(_ sender: UIButton) {
+        AppViewController.shared.pushToSignInScreen()
+    }
+    @IBAction func showIssueList(_ sender: UIButton) {
+        AppViewController.shared.pushToShowIssueListScreen()
+    }
+    @IBAction func createIssue(_ sender: UIButton) {
+        AppViewController.shared.pushToCreateIssue()
+    }
+    @IBAction func invitePlayer(_ sender: UIButton) {
+        AppViewController.shared.pushToInvitePlayerScreen(url: "")
+    }
+    @IBAction func editIssue(_ sender: UIButton) {
+        AppViewController.shared.pushToEditIssueScreen()
+    }
+    @IBAction func leftMenu(_ sender: UIButton) {
+        AppViewController.shared.pushToLeftMenu()
+    }
+    @IBAction func show_editIssueDetail(_ sender: UIButton) {
+        AppViewController.shared.pushToEditIssueScreen()
+    }
+    
     // MARK: - Private
 
     private func setUpUI() {
