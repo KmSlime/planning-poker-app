@@ -12,11 +12,11 @@ protocol Navigator {
     func pushToWelcomeScreen(user: User?)
     func pushToSignInScreen()
     func pushToSignUpScreen()
-    func pushToCreateNewGameScreen()
+    func pushToCreateNewGameScreen(customDesk: String?, deskValue: [String]?)
     func pushToChooseCardScreen(newRoomModel: RoomModel?, gameInfo: GameModel?)
     func pushToInvitePlayerScreen(url: String)
     func pushToCreateIssue()
-    func pushToShowIssueListScreen(url: String?)
+    func pushToShowIssueListScreen(url: String?, cardData: [String]?)
     func pushToEditIssueScreen(issue: Issue?)
     func pushToLeftMenu()
     func pushToCreateCustomDesk()
@@ -56,8 +56,13 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(chooseCardVC, animated: true)
     }
     
-    func pushToCreateNewGameScreen() {
+    func pushToCreateNewGameScreen(customDesk: String? = nil, deskValue: [String]? = nil) {
         let createNewGameVC = CreateNewGameViewController()
+        if customDesk != nil && deskValue != nil {
+            createNewGameVC.votingSystemValue.append((-1, customDesk!, deskValue!))
+            let customDeckItem: (index: Int, disPlayValue: String, arrayCardValue: [String]) = (0, "Create custom desk..", [])
+            createNewGameVC.votingSystemValue.append(customDeckItem)
+        }
         navigationController?.pushViewController(createNewGameVC, animated: true)
     }
     func pushToInvitePlayerScreen(url: String) {
@@ -71,9 +76,12 @@ extension AppViewController: Navigator {
         navigationController?.pushViewController(createIssueVC, animated: true)
     }
     
-    func pushToShowIssueListScreen(url: String? = nil) {
+    func pushToShowIssueListScreen(url: String? = nil, cardData: [String]? = nil) {
         let issueListVC = IssuesListViewController()
         issueListVC.gameUrl = url
+        if cardData != nil {
+            issueListVC.cardData = cardData!
+        }
         navigationController?.pushViewController(issueListVC, animated: true)
     }
     
@@ -106,7 +114,7 @@ extension AppViewController: Navigator {
         deleteIssueVC.id = id
         navigationController?.pushViewController(deleteIssueVC, animated: true)
     }
-    func pushToDeleteAllIssue(url: String?) {
+    func pushToDeleteAllIssue(url: String? = nil) {
         let deleteAllIssueVC = DeleteAllIssueViewController()
         deleteAllIssueVC.url = url
         navigationController?.pushViewController(deleteAllIssueVC, animated: true)
