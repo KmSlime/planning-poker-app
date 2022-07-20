@@ -246,7 +246,7 @@ class ChooseCardViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func listIssueButton(_ sender: UIButton) {
-        AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl)
+        AppViewController.shared.pushToShowIssueListScreen(url: room.roomUrl, cardData: room.cards)
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
         let vc = LeftMenuViewController()
