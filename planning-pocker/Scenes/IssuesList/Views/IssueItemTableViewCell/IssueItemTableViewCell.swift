@@ -21,6 +21,7 @@ class IssueItemTableViewCell: UITableViewCell {
     weak var delegate: IssueItemTableViewCellDelegate?
     var didDelete: ((UITableViewCell) -> Void)?
     var indexOfIssue: Int?
+    var cardData: [String]?
     var deleteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
@@ -65,15 +66,25 @@ class IssueItemTableViewCell: UITableViewCell {
         delegate?.issueItemTableViewCellDidVote(cell: self, index: indexOfIssue)
     }
 
+    private func averagePointClick() {
+        delegate?.issueItemAveragePointClick(cell: self, index: indexOfIssue)
+    }
+
     // MARK: - Actions
     @IBAction func voteIssue(_ sender: UIButton) {
         votingButtonUIHandle()
     }
+
+    @IBAction func averagePointDropdown(_ sender: UIButton) {
+        averagePointClick()
+    }
+
     @IBAction func onCLickDeleteIssue(_ sender: UIButton) {
-        AppViewController.shared.pushToDeleteIssue(id: issueModel?.issueId)
+        AppViewController.shared.pushToDeleteIssue(id: issueModel?.issueId, url: issueModel?.issueBelongToGame.url, cardData: cardData)
     }
 }
 
 protocol IssueItemTableViewCellDelegate: AnyObject {
     func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?)
+    func issueItemAveragePointClick(cell: IssueItemTableViewCell, index: Int?)
 }

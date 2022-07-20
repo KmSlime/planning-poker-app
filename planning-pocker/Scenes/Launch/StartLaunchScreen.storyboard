@@ -16,21 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-iJ-oty">
-                                <rect key="frame" x="51.5" y="297.5" width="311.5" height="301.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="hMm-0g-Gzc">
+                                <rect key="frame" x="51.5" y="288.5" width="311.5" height="319"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tpssoft-logo-full-color" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-5c-9dd">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tpssoft-logo-full-color" translatesAutoresizingMaskIntoConstraints="NO" id="MMO-A0-E6S">
                                         <rect key="frame" x="78.5" y="0.0" width="154" height="38"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="Nkh-8i-WXu"/>
-                                            <constraint firstAttribute="width" constant="154" id="Szq-mh-BP4"/>
+                                            <constraint firstAttribute="width" constant="154" id="2qM-Dd-kUS"/>
+                                            <constraint firstAttribute="height" constant="38" id="LvM-6T-CUv"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-1d-ka0">
-                                        <rect key="frame" x="0.0" y="62" width="311.5" height="239.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lgp-hi-Ohh">
+                                        <rect key="frame" x="0.0" y="80" width="311.5" height="239"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="311.5" id="WaB-bt-Gc2"/>
-                                            <constraint firstAttribute="height" constant="239.5" id="r7j-qB-ift"/>
+                                            <constraint firstAttribute="width" constant="311.5" id="4w4-OW-zwD"/>
+                                            <constraint firstAttribute="height" constant="239" id="JId-LE-DYV"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -39,15 +39,14 @@
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sh6-iJ-oty" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Qw3-gu-3VB"/>
-                            <constraint firstItem="Sh6-iJ-oty" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uad-dM-mIc"/>
+                            <constraint firstItem="hMm-0g-Gzc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Edv-gc-0BH"/>
+                            <constraint firstItem="hMm-0g-Gzc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hvR-wH-ve1"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="413" height="896"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>

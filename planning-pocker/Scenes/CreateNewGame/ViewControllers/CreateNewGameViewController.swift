@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 import SocketIO
+import SideMenu
 
 let userDefaults = UserDefaults.standard
 
@@ -41,24 +42,23 @@ class CreateNewGameViewController: UIViewController {
         dropdownSelectedTableView.anchorView = votingSystemTextField
         votingSystemTextField.placeholder = votingSystemValue[0].disPlayValue
         cardData = votingSystemValue[0].arrayCardValue
-        setUpDropdown()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         dropdownSelectedTableView.reloadAllComponents()
+        setUpDropdown()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         dropdownSelectedTableView.bottomOffset = CGPoint(x: 0, y: (dropdownSelectedTableView.anchorView?.plainView.bounds.height)!)
-        dropdownSelectedTableView.width = dropdownSelectedTableView.anchorView?.plainView.bounds.width // get data from api
+        dropdownSelectedTableView.width = dropdownSelectedTableView.anchorView?.plainView.bounds.width
         selectedDropdownItem()
     }
 
     // MARK: - Publics
     func selectedDropdownItem() {
-        dropdownSelectedTableView.selectionAction = {
-            [unowned self] (index: Int, item: String) in
+        dropdownSelectedTableView.selectionAction = { [unowned self] (index: Int, item: String) in
             dropdownSelectedTableView.backgroundColor =  UIColor.white
             dropdownSelectedTableView.selectedTextColor = UIColor.white
 
@@ -67,11 +67,8 @@ class CreateNewGameViewController: UIViewController {
             print(cardData as Any)
 
             votingSystemTextField.layer.borderColor = UIColor.textFieldBorderColor.cgColor
-            if index + 1 == votingSystemValue.count {
+            if item == "Create custom desk.." {
                 let customDeskVC = CustomDeskViewController()
-//                customDeskVC.deskValue = { [weak self] in
-//
-//                }
                 self.presentOnRoot(with: customDeskVC)
             }
         }
@@ -79,7 +76,7 @@ class CreateNewGameViewController: UIViewController {
 
     // MARK: - Private
     private func setupUI() {
-        setupLeftMenu()
+//        setupLeftMenu()
         gameNameTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
         votingSystemTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
         votingSystemLabel.textColor = .blueTextColor
@@ -93,7 +90,7 @@ class CreateNewGameViewController: UIViewController {
         // ko co api, set cung
         for item in votingSystemValue {
             dropdownSelectedTableView.dataSource.append(item.disPlayValue)
-            if item.index + 1 == votingSystemValue.count {
+            if item.index + 1 == self.votingSystemValue.count {
                 let customDeckItem: (index: Int, disPlayValue: String, arrayCardValue: [String]) = (0, "Create custom desk..", [])
                 votingSystemValue.append(customDeckItem)
                 dropdownSelectedTableView.dataSource.append(customDeckItem.disPlayValue)
@@ -138,13 +135,18 @@ class CreateNewGameViewController: UIViewController {
 
     }
     @IBAction func leftMenuButton(_ sender: UIButton) {
-        leftMenuState(expanded: MenuHolder.isExpanded ? false : true)
+        let menu = SideMenuNavigationController(rootViewController: LeftMenuViewController())
+        menu.alwaysAnimate = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        menu.statusBarEndAlpha = 0
+        present(menu, animated: true, completion: nil)
     }
 }
     // MARK: - extensions
-
 extension CreateNewGameViewController {
 
+    
     // MARK: - Check Validation of Game's Name
     private func hasErrorStatus() -> (messages: String?, status: Bool?) {
         if gameNameTextField.text?.isEmpty == true {

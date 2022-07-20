@@ -112,8 +112,8 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="sectionIndexBackgroundColor" systemColor="secondaryLabelColor"/>
                 </tableView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-nF-P5k">
-                    <rect key="frame" x="191" y="434" width="32" height="32"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-nF-P5k">
+                    <rect key="frame" x="191" y="437" width="32" height="32"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="MF6-LQ-3al"/>
@@ -125,19 +125,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="PPn-nF-P5k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="191" id="7bn-F3-qeN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yZG-om-UHy" secondAttribute="bottom" constant="5" id="BrD-uu-9qd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PPn-nF-P5k" secondAttribute="trailing" constant="191" id="FMo-wh-ApU"/>
                 <constraint firstItem="yZG-om-UHy" firstAttribute="top" secondItem="T7f-lH-qNu" secondAttribute="bottom" constant="10" id="I8h-kd-Qqf"/>
                 <constraint firstItem="XhL-nQ-EX9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Nvu-eA-66c"/>
                 <constraint firstItem="XhL-nQ-EX9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="OHv-c6-8k2"/>
                 <constraint firstItem="T7f-lH-qNu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Pbv-jR-J6r"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yZG-om-UHy" secondAttribute="trailing" constant="20" id="PkY-mf-8ZJ"/>
+                <constraint firstItem="PPn-nF-P5k" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="QMr-ST-SIz"/>
+                <constraint firstItem="PPn-nF-P5k" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Rsi-cH-IQs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T7f-lH-qNu" secondAttribute="trailing" constant="20" id="ZmQ-Hi-yMQ"/>
                 <constraint firstItem="yZG-om-UHy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="eHM-jL-pzy"/>
                 <constraint firstItem="T7f-lH-qNu" firstAttribute="top" secondItem="XhL-nQ-EX9" secondAttribute="bottom" constant="16" id="kXn-Qr-874"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PPn-nF-P5k" secondAttribute="bottom" constant="396" id="mbm-wu-IsQ"/>
-                <constraint firstItem="PPn-nF-P5k" firstAttribute="centerX" secondItem="T7f-lH-qNu" secondAttribute="centerX" id="vEb-JC-rF9"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
         </view>

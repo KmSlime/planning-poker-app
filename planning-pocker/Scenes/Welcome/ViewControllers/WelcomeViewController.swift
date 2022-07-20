@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class WelcomeViewController: UIViewController {
 
@@ -33,45 +34,6 @@ class WelcomeViewController: UIViewController {
     }
 
     // MARK: - Publics
-
-    // MARK: - Private
-
-    private func setUpUI() {
-        setupLeftMenu()
-
-        // set properties for Login Button
-        goToTheLoginButton.layer.borderWidth = 1
-        goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
-        goToTheLoginButton.layer.cornerRadius = 5
-
-        // set properties for Start Retrospective Button
-        startRetrospectiveButton.layer.borderWidth = 1
-        startRetrospectiveButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
-        startRetrospectiveButton.layer.cornerRadius = 5
-
-        // set properties for Start Poker Planning Game Button
-        startPokerPlanningGameButton.layer.cornerRadius = 5
-        if userDefaults.object(forKey: "id") != nil {
-            goToTheLoginButton.isHidden = true
-            leftMenuButton.isHidden = false
-            leftMenuButton.isEnabled = true
-        } else {
-            goToTheLoginButton.isHidden = false
-            leftMenuButton.isHidden = true
-            leftMenuButton.isEnabled = false
-        }
-    }
-
-    // MARK: - Actions
-
-    @IBAction func onClickStartGameButton(_ sender: Any) {
-        if userDefaults.object(forKey: "id") != nil {
-//            userDefaults.object(forKey: "fullName")
-            AppViewController.shared.pushToCreateNewGameScreen()
-        } else {
-            AppViewController.shared.pushToSignInScreen()
-        }
-    }
     // For DELETE
     @IBAction func createNewGame(_ sender: UIButton) {
         AppViewController.shared.pushToCreateNewGameScreen()
@@ -105,17 +67,55 @@ class WelcomeViewController: UIViewController {
     @IBAction func show_editIssueDetail(_ sender: UIButton) {
         AppViewController.shared.pushToEditIssueScreen()
     }
-//    @IBAction func revealCard(_ sender: UIButton) {
-//        AppViewController.shared.pushToRevealCard()
-//    }
+    
+    // MARK: - Private
 
+    private func setUpUI() {
+        // set properties for Login Button
+        goToTheLoginButton.layer.borderWidth = 1
+        goToTheLoginButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
+        goToTheLoginButton.layer.cornerRadius = 5
+
+        // set properties for Start Retrospective Button
+        startRetrospectiveButton.layer.borderWidth = 1
+        startRetrospectiveButton.layer.borderColor = UIColor(hexString: "#00AAE7").cgColor
+        startRetrospectiveButton.layer.cornerRadius = 5
+
+        // set properties for Start Poker Planning Game Button
+        startPokerPlanningGameButton.layer.cornerRadius = 5
+        if userDefaults.object(forKey: "id") != nil {
+            goToTheLoginButton.isHidden = true
+            leftMenuButton.isHidden = false
+            leftMenuButton.isEnabled = true
+        } else {
+            goToTheLoginButton.isHidden = false
+            leftMenuButton.isHidden = true
+            leftMenuButton.isEnabled = false
+        }
+    }
+
+    // MARK: - Actions
+
+    @IBAction func onClickStartGameButton(_ sender: Any) {
+        if userDefaults.object(forKey: "id") != nil {
+//            userDefaults.object(forKey: "fullName")
+            AppViewController.shared.pushToCreateNewGameScreen()
+        } else {
+            AppViewController.shared.pushToSignInScreen()
+        }
+    }
     @IBAction func onClickLoginButton(_ sender: Any) {
 
         AppViewController.shared.pushToSignInScreen()
 
     }
     @IBAction func onClickLeftMenuButton(_ sender: Any) {
-        self.leftMenuState(expanded: self.isExpanded ? false : true)
+        let menu = SideMenuNavigationController(rootViewController: LeftMenuViewController())
+        menu.alwaysAnimate = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        menu.statusBarEndAlpha = 0
+        present(menu, animated: true, completion: nil)
     }
 }
 // MARK: - extensions

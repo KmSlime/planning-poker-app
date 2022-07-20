@@ -10,4 +10,5 @@ target 'planning-pocker' do
   pod 'Socket.IO-Client-Swift'
   pod 'DropDown'
   pod 'MaterialComponents/Snackbar'
+  pod 'SideMenu'
 end

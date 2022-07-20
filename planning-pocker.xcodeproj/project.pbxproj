@@ -14,9 +14,15 @@
 		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
 		155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */; };
 		155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */; };
+		155368C2288715170092C7E7 /* AverageButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155368C0288715170092C7E7 /* AverageButtonCollectionViewCell.swift */; };
+		155368C3288715170092C7E7 /* AverageButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155368C1288715170092C7E7 /* AverageButtonCollectionViewCell.xib */; };
 		15BB2952286B18C10062A8E9 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB2951286B18C10062A8E9 /* Issue.swift */; };
 		15C09934287450CE00AB7249 /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C09933287450CD00AB7249 /* APIPath.swift */; };
 		15C2B35C288305A50060AFF5 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */; };
+		15C2B3602885A10F0060AFF5 /* DropdownTriplePointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2B35E2885A10E0060AFF5 /* DropdownTriplePointTableViewCell.swift */; };
+		15C2B3612885A10F0060AFF5 /* DropdownTriplePointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C2B35F2885A10E0060AFF5 /* DropdownTriplePointTableViewCell.xib */; };
+		15C2B367288659F00060AFF5 /* CardPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2B365288659F00060AFF5 /* CardPreviewCollectionViewCell.swift */; };
+		15C2B368288659F00060AFF5 /* CardPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C2B366288659F00060AFF5 /* CardPreviewCollectionViewCell.xib */; };
 		15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */; };
 		1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902CF3E2861ABE700E27B00 /* AppViewController.swift */; };
 		1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F99028608C8800EEF365 /* AppDelegate.swift */; };
@@ -69,15 +75,12 @@
 		9146BC9A2863071B001D4B7B /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9146BC982863071B001D4B7B /* SignInViewController.xib */; };
 		9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */; };
 		917FCF7C287C28C100E1ACD2 /* CustomDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */; };
-		917FCF7D287C28C100E1ACD2 /* VotingSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */; };
-		917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */; };
 		917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */; };
 		9189BF9C28801B44008DB988 /* DeleteAllIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189BF9A28801B43008DB988 /* DeleteAllIssueViewController.swift */; };
 		9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */; };
 		91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */; };
 		91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */; };
-		91C5065928879CA400BFEDD1 /* DropdownTriplePointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */; };
-		91C5065A28879CA400BFEDD1 /* DropdownTriplePointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */; };
+		91C5065C2887FE4400BFEDD1 /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C5065B2887FE4300BFEDD1 /* StartLaunchScreen.storyboard */; };
 		91DBA9AB2873F73D00E100C2 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */; };
 		91DBA9AC2873F73D00E100C2 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */; };
 		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
@@ -133,9 +136,15 @@
 		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
 		155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
 		155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
+		155368C0288715170092C7E7 /* AverageButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		155368C1288715170092C7E7 /* AverageButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AverageButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		15BB2951286B18C10062A8E9 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		15C09933287450CD00AB7249 /* APIPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
 		15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		15C2B35E2885A10E0060AFF5 /* DropdownTriplePointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTriplePointTableViewCell.swift; sourceTree = "<group>"; };
+		15C2B35F2885A10E0060AFF5 /* DropdownTriplePointTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownTriplePointTableViewCell.xib; sourceTree = "<group>"; };
+		15C2B365288659F00060AFF5 /* CardPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		15C2B366288659F00060AFF5 /* CardPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		15C35FA1286AB693001085AB /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		15C35FB2286ABA12001085AB /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		15C35FB4286AD8B8001085AB /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -178,7 +187,6 @@
 		910317B4286C00C200BAE25C /* MultilineTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextViews.swift; sourceTree = "<group>"; };
 		910F4D65287D56A800A3A87F /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
 		910F4D66287D56A800A3A87F /* RevealCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RevealCardViewController.xib; sourceTree = "<group>"; };
-		912D3A0C28857B83009198F8 /* TPSLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPSLaunchScreen.storyboard; sourceTree = "<group>"; };
 		91377E2D28869DBD00300909 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		91377E2E28869DBD00300909 /* IssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
@@ -186,8 +194,6 @@
 		9146BC982863071B001D4B7B /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		9146BC9C2863178D001D4B7B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDeskViewController.swift; sourceTree = "<group>"; };
-		917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotingSystemCell.xib; sourceTree = "<group>"; };
-		917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSystemCell.swift; sourceTree = "<group>"; };
 		917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDeskViewController.xib; sourceTree = "<group>"; };
 		9189BF9A28801B43008DB988 /* DeleteAllIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllIssueViewController.swift; sourceTree = "<group>"; };
 		9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAllIssueViewController.xib; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteIssueViewController.xib; sourceTree = "<group>"; };
 		91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownTriplePointTableViewCell.swift; sourceTree = "<group>"; };
 		91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownTriplePointTableViewCell.xib; sourceTree = "<group>"; };
+		91C5065B2887FE4300BFEDD1 /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
@@ -298,11 +305,25 @@
 		155264E9286B154F0038ABDF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				91C5065628879B9E00BFEDD1 /* DropdownTriplePointTableViewCell */,
+				155368BF288714E00092C7E7 /* AverageButtonCell */,
 				94344E21286C13E600F40565 /* ButtonItemTableViewCell */,
+				94CC625F286A9BE70029674B /* CreateIssue */,
+				9189BF9828801A0F008DB988 /* DeleteAllIssue */,
+				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
+				15C2B35D28859EFA0060AFF5 /* DropdownTriplePointTableViewCell */,
+				91377E2B28869DBD00300909 /* IssueDetail */,
 				94344E20286C13D000F40565 /* IssueItemTableViewCell */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		155368BF288714E00092C7E7 /* AverageButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				155368C0288715170092C7E7 /* AverageButtonCollectionViewCell.swift */,
+				155368C1288715170092C7E7 /* AverageButtonCollectionViewCell.xib */,
+			);
+			path = AverageButtonCell;
 			sourceTree = "<group>";
 		};
 		15C2B35A288301CA0060AFF5 /* UIButton */ = {
@@ -311,6 +332,33 @@
 				15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		15C2B35D28859EFA0060AFF5 /* DropdownTriplePointTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				15C2B35E2885A10E0060AFF5 /* DropdownTriplePointTableViewCell.swift */,
+				15C2B35F2885A10E0060AFF5 /* DropdownTriplePointTableViewCell.xib */,
+			);
+			path = DropdownTriplePointTableViewCell;
+			sourceTree = "<group>";
+		};
+		15C2B362288659520060AFF5 /* CustomDeskViewController */ = {
+			isa = PBXGroup;
+			children = (
+				917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */,
+				917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */,
+			);
+			path = CustomDeskViewController;
+			sourceTree = "<group>";
+		};
+		15C2B364288659A50060AFF5 /* CardPreviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				15C2B365288659F00060AFF5 /* CardPreviewCollectionViewCell.swift */,
+				15C2B366288659F00060AFF5 /* CardPreviewCollectionViewCell.xib */,
+			);
+			path = CardPreviewCell;
 			sourceTree = "<group>";
 		};
 		15C35F9D286AB693001085AB /* CreateNewGame */ = {
@@ -344,10 +392,8 @@
 		15C35FA2286AB693001085AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				917FCF78287C28C000E1ACD2 /* CustomDeskViewController.swift */,
-				917FCF7B287C28C100E1ACD2 /* CustomDeskViewController.xib */,
-				917FCF7A287C28C100E1ACD2 /* VotingSystemCell.swift */,
-				917FCF79287C28C000E1ACD2 /* VotingSystemCell.xib */,
+				15C2B364288659A50060AFF5 /* CardPreviewCell */,
+				15C2B362288659520060AFF5 /* CustomDeskViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,12 +504,8 @@
 			isa = PBXGroup;
 			children = (
 				BAD51B262861B50D002961A7 /* ChooseCard */,
-				94CC625F286A9BE70029674B /* CreateIssue */,
 				15C35F9D286AB693001085AB /* CreateNewGame */,
-				9189BF9828801A0F008DB988 /* DeleteAllIssue */,
-				91AD6D56287FC44A00FB2833 /* DeleteIssue */,
 				94CC624A28695A7A0029674B /* Invite Player */,
-				91377E2B28869DBD00300909 /* IssueDetail */,
 				155264E4286B154F0038ABDF /* IssuesList */,
 				943FAA92287E85CE0018043F /* JoinRoom */,
 				9146BC90286304B0001D4B7B /* Launch */,
@@ -634,24 +676,16 @@
 		91377E2B28869DBD00300909 /* IssueDetail */ = {
 			isa = PBXGroup;
 			children = (
-				91377E2C28869DBD00300909 /* ViewControllers */,
-			);
-			path = IssueDetail;
-			sourceTree = "<group>";
-		};
-		91377E2C28869DBD00300909 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
 				91377E2D28869DBD00300909 /* IssueDetailViewController.swift */,
 				91377E2E28869DBD00300909 /* IssueDetailViewController.xib */,
 			);
-			path = ViewControllers;
+			path = IssueDetail;
 			sourceTree = "<group>";
 		};
 		9146BC90286304B0001D4B7B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				912D3A0C28857B83009198F8 /* TPSLaunchScreen.storyboard */,
+				91C5065B2887FE4300BFEDD1 /* StartLaunchScreen.storyboard */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -700,60 +734,19 @@
 		9189BF9828801A0F008DB988 /* DeleteAllIssue */ = {
 			isa = PBXGroup;
 			children = (
-				9189BF9928801A20008DB988 /* ViewControllers */,
-			);
-			path = DeleteAllIssue;
-			sourceTree = "<group>";
-		};
-		9189BF9928801A20008DB988 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
 				9189BF9A28801B43008DB988 /* DeleteAllIssueViewController.swift */,
 				9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */,
 			);
-			path = ViewControllers;
+			path = DeleteAllIssue;
 			sourceTree = "<group>";
 		};
 		91AD6D56287FC44A00FB2833 /* DeleteIssue */ = {
 			isa = PBXGroup;
 			children = (
-				91AD6D57287FC44A00FB2833 /* Models */,
-				91AD6D58287FC44A00FB2833 /* ViewControllers */,
-				91AD6D59287FC44A00FB2833 /* Views */,
-			);
-			path = DeleteIssue;
-			sourceTree = "<group>";
-		};
-		91AD6D57287FC44A00FB2833 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		91AD6D58287FC44A00FB2833 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
 				91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */,
 				91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */,
 			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		91AD6D59287FC44A00FB2833 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		91C5065628879B9E00BFEDD1 /* DropdownTriplePointTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */,
-				91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */,
-			);
-			path = DropdownTriplePointTableViewCell;
+			path = DeleteIssue;
 			sourceTree = "<group>";
 		};
 		91E33345286EF7220011F199 /* SignOut */ = {
@@ -916,18 +909,10 @@
 		94CC625F286A9BE70029674B /* CreateIssue */ = {
 			isa = PBXGroup;
 			children = (
-				94CC6260286A9C350029674B /* ViewControllers */,
-			);
-			path = CreateIssue;
-			sourceTree = "<group>";
-		};
-		94CC6260286A9C350029674B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
 				94CC6263286A9C5E0029674B /* CreateIssueViewController.swift */,
 				94CC6264286A9C5E0029674B /* CreateIssueViewController.xib */,
 			);
-			path = ViewControllers;
+			path = CreateIssue;
 			sourceTree = "<group>";
 		};
 		BA084D6C2864168A00A14A37 /* Board Info */ = {
@@ -978,6 +963,8 @@
 				15491B1B2870563000B75188 /* CustomDeskViewController.xib */,
 				15491B13286F0BF700B75188 /* VotingSystemCell.xib */,
 				94344D772877EC2B0039DE0B /* Game.swift */,
+				91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */,
+				91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1102,7 +1089,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
-				917FCF7D287C28C100E1ACD2 /* VotingSystemCell.xib in Resources */,
 				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
 				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
@@ -1112,8 +1098,10 @@
 				94514C2B2872E4C00097214C /* LeftMenuViewController.xib in Resources */,
 				60B6C9F92861B8BC00DC3270 /* (null) in Resources */,
 				BA3FE1152862C44B00779BE3 /* CardMainPlayerCollectionViewCell.xib in Resources */,
+				15C2B368288659F00060AFF5 /* CardPreviewCollectionViewCell.xib in Resources */,
 				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
 				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
+				155368C3288715170092C7E7 /* AverageButtonCollectionViewCell.xib in Resources */,
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
 				94344E33286C6D1000F40565 /* LeftMenuTableViewCell.xib in Resources */,
 				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
@@ -1136,13 +1124,13 @@
 				9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */,
 				917FCF7F287C28C100E1ACD2 /* CustomDeskViewController.xib in Resources */,
 				94344E3C286D825700F40565 /* EditProfileView.xib in Resources */,
-				91C5065A28879CA400BFEDD1 /* DropdownTriplePointTableViewCell.xib in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */,
 				BAD51B2D2861B50D002961A7 /* ChooseCardViewController.xib in Resources */,
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */,
+				91C5065C2887FE4400BFEDD1 /* StartLaunchScreen.storyboard in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */,
@@ -1152,6 +1140,7 @@
 				943FAA98287E9FCE0018043F /* JoinRoomViewController.xib in Resources */,
 				60B6C9F72861B8BC00DC3270 /* (null) in Resources */,
 				6051A86428644B38008A6715 /* Poppins-ExtraBold.ttf in Resources */,
+				15C2B3612885A10F0060AFF5 /* DropdownTriplePointTableViewCell.xib in Resources */,
 				6051A86828644B38008A6715 /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1245,7 +1234,6 @@
 				943FAA97287E9FCE0018043F /* JoinRoomViewController.swift in Sources */,
 				15C2B35C288305A50060AFF5 /* UIButtonExtension.swift in Sources */,
 				602CDBB128616BB400E2EA30 /* UIViewExtension.swift in Sources */,
-				917FCF7E287C28C100E1ACD2 /* VotingSystemCell.swift in Sources */,
 				602CDBB928616D6D00E2EA30 /* SocketManager.swift in Sources */,
 				1902CF3F2861ABE700E27B00 /* AppViewController.swift in Sources */,
 				60C82C4A28644771002E2DC2 /* SignUpViewController.swift in Sources */,
@@ -1263,6 +1251,7 @@
 				943FAA8E287C3EFF0018043F /* SnackBar.swift in Sources */,
 				602CDBCF2861741800E2EA30 /* APIError.swift in Sources */,
 				BA3FE1142862C44B00779BE3 /* CardMainPlayerCollectionViewCell.swift in Sources */,
+				15C2B3602885A10F0060AFF5 /* DropdownTriplePointTableViewCell.swift in Sources */,
 				94CC6265286A9C5E0029674B /* CreateIssueViewController.swift in Sources */,
 				91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */,
 				15BB2952286B18C10062A8E9 /* Issue.swift in Sources */,
@@ -1273,6 +1262,7 @@
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
 				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
 				1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */,
+				155368C2288715170092C7E7 /* AverageButtonCollectionViewCell.swift in Sources */,
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
 				94C836CF28801C9700FE8923 /* CardToResultCollectionViewCell.swift in Sources */,
 				BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */,
@@ -1289,7 +1279,6 @@
 				94344D762877EB7C0039DE0B /* SocketParser.swift in Sources */,
 				910317B5286C00C200BAE25C /* MultilineTextViews.swift in Sources */,
 				0E17A3FE2862E980002290E6 /* Constants.swift in Sources */,
-				91C5065928879CA400BFEDD1 /* DropdownTriplePointTableViewCell.swift in Sources */,
 				15C35FB3286ABA12001085AB /* UITextFieldExtension.swift in Sources */,
 				1905F99328608C8800EEF365 /* SceneDelegate.swift in Sources */,
 				602CDBD22861741800E2EA30 /* ProgressView.swift in Sources */,
@@ -1297,6 +1286,7 @@
 				1541718028768E2F005C5AAB /* GameModel.swift in Sources */,
 				94514C2A2872E4C00097214C /* LeftMenuViewController.swift in Sources */,
 				917FCF7C287C28C100E1ACD2 /* CustomDeskViewController.swift in Sources */,
+				15C2B367288659F00060AFF5 /* CardPreviewCollectionViewCell.swift in Sources */,
 				94344E32286C6D1000F40565 /* LeftMenuTableViewCell.swift in Sources */,
 				9146BC9D2863178D001D4B7B /* UIViewControllerExtension.swift in Sources */,
 				602CDBD72861759700E2EA30 /* WelcomeViewController.swift in Sources */,
@@ -1449,7 +1439,7 @@
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = TPSLaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1485,7 +1475,7 @@
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = TPSLaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

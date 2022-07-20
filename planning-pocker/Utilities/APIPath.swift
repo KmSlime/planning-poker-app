@@ -21,4 +21,3 @@ enum APIPath {
         case deleteAllIssue = "/api/planning-poker/issues/games/"
     }
 }
-

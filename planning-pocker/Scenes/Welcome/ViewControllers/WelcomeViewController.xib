@@ -219,16 +219,16 @@
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="2fK-NP-QHH"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="B5K-dV-U5l" secondAttribute="trailing" constant="16" id="3IS-xA-vv5"/>
                 <constraint firstItem="igc-yf-nLH" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="25" id="8JD-eD-Pat"/>
-                <constraint firstItem="Ymy-yx-MBw" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="100" id="GJ3-DO-shL"/>
+                <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="8oI-1L-mzy"/>
                 <constraint firstItem="B5K-dV-U5l" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="Hqx-bU-Njq"/>
-                <constraint firstItem="Ymy-yx-MBw" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="30" id="IPQ-TK-mMD"/>
                 <constraint firstItem="Bgp-ZM-5He" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="100" id="JDM-av-wnb"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="igc-yf-nLH" secondAttribute="trailing" constant="25" id="JlT-sO-ebB"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="top" secondItem="U07-fF-a4q" secondAttribute="top" constant="16" id="KXj-4n-GaL"/>
-                <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Ymy-yx-MBw" secondAttribute="trailing" constant="100" id="Pwf-6C-dgX"/>
                 <constraint firstItem="zar-F8-Eb5" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="16" id="aD9-Zx-IwB"/>
+                <constraint firstItem="Ymy-yx-MBw" firstAttribute="leading" secondItem="U07-fF-a4q" secondAttribute="leading" constant="100" id="aWd-vP-yMX"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="trailing" secondItem="Bgp-ZM-5He" secondAttribute="trailing" constant="25" id="gWS-B0-meM"/>
                 <constraint firstItem="U07-fF-a4q" firstAttribute="bottom" secondItem="igc-yf-nLH" secondAttribute="bottom" constant="25" id="qgd-qn-qnR"/>
+                <constraint firstItem="Ymy-yx-MBw" firstAttribute="top" secondItem="B5K-dV-U5l" secondAttribute="bottom" constant="30" id="xna-Pm-Eh0"/>
             </constraints>
             <point key="canvasLocation" x="-30.434782608695656" y="109.82142857142857"/>
         </view>
