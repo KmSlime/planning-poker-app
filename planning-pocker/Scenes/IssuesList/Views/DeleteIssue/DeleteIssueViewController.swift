@@ -53,7 +53,6 @@ class DeleteIssueViewController: UIViewController {
             }
         }
         self.dismiss(animated: true)
-        AppViewController.shared.pushToShowIssueListScreen(url: url, cardData: cardData)
-
+        AppViewController.shared.popToPreviousScreen()
     }
 }

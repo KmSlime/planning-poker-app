@@ -8,6 +8,7 @@
 import UIKit
 
 class IssueItemTableViewCell: UITableViewCell {
+
     // MARK: - IBOutlets
     @IBOutlet weak var issueKeyLabel: UILabel!
     @IBOutlet weak var issueTitleLabel: UILabel!
@@ -67,7 +68,7 @@ class IssueItemTableViewCell: UITableViewCell {
     }
 
     private func averagePointClick() {
-        delegate?.issueItemAveragePointClick(cell: self, index: indexOfIssue)
+        delegate?.issueItemAveragePointClick(cell: self, index: indexOfIssue, frame: self.voteButton.frame)
     }
 
     // MARK: - Actions
@@ -86,5 +87,5 @@ class IssueItemTableViewCell: UITableViewCell {
 
 protocol IssueItemTableViewCellDelegate: AnyObject {
     func issueItemTableViewCellDidVote(cell: IssueItemTableViewCell, index: Int?)
-    func issueItemAveragePointClick(cell: IssueItemTableViewCell, index: Int?)
+    func issueItemAveragePointClick(cell: IssueItemTableViewCell, index: Int?, frame: CGRect)
 }

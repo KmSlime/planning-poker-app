@@ -29,4 +29,19 @@ extension UIView {
         layer.cornerRadius = self.frame.height / 2
         clipsToBounds = true
     }
+
+    func zhmfPositionInScreen() -> CGPoint {
+        if let superView = self.superview {
+            if let scrollView = superView as? UIScrollView {
+                let position = CGPoint.init(x: self.frame.origin.x, y: self.frame.origin.y)
+                let superPosition = superView.zhmfPositionInScreen()
+                let scrollViewOffset = scrollView.contentOffset
+                return CGPoint.init(x: superPosition.x + position.x - scrollViewOffset.x , y: superPosition.y + position.y - scrollViewOffset.y)
+            } else {
+                let superPosition = superView.zhmfPositionInScreen()
+                let position = self.frame.origin
+                return CGPoint.init(x: superPosition.x + position.x, y: superPosition.y + position.y)
+            }
+        } else { return self.frame.origin }
+    }
 }

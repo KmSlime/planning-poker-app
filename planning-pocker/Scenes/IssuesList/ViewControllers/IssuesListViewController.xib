@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssuesListViewController" customModule="planning_pocker" customModuleProvider="target">
             <connections>
+                <outlet property="averagePointDropDownUICollectionView" destination="eJo-oV-cCy" id="JGL-eq-jg2"/>
                 <outlet property="backButton" destination="XhL-nQ-EX9" id="EhU-Cy-R1O"/>
                 <outlet property="countIssueLabel" destination="Sbp-P3-bKy" id="1Ow-Rz-gTH"/>
                 <outlet property="issuesListTableView" destination="yZG-om-UHy" id="3MT-kf-PmH"/>
@@ -102,7 +103,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhL-nQ-EX9">
                     <rect key="frame" x="20" y="40" width="24" height="24"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="icon_back"/>
+                    <state key="normal" image="icon_back">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="backToChooseCard:" destination="-1" eventType="touchUpInside" id="x9V-Ij-am3"/>
                     </connections>
@@ -121,6 +124,23 @@
                     </constraints>
                     <color key="color" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eJo-oV-cCy">
+                    <rect key="frame" x="87" y="128" width="187" height="142"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DAe-TX-LN0">
+                        <size key="itemSize" width="32" height="32"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

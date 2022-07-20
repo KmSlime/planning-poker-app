@@ -22,6 +22,7 @@ class CustomDeskViewController: UIViewController {
         displayCardValueCollectionView.dataSource = self
         displayCardValueCollectionView.delegate = self
         setupUI()
+        setupHideKeyboardOnTap()
     }
 
     func splitDeskValueToGetArray(displayValue: String) -> [String] {

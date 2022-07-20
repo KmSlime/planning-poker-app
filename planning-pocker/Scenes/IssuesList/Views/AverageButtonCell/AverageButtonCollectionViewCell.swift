@@ -13,10 +13,21 @@ class AverageButtonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pointLabel: UILabel!
     
     var isPointSelected: Bool = false
-
+    static let identifier = "AverageButtonCollectionViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.frame.size = CGSize(width: 32, height: 32)
+
         // Initialization code
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 
     func configSelected() {

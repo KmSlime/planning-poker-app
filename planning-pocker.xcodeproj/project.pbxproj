@@ -14,8 +14,8 @@
 		155264ED286B154F0038ABDF /* IssuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264E8286B154F0038ABDF /* IssuesListViewController.xib */; };
 		155264EE286B154F0038ABDF /* IssueItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */; };
 		155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */; };
-		155368C2288715170092C7E7 /* AverageButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155368C0288715170092C7E7 /* AverageButtonCollectionViewCell.swift */; };
-		155368C3288715170092C7E7 /* AverageButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155368C1288715170092C7E7 /* AverageButtonCollectionViewCell.xib */; };
+		155368CE2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155368CC2887FC190092C7E7 /* AverageButtonCollectionViewCell.swift */; };
+		155368CF2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155368CD2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.xib */; };
 		15BB2952286B18C10062A8E9 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB2951286B18C10062A8E9 /* Issue.swift */; };
 		15C09934287450CE00AB7249 /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C09933287450CD00AB7249 /* APIPath.swift */; };
 		15C2B35C288305A50060AFF5 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */; };
@@ -136,8 +136,8 @@
 		155264E8286B154F0038ABDF /* IssuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesListViewController.xib; sourceTree = "<group>"; };
 		155264EA286B154F0038ABDF /* IssueItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueItemTableViewCell.swift; sourceTree = "<group>"; };
 		155264EB286B154F0038ABDF /* IssueItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueItemTableViewCell.xib; sourceTree = "<group>"; };
-		155368C0288715170092C7E7 /* AverageButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageButtonCollectionViewCell.swift; sourceTree = "<group>"; };
-		155368C1288715170092C7E7 /* AverageButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AverageButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		155368CC2887FC190092C7E7 /* AverageButtonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		155368CD2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		15BB2951286B18C10062A8E9 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		15C09933287450CD00AB7249 /* APIPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
 		15C2B35B288305A50060AFF5 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -320,8 +320,8 @@
 		155368BF288714E00092C7E7 /* AverageButtonCell */ = {
 			isa = PBXGroup;
 			children = (
-				155368C0288715170092C7E7 /* AverageButtonCollectionViewCell.swift */,
-				155368C1288715170092C7E7 /* AverageButtonCollectionViewCell.xib */,
+				155368CC2887FC190092C7E7 /* AverageButtonCollectionViewCell.swift */,
+				155368CD2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.xib */,
 			);
 			path = AverageButtonCell;
 			sourceTree = "<group>";
@@ -1101,7 +1101,7 @@
 				15C2B368288659F00060AFF5 /* CardPreviewCollectionViewCell.xib in Resources */,
 				60C82C4B28644771002E2DC2 /* SignUpViewController.xib in Resources */,
 				6051A86628644B38008A6715 /* Poppins-LightItalic.ttf in Resources */,
-				155368C3288715170092C7E7 /* AverageButtonCollectionViewCell.xib in Resources */,
+				155368CF2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.xib in Resources */,
 				602CDBD82861759700E2EA30 /* WelcomeViewController.xib in Resources */,
 				94344E33286C6D1000F40565 /* LeftMenuTableViewCell.xib in Resources */,
 				6051A86728644B38008A6715 /* Poppins-Bold.ttf in Resources */,
@@ -1262,7 +1262,7 @@
 				602CDBCE2861741800E2EA30 /* Configuration.swift in Sources */,
 				BAD51B302861C387002961A7 /* CardToSelectCollectionViewCell.swift in Sources */,
 				1905F99128608C8800EEF365 /* AppDelegate.swift in Sources */,
-				155368C2288715170092C7E7 /* AverageButtonCollectionViewCell.swift in Sources */,
+				155368CE2887FC1A0092C7E7 /* AverageButtonCollectionViewCell.swift in Sources */,
 				602CDBD32861741800E2EA30 /* APIRequest.swift in Sources */,
 				94C836CF28801C9700FE8923 /* CardToResultCollectionViewCell.swift in Sources */,
 				BA3FE11B2862D57A00779BE3 /* UIImageExtension.swift in Sources */,
