@@ -40,7 +40,7 @@ class IssuesListViewController: UIViewController {
     // MARK: - Override
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        dropdownTriplePointTableView.bottomOffset = CGPoint(x: -100, y: (dropdownTriplePointTableView.anchorView?.plainView.bounds.height)!)
+        dropdownTriplePointTableView.bottomOffset = CGPoint(x: -130, y: (dropdownTriplePointTableView.anchorView?.plainView.bounds.height)!)
         
         selectedDropdownItem()
     }
@@ -61,7 +61,8 @@ class IssuesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         listIssue.removeAll()
-        getDataIssueList()        
+        getDataIssueList()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -83,10 +84,11 @@ class IssuesListViewController: UIViewController {
         dropdownTriplePointTableView.dataSource = [
             "Delete all issues"
         ]
-        self.dropdownTriplePointTableView.cellNib = UINib(nibName: "DropdownTriplePointTableViewCell", bundle: nil)
         dropdownTriplePointTableView.width = 157
+        self.dropdownTriplePointTableView.cellNib = UINib(nibName: "DropdownTriplePointTableViewCell", bundle: nil)
+        
         dropdownTriplePointTableView.customCellConfiguration = { index, item, cell in
-              guard cell is DropdownTriplePointTableViewCell else { return }
+            guard cell is DropdownTriplePointTableViewCell else { return }
 //            guard let cell = cell as? DropdownTriplePointTableViewCell else { return }
 //            cell.optionLabel.text = self.dropdownTriplePointTableView.dataSource[index]
 //            cell.myImageView.image = UIImage(systemName: "icon_trashcan")
