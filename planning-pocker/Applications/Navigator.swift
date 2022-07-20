@@ -22,8 +22,8 @@ protocol Navigator {
     func pushToCreateCustomDesk()
     func pushToSignOut()
     func pushToJoinRoom()
-    func pushToDeleteIssue(id: Int?)
-    func pushToDeleteAllIssue(url: String?)
+    func pushToDeleteIssue(id: Int?, url: String?, cardData: [String]?)
+    func pushToDeleteAllIssue(url: String?, cardData: [String]?)
 
     // MARK: - POP
     func popToPreviousScreen()
@@ -109,15 +109,22 @@ extension AppViewController: Navigator {
         let joinRoomVC = JoinRoomViewController()
         self.presentOnRoot(with: joinRoomVC)
     }
-    func pushToDeleteIssue(id: Int?) {
+    func pushToDeleteIssue(id: Int? = nil, url: String? = nil, cardData: [String]? = nil) {
         let deleteIssueVC = DeleteIssueViewController()
         deleteIssueVC.id = id
-        navigationController?.pushViewController(deleteIssueVC, animated: true)
+        deleteIssueVC.url = url
+        if cardData != nil {
+            deleteIssueVC.cardData = cardData!
+        }
+        self.presentOnRoot(with: deleteIssueVC)
     }
-    func pushToDeleteAllIssue(url: String? = nil) {
+    func pushToDeleteAllIssue(url: String? = nil, cardData: [String]? = nil) {
         let deleteAllIssueVC = DeleteAllIssueViewController()
         deleteAllIssueVC.url = url
-        navigationController?.pushViewController(deleteAllIssueVC, animated: true)
+        if cardData != nil {
+            deleteAllIssueVC.cardData = cardData!
+        }
+        self.presentOnRoot(with: deleteAllIssueVC)
     }
     
     // MARK: - POP ACTION

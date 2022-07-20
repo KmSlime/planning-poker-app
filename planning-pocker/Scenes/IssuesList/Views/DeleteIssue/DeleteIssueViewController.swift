@@ -28,6 +28,9 @@ class DeleteIssueViewController: UIViewController {
     
     // MARK: - Properties
     var id: Int?
+    var url: String?
+    var cardData: [String]?
+
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -36,19 +39,21 @@ class DeleteIssueViewController: UIViewController {
     }
     // MARK: - Actions
     @IBAction func onClickCancelDeleteIssueButton (_ sender: UIButton) {
-        AppViewController.shared.popToPreviousScreen()
+        self.dismiss(animated: true)
     }
     
     @IBAction func onClickDeleteIssueButton (_ sender: UIButton) {
         let idPath = String(id!)
         let path = APIPath.Issue.editAndDeleteIssue.rawValue + ("\(idPath )")
         let deleteIssueRouter = APIRouter(path: path, method: .delete, parameters: [:], contentType: .urlFormEncoded)
-        APIRequest.shared.request(router: deleteIssueRouter){ [weak self] error, response in
+        APIRequest.shared.request(router: deleteIssueRouter) { [weak self] error, response in
             guard error == nil else {
                 print(error!)
                 return
             }
-            AppViewController.shared.popToPreviousScreen()
         }
+        self.dismiss(animated: true)
+        AppViewController.shared.pushToShowIssueListScreen(url: url, cardData: cardData)
+
     }
 }

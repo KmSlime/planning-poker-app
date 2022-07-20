@@ -21,6 +21,7 @@ class IssueItemTableViewCell: UITableViewCell {
     weak var delegate: IssueItemTableViewCellDelegate?
     var didDelete: ((UITableViewCell) -> Void)?
     var indexOfIssue: Int?
+    var cardData: [String]?
     var deleteIssue: ((Issue?)->())?
 
     // MARK: - Overrides
@@ -79,7 +80,7 @@ class IssueItemTableViewCell: UITableViewCell {
     }
 
     @IBAction func onCLickDeleteIssue(_ sender: UIButton) {
-        AppViewController.shared.pushToDeleteIssue(id: issueModel?.issueId)
+        AppViewController.shared.pushToDeleteIssue(id: issueModel?.issueId, url: issueModel?.issueBelongToGame.url, cardData: cardData)
     }
 }
 

@@ -40,7 +40,8 @@ class IssuesListViewController: UIViewController {
     // MARK: - Override
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        dropdownTriplePointTableView.bottomOffset = CGPoint(x: -100, y: (dropdownTriplePointTableView.anchorView?.plainView.bounds.height)!)
+        dropdownTriplePointTableView.bottomOffset = CGPoint(x: -130, y: (dropdownTriplePointTableView.anchorView?.plainView.bounds.height)!)
+        
         selectedDropdownItem()
     }
 
@@ -61,6 +62,7 @@ class IssuesListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         listIssue.removeAll()
         getDataIssueList()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -82,20 +84,22 @@ class IssuesListViewController: UIViewController {
         dropdownTriplePointTableView.dataSource = [
             "Delete all issues"
         ]
-//        self.dropdownTriplePointTableView.cellNib = UINib(nibName: "DropdownTriplePointTableViewCell", bundle: nil)
-//        dropdownTriplePointTableView.customCellConfiguration = { index, item, cell in
-//
-//            guard cell is DropdownTriplePointTableViewCell else { return }
-//            cell.configDisplayCell(descriptionCell: dropdownTriplePointTableView.dataSource[])
+        dropdownTriplePointTableView.width = 157
+        self.dropdownTriplePointTableView.cellNib = UINib(nibName: "DropdownTriplePointTableViewCell", bundle: nil)
+        
+        dropdownTriplePointTableView.customCellConfiguration = { index, item, cell in
+            guard cell is DropdownTriplePointTableViewCell else { return }
+//            guard let cell = cell as? DropdownTriplePointTableViewCell else { return }
+//            cell.optionLabel.text = self.dropdownTriplePointTableView.dataSource[index]
+//            cell.myImageView.image = UIImage(systemName: "icon_trashcan")
 
-//        }
-
+        }
     }
 
     private func selectedDropdownItem() {
         dropdownTriplePointTableView.selectionAction = { [unowned self] (index: Int, item: String) in
             if item == "Delete all issues" {
-                AppViewController.shared.pushToDeleteAllIssue()
+                AppViewController.shared.pushToDeleteAllIssue(url: gameUrl!, cardData: cardData)
             }
         }
     }
@@ -177,15 +181,7 @@ extension IssuesListViewController: UITableViewDelegate {
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //        if indexPath.row != listIssue.count {
-        //            let upTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -10, 0)
-        //            cell.layer.transform = upTransform
-        //            cell.alpha = 0.5
-        //            UIView.animate(withDuration: 1) {
-        //                cell.layer.transform = CATransform3DIdentity
-        //                cell.alpha = 1
-        //            }
-        //        }
+
     }
 }
 
@@ -283,9 +279,11 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
                 if cell.issueModel?.issueVoteStatus == false {
                     SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
                     AppViewController.shared.popupAlert(title: "Vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.blueButtonColor)
+                    self!.tripleMenuButton.isHidden = true
                 } else {
                     SocketIOManager.sharedInstance.disableVote() // on socket
                     AppViewController.shared.popupAlert(title: "Cancel vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.systemGreen)
+                    self!.tripleMenuButton.isHidden = false
                 }
                 
                 self!.listIssue.removeAll()

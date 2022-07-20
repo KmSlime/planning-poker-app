@@ -80,6 +80,7 @@
 		9189BF9D28801B44008DB988 /* DeleteAllIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */; };
 		91AD6D5C287FC49500FB2833 /* DeleteIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */; };
 		91AD6D5D287FC49500FB2833 /* DeleteIssueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */; };
+		91C5065C2887FE4400BFEDD1 /* StartLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C5065B2887FE4300BFEDD1 /* StartLaunchScreen.storyboard */; };
 		91DBA9AB2873F73D00E100C2 /* CreateNewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */; };
 		91DBA9AC2873F73D00E100C2 /* CreateNewGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */; };
 		91E3334B286EF79D0011F199 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E33349286EF79D0011F199 /* SignOutViewController.swift */; };
@@ -186,7 +187,6 @@
 		910317B4286C00C200BAE25C /* MultilineTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextViews.swift; sourceTree = "<group>"; };
 		910F4D65287D56A800A3A87F /* RevealCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealCardViewController.swift; sourceTree = "<group>"; };
 		910F4D66287D56A800A3A87F /* RevealCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RevealCardViewController.xib; sourceTree = "<group>"; };
-		912D3A0C28857B83009198F8 /* TPSLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPSLaunchScreen.storyboard; sourceTree = "<group>"; };
 		91377E2D28869DBD00300909 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		91377E2E28869DBD00300909 /* IssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		9146BC8E286302D4001D4B7B /* UIClolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIClolorExtension.swift; sourceTree = "<group>"; };
@@ -199,6 +199,9 @@
 		9189BF9B28801B43008DB988 /* DeleteAllIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAllIssueViewController.xib; sourceTree = "<group>"; };
 		91AD6D5A287FC49500FB2833 /* DeleteIssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteIssueViewController.swift; sourceTree = "<group>"; };
 		91AD6D5B287FC49500FB2833 /* DeleteIssueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteIssueViewController.xib; sourceTree = "<group>"; };
+		91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownTriplePointTableViewCell.swift; sourceTree = "<group>"; };
+		91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownTriplePointTableViewCell.xib; sourceTree = "<group>"; };
+		91C5065B2887FE4300BFEDD1 /* StartLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartLaunchScreen.storyboard; sourceTree = "<group>"; };
 		91DBA9A92873F73D00E100C2 /* CreateNewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGameViewController.swift; sourceTree = "<group>"; };
 		91DBA9AA2873F73D00E100C2 /* CreateNewGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewGameViewController.xib; sourceTree = "<group>"; };
 		91E33349286EF79D0011F199 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
@@ -682,7 +685,7 @@
 		9146BC90286304B0001D4B7B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				912D3A0C28857B83009198F8 /* TPSLaunchScreen.storyboard */,
+				91C5065B2887FE4300BFEDD1 /* StartLaunchScreen.storyboard */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -960,6 +963,8 @@
 				15491B1B2870563000B75188 /* CustomDeskViewController.xib */,
 				15491B13286F0BF700B75188 /* VotingSystemCell.xib */,
 				94344D772877EC2B0039DE0B /* Game.swift */,
+				91C5065728879C9400BFEDD1 /* DropdownTriplePointTableViewCell.swift */,
+				91C5065828879CA100BFEDD1 /* DropdownTriplePointTableViewCell.xib */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1125,6 +1130,7 @@
 				BAD51B312861C387002961A7 /* CardToSelectCollectionViewCell.xib in Resources */,
 				192B1CEE28645890004D9C26 /* GoogleService-Info.plist in Resources */,
 				155264EF286B154F0038ABDF /* IssueItemTableViewCell.xib in Resources */,
+				91C5065C2887FE4400BFEDD1 /* StartLaunchScreen.storyboard in Resources */,
 				6051A86528644B38008A6715 /* Poppins-Regular.ttf in Resources */,
 				6051A86928644B38008A6715 /* Poppins-Italic.ttf in Resources */,
 				94CC625128695AC20029674B /* InvitePlayerViewController.xib in Resources */,
@@ -1433,7 +1439,7 @@
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = TPSLaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1469,7 +1475,7 @@
 				INFOPLIST_FILE = "planning-pocker/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Planning Pocker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = TPSLaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = StartLaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -100,6 +100,9 @@ class SignInViewController: UIViewController {
         passwordTextField.customBorderRadius(borderColorByUIColor: UIColor.textFieldBorderColor, borderWidth: 1, borderRadius: 4)
         signInButton.customButtonUI(borderRadius: 4)
         
+        // attribute
+        signInLabel.text = "Sign in"
+        
         // other
         emailTextField.delegate = self
         passwordTextField.delegate = self

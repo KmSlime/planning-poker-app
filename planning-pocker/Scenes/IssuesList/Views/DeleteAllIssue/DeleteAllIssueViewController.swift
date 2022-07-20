@@ -28,6 +28,7 @@ class DeleteAllIssueViewController: UIViewController {
     
     // MARK: - Properties
     var url: String?
+    var cardData: [String]?
     
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -44,13 +45,15 @@ class DeleteAllIssueViewController: UIViewController {
                 print(error!)
                 return
             }
-            AppViewController.shared.popToPreviousScreen()
+            
         }
+        self.dismiss(animated: true)
+        AppViewController.shared.pushToShowIssueListScreen(url: url, cardData: cardData)
     }
     
     // MARK: - Actions
     @IBAction func onClickCancelDeleteAllIssueButton (_ sender: UIButton) {
-        AppViewController.shared.popToPreviousScreen()
+        self.dismiss(animated: true)
     }
     
     @IBAction func onClickDeleteAllIssueButton (_ sender: UIButton) {
