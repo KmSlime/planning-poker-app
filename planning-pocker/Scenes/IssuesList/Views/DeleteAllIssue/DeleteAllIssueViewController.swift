@@ -33,8 +33,12 @@ class DeleteAllIssueViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteAllIssueView.dropShadow(color: UIColor.black)
+    
         // Do any additional setup after loading the view.
     }
+    
+   
     
     // MARK: - Private
     private func deleteAllIssueCallAPI() {

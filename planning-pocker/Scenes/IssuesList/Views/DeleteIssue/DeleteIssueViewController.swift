@@ -13,6 +13,7 @@ class DeleteIssueViewController: UIViewController {
     @IBOutlet weak var deleteIssueView: UIView! {
         didSet {
             deleteIssueView.layer.cornerRadius = 8
+            deleteIssueView.dropShadow(color: UIColor.black)
         }
     }
     @IBOutlet weak var cancelDeleteButton: UIButton! {
@@ -35,6 +36,7 @@ class DeleteIssueViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
     // MARK: - Actions
