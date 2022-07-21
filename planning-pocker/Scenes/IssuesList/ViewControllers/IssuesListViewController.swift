@@ -62,16 +62,15 @@ class IssuesListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.userActivity?.accessibilityRespondsToUserInteraction = false
-        self.view.isUserInteractionEnabled = false
+       
         listIssue.removeAll()
         getDataIssueList()
+        tripleMenuButton.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
         setupUI()
-        self.accessibilityRespondsToUserInteraction = true
-        self.view.isUserInteractionEnabled = true
+        
     }
 
     // MARK: - Private
@@ -118,6 +117,7 @@ class IssuesListViewController: UIViewController {
     }
 
     private func getDataIssueList() {
+        
         sumAveragePoint = 0
         self.userActivity?.accessibilityRespondsToUserInteraction = false
         let apiEndPoint = APIPath.Issue.getIssueList.rawValue + "\(gameUrl ?? "#")"
@@ -215,25 +215,27 @@ extension IssuesListViewController: UITableViewDataSource {
             cell.issueModel = listIssue[indexPath.row]
             cell.indexOfIssue = indexPath.row
             cell.setValueCell(issueModel: listIssue[indexPath.row])
-
             if cell.issueModel?.issueVoteStatus == true {
                 cell.voteButton.setTitle("Voting now...", for: .normal)
                 cell.voteButton.setTitleColor(.white, for: .normal)
                 cell.voteButton.layer.backgroundColor = UIColor.blueButtonColor.cgColor
                 cell.backView.backgroundColor = UIColor(hexString: "#C3EAF9")
                 cell.trashcanButton.isHidden = true
+                self.tripleMenuButton.isHidden = true
             } else if cell.issueModel?.issueVoteStatus == false && cell.issueModel?.issueAveragePoint != "-" {
                 cell.voteButton.setTitle("Vote again", for: .normal)
                 cell.voteButton.setTitleColor(.black, for: .normal)
                 cell.voteButton.layer.backgroundColor = UIColor.systemGray5.cgColor
                 cell.backView.backgroundColor = UIColor.itemIssueCellBackground
                 cell.trashcanButton.isHidden = false
+                self.tripleMenuButton.isHidden = false
             } else if cell.issueModel?.issueVoteStatus == false && cell.issueModel?.issueAveragePoint == "-" {
                 cell.voteButton.setTitle("Vote this issue", for: .normal)
                 cell.voteButton.setTitleColor(.black, for: .normal)
                 cell.voteButton.layer.backgroundColor = UIColor.systemGray5.cgColor
                 cell.backView.backgroundColor = UIColor.itemIssueCellBackground
                 cell.trashcanButton.isHidden = false
+                self.tripleMenuButton.isHidden = false
             }
             return cell
         }
@@ -296,11 +298,11 @@ extension IssuesListViewController: IssueItemTableViewCellDelegate {
                 if cell.issueModel?.issueVoteStatus == false {
                     SocketIOManager.sharedInstance.voteIssue(issueTitle: cell.issueModel?.issueTitle ?? "#", issueId: cell.issueModel?.issueId ?? -1)
                     AppViewController.shared.popupAlert(title: "Vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.blueButtonColor)
-                    self!.tripleMenuButton.isHidden = true
+                    
                 } else {
                     SocketIOManager.sharedInstance.disableVote() // on socket
                     AppViewController.shared.popupAlert(title: "Cancel vote for issue \((cell.issueModel?.issueKey)!) successfully!", colorPopup: UIColor.systemGreen)
-                    self!.tripleMenuButton.isHidden = false
+                    
                 }
                 
                 self!.listIssue.removeAll()

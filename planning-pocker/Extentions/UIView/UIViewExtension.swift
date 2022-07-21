@@ -44,4 +44,15 @@ extension UIView {
             }
         } else { return self.frame.origin }
     }
+    
+    func dropShadow( color: UIColor, opacity: Float = 0.3, radius: CGFloat = 2, scale: Bool = true) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = radius
+//        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+      }
 }

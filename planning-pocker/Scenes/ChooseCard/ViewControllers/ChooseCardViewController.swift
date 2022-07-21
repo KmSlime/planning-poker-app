@@ -333,15 +333,16 @@ extension ChooseCardViewController: UICollectionViewDelegate {
         }
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if collectionView == self.listCardOtherPlayersCollectionView {
-            let leftTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 0, 0)
-            cell.layer.transform = leftTransform
-            cell.alpha = 0.5
-            UIView.animate(withDuration: 1, animations: {
-              cell.alpha = 1
-              cell.transform = .identity
-            })
-        } else if collectionView == self.listCardToResultCollectionView {
+//        if collectionView == self.listCardOtherPlayersCollectionView {
+//            let leftTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 0, 0)
+//            cell.layer.transform = leftTransform
+//            cell.alpha = 0.5
+//            UIView.animate(withDuration: 1, animations: {
+//              cell.alpha = 1
+//              cell.transform = .identity
+//            })
+//        } else
+        if collectionView == self.listCardToResultCollectionView {
             
             let upTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 200, 0)
             cell.layer.transform = upTransform

@@ -8,14 +8,10 @@
 import UIKit
 
 class JoinRoomViewController: UIViewController {
-
-    @IBAction func backButton(_ sender: UIButton) {
-        self.dismiss(animated: true)
-    }
-
     @IBOutlet weak var popUpView: UIView! {
         didSet {
             popUpView.layer.cornerRadius = 8
+            popUpView.dropShadow(color: UIColor.black)
         }
     }
     @IBOutlet weak var joinRoomButton: UIButton! {
@@ -31,6 +27,7 @@ class JoinRoomViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        onClickBackGroundView()
        
         // Do any additional setup after loading the view.
     }
@@ -48,5 +45,17 @@ class JoinRoomViewController: UIViewController {
         let text: String = urlTextField.text!
         SocketIOManager.sharedInstance.enterJoinRoom(roomId: text, userId: userDefaults.integer(forKey: "id"), userName: userDefaults.string(forKey: "fullName")!)
         self.dismiss(animated: true)
+    }
+    
+    func onClickBackGroundView() {
+        let onClickBackGround = UITapGestureRecognizer(target: self, action: #selector(self.backToView(recognizer:)))
+        self.view.isUserInteractionEnabled = true
+        self.view.addGestureRecognizer(onClickBackGround)
+    }
+
+    @objc func backToView(recognizer: UIGestureRecognizer) {
+        if recognizer.state == .ended {
+            self.dismiss(animated: true)
+        }
     }
 }

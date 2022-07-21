@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,16 +22,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6Q-rk-n9B">
-                    <rect key="frame" x="10" y="320" width="394" height="266.5"/>
+                    <rect key="frame" x="30" y="310.5" width="354" height="285.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete this issue?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r21-nd-MlT">
-                            <rect key="frame" x="20" y="30" width="354" height="19.5"/>
+                            <rect key="frame" x="20" y="30" width="314" height="38.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This operation is irreversible." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-Xg-3Ak">
-                            <rect key="frame" x="69" y="73.5" width="256" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This operation is irreversible." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-Xg-3Ak">
+                            <rect key="frame" x="20" y="92.5" width="314" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="WgE-7o-PXd"/>
                             </constraints>
@@ -41,7 +40,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-cl-KQo">
-                            <rect key="frame" x="20" y="116.5" width="354" height="50"/>
+                            <rect key="frame" x="20" y="135.5" width="314" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Ypf-3e-PjI"/>
                             </constraints>
@@ -56,7 +55,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUy-gt-JXS">
-                            <rect key="frame" x="20" y="186.5" width="354" height="50"/>
+                            <rect key="frame" x="20" y="205.5" width="314" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="QLC-IO-ggK"/>
                             </constraints>
@@ -72,19 +71,19 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="YUy-gt-JXS" secondAttribute="trailing" constant="20" id="1bD-c0-3Im"/>
                         <constraint firstAttribute="trailing" secondItem="r21-nd-MlT" secondAttribute="trailing" constant="20" id="7N1-Sr-gv8"/>
                         <constraint firstItem="RtD-cl-KQo" firstAttribute="top" secondItem="l0k-Xg-3Ak" secondAttribute="bottom" constant="23" id="8Al-9S-BvK"/>
-                        <constraint firstItem="l0k-Xg-3Ak" firstAttribute="leading" secondItem="G6Q-rk-n9B" secondAttribute="leading" constant="69" id="Fmz-cU-pKQ"/>
+                        <constraint firstItem="l0k-Xg-3Ak" firstAttribute="leading" secondItem="G6Q-rk-n9B" secondAttribute="leading" constant="20" id="Fmz-cU-pKQ"/>
                         <constraint firstItem="RtD-cl-KQo" firstAttribute="leading" secondItem="G6Q-rk-n9B" secondAttribute="leading" constant="20" id="LlH-VT-hsd"/>
                         <constraint firstAttribute="trailing" secondItem="RtD-cl-KQo" secondAttribute="trailing" constant="20" id="Uga-x0-YIi"/>
                         <constraint firstAttribute="bottom" secondItem="YUy-gt-JXS" secondAttribute="bottom" constant="30" id="YAf-6i-283"/>
                         <constraint firstItem="r21-nd-MlT" firstAttribute="leading" secondItem="G6Q-rk-n9B" secondAttribute="leading" constant="20" id="YEt-2K-om8"/>
                         <constraint firstItem="l0k-Xg-3Ak" firstAttribute="top" secondItem="r21-nd-MlT" secondAttribute="bottom" constant="24" id="alr-GL-sB6"/>
                         <constraint firstItem="YUy-gt-JXS" firstAttribute="leading" secondItem="G6Q-rk-n9B" secondAttribute="leading" constant="20" id="ptV-ia-a5D"/>
-                        <constraint firstAttribute="trailing" secondItem="l0k-Xg-3Ak" secondAttribute="trailing" constant="69" id="qe5-Zh-e4r"/>
+                        <constraint firstAttribute="trailing" secondItem="l0k-Xg-3Ak" secondAttribute="trailing" constant="20" id="qe5-Zh-e4r"/>
                         <constraint firstItem="YUy-gt-JXS" firstAttribute="top" secondItem="RtD-cl-KQo" secondAttribute="bottom" constant="20" id="udj-nZ-nG8"/>
                         <constraint firstItem="r21-nd-MlT" firstAttribute="top" secondItem="G6Q-rk-n9B" secondAttribute="top" constant="30" id="uuf-Ns-3QU"/>
                     </constraints>
@@ -93,16 +92,11 @@
             <viewLayoutGuide key="safeArea" id="cQk-QT-an0"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="G6Q-rk-n9B" firstAttribute="leading" secondItem="cQk-QT-an0" secondAttribute="leading" constant="10" id="BvP-Th-t6A"/>
+                <constraint firstItem="G6Q-rk-n9B" firstAttribute="leading" secondItem="cQk-QT-an0" secondAttribute="leading" constant="30" id="BvP-Th-t6A"/>
                 <constraint firstItem="G6Q-rk-n9B" firstAttribute="centerY" secondItem="cQk-QT-an0" secondAttribute="centerY" id="L3Q-bv-8C6"/>
-                <constraint firstItem="cQk-QT-an0" firstAttribute="trailing" secondItem="G6Q-rk-n9B" secondAttribute="trailing" constant="10" id="gpw-tP-z1S"/>
+                <constraint firstItem="cQk-QT-an0" firstAttribute="trailing" secondItem="G6Q-rk-n9B" secondAttribute="trailing" constant="30" id="gpw-tP-z1S"/>
             </constraints>
             <point key="canvasLocation" x="-920.28985507246387" y="77.678571428571431"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

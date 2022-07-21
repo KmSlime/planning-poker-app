@@ -33,8 +33,12 @@ class DeleteAllIssueViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteAllIssueView.dropShadow(color: UIColor.black)
+    
         // Do any additional setup after loading the view.
     }
+    
+   
     
     // MARK: - Private
     private func deleteAllIssueCallAPI() {
@@ -43,11 +47,13 @@ class DeleteAllIssueViewController: UIViewController {
         APIRequest.shared.request(router: deleteAllRouter) { [weak self] error, response in
             guard error == nil else {
                 print(error!)
+                SnackBar.showSnackBar(message: "Delete all issues failed", color: .red)
                 return
             }
             
         }
         self.dismiss(animated: true)
+        SnackBar.showSnackBar(message: "Delete all issues successfully", color: .green)
         AppViewController.shared.popToPreviousScreen()
     }
     

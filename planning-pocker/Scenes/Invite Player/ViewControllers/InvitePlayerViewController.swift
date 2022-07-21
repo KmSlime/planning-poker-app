@@ -13,6 +13,7 @@ class InvitePlayerViewController: UIViewController {
     @IBOutlet weak var contentView: UIView! {
         didSet {
             contentView.layer.cornerRadius = 8.0
+            contentView.dropShadow(color: UIColor.black)
         }
     }
 

@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController {
 
     @objc func backToSignIn(recognizer: UIGestureRecognizer) {
         if recognizer.state == .ended {
-            AppViewController.shared.pushToSignInScreen()
+            AppViewController.shared.popToPreviousScreen()
         }
     }
     
